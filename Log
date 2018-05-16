@@ -1,0 +1,30 @@
+Coordenadas Sample.txt é um arquivo com o formato
+  matricial de uma tela do jogo. printSample.py,
+  da mesma pasta, imprimi coordenadasSample.txt
+  em formato de texto, identificando pontuação
+  e asteroides rosa e azul claro
+
+Descoberta: a tela impressa é baseada em uma matriz
+  com as cores e coordenads de cada objeto presente
+  na tela impressa. Ou seja, não existem matrizes
+  (variáveis do tipo observation ou obs pelos nomes
+  dados no programa que roda o jogo) que tenham
+  tanto a nave e os tiros quanto os asteroides,
+  apesar de suas respectivas posições serem guardadas
+  na memória para o jogo progredir
+
+Ideias para features do approximate Q-learning:
+  -Dentro de um certo raio em volta da nave, se houver
+   algum asteroide, calcular a sua direção de movimento
+   e reagir de acordo. Seria necessário criar um "círculo"
+   de detecção em volta da nave em que apenas dentro dele seria
+   verificado (pelo menos por um tempo - não sei se os
+   asteroides vão ficando mais rápidos). Caso algum
+   asteroide fosse detectado, ver onde está em um quadro,
+   ver onde ele está na próxima vez que aparecer (maldito
+   flickering do emulador) e, caso esteja vindo na direção
+   da nave, sair do caminho ou atirar (a decidir)
+
+Stella (emulador de Atari):
+  -Emulador Stella de Atari 2600 está funcionando, mas precisa
+   apertar F2 no começo de toda partida para começar de verdade
