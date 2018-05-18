@@ -49,3 +49,10 @@ Tentar usar o Gym Retro para ver se é mais fácil
 
 ROM do Asteroids transferida para uma pasta 'ROMs' da
   pasta gym-retro
+
+Arquivo da pasta ~/gym-retro/examples/ alterado para
+  renderizar a tela todos os frames, de forma que é possível
+  visualizar a nave e os asteroides (continuam aparecendo em
+  frames intercalados), bem como colocado uma pausa entre
+  frames para ser possível visualizar e entender o que está
+  acontecendo
