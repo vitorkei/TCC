@@ -28,3 +28,24 @@ Ideias para features do approximate Q-learning:
 Stella (emulador de Atari):
   -Emulador Stella de Atari 2600 está funcionando, mas precisa
    apertar F2 no começo de toda partida para começar de verdade
+
+info: no caso do Asteroids.v0, é a quantidade de vida que a
+  nave tem
+
+reward: recompensa recebida pela ação. Mesmo que uma ação não
+  seja tomada, o valor é retornado quando um asteroide é
+  destruído
+
+Curiosamente, quando a nave toca em um asteroide, o asteroide
+  é destruído e a nave recebe a recompensa por isso. Porém,
+  ela também perde, e o info recebido nessa atualização é
+  da quantidade de vida que a nave tinha no momento que
+  encostou no asteroide e não depois. A atualização da
+  quantidade de vidas restantes ocorre alguns passos
+  depois apenas
+
+Tentar usar o Gym Retro para ver se é mais fácil
+  link: https://github.com/openai/retro
+
+ROM do Asteroids transferida para uma pasta 'ROMs' da
+  pasta gym-retro

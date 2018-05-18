@@ -1,0 +1,4 @@
+[184, 50, 50] = pontuação / vida
+[184, 70, 162] = asteroide rosa
+[117, 181, 239] = asteroide azul claro e tiro azul
+[240, 128, 128] = nave e tiro rosa
