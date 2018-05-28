@@ -56,3 +56,14 @@ Arquivo da pasta ~/gym-retro/examples/ alterado para
   frames intercalados), bem como colocado uma pausa entre
   frames para ser possível visualizar e entender o que está
   acontecendo
+
+Adicionado um .sh que roda o random_agent.py mais facilmente
+  (e para me ajudar a não esquecer como faz, já que eu gastei
+  alguns minutos tentando lembrar)
+
+A variável info recebida a cada step é do tipo dict e armazena
+  dois valores: as vidas (que, por algum motivo, é 16 vezes o
+  número que aparece na tela - ou seja, 4 vidas na tela = 64
+  vidas em info) e a pontuação total, só que dividida por 10.
+  A tela provavelmente mostra a pontuação multiplicada por 10
+  para dar a sensação de que tem muitos pontos.
