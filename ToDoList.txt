@@ -1,0 +1,11 @@
+1 - Encontrar a posição inicial da nave (igual a quando respawna)
+
+2 - Conseguir acompanhar o movimento da nave (descobrir onde ela está a cada step
+
+3 - Enxergar os asteróides
+3.1 - Uma alternativa é enxergar um asteroide, descobrir seu tamanho por BFS ou algo parecido e determinar seu centro
+
+4 - Conseguir acompanhar o movimento dos asteroides (descobrir onde estão a cada step)
+
+5 - Decidir quais serão as features
+5.5 - alternativas: distância da nave até cada asteróide
