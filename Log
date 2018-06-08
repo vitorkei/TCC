@@ -67,3 +67,20 @@ A variável info recebida a cada step é do tipo dict e armazena
   vidas em info) e a pontuação total, só que dividida por 10.
   A tela provavelmente mostra a pontuação multiplicada por 10
   para dar a sensação de que tem muitos pontos.
+
+Considerando que a tela é uma matriz de 210, 160, 3, sendo 210
+  o número de pixas da altura, 160 o número de pixels da
+  largura e 3 é o número de cores (RGB) que cada pixel assume,
+  sendo que cada um desses 3 números estão no intervalo
+  [0, 255], o espaço efetivo que os asteroides e a nave estão
+  (ou seja, desconsiderando bordas, espaço onde fica a
+  pontuação e vida), é nos intervalos (indo de 0 a 219, 0 a 
+  159 e 0 a 2):
+  Altura: [18, 194]
+  Largura: [8, 159]
+  Em outras palavras, não preciso me preocupar com as
+  primeiras 18 linhas (0 a 17), últimas 15 linhas
+  (195 a 209) e as primeiras 8 colunas (0 a 7), pois
+  é garantido que não haverá pixels dos asteroides
+  nem da nave nesses espaços.
+
