@@ -15,3 +15,4 @@
 5 - Decidir quais serão as features
 5.1 - alternativas: distância da nave até cada asteróide
 5.1.1 - uma possível maneira de fazer isso é por meio de uma lista de listas ou array de arrays
+

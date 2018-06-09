@@ -84,3 +84,7 @@ Considerando que a tela é uma matriz de 210, 160, 3, sendo 210
   é garantido que não haverá pixels dos asteroides
   nem da nave nesses espaços.
 
+Função que realiza uma BFS para encontrar os tamanhos e posições
+  iniciais dos asteroides (considerando-os como retângulos e
+  retornando os limites superior, inferior, esquerdo e direito
+  desse retângulo) funcionando.
