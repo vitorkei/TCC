@@ -88,3 +88,9 @@ Função que realiza uma BFS para encontrar os tamanhos e posições
   iniciais dos asteroides (considerando-os como retângulos e
   retornando os limites superior, inferior, esquerdo e direito
   desse retângulo) funcionando.
+
+A função env.render() só altera o que é impresso na tela quando
+  env.reset() ou env.step(action) é chamado. Se o env.render()
+  for chamado várias vezes seguidas sem nenhum desses métodos
+  for chamado, a tela não muda
+
