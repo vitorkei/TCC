@@ -1,0 +1,2432 @@
+The system is: Linux - 4.14.48-2-MANJARO - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/kei/gym-retro/CMakeFiles/3.11.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/kei/gym-retro/CMakeFiles/3.11.1/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5720c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5720c.dir/build.make CMakeFiles/cmTC_5720c.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5720c.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_5720c.dir/testCCompiler.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_5720c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5720c.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5720c.dir/testCCompiler.c.o  -o cmTC_5720c 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c9576/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c9576.dir/build.make CMakeFiles/cmTC_c9576.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.11/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_c9576
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9576.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o  -o cmTC_c9576 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: /build/gcc/src/gcc/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --enable-default-pie --enable-default-ssp
+Thread model: posix
+gcc version 8.1.1 20180531 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c9576' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYSMpl2.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_c9576 /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../.. CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c9576' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_c9576/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_c9576.dir/build.make CMakeFiles/cmTC_c9576.dir/build]
+  ignore line: [make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.11/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_c9576]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c9576.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o  -o cmTC_c9576 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: /build/gcc/src/gcc/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --enable-default-pie --enable-default-ssp]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.1.1 20180531 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_c9576' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYSMpl2.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_c9576 /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../.. CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o]
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccYSMpl2.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_c9576] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..]
+    arg [CMakeFiles/cmTC_c9576.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1;/usr/lib;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d370e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d370e.dir/build.make CMakeFiles/cmTC_d370e.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d370e.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_d370e.dir/feature_tests.c.o   -c /home/kei/gym-retro/CMakeFiles/feature_tests.c
+Linking C executable cmTC_d370e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d370e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d370e.dir/feature_tests.c.o  -o cmTC_d370e 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_77cf4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_77cf4.dir/build.make CMakeFiles/cmTC_77cf4.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_77cf4.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_77cf4.dir/feature_tests.c.o   -c /home/kei/gym-retro/CMakeFiles/feature_tests.c
+Linking C executable cmTC_77cf4
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_77cf4.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_77cf4.dir/feature_tests.c.o  -o cmTC_77cf4 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4d894/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4d894.dir/build.make CMakeFiles/cmTC_4d894.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4d894.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_4d894.dir/feature_tests.c.o   -c /home/kei/gym-retro/CMakeFiles/feature_tests.c
+Linking C executable cmTC_4d894
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4d894.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_4d894.dir/feature_tests.c.o  -o cmTC_4d894 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_17265/fast"
+/usr/bin/make -f CMakeFiles/cmTC_17265.dir/build.make CMakeFiles/cmTC_17265.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_17265.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_17265.dir/testCXXCompiler.cxx.o -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_17265
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_17265.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_17265.dir/testCXXCompiler.cxx.o  -o cmTC_17265 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f3b95/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f3b95.dir/build.make CMakeFiles/cmTC_f3b95.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_f3b95
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3b95.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_f3b95 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: /build/gcc/src/gcc/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --enable-default-pie --enable-default-ssp
+Thread model: posix
+gcc version 8.1.1 20180531 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_f3b95' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVtSR8R.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_f3b95 /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../.. CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_f3b95' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_f3b95/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_f3b95.dir/build.make CMakeFiles/cmTC_f3b95.dir/build]
+  ignore line: [make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_f3b95]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f3b95.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_f3b95 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: /build/gcc/src/gcc/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --enable-default-pie --enable-default-ssp]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.1.1 20180531 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_f3b95' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccVtSR8R.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_f3b95 /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../.. CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o]
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccVtSR8R.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_f3b95] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..]
+    arg [CMakeFiles/cmTC_f3b95.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1;/usr/lib;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fabb4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fabb4.dir/build.make CMakeFiles/cmTC_fabb4.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fabb4.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_fabb4.dir/feature_tests.cxx.o -c /home/kei/gym-retro/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_fabb4
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fabb4.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_fabb4.dir/feature_tests.cxx.o  -o cmTC_fabb4 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c3250/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c3250.dir/build.make CMakeFiles/cmTC_c3250.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c3250.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_c3250.dir/feature_tests.cxx.o -c /home/kei/gym-retro/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_c3250
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c3250.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_c3250.dir/feature_tests.cxx.o  -o cmTC_c3250 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e8a76/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e8a76.dir/build.make CMakeFiles/cmTC_e8a76.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e8a76.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_e8a76.dir/feature_tests.cxx.o -c /home/kei/gym-retro/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e8a76
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8a76.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_e8a76.dir/feature_tests.cxx.o  -o cmTC_e8a76 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_503e7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_503e7.dir/build.make CMakeFiles/cmTC_503e7.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_503e7.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_503e7.dir/feature_tests.cxx.o -c /home/kei/gym-retro/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_503e7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_503e7.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_503e7.dir/feature_tests.cxx.o  -o cmTC_503e7 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the function fileno exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_14bd5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_14bd5.dir/build.make CMakeFiles/cmTC_14bd5.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_14bd5.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=fileno -fPIE   -o CMakeFiles/cmTC_14bd5.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_14bd5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_14bd5.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fileno    -rdynamic CMakeFiles/cmTC_14bd5.dir/CheckFunctionExists.c.o  -o cmTC_14bd5 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function fseeko exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e1036/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e1036.dir/build.make CMakeFiles/cmTC_e1036.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e1036.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=fseeko -fPIE   -o CMakeFiles/cmTC_e1036.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e1036
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e1036.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fseeko    -rdynamic CMakeFiles/cmTC_e1036.dir/CheckFunctionExists.c.o  -o cmTC_e1036 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function ftello exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ad62f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ad62f.dir/build.make CMakeFiles/cmTC_ad62f.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ad62f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=ftello -fPIE   -o CMakeFiles/cmTC_ad62f.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ad62f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad62f.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=ftello    -rdynamic CMakeFiles/cmTC_ad62f.dir/CheckFunctionExists.c.o  -o cmTC_ad62f 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function open exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f6ae7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f6ae7.dir/build.make CMakeFiles/cmTC_f6ae7.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f6ae7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=open -fPIE   -o CMakeFiles/cmTC_f6ae7.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f6ae7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f6ae7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=open    -rdynamic CMakeFiles/cmTC_f6ae7.dir/CheckFunctionExists.c.o  -o cmTC_f6ae7 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function mkstemp exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e5821/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e5821.dir/build.make CMakeFiles/cmTC_e5821.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e5821.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=mkstemp -fPIE   -o CMakeFiles/cmTC_e5821.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_e5821
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e5821.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=mkstemp    -rdynamic CMakeFiles/cmTC_e5821.dir/CheckFunctionExists.c.o  -o cmTC_e5821 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function snprintf exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_45e15/fast"
+/usr/bin/make -f CMakeFiles/cmTC_45e15.dir/build.make CMakeFiles/cmTC_45e15.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_45e15.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=snprintf -fPIE   -o CMakeFiles/cmTC_45e15.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘snprintf’ [-Wbuiltin-declaration-mismatch]
+/usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+   CHECK_FUNCTION_EXISTS(void);
+   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_45e15
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_45e15.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=snprintf    -rdynamic CMakeFiles/cmTC_45e15.dir/CheckFunctionExists.c.o  -o cmTC_45e15 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strcasecmp exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_367ac/fast"
+/usr/bin/make -f CMakeFiles/cmTC_367ac.dir/build.make CMakeFiles/cmTC_367ac.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_367ac.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strcasecmp -fPIE   -o CMakeFiles/cmTC_367ac.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘strcasecmp’ [-Wbuiltin-declaration-mismatch]
+/usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+   CHECK_FUNCTION_EXISTS(void);
+   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_367ac
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_367ac.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strcasecmp    -rdynamic CMakeFiles/cmTC_367ac.dir/CheckFunctionExists.c.o  -o cmTC_367ac 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strdup exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_59cf7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_59cf7.dir/build.make CMakeFiles/cmTC_59cf7.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_59cf7.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strdup -fPIE   -o CMakeFiles/cmTC_59cf7.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+/usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+   CHECK_FUNCTION_EXISTS(void);
+   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_59cf7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59cf7.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strdup    -rdynamic CMakeFiles/cmTC_59cf7.dir/CheckFunctionExists.c.o  -o cmTC_59cf7 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strtoll exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fd35a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_fd35a.dir/build.make CMakeFiles/cmTC_fd35a.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fd35a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strtoll -fPIE   -o CMakeFiles/cmTC_fd35a.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fd35a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd35a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strtoll    -rdynamic CMakeFiles/cmTC_fd35a.dir/CheckFunctionExists.c.o  -o cmTC_fd35a 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strtoull exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_df69c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_df69c.dir/build.make CMakeFiles/cmTC_df69c.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_df69c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strtoull -fPIE   -o CMakeFiles/cmTC_df69c.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_df69c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_df69c.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strtoull    -rdynamic CMakeFiles/cmTC_df69c.dir/CheckFunctionExists.c.o  -o cmTC_df69c 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files fts.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_06a4f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_06a4f.dir/build.make CMakeFiles/cmTC_06a4f.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_06a4f.dir/HAVE_FTS_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_06a4f.dir/HAVE_FTS_H.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_FTS_H.c
+Linking C executable cmTC_06a4f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_06a4f.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_06a4f.dir/HAVE_FTS_H.c.o  -o cmTC_06a4f 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files stdbool.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_96d1b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_96d1b.dir/build.make CMakeFiles/cmTC_96d1b.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_96d1b.dir/HAVE_STDBOOL_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_96d1b.dir/HAVE_STDBOOL_H.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_STDBOOL_H.c
+Linking C executable cmTC_96d1b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_96d1b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_96d1b.dir/HAVE_STDBOOL_H.c.o  -o cmTC_96d1b 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files strings.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d14a9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d14a9.dir/build.make CMakeFiles/cmTC_d14a9.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d14a9.dir/HAVE_STRINGS_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_d14a9.dir/HAVE_STRINGS_H.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_STRINGS_H.c
+Linking C executable cmTC_d14a9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d14a9.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d14a9.dir/HAVE_STRINGS_H.c.o  -o cmTC_d14a9 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files unistd.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6b130/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6b130.dir/build.make CMakeFiles/cmTC_6b130.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6b130.dir/HAVE_UNISTD_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_6b130.dir/HAVE_UNISTD_H.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_UNISTD_H.c
+Linking C executable cmTC_6b130
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6b130.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_6b130.dir/HAVE_UNISTD_H.c.o  -o cmTC_6b130 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files inttypes.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ede46/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ede46.dir/build.make CMakeFiles/cmTC_ede46.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ede46.dir/HAVE_INTTYPES_H_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_ede46.dir/HAVE_INTTYPES_H_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_INTTYPES_H_LIBZIP.c
+Linking C executable cmTC_ede46
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ede46.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ede46.dir/HAVE_INTTYPES_H_LIBZIP.c.o  -o cmTC_ede46 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files stdint.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7fdfd/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7fdfd.dir/build.make CMakeFiles/cmTC_7fdfd.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7fdfd.dir/HAVE_STDINT_H_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_7fdfd.dir/HAVE_STDINT_H_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_STDINT_H_LIBZIP.c
+Linking C executable cmTC_7fdfd
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7fdfd.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_7fdfd.dir/HAVE_STDINT_H_LIBZIP.c.o  -o cmTC_7fdfd 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/types.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_92c7a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_92c7a.dir/build.make CMakeFiles/cmTC_92c7a.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_92c7a.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_92c7a.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_SYS_TYPES_H_LIBZIP.c
+Linking C executable cmTC_92c7a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92c7a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_92c7a.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o  -o cmTC_92c7a 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_29713/fast"
+/usr/bin/make -f CMakeFiles/cmTC_29713.dir/build.make CMakeFiles/cmTC_29713.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_29713.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_29713.dir/CheckIncludeFile.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_29713
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_29713.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_29713.dir/CheckIncludeFile.c.o  -o cmTC_29713 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_aa8ad/fast"
+/usr/bin/make -f CMakeFiles/cmTC_aa8ad.dir/build.make CMakeFiles/cmTC_aa8ad.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa8ad.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_aa8ad.dir/CheckIncludeFile.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_aa8ad
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa8ad.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_aa8ad.dir/CheckIncludeFile.c.o  -o cmTC_aa8ad 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_13ca0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_13ca0.dir/build.make CMakeFiles/cmTC_13ca0.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_13ca0.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_13ca0.dir/CheckIncludeFile.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_13ca0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13ca0.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_13ca0.dir/CheckIncludeFile.c.o  -o cmTC_13ca0 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int8_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_16713/fast"
+/usr/bin/make -f CMakeFiles/cmTC_16713.dir/build.make CMakeFiles/cmTC_16713.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_16713.dir/INT8_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_16713.dir/INT8_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT8_T_LIBZIP.c
+Linking C executable cmTC_16713
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16713.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_16713.dir/INT8_T_LIBZIP.c.o  -o cmTC_16713 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint8_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_adb98/fast"
+/usr/bin/make -f CMakeFiles/cmTC_adb98.dir/build.make CMakeFiles/cmTC_adb98.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_adb98.dir/UINT8_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_adb98.dir/UINT8_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/UINT8_T_LIBZIP.c
+Linking C executable cmTC_adb98
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_adb98.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_adb98.dir/UINT8_T_LIBZIP.c.o  -o cmTC_adb98 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int16_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2126b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2126b.dir/build.make CMakeFiles/cmTC_2126b.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_2126b.dir/INT16_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_2126b.dir/INT16_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT16_T_LIBZIP.c
+Linking C executable cmTC_2126b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2126b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_2126b.dir/INT16_T_LIBZIP.c.o  -o cmTC_2126b 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint16_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_252e3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_252e3.dir/build.make CMakeFiles/cmTC_252e3.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_252e3.dir/UINT16_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_252e3.dir/UINT16_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/UINT16_T_LIBZIP.c
+Linking C executable cmTC_252e3
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_252e3.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_252e3.dir/UINT16_T_LIBZIP.c.o  -o cmTC_252e3 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int32_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dacda/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dacda.dir/build.make CMakeFiles/cmTC_dacda.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dacda.dir/INT32_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_dacda.dir/INT32_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT32_T_LIBZIP.c
+Linking C executable cmTC_dacda
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dacda.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_dacda.dir/INT32_T_LIBZIP.c.o  -o cmTC_dacda 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint32_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f9f92/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f9f92.dir/build.make CMakeFiles/cmTC_f9f92.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f9f92.dir/UINT32_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_f9f92.dir/UINT32_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/UINT32_T_LIBZIP.c
+Linking C executable cmTC_f9f92
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f9f92.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_f9f92.dir/UINT32_T_LIBZIP.c.o  -o cmTC_f9f92 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int64_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d33e5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d33e5.dir/build.make CMakeFiles/cmTC_d33e5.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d33e5.dir/INT64_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_d33e5.dir/INT64_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT64_T_LIBZIP.c
+Linking C executable cmTC_d33e5
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d33e5.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d33e5.dir/INT64_T_LIBZIP.c.o  -o cmTC_d33e5 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint64_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dec42/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dec42.dir/build.make CMakeFiles/cmTC_dec42.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dec42.dir/UINT64_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_dec42.dir/UINT64_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/UINT64_T_LIBZIP.c
+Linking C executable cmTC_dec42
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dec42.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_dec42.dir/UINT64_T_LIBZIP.c.o  -o cmTC_dec42 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of short passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_82d1e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_82d1e.dir/build.make CMakeFiles/cmTC_82d1e.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_82d1e.dir/SHORT_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_82d1e.dir/SHORT_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/SHORT_LIBZIP.c
+Linking C executable cmTC_82d1e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82d1e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_82d1e.dir/SHORT_LIBZIP.c.o  -o cmTC_82d1e 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_26a70/fast"
+/usr/bin/make -f CMakeFiles/cmTC_26a70.dir/build.make CMakeFiles/cmTC_26a70.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_26a70.dir/INT_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_26a70.dir/INT_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT_LIBZIP.c
+Linking C executable cmTC_26a70
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_26a70.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_26a70.dir/INT_LIBZIP.c.o  -o cmTC_26a70 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of long passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9f4d1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9f4d1.dir/build.make CMakeFiles/cmTC_9f4d1.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9f4d1.dir/LONG_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_9f4d1.dir/LONG_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/LONG_LIBZIP.c
+Linking C executable cmTC_9f4d1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9f4d1.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_9f4d1.dir/LONG_LIBZIP.c.o  -o cmTC_9f4d1 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of long long passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_4310c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_4310c.dir/build.make CMakeFiles/cmTC_4310c.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_4310c.dir/LONG_LONG_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_4310c.dir/LONG_LONG_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/LONG_LONG_LIBZIP.c
+Linking C executable cmTC_4310c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4310c.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_4310c.dir/LONG_LONG_LIBZIP.c.o  -o cmTC_4310c 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of off_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6b3cf/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6b3cf.dir/build.make CMakeFiles/cmTC_6b3cf.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6b3cf.dir/SIZEOF_OFF_T.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_6b3cf.dir/SIZEOF_OFF_T.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/SIZEOF_OFF_T.c
+Linking C executable cmTC_6b3cf
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6b3cf.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_6b3cf.dir/SIZEOF_OFF_T.c.o  -o cmTC_6b3cf 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of size_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5f41b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5f41b.dir/build.make CMakeFiles/cmTC_5f41b.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5f41b.dir/SIZE_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_5f41b.dir/SIZE_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/SIZE_T_LIBZIP.c
+Linking C executable cmTC_5f41b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5f41b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5f41b.dir/SIZE_T_LIBZIP.c.o  -o cmTC_5f41b 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of ssize_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c1ede/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c1ede.dir/build.make CMakeFiles/cmTC_c1ede.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c1ede.dir/SSIZE_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_c1ede.dir/SSIZE_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/SSIZE_T_LIBZIP.c
+Linking C executable cmTC_c1ede
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c1ede.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c1ede.dir/SSIZE_T_LIBZIP.c.o  -o cmTC_c1ede 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of unsigned short passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_541c9/fast"
+/usr/bin/make -f CMakeFiles/cmTC_541c9.dir/build.make CMakeFiles/cmTC_541c9.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_541c9.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_541c9.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/CMAKE_SIZEOF_UNSIGNED_SHORT.c
+Linking C executable cmTC_541c9
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_541c9.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_541c9.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o  -o cmTC_541c9 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the system is big endian passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_086c2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_086c2.dir/build.make CMakeFiles/cmTC_086c2.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_086c2.dir/TestEndianess.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_086c2.dir/TestEndianess.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/TestEndianess.c
+Linking C executable cmTC_086c2
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_086c2.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_086c2.dir/TestEndianess.c.o  -o cmTC_086c2 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+TestEndianess.c:
+/* A 16 bit integer is required. */
+typedef unsigned short cmakeint16;
+
+/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
+   On a big endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
+
+/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
+   On a little endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_little[argc];
+  require += info_big[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the BZ2_bzCompressInit exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3c292/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3c292.dir/build.make CMakeFiles/cmTC_3c292.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3c292.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_3c292.dir/CheckSymbolExists.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3c292
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c292.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_3c292.dir/CheckSymbolExists.c.o  -o cmTC_3c292 /usr/lib/libbz2.so 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+File /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <bzlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef BZ2_bzCompressInit
+  return ((int*)(&BZ2_bzCompressInit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function getopt exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7ebc1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7ebc1.dir/build.make CMakeFiles/cmTC_7ebc1.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7ebc1.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=getopt -fPIE   -o CMakeFiles/cmTC_7ebc1.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_7ebc1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ebc1.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=getopt    -rdynamic CMakeFiles/cmTC_7ebc1.dir/CheckFunctionExists.c.o  -o cmTC_7ebc1 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c5856/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c5856.dir/build.make CMakeFiles/cmTC_c5856.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c5856.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_c5856.dir/CheckIncludeFile.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_c5856
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c5856.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c5856.dir/CheckIncludeFile.c.o  -o cmTC_c5856 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+The system is: Linux - 4.14.48-2-MANJARO - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /usr/bin/cc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/home/kei/gym-retro/CMakeFiles/3.11.1/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/bin/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/kei/gym-retro/CMakeFiles/3.11.1/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_6b925/fast"
+/usr/bin/make -f CMakeFiles/cmTC_6b925.dir/build.make CMakeFiles/cmTC_6b925.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6b925.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_6b925.dir/testCCompiler.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_6b925
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6b925.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_6b925.dir/testCCompiler.c.o  -o cmTC_6b925 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7ccc0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7ccc0.dir/build.make CMakeFiles/cmTC_7ccc0.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.11/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_7ccc0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ccc0.dir/link.txt --verbose=1
+/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o  -o cmTC_7ccc0 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/cc
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: /build/gcc/src/gcc/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --enable-default-pie --enable-default-ssp
+Thread model: posix
+gcc version 8.1.1 20180531 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7ccc0' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccI5Gx5e.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_7ccc0 /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../.. CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7ccc0' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_7ccc0/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_7ccc0.dir/build.make CMakeFiles/cmTC_7ccc0.dir/build]
+  ignore line: [make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc    -o CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.11/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_7ccc0]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ccc0.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v -rdynamic CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o  -o cmTC_7ccc0 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/cc]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: /build/gcc/src/gcc/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --enable-default-pie --enable-default-ssp]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.1.1 20180531 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7ccc0' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/ccI5Gx5e.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_7ccc0 /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../.. CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o -lgcc --as-needed -lgcc_s --no-as-needed -lc -lgcc --as-needed -lgcc_s --no-as-needed /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o]
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccI5Gx5e.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_7ccc0] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..]
+    arg [CMakeFiles/cmTC_7ccc0.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..] ==> [/usr/lib]
+  implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+  implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1;/usr/lib;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting C [-std=c11] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f7d02/fast"
+/usr/bin/make -f CMakeFiles/cmTC_f7d02.dir/build.make CMakeFiles/cmTC_f7d02.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f7d02.dir/feature_tests.c.o
+/usr/bin/cc   -std=c11 -o CMakeFiles/cmTC_f7d02.dir/feature_tests.c.o   -c /home/kei/gym-retro/CMakeFiles/feature_tests.c
+Linking C executable cmTC_f7d02
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f7d02.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_f7d02.dir/feature_tests.c.o  -o cmTC_f7d02 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:1c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c99] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e003b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e003b.dir/build.make CMakeFiles/cmTC_e003b.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e003b.dir/feature_tests.c.o
+/usr/bin/cc   -std=c99 -o CMakeFiles/cmTC_e003b.dir/feature_tests.c.o   -c /home/kei/gym-retro/CMakeFiles/feature_tests.c
+Linking C executable cmTC_e003b
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e003b.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_e003b.dir/feature_tests.c.o  -o cmTC_e003b 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:1c_variadic_macros
+
+
+Detecting C [-std=c90] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_91136/fast"
+/usr/bin/make -f CMakeFiles/cmTC_91136.dir/build.make CMakeFiles/cmTC_91136.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_91136.dir/feature_tests.c.o
+/usr/bin/cc   -std=c90 -o CMakeFiles/cmTC_91136.dir/feature_tests.c.o   -c /home/kei/gym-retro/CMakeFiles/feature_tests.c
+Linking C executable cmTC_91136
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91136.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_91136.dir/feature_tests.c.o  -o cmTC_91136 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:0c_restrict
+    Feature record: C_FEATURE:0c_static_assert
+    Feature record: C_FEATURE:0c_variadic_macros
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a5046/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a5046.dir/build.make CMakeFiles/cmTC_a5046.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_a5046.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_a5046.dir/testCXXCompiler.cxx.o -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_a5046
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5046.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_a5046.dir/testCXXCompiler.cxx.o  -o cmTC_a5046 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_12711/fast"
+/usr/bin/make -f CMakeFiles/cmTC_12711.dir/build.make CMakeFiles/cmTC_12711.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++     -o CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_12711
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12711.dir/link.txt --verbose=1
+/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_12711 
+Using built-in specs.
+COLLECT_GCC=/usr/bin/c++
+COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: /build/gcc/src/gcc/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --enable-default-pie --enable-default-ssp
+Thread model: posix
+gcc version 8.1.1 20180531 (GCC) 
+COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_12711' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cckjV6Pl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_12711 /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../.. CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_12711' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_12711/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_12711.dir/build.make CMakeFiles/cmTC_12711.dir/build]
+  ignore line: [make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++     -o CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.11/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_12711]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_12711.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v -rdynamic CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_12711 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/usr/bin/c++]
+  ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: /build/gcc/src/gcc/configure --prefix=/usr --libdir=/usr/lib --libexecdir=/usr/lib --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=https://bugs.archlinux.org/ --enable-languages=c,c++,ada,fortran,go,lto,objc,obj-c++ --enable-shared --enable-threads=posix --enable-libmpx --with-system-zlib --with-isl --enable-__cxa_atexit --disable-libunwind-exceptions --enable-clocale=gnu --disable-libstdcxx-pch --disable-libssp --enable-gnu-unique-object --enable-linker-build-id --enable-lto --enable-plugin --enable-install-libiberty --with-linker-hash-style=gnu --enable-gnu-indirect-function --enable-multilib --disable-werror --enable-checking=release --enable-default-pie --enable-default-ssp]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 8.1.1 20180531 (GCC) ]
+  ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/:/lib/../lib/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_12711' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2 -plugin /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper -plugin-opt=-fresolution=/tmp/cckjV6Pl.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -o cmTC_12711 /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1 -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../.. CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o /usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o]
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cckjV6Pl.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--build-id] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [--hash-style=gnu] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-pie] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_12711] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/Scrt1.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crti.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtbeginS.o] ==> ignore
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib]
+    arg [-L/lib/../lib] ==> dir [/lib/../lib]
+    arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+    arg [-L/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..] ==> dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..]
+    arg [CMakeFiles/cmTC_12711.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/crtendS.o] ==> ignore
+    arg [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib/crtn.o] ==> ignore
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1] ==> [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../../../lib] ==> [/usr/lib]
+  collapse library dir [/lib/../lib] ==> [/lib]
+  collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+  collapse library dir [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1/../../..] ==> [/usr/lib]
+  implicit libs: [stdc++;m;gcc_s;gcc;c;gcc_s;gcc]
+  implicit dirs: [/usr/lib/gcc/x86_64-pc-linux-gnu/8.1.1;/usr/lib;/lib]
+  implicit fwks: []
+
+
+
+
+Detecting CXX [-std=c++1z] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_433e3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_433e3.dir/build.make CMakeFiles/cmTC_433e3.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_433e3.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++1z -o CMakeFiles/cmTC_433e3.dir/feature_tests.cxx.o -c /home/kei/gym-retro/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_433e3
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_433e3.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_433e3.dir/feature_tests.cxx.o  -o cmTC_433e3 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++14] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_2e1cb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_2e1cb.dir/build.make CMakeFiles/cmTC_2e1cb.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_2e1cb.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++14 -o CMakeFiles/cmTC_2e1cb.dir/feature_tests.cxx.o -c /home/kei/gym-retro/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_2e1cb
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2e1cb.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_2e1cb.dir/feature_tests.cxx.o  -o cmTC_2e1cb 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:1cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:1cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:1cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:1cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:1cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:1cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:1cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:1cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:1cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:1cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++11] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d648d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d648d.dir/build.make CMakeFiles/cmTC_d648d.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_d648d.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++11 -o CMakeFiles/cmTC_d648d.dir/feature_tests.cxx.o -c /home/kei/gym-retro/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_d648d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d648d.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_d648d.dir/feature_tests.cxx.o  -o cmTC_d648d 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:1cxx_alias_templates
+    Feature record: CXX_FEATURE:1cxx_alignas
+    Feature record: CXX_FEATURE:1cxx_alignof
+    Feature record: CXX_FEATURE:1cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:1cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:1cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:1cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:1cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:1cxx_default_function_template_args
+    Feature record: CXX_FEATURE:1cxx_defaulted_functions
+    Feature record: CXX_FEATURE:1cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:1cxx_delegating_constructors
+    Feature record: CXX_FEATURE:1cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:1cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:1cxx_explicit_conversions
+    Feature record: CXX_FEATURE:1cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:1cxx_extern_templates
+    Feature record: CXX_FEATURE:1cxx_final
+    Feature record: CXX_FEATURE:1cxx_func_identifier
+    Feature record: CXX_FEATURE:1cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:1cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:1cxx_inline_namespaces
+    Feature record: CXX_FEATURE:1cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:1cxx_local_type_template_args
+    Feature record: CXX_FEATURE:1cxx_long_long_type
+    Feature record: CXX_FEATURE:1cxx_noexcept
+    Feature record: CXX_FEATURE:1cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:1cxx_nullptr
+    Feature record: CXX_FEATURE:1cxx_override
+    Feature record: CXX_FEATURE:1cxx_range_for
+    Feature record: CXX_FEATURE:1cxx_raw_string_literals
+    Feature record: CXX_FEATURE:1cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:1cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:1cxx_rvalue_references
+    Feature record: CXX_FEATURE:1cxx_sizeof_member
+    Feature record: CXX_FEATURE:1cxx_static_assert
+    Feature record: CXX_FEATURE:1cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:1cxx_thread_local
+    Feature record: CXX_FEATURE:1cxx_trailing_return_types
+    Feature record: CXX_FEATURE:1cxx_unicode_literals
+    Feature record: CXX_FEATURE:1cxx_uniform_initialization
+    Feature record: CXX_FEATURE:1cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:1cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:1cxx_variadic_macros
+    Feature record: CXX_FEATURE:1cxx_variadic_templates
+
+
+Detecting CXX [-std=c++98] compiler features compiled with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e16a2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e16a2.dir/build.make CMakeFiles/cmTC_e16a2.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e16a2.dir/feature_tests.cxx.o
+/usr/bin/c++    -std=c++98 -o CMakeFiles/cmTC_e16a2.dir/feature_tests.cxx.o -c /home/kei/gym-retro/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_e16a2
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e16a2.dir/link.txt --verbose=1
+/usr/bin/c++       -rdynamic CMakeFiles/cmTC_e16a2.dir/feature_tests.cxx.o  -o cmTC_e16a2 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+    Feature record: CXX_FEATURE:0cxx_aggregate_default_initializers
+    Feature record: CXX_FEATURE:0cxx_alias_templates
+    Feature record: CXX_FEATURE:0cxx_alignas
+    Feature record: CXX_FEATURE:0cxx_alignof
+    Feature record: CXX_FEATURE:0cxx_attributes
+    Feature record: CXX_FEATURE:0cxx_attribute_deprecated
+    Feature record: CXX_FEATURE:0cxx_auto_type
+    Feature record: CXX_FEATURE:0cxx_binary_literals
+    Feature record: CXX_FEATURE:0cxx_constexpr
+    Feature record: CXX_FEATURE:0cxx_contextual_conversions
+    Feature record: CXX_FEATURE:0cxx_decltype
+    Feature record: CXX_FEATURE:0cxx_decltype_auto
+    Feature record: CXX_FEATURE:0cxx_decltype_incomplete_return_types
+    Feature record: CXX_FEATURE:0cxx_default_function_template_args
+    Feature record: CXX_FEATURE:0cxx_defaulted_functions
+    Feature record: CXX_FEATURE:0cxx_defaulted_move_initializers
+    Feature record: CXX_FEATURE:0cxx_delegating_constructors
+    Feature record: CXX_FEATURE:0cxx_deleted_functions
+    Feature record: CXX_FEATURE:0cxx_digit_separators
+    Feature record: CXX_FEATURE:0cxx_enum_forward_declarations
+    Feature record: CXX_FEATURE:0cxx_explicit_conversions
+    Feature record: CXX_FEATURE:0cxx_extended_friend_declarations
+    Feature record: CXX_FEATURE:0cxx_extern_templates
+    Feature record: CXX_FEATURE:0cxx_final
+    Feature record: CXX_FEATURE:0cxx_func_identifier
+    Feature record: CXX_FEATURE:0cxx_generalized_initializers
+    Feature record: CXX_FEATURE:0cxx_generic_lambdas
+    Feature record: CXX_FEATURE:0cxx_inheriting_constructors
+    Feature record: CXX_FEATURE:0cxx_inline_namespaces
+    Feature record: CXX_FEATURE:0cxx_lambdas
+    Feature record: CXX_FEATURE:0cxx_lambda_init_captures
+    Feature record: CXX_FEATURE:0cxx_local_type_template_args
+    Feature record: CXX_FEATURE:0cxx_long_long_type
+    Feature record: CXX_FEATURE:0cxx_noexcept
+    Feature record: CXX_FEATURE:0cxx_nonstatic_member_init
+    Feature record: CXX_FEATURE:0cxx_nullptr
+    Feature record: CXX_FEATURE:0cxx_override
+    Feature record: CXX_FEATURE:0cxx_range_for
+    Feature record: CXX_FEATURE:0cxx_raw_string_literals
+    Feature record: CXX_FEATURE:0cxx_reference_qualified_functions
+    Feature record: CXX_FEATURE:0cxx_relaxed_constexpr
+    Feature record: CXX_FEATURE:0cxx_return_type_deduction
+    Feature record: CXX_FEATURE:0cxx_right_angle_brackets
+    Feature record: CXX_FEATURE:0cxx_rvalue_references
+    Feature record: CXX_FEATURE:0cxx_sizeof_member
+    Feature record: CXX_FEATURE:0cxx_static_assert
+    Feature record: CXX_FEATURE:0cxx_strong_enums
+    Feature record: CXX_FEATURE:1cxx_template_template_parameters
+    Feature record: CXX_FEATURE:0cxx_thread_local
+    Feature record: CXX_FEATURE:0cxx_trailing_return_types
+    Feature record: CXX_FEATURE:0cxx_unicode_literals
+    Feature record: CXX_FEATURE:0cxx_uniform_initialization
+    Feature record: CXX_FEATURE:0cxx_unrestricted_unions
+    Feature record: CXX_FEATURE:0cxx_user_literals
+    Feature record: CXX_FEATURE:0cxx_variable_templates
+    Feature record: CXX_FEATURE:0cxx_variadic_macros
+    Feature record: CXX_FEATURE:0cxx_variadic_templates
+Determining if the function fileno exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cfec0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cfec0.dir/build.make CMakeFiles/cmTC_cfec0.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cfec0.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=fileno -fPIE   -o CMakeFiles/cmTC_cfec0.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cfec0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cfec0.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fileno    -rdynamic CMakeFiles/cmTC_cfec0.dir/CheckFunctionExists.c.o  -o cmTC_cfec0 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function fseeko exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_442d3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_442d3.dir/build.make CMakeFiles/cmTC_442d3.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_442d3.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=fseeko -fPIE   -o CMakeFiles/cmTC_442d3.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_442d3
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_442d3.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=fseeko    -rdynamic CMakeFiles/cmTC_442d3.dir/CheckFunctionExists.c.o  -o cmTC_442d3 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function ftello exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c1e2a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c1e2a.dir/build.make CMakeFiles/cmTC_c1e2a.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c1e2a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=ftello -fPIE   -o CMakeFiles/cmTC_c1e2a.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c1e2a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c1e2a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=ftello    -rdynamic CMakeFiles/cmTC_c1e2a.dir/CheckFunctionExists.c.o  -o cmTC_c1e2a 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function open exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a5a73/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a5a73.dir/build.make CMakeFiles/cmTC_a5a73.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a5a73.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=open -fPIE   -o CMakeFiles/cmTC_a5a73.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_a5a73
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5a73.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=open    -rdynamic CMakeFiles/cmTC_a5a73.dir/CheckFunctionExists.c.o  -o cmTC_a5a73 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function mkstemp exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b35ee/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b35ee.dir/build.make CMakeFiles/cmTC_b35ee.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b35ee.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=mkstemp -fPIE   -o CMakeFiles/cmTC_b35ee.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b35ee
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b35ee.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=mkstemp    -rdynamic CMakeFiles/cmTC_b35ee.dir/CheckFunctionExists.c.o  -o cmTC_b35ee 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function snprintf exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_40175/fast"
+/usr/bin/make -f CMakeFiles/cmTC_40175.dir/build.make CMakeFiles/cmTC_40175.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_40175.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=snprintf -fPIE   -o CMakeFiles/cmTC_40175.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘snprintf’ [-Wbuiltin-declaration-mismatch]
+/usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+   CHECK_FUNCTION_EXISTS(void);
+   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_40175
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_40175.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=snprintf    -rdynamic CMakeFiles/cmTC_40175.dir/CheckFunctionExists.c.o  -o cmTC_40175 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strcasecmp exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_42922/fast"
+/usr/bin/make -f CMakeFiles/cmTC_42922.dir/build.make CMakeFiles/cmTC_42922.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_42922.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strcasecmp -fPIE   -o CMakeFiles/cmTC_42922.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘strcasecmp’ [-Wbuiltin-declaration-mismatch]
+/usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+   CHECK_FUNCTION_EXISTS(void);
+   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_42922
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_42922.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strcasecmp    -rdynamic CMakeFiles/cmTC_42922.dir/CheckFunctionExists.c.o  -o cmTC_42922 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strdup exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5b5fa/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5b5fa.dir/build.make CMakeFiles/cmTC_5b5fa.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5b5fa.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strdup -fPIE   -o CMakeFiles/cmTC_5b5fa.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+<command-line>: warning: conflicting types for built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+/usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro ‘CHECK_FUNCTION_EXISTS’
+   CHECK_FUNCTION_EXISTS(void);
+   ^~~~~~~~~~~~~~~~~~~~~
+Linking C executable cmTC_5b5fa
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b5fa.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strdup    -rdynamic CMakeFiles/cmTC_5b5fa.dir/CheckFunctionExists.c.o  -o cmTC_5b5fa 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strtoll exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_8a239/fast"
+/usr/bin/make -f CMakeFiles/cmTC_8a239.dir/build.make CMakeFiles/cmTC_8a239.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_8a239.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strtoll -fPIE   -o CMakeFiles/cmTC_8a239.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_8a239
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a239.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strtoll    -rdynamic CMakeFiles/cmTC_8a239.dir/CheckFunctionExists.c.o  -o cmTC_8a239 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strtoull exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5e45c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5e45c.dir/build.make CMakeFiles/cmTC_5e45c.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5e45c.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=strtoull -fPIE   -o CMakeFiles/cmTC_5e45c.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5e45c
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e45c.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=strtoull    -rdynamic CMakeFiles/cmTC_5e45c.dir/CheckFunctionExists.c.o  -o cmTC_5e45c 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files fts.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1b0c3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1b0c3.dir/build.make CMakeFiles/cmTC_1b0c3.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1b0c3.dir/HAVE_FTS_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_1b0c3.dir/HAVE_FTS_H.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_FTS_H.c
+Linking C executable cmTC_1b0c3
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b0c3.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_1b0c3.dir/HAVE_FTS_H.c.o  -o cmTC_1b0c3 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files stdbool.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ce6a0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ce6a0.dir/build.make CMakeFiles/cmTC_ce6a0.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ce6a0.dir/HAVE_STDBOOL_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_ce6a0.dir/HAVE_STDBOOL_H.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_STDBOOL_H.c
+Linking C executable cmTC_ce6a0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ce6a0.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ce6a0.dir/HAVE_STDBOOL_H.c.o  -o cmTC_ce6a0 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files strings.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b35bc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b35bc.dir/build.make CMakeFiles/cmTC_b35bc.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b35bc.dir/HAVE_STRINGS_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_b35bc.dir/HAVE_STRINGS_H.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_STRINGS_H.c
+Linking C executable cmTC_b35bc
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b35bc.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b35bc.dir/HAVE_STRINGS_H.c.o  -o cmTC_b35bc 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files unistd.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3d032/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3d032.dir/build.make CMakeFiles/cmTC_3d032.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d032.dir/HAVE_UNISTD_H.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_3d032.dir/HAVE_UNISTD_H.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_UNISTD_H.c
+Linking C executable cmTC_3d032
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d032.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_3d032.dir/HAVE_UNISTD_H.c.o  -o cmTC_3d032 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files inttypes.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_97285/fast"
+/usr/bin/make -f CMakeFiles/cmTC_97285.dir/build.make CMakeFiles/cmTC_97285.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_97285.dir/HAVE_INTTYPES_H_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_97285.dir/HAVE_INTTYPES_H_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_INTTYPES_H_LIBZIP.c
+Linking C executable cmTC_97285
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97285.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_97285.dir/HAVE_INTTYPES_H_LIBZIP.c.o  -o cmTC_97285 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files stdint.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0fd9a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0fd9a.dir/build.make CMakeFiles/cmTC_0fd9a.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_0fd9a.dir/HAVE_STDINT_H_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_0fd9a.dir/HAVE_STDINT_H_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_STDINT_H_LIBZIP.c
+Linking C executable cmTC_0fd9a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0fd9a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_0fd9a.dir/HAVE_STDINT_H_LIBZIP.c.o  -o cmTC_0fd9a 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if files sys/types.h exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_10e06/fast"
+/usr/bin/make -f CMakeFiles/cmTC_10e06.dir/build.make CMakeFiles/cmTC_10e06.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_10e06.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_10e06.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckIncludeFiles/HAVE_SYS_TYPES_H_LIBZIP.c
+Linking C executable cmTC_10e06
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_10e06.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_10e06.dir/HAVE_SYS_TYPES_H_LIBZIP.c.o  -o cmTC_10e06 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/types.h exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_23828/fast"
+/usr/bin/make -f CMakeFiles/cmTC_23828.dir/build.make CMakeFiles/cmTC_23828.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_23828.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_23828.dir/CheckIncludeFile.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_23828
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_23828.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_23828.dir/CheckIncludeFile.c.o  -o cmTC_23828 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stdint.h exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b6911/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b6911.dir/build.make CMakeFiles/cmTC_b6911.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b6911.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_b6911.dir/CheckIncludeFile.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_b6911
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b6911.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b6911.dir/CheckIncludeFile.c.o  -o cmTC_b6911 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file stddef.h exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_49b04/fast"
+/usr/bin/make -f CMakeFiles/cmTC_49b04.dir/build.make CMakeFiles/cmTC_49b04.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_49b04.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_49b04.dir/CheckIncludeFile.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_49b04
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49b04.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_49b04.dir/CheckIncludeFile.c.o  -o cmTC_49b04 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int8_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7e83d/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7e83d.dir/build.make CMakeFiles/cmTC_7e83d.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7e83d.dir/INT8_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_7e83d.dir/INT8_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT8_T_LIBZIP.c
+Linking C executable cmTC_7e83d
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7e83d.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_7e83d.dir/INT8_T_LIBZIP.c.o  -o cmTC_7e83d 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint8_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ef892/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ef892.dir/build.make CMakeFiles/cmTC_ef892.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ef892.dir/UINT8_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_ef892.dir/UINT8_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/UINT8_T_LIBZIP.c
+Linking C executable cmTC_ef892
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ef892.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_ef892.dir/UINT8_T_LIBZIP.c.o  -o cmTC_ef892 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int16_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_837c4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_837c4.dir/build.make CMakeFiles/cmTC_837c4.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_837c4.dir/INT16_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_837c4.dir/INT16_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT16_T_LIBZIP.c
+Linking C executable cmTC_837c4
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_837c4.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_837c4.dir/INT16_T_LIBZIP.c.o  -o cmTC_837c4 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint16_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_303ca/fast"
+/usr/bin/make -f CMakeFiles/cmTC_303ca.dir/build.make CMakeFiles/cmTC_303ca.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_303ca.dir/UINT16_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_303ca.dir/UINT16_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/UINT16_T_LIBZIP.c
+Linking C executable cmTC_303ca
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_303ca.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_303ca.dir/UINT16_T_LIBZIP.c.o  -o cmTC_303ca 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int32_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b0029/fast"
+/usr/bin/make -f CMakeFiles/cmTC_b0029.dir/build.make CMakeFiles/cmTC_b0029.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b0029.dir/INT32_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_b0029.dir/INT32_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT32_T_LIBZIP.c
+Linking C executable cmTC_b0029
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b0029.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_b0029.dir/INT32_T_LIBZIP.c.o  -o cmTC_b0029 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint32_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c2fe4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c2fe4.dir/build.make CMakeFiles/cmTC_c2fe4.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c2fe4.dir/UINT32_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_c2fe4.dir/UINT32_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/UINT32_T_LIBZIP.c
+Linking C executable cmTC_c2fe4
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c2fe4.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_c2fe4.dir/UINT32_T_LIBZIP.c.o  -o cmTC_c2fe4 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int64_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_74f11/fast"
+/usr/bin/make -f CMakeFiles/cmTC_74f11.dir/build.make CMakeFiles/cmTC_74f11.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_74f11.dir/INT64_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_74f11.dir/INT64_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT64_T_LIBZIP.c
+Linking C executable cmTC_74f11
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_74f11.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_74f11.dir/INT64_T_LIBZIP.c.o  -o cmTC_74f11 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of uint64_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1a2d6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1a2d6.dir/build.make CMakeFiles/cmTC_1a2d6.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1a2d6.dir/UINT64_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_1a2d6.dir/UINT64_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/UINT64_T_LIBZIP.c
+Linking C executable cmTC_1a2d6
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a2d6.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_1a2d6.dir/UINT64_T_LIBZIP.c.o  -o cmTC_1a2d6 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of short passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3d8ab/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3d8ab.dir/build.make CMakeFiles/cmTC_3d8ab.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3d8ab.dir/SHORT_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_3d8ab.dir/SHORT_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/SHORT_LIBZIP.c
+Linking C executable cmTC_3d8ab
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3d8ab.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_3d8ab.dir/SHORT_LIBZIP.c.o  -o cmTC_3d8ab 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of int passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_033f8/fast"
+/usr/bin/make -f CMakeFiles/cmTC_033f8.dir/build.make CMakeFiles/cmTC_033f8.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_033f8.dir/INT_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_033f8.dir/INT_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/INT_LIBZIP.c
+Linking C executable cmTC_033f8
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_033f8.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_033f8.dir/INT_LIBZIP.c.o  -o cmTC_033f8 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of long passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_397e1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_397e1.dir/build.make CMakeFiles/cmTC_397e1.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_397e1.dir/LONG_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_397e1.dir/LONG_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/LONG_LIBZIP.c
+Linking C executable cmTC_397e1
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_397e1.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_397e1.dir/LONG_LIBZIP.c.o  -o cmTC_397e1 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of long long passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a940a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a940a.dir/build.make CMakeFiles/cmTC_a940a.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a940a.dir/LONG_LONG_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_a940a.dir/LONG_LONG_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/LONG_LONG_LIBZIP.c
+Linking C executable cmTC_a940a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a940a.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_a940a.dir/LONG_LONG_LIBZIP.c.o  -o cmTC_a940a 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of off_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_728ef/fast"
+/usr/bin/make -f CMakeFiles/cmTC_728ef.dir/build.make CMakeFiles/cmTC_728ef.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_728ef.dir/SIZEOF_OFF_T.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_728ef.dir/SIZEOF_OFF_T.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/SIZEOF_OFF_T.c
+Linking C executable cmTC_728ef
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_728ef.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_728ef.dir/SIZEOF_OFF_T.c.o  -o cmTC_728ef 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of size_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_83b89/fast"
+/usr/bin/make -f CMakeFiles/cmTC_83b89.dir/build.make CMakeFiles/cmTC_83b89.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_83b89.dir/SIZE_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_83b89.dir/SIZE_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/SIZE_T_LIBZIP.c
+Linking C executable cmTC_83b89
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_83b89.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_83b89.dir/SIZE_T_LIBZIP.c.o  -o cmTC_83b89 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of ssize_t passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e755e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_e755e.dir/build.make CMakeFiles/cmTC_e755e.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e755e.dir/SSIZE_T_LIBZIP.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_e755e.dir/SSIZE_T_LIBZIP.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/SSIZE_T_LIBZIP.c
+Linking C executable cmTC_e755e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e755e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_e755e.dir/SSIZE_T_LIBZIP.c.o  -o cmTC_e755e 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining size of unsigned short passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5f03e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5f03e.dir/build.make CMakeFiles/cmTC_5f03e.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5f03e.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_5f03e.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o   -c /home/kei/gym-retro/CMakeFiles/CheckTypeSize/CMAKE_SIZEOF_UNSIGNED_SHORT.c
+Linking C executable cmTC_5f03e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5f03e.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_5f03e.dir/CMAKE_SIZEOF_UNSIGNED_SHORT.c.o  -o cmTC_5f03e 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the system is big endian passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_dde30/fast"
+/usr/bin/make -f CMakeFiles/cmTC_dde30.dir/build.make CMakeFiles/cmTC_dde30.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_dde30.dir/TestEndianess.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_dde30.dir/TestEndianess.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/TestEndianess.c
+Linking C executable cmTC_dde30
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dde30.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_dde30.dir/TestEndianess.c.o  -o cmTC_dde30 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+TestEndianess.c:
+/* A 16 bit integer is required. */
+typedef unsigned short cmakeint16;
+
+/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
+   On a big endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
+
+/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
+   On a little endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_little[argc];
+  require += info_big[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the BZ2_bzCompressInit exist passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_172c6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_172c6.dir/build.make CMakeFiles/cmTC_172c6.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_172c6.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_172c6.dir/CheckSymbolExists.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_172c6
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_172c6.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_172c6.dir/CheckSymbolExists.c.o  -o cmTC_172c6 /usr/lib/libbz2.so 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+File /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <bzlib.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef BZ2_bzCompressInit
+  return ((int*)(&BZ2_bzCompressInit))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function getopt exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_294aa/fast"
+/usr/bin/make -f CMakeFiles/cmTC_294aa.dir/build.make CMakeFiles/cmTC_294aa.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_294aa.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=getopt -fPIE   -o CMakeFiles/cmTC_294aa.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.11/Modules/CheckFunctionExists.c
+Linking C executable cmTC_294aa
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_294aa.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=getopt    -rdynamic CMakeFiles/cmTC_294aa.dir/CheckFunctionExists.c.o  -o cmTC_294aa 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/kei/gym-retro/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_54c7f/fast"
+/usr/bin/make -f CMakeFiles/cmTC_54c7f.dir/build.make CMakeFiles/cmTC_54c7f.dir/build
+make[1]: Entering directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_54c7f.dir/CheckIncludeFile.c.o
+/usr/bin/cc   -fPIE   -o CMakeFiles/cmTC_54c7f.dir/CheckIncludeFile.c.o   -c /home/kei/gym-retro/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_54c7f
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54c7f.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_54c7f.dir/CheckIncludeFile.c.o  -o cmTC_54c7f 
+make[1]: Leaving directory '/home/kei/gym-retro/CMakeFiles/CMakeTmp'
+
+

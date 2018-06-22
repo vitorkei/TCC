@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/zipmerge.dir/zipmerge.c.o  -o zipmerge -Wl,-rpath,:::::::::::::: ../lib/libzip.a -lz -lbz2 

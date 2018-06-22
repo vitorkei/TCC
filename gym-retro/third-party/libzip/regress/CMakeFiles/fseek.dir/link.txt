@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/fseek.dir/fseek.c.o  -o fseek ../lib/libzip.a -lz -lbz2 

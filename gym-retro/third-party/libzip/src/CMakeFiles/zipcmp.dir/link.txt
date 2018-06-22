@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/zipcmp.dir/zipcmp.c.o  -o zipcmp -Wl,-rpath,:::::::::::::: ../lib/libzip.a -lz -lbz2 

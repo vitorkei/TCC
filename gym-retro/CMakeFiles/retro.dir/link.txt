@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC  -Wall -Wextra -Wno-sign-compare -Wno-missing-field-initializers -mssse3 -O3 -DNDEBUG  -shared -Wl,-soname,_retro.cpython-36m-x86_64-linux-gnu.so -o retro/_retro.cpython-36m-x86_64-linux-gnu.so CMakeFiles/retro.dir/src/retro.cpp.o libretro-base.a -static-libstdc++ third-party/libzip/lib/libzip.a -lz -lbz2 third-party/luajit/src/libluajit.a -ldl 

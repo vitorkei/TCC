@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/fopen_unchanged.dir/fopen_unchanged.c.o  -o fopen_unchanged ../lib/libzip.a -lz -lbz2 

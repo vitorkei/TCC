@@ -1,0 +1,1 @@
+/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/ziptool.dir/ziptool.c.o  -o ziptool -Wl,-rpath,:::::::::::::: ../lib/libzip.a -lz -lbz2 

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libretro-base.a  CMakeFiles/retro-base.dir/src/coreinfo.cpp.o CMakeFiles/retro-base.dir/src/data.cpp.o CMakeFiles/retro-base.dir/src/emulator.cpp.o CMakeFiles/retro-base.dir/src/imageops.cpp.o CMakeFiles/retro-base.dir/src/memory.cpp.o CMakeFiles/retro-base.dir/src/movie.cpp.o CMakeFiles/retro-base.dir/src/movie-bk2.cpp.o CMakeFiles/retro-base.dir/src/script.cpp.o CMakeFiles/retro-base.dir/src/script-lua.cpp.o CMakeFiles/retro-base.dir/src/utils.cpp.o CMakeFiles/retro-base.dir/src/zipfile.cpp.o
+/usr/bin/ranlib libretro-base.a

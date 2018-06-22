@@ -94,3 +94,7 @@ A função env.render() só altera o que é impresso na tela quando
   for chamado várias vezes seguidas sem nenhum desses métodos
   for chamado, a tela não muda
 
+Se o tempo for inicializado como t = 0, os asteroides são
+  renderizados quando t%2==0 (t=0, t=2, t=4, ...) enquanto
+  a nave e os tiros são renderizados quando t%2==1 (t=1, t=3,
+  t=5, ...)
