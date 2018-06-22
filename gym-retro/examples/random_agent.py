@@ -2,6 +2,7 @@
 
 import argparse
 import retro
+import time
 
 parser = argparse.ArgumentParser()
 parser.add_argument('game', help='the name or path for the game to run')
@@ -20,6 +21,7 @@ try:
         t = 0
         totrew = 0
         while True:
+            time.sleep(0.02)
             ac = env.action_space.sample()
             ob, rew, done, info = env.step(ac)
             t += 1
@@ -29,7 +31,7 @@ try:
                     if info:
                         infostr = ', info: ' + ', '.join(['%s=%i' % (k, v) for k, v in info.items()])
                     print(('t=%i' % t) + infostr)
-                env.render()
+            env.render()
             totrew += rew
             if verbosity > 0:
                 if rew > 0:
