@@ -6,7 +6,7 @@ import queue
 #    obs: observação do ambiente (matriz)
 #    visited: define pixels já visitados (matriz)
 #    (i, j): coordenadas do primeiro pixel visitado
-# Saída: tupla com:
+# Saída: dictionary com:
 #    color: cor do asteróide
 #    upperBound: número da linha do pixel mais acima (menor)
 #    lowerBound: número da linha do pixel mais abaixo (maior)
@@ -55,7 +55,11 @@ def asteroidBFS(obs, visited, i, j):
         if n+1 > rightBound:
           rightBound += 1
   
-  return (color, upperBound, lowerBound, leftBound, rightBound)
+  return {'color': color,
+          'upperBound': upperBound,
+          'lowerBound': lowerBound,
+          'leftBound': leftBound,
+          'rightBound': rightBound}
 
 # Procura todos os objetos na tela (obs) e retorna uma lista deles
 # Entrada:

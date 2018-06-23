@@ -4,20 +4,20 @@ import numpy as np
 # dos asteroides
 
 # Retorna velocidade horizontal do asteroide
-def horizontalSpeed(obs, obj):
+def horizontalSpeed(obs, obj, delta):
   color = obj[0]
   for j in range(obj[3] - 3, obj[4] + 4):
     for i in range(obj[1] - 5, obj[2] + 6):
       if np.array_equal(obs[i][j], color):
-        return j - obj[3]
+        return (j - obj[3]) / delta
 
 # Retorna velocidade vertical do asteroide
-def verticalSpeed(obs, obj):
+def verticalSpeed(obs, obj, delta):
   color = obj[0]
   for i in range(obj[1] - 5, obj[2] + 6):
     for j in range(obj[3] - 3, obj[4] + 4):
       if np.array_equal(obs[i][j], color):
-        return i - obj[1]
+        return (i - obj[1]) / delta
 
 # Retorna a velocidade de cada asteroide da tela
 # Entrada:
@@ -33,8 +33,8 @@ def asteroidsSpeed(iniPos, obs, delta):
   for obj in iniPos:
     color = obj[0]
 
-    hSPD = horizontalSpeed(obs, obj)
-    vSPD = verticalSpeed(obs, obj)
+    hSPD = horizontalSpeed(obs, obj, delta)
+    vSPD = verticalSpeed(obs, obj, delta)
 
     astsSpeed.append((color, hSPD, vSPD))
 

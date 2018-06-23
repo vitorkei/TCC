@@ -6,9 +6,10 @@ import time
 import numpy as np
 import queue
 
-import posMethods as pos
-import speedMethods as spd
-import auxMethods as aux
+#import posMethods as pos
+#import speedMethods as spd
+#import auxMethods as aux
+import Asteroids
 
 ########################################################
 # Parser retirado do exemplo do Gym-Retro
@@ -31,7 +32,12 @@ verbosity = args.verbose - args.quiet
 if __name__ == "__main__":
   obs = env.reset()
   t = 0
-  astsIniPos = pos.findInitialObjects(obs)
+  asteroids = Asteroids.Asteroids(obs)
+
+  for elem in asteroids.get_asteroids():
+    print(elem, "-", asteroids.get_asteroids()[elem])
+  #astsIniPos = pos.findInitialObjects(obs)
+  
 
   totrew = 0 # total reward
   
@@ -43,7 +49,16 @@ if __name__ == "__main__":
     time.sleep(0.01)
 
     totrew += rew
-    
+    """
+    if t % 10 =i= 0:
+      astsSPD = spd.asteroidsSpeed(astsIniPos, obs, t)
+      print("\nt =", t)
+      for ast in astsSPD:
+        print("color:", ast[0])
+        print("hSPD =", ast[1])
+        print("vSPD =", ast[2])
+      time.sleep(3)
+    """
     if rew > 0:
       print("time =", t, "\nReward:", rew, "\n")
     elif rew < 0:
