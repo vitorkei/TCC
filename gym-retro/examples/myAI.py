@@ -6,9 +6,9 @@ import time
 import numpy as np
 import queue
 
-#import posMethods as pos
-#import speedMethods as spd
-#import auxMethods as aux
+import posMethods as pos
+import speedMethods as spd
+import auxMethods as aux
 import Asteroids
 
 ########################################################
@@ -33,11 +33,11 @@ if __name__ == "__main__":
   obs = env.reset()
   t = 0
   asteroids = Asteroids.Asteroids(obs)
+  print("env.reset():")
+  for k, elem in asteroids.get_asteroids().items():
+    print(elem)
 
-  for elem in asteroids.get_asteroids():
-    print(elem, "-", asteroids.get_asteroids()[elem])
-  #astsIniPos = pos.findInitialObjects(obs)
-  
+  print("===============")
 
   totrew = 0 # total reward
   
@@ -46,12 +46,12 @@ if __name__ == "__main__":
     obs, rew, done, info = env.step(action)
     t += 1
     env.render()
-    time.sleep(0.01)
+    #time.sleep(0.01)
 
     totrew += rew
     """
-    if t % 10 =i= 0:
-      astsSPD = spd.asteroidsSpeed(astsIniPos, obs, t)
+    if t % 10 == 0:
+      astsSPD = spd.asteroidsSpeed(asteroids.get_asteroids(), obs, t)
       print("\nt =", t)
       for ast in astsSPD:
         print("color:", ast[0])
@@ -59,6 +59,20 @@ if __name__ == "__main__":
         print("vSPD =", ast[2])
       time.sleep(3)
     """
+
+    if t % 2 == 0:
+      print("findInitialObjects(obs):")
+      for elem in pos.findInitialObjects(obs):
+        print(elem)
+
+      print("\nAsteroids.update_pos(obs):")
+      asteroids.update_pos(obs)
+      for elem in asteroids.get_asteroids():
+        print(asteroids.get_asteroids()[elem])
+      print()
+      print("==============")
+      time.sleep(3)
+
     if rew > 0:
       print("time =", t, "\nReward:", rew, "\n")
     elif rew < 0:

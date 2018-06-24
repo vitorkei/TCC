@@ -5,19 +5,19 @@ import numpy as np
 
 # Retorna velocidade horizontal do asteroide
 def horizontalSpeed(obs, obj, delta):
-  color = obj[0]
-  for j in range(obj[3] - 3, obj[4] + 4):
-    for i in range(obj[1] - 5, obj[2] + 6):
+  color = obj['color']
+  for j in range(obj['leftBound'] - 3, obj['rightBound'] + 4):
+    for i in range(obj['upperBound'] - 5, obj['lowerBound'] + 6):
       if np.array_equal(obs[i][j], color):
-        return (j - obj[3]) / delta
+        return (j - obj['rightBound']) / delta
 
 # Retorna velocidade vertical do asteroide
 def verticalSpeed(obs, obj, delta):
-  color = obj[0]
-  for i in range(obj[1] - 5, obj[2] + 6):
-    for j in range(obj[3] - 3, obj[4] + 4):
+  color = obj['color']
+  for i in range(obj['upperBound'] - 5, obj['lowerBound'] + 6):
+    for j in range(obj['rightBound'] - 3, obj['leftBound'] + 4):
       if np.array_equal(obs[i][j], color):
-        return (i - obj[1]) / delta
+        return (i - obj['upperBound']) / delta
 
 # Retorna a velocidade de cada asteroide da tela
 # Entrada:
@@ -30,11 +30,12 @@ def verticalSpeed(obs, obj, delta):
 #   vSPD: velocidade vertical do steroide
 def asteroidsSpeed(iniPos, obs, delta):
   astsSpeed = []
-  for obj in iniPos:
-    color = obj[0]
+  for k, v in iniPos:
+    print(iniPos[obj])
+    color = v['color']
 
-    hSPD = horizontalSpeed(obs, obj, delta)
-    vSPD = verticalSpeed(obs, obj, delta)
+    hSPD = horizontalSpeed(obs, v, delta)
+    vSPD = verticalSpeed(obs, v, delta)
 
     astsSpeed.append((color, hSPD, vSPD))
 

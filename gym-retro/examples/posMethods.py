@@ -83,4 +83,4 @@ def findInitialObjects(obs):
           objsPos.append(asteroidBFS(obs, visited, i, j))
 
   return objsPos
-
+  
