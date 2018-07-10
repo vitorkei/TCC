@@ -2,6 +2,11 @@ import time
 import numpy as np
 import queue
 
+SCREEN_UPPER_LIMIT = 18
+SCREEN_LOWER_LIMIT = 194
+SCREEN_LEFT_LIMIT  = 8
+SCREEN_RIGHT_LIMIT = 159
+
 # Entrada:
 #    obs: observação do ambiente (matriz)
 #    visited: define pixels já visitados (matriz)
@@ -47,13 +52,14 @@ def asteroidBFS(obs, visited, i, j):
         q.put((m-1, n))
         if m-1 < upperBound:
           upperBound -= 1
-
-    if not visited[m][n+1]: # pixel a direita
-      visited[m][n+1] = True
-      if np.array_equal(obs[m][n+1], color):
-        q.put((m, n+1))
-        if n+1 > rightBound:
-          rightBound += 1
+    
+    if n < SCREEN_RIGHT_LIMIT:
+      if not visited[m][n+1]: # pixel a direita
+        visited[m][n+1] = True
+        if np.array_equal(obs[m][n+1], color):
+          q.put((m, n+1))
+          if n+1 > rightBound:
+            rightBound += 1
   
   return {'color': color,
           'upperBound': upperBound,

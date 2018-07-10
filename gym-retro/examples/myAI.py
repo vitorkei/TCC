@@ -46,30 +46,30 @@ if __name__ == "__main__":
     obs, rew, done, info = env.step(action)
     t += 1
     env.render()
-    #time.sleep(0.01)
+    time.sleep(0.01)
 
     totrew += rew
-    """
-    if t % 10 == 0:
-      astsSPD = spd.asteroidsSpeed(asteroids.get_asteroids(), obs, t)
-      print("\nt =", t)
-      for ast in astsSPD:
-        print("color:", ast[0])
-        print("hSPD =", ast[1])
-        print("vSPD =", ast[2])
-      time.sleep(3)
-    """
+#    if t % 10 == 0:
+#      astsSPD = spd.asteroidsSpeed(asteroids.get_asteroids(), obs, t)
+#      print("\nt =", t)
+#      for ast in astsSPD:
+#        print("color:", ast[0])
+#        print("hSPD =", ast[1])
+#        print("vSPD =", ast[2])
 
     if t % 2 == 0:
+      print("t =", t, "\n")
+
       print("findInitialObjects(obs):")
       for elem in pos.findInitialObjects(obs):
         print(elem)
 
       print("\nAsteroids.update_pos(obs):")
       asteroids.update_pos(obs)
-      for elem in asteroids.get_asteroids():
-        print(asteroids.get_asteroids()[elem])
-      print()
+      #for k, elem in asteroids.get_asteroids().items():
+        #print(asteroids.get_asteroids()[elem])
+        #print(k, "-", elem)
+      #print()
       print("==============")
       time.sleep(3)
 

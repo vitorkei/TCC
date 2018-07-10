@@ -98,3 +98,22 @@ Se o tempo for inicializado como t = 0, os asteroides são
   renderizados quando t%2==0 (t=0, t=2, t=4, ...) enquanto
   a nave e os tiros são renderizados quando t%2==1 (t=1, t=3,
   t=5, ...)
+
+Não sei se já anotei isso mais acima, mas há a possibilidade de haver
+  diversos asteroids com a mesma cor, o que torna armazená-los pela cor
+  ser inviável. Felizmente, no dicionário que armazena a cor e posição de
+  cada asteroide, cada asteroide já é identificado por um número ID tal
+  que ID = 0, 1, 2, ...
+
+Depois de deixar o jogo rodando com apenas o findInitialAsteroids(obs)
+  sendo chamado, na segunda fase, percebi que a velocidade dos asteroids
+  é a mesma que na fase 1. Por hora, vou concluir que a velocidade dos
+  asteroids é sempre a mesma
+
+Preciso testar se o update_pos() está funcionando
+
+update_pos() foi alterado de forma que sempre consegue pegar os novos
+  limiter superior, inferior, esquerdo e direito, mesmo que eles deem
+  volta na tela. Por outro lado, o for que busca para onde o asteroide
+  foi não funciona, então preciso pensar em outro método para fazer a
+  busca. Está tarde por hoje, então deixo para fazer isso amanhã

@@ -22,7 +22,7 @@ def verticalSpeed(obs, obj, delta):
 # Retorna a velocidade de cada asteroide da tela
 # Entrada:
 #   iniPos: posição inicial dos asteroides (primeira observação)
-#   obs: posição dos objetos no momento obersvado
+#   obs: posição dos objetos no momento observado
 #   delta: tempo passado entre iniPos e obs
 # Saída: lista de tuplas tais que seus elementos são
 #   color: cor que identifica o asteroide
