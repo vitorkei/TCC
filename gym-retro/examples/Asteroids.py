@@ -51,45 +51,46 @@ class Asteroids:
       riB = (riB + 3) % SCREEN_WIDTH # step2
       riB += SCREEN_LEFT_LIMIT # step3
 
-      print()
-      print(color, "<novo> - <velho>")
-      print("upB, loB, leB, riB")
-      print(upB, "-", elem['upperBound'], ";",
-            loB, "-", elem['lowerBound'], ";",
-            leB, "-", elem['leftBound'], ";",
-            riB, "-", elem['rightBound'])
-
       # alteração VERTICAL/HORIZONTAL
-      # utilizar um for aninhado como mais embaixo
-      # não funciona, pois, se uma volta na tela for
-      # dada, o i (ou j) não é inicializado, porque vai
-      # de 194 até 45, por exemplo, o que significa que
-      # o for sequer começa
+      i = upB
+      while i != loB:
+        j = leB
+        while j != riB:
+          if np.array_equal(obs[i][j], color):
+            diff = i - elem['upperBound']
+            print("v_diff =", diff)
+            elem['upperBound'] = i
+            elem['lowerBound'] = (loB - SCREEN_UPPER_LIMIT + SCREEN_HEIGHT - 3 + diff) % SCREEN_HEIGHT + SCREEN_UPPER_LIMIT
+            break
+          j -= SCREEN_LEFT_LIMIT
+          j = (j + SCREEN_WIDTH + 1) % SCREEN_WIDTH
+          j += SCREEN_LEFT_LIMIT
+        if np.array_equal(obs[i][j], color):
+          break
+        i -= SCREEN_UPPER_LIMIT
+        i = (i + SCREEN_HEIGHT + 1) % SCREEN_HEIGHT
+        i += SCREEN_UPPER_LIMIT
 
-    #  if self.spd[0] < 0: # se o asteroid estiver subindo
-    #    if elem['upperBound'] - SCREEN_UPPER_LIMIT <= 1:
-    #      upB = SCREEN_LOWER_LIMIT
-    #      loB = elem['lowerBound']
-    #  elif self.spd[0] > 0: # se o asteroid estiver descendo
-    #    if SCREEN_LOWER_LIMIT - elem['lowerBound'] <= 1:
-    #      loB = SCREEN_UPPER_LIMIT
-    #      upB = elem['upperBound']
-    #  else: # ainda não se sabe para onde vai
-    #    upB = elem['upperBound']
-    #    loB = elem['lowerBound']
-
-    #  if self.spd[1] < 0: # se asteroid estiver movendo <-
-    #    if elem['leftBound'] - SCREEN_LEFT_LIMIT <= 1:
-    #      leB = SCREEN_RIGHT_LIMIT
-    #      riB = elem['rightBound']
-    #  elif self.spd[1] > 0: # se asteroid estiver movendo ->
-    #    if SCREEN_RIGHT_LIMIT - elem['rightBound'] <= 1:
-    #      riB = SCREEN_LEFT_LIMIT
-    #      leB = elem['leftBound']
-    #  else: # ainda não se sabe para onde vai
-    #    leB = elem['leftBound']
-    #    riB = elem['rightBound']
-
+      j = leB
+      while j != riB:
+        i = upB
+        while i != loB:
+          if np.array_equal(obs[i][j], color):
+            diff = j - elem['leftBound']
+            print("h_diff =", diff)
+            elem['leftBound'] = j
+            elem['rightBound'] = (riB - SCREEN_LEFT_LIMIT + SCREEN_WIDTH - 3 + diff) % SCREEN_WIDTH + SCREEN_LEFT_LIMIT
+            break
+          i -= SCREEN_UPPER_LIMIT
+          i = (i + SCREEN_HEIGHT + 1) % SCREEN_HEIGHT
+          i += SCREEN_UPPER_LIMIT
+        if np.array_equal(obs[i][j], color):
+          break
+        j -= SCREEN_LEFT_LIMIT
+        j = (j + SCREEN_WIDTH + 1) % SCREEN_WIDTH
+        j += SCREEN_LEFT_LIMIT
+      print(elem)
+    print()
     #  # alteração VERTICAL
     #  # TODO Não considera o caso de o asteroide
     #  # ser destruído

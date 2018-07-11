@@ -117,3 +117,8 @@ update_pos() foi alterado de forma que sempre consegue pegar os novos
   volta na tela. Por outro lado, o for que busca para onde o asteroide
   foi não funciona, então preciso pensar em outro método para fazer a
   busca. Está tarde por hoje, então deixo para fazer isso amanhã
+
+update_pos() está quase funcionando. Se rodar o myAi.py por um tempo
+  e comprara a saída dos findInitialPos() com o update_pos(), há uma
+  diferença quando os asteróides dão a volta na tela. update_pos()
+  parece estar errado e tenho que descobrir o que é
