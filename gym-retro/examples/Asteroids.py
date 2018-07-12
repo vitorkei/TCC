@@ -60,6 +60,7 @@ class Asteroids:
             diff = i - elem['upperBound']
             print("v_diff =", diff)
             elem['upperBound'] = i
+            print("loB =", loB, ";", "S_U_L =", SCREEN_UPPER_LIMIT, ";", "S_H =", SCREEN_HEIGHT, ";", "diff =", diff)
             elem['lowerBound'] = (loB - SCREEN_UPPER_LIMIT + SCREEN_HEIGHT - 3 + diff) % SCREEN_HEIGHT + SCREEN_UPPER_LIMIT
             break
           j -= SCREEN_LEFT_LIMIT
@@ -89,7 +90,7 @@ class Asteroids:
         j -= SCREEN_LEFT_LIMIT
         j = (j + SCREEN_WIDTH + 1) % SCREEN_WIDTH
         j += SCREEN_LEFT_LIMIT
-      print(elem)
+      print(elem, "\n")
     print()
     #  # alteração VERTICAL
     #  # TODO Não considera o caso de o asteroide

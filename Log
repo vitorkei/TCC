@@ -1,124 +1,153 @@
-Coordenadas Sample.txt é um arquivo com o formato
-  matricial de uma tela do jogo. printSample.py,
-  da mesma pasta, imprimi coordenadasSample.txt
-  em formato de texto, identificando pontuação
-  e asteroides rosa e azul claro
+Início~15/Maio/2018
+  Coordenadas Sample.txt é um arquivo com o formato
+    matricial de uma tela do jogo. printSample.py,
+    da mesma pasta, imprimi coordenadasSample.txt
+    em formato de texto, identificando pontuação
+    e asteroides rosa e azul claro
 
-Descoberta: a tela impressa é baseada em uma matriz
-  com as cores e coordenads de cada objeto presente
-  na tela impressa. Ou seja, não existem matrizes
-  (variáveis do tipo observation ou obs pelos nomes
-  dados no programa que roda o jogo) que tenham
-  tanto a nave e os tiros quanto os asteroides,
-  apesar de suas respectivas posições serem guardadas
-  na memória para o jogo progredir
+  Descoberta: a tela impressa é baseada em uma matriz
+    com as cores e coordenads de cada objeto presente
+    na tela impressa. Ou seja, não existem matrizes
+    (variáveis do tipo observation ou obs pelos nomes
+    dados no programa que roda o jogo) que tenham
+    tanto a nave e os tiros quanto os asteroides,
+    apesar de suas respectivas posições serem guardadas
+    na memória para o jogo progredir
 
-Ideias para features do approximate Q-learning:
-  -Dentro de um certo raio em volta da nave, se houver
-   algum asteroide, calcular a sua direção de movimento
-   e reagir de acordo. Seria necessário criar um "círculo"
-   de detecção em volta da nave em que apenas dentro dele seria
-   verificado (pelo menos por um tempo - não sei se os
-   asteroides vão ficando mais rápidos). Caso algum
-   asteroide fosse detectado, ver onde está em um quadro,
-   ver onde ele está na próxima vez que aparecer (maldito
-   flickering do emulador) e, caso esteja vindo na direção
-   da nave, sair do caminho ou atirar (a decidir)
+  Ideias para features do approximate Q-learning:
+    -Dentro de um certo raio em volta da nave, se houver
+     algum asteroide, calcular a sua direção de movimento
+     e reagir de acordo. Seria necessário criar um "círculo"
+     de detecção em volta da nave em que apenas dentro dele seria
+     verificado (pelo menos por um tempo - não sei se os
+     asteroides vão ficando mais rápidos). Caso algum
+     asteroide fosse detectado, ver onde está em um quadro,
+     ver onde ele está na próxima vez que aparecer (maldito
+     flickering do emulador) e, caso esteja vindo na direção
+     da nave, sair do caminho ou atirar (a decidir)
 
-Stella (emulador de Atari):
-  -Emulador Stella de Atari 2600 está funcionando, mas precisa
-   apertar F2 no começo de toda partida para começar de verdade
+  Stella (emulador de Atari):
+    -Emulador Stella de Atari 2600 está funcionando, mas precisa
+     apertar F2 no começo de toda partida para começar de verdade
 
-info: no caso do Asteroids.v0, é a quantidade de vida que a
-  nave tem
+================================
 
-reward: recompensa recebida pela ação. Mesmo que uma ação não
-  seja tomada, o valor é retornado quando um asteroide é
-  destruído
+17/Maio/2018
+  info: no caso do Asteroids.v0, é a quantidade de vida que a
+    nave tem
 
-Curiosamente, quando a nave toca em um asteroide, o asteroide
-  é destruído e a nave recebe a recompensa por isso. Porém,
-  ela também perde, e o info recebido nessa atualização é
-  da quantidade de vida que a nave tinha no momento que
-  encostou no asteroide e não depois. A atualização da
-  quantidade de vidas restantes ocorre alguns passos
-  depois apenas
+  reward: recompensa recebida pela ação. Mesmo que uma ação não
+    seja tomada, o valor é retornado quando um asteroide é
+    destruído
 
-Tentar usar o Gym Retro para ver se é mais fácil
-  link: https://github.com/openai/retro
+  Curiosamente, quando a nave toca em um asteroide, o asteroide
+    é destruído e a nave recebe a recompensa por isso. Porém,
+    ela também perde, e o info recebido nessa atualização é
+    da quantidade de vida que a nave tinha no momento que
+    encostou no asteroide e não depois. A atualização da
+    quantidade de vidas restantes ocorre alguns passos
+    depois apenas
 
-ROM do Asteroids transferida para uma pasta 'ROMs' da
-  pasta gym-retro
+  Tentar usar o Gym Retro para ver se é mais fácil
+    link: https://github.com/openai/retro
 
-Arquivo da pasta ~/gym-retro/examples/ alterado para
-  renderizar a tela todos os frames, de forma que é possível
-  visualizar a nave e os asteroides (continuam aparecendo em
-  frames intercalados), bem como colocado uma pausa entre
-  frames para ser possível visualizar e entender o que está
-  acontecendo
+  ROM do Asteroids transferida para uma pasta 'ROMs' da
+    pasta gym-retro
 
-Adicionado um .sh que roda o random_agent.py mais facilmente
-  (e para me ajudar a não esquecer como faz, já que eu gastei
-  alguns minutos tentando lembrar)
+  Arquivo da pasta ~/gym-retro/examples/ alterado para
+    renderizar a tela todos os frames, de forma que é possível
+    visualizar a nave e os asteroides (continuam aparecendo em
+    frames intercalados), bem como colocado uma pausa entre
+    frames para ser possível visualizar e entender o que está
+    acontecendo
 
-A variável info recebida a cada step é do tipo dict e armazena
-  dois valores: as vidas (que, por algum motivo, é 16 vezes o
-  número que aparece na tela - ou seja, 4 vidas na tela = 64
-  vidas em info) e a pontuação total, só que dividida por 10.
-  A tela provavelmente mostra a pontuação multiplicada por 10
-  para dar a sensação de que tem muitos pontos.
+================================
 
-Considerando que a tela é uma matriz de 210, 160, 3, sendo 210
-  o número de pixas da altura, 160 o número de pixels da
-  largura e 3 é o número de cores (RGB) que cada pixel assume,
-  sendo que cada um desses 3 números estão no intervalo
-  [0, 255], o espaço efetivo que os asteroides e a nave estão
-  (ou seja, desconsiderando bordas, espaço onde fica a
-  pontuação e vida), é nos intervalos (indo de 0 a 219, 0 a 
-  159 e 0 a 2):
-  Altura: [18, 194]
-  Largura: [8, 159]
-  Em outras palavras, não preciso me preocupar com as
-  primeiras 18 linhas (0 a 17), últimas 15 linhas
-  (195 a 209) e as primeiras 8 colunas (0 a 7), pois
-  é garantido que não haverá pixels dos asteroides
-  nem da nave nesses espaços.
+28/Maio/2018
+  Adicionado um .sh que roda o random_agent.py mais facilmente
+    (e para me ajudar a não esquecer como faz, já que eu gastei
+    alguns minutos tentando lembrar)
 
-Função que realiza uma BFS para encontrar os tamanhos e posições
-  iniciais dos asteroides (considerando-os como retângulos e
-  retornando os limites superior, inferior, esquerdo e direito
-  desse retângulo) funcionando.
+  A variável info recebida a cada step é do tipo dict e armazena
+    dois valores: as vidas (que, por algum motivo, é 16 vezes o
+    número que aparece na tela - ou seja, 4 vidas na tela = 64
+    vidas em info) e a pontuação total, só que dividida por 10.
+    A tela provavelmente mostra a pontuação multiplicada por 10
+    para dar a sensação de que tem muitos pontos.
 
-A função env.render() só altera o que é impresso na tela quando
-  env.reset() ou env.step(action) é chamado. Se o env.render()
-  for chamado várias vezes seguidas sem nenhum desses métodos
-  for chamado, a tela não muda
+================================
 
-Se o tempo for inicializado como t = 0, os asteroides são
-  renderizados quando t%2==0 (t=0, t=2, t=4, ...) enquanto
-  a nave e os tiros são renderizados quando t%2==1 (t=1, t=3,
-  t=5, ...)
+07/Jun/2018
+  Considerando que a tela é uma matriz de 210, 160, 3, sendo 210
+    o número de pixas da altura, 160 o número de pixels da
+    largura e 3 é o número de cores (RGB) que cada pixel assume,
+    sendo que cada um desses 3 números estão no intervalo
+    [0, 255], o espaço efetivo que os asteroides e a nave estão
+    (ou seja, desconsiderando bordas, espaço onde fica a
+    pontuação e vida), é nos intervalos (indo de 0 a 219, 0 a 
+    159 e 0 a 2):
+    Altura: [18, 194]
+    Largura: [8, 159]
+    Em outras palavras, não preciso me preocupar com as
+    primeiras 18 linhas (0 a 17), últimas 15 linhas
+    (195 a 209) e as primeiras 8 colunas (0 a 7), pois
+    é garantido que não haverá pixels dos asteroides
+    nem da nave nesses espaços.
 
-Não sei se já anotei isso mais acima, mas há a possibilidade de haver
-  diversos asteroids com a mesma cor, o que torna armazená-los pela cor
-  ser inviável. Felizmente, no dicionário que armazena a cor e posição de
-  cada asteroide, cada asteroide já é identificado por um número ID tal
-  que ID = 0, 1, 2, ...
+================================
 
-Depois de deixar o jogo rodando com apenas o findInitialAsteroids(obs)
-  sendo chamado, na segunda fase, percebi que a velocidade dos asteroids
-  é a mesma que na fase 1. Por hora, vou concluir que a velocidade dos
-  asteroids é sempre a mesma
+09/Jun/2018
+  Função que realiza uma BFS para encontrar os tamanhos e posições
+    iniciais dos asteroides (considerando-os como retângulos e
+    retornando os limites superior, inferior, esquerdo e direito
+    desse retângulo) funcionando.
 
-Preciso testar se o update_pos() está funcionando
+  A função env.render() só altera o que é impresso na tela quando
+    env.reset() ou env.step(action) é chamado. Se o env.render()
+    for chamado várias vezes seguidas sem nenhum desses métodos
+    for chamado, a tela não muda
 
-update_pos() foi alterado de forma que sempre consegue pegar os novos
-  limiter superior, inferior, esquerdo e direito, mesmo que eles deem
-  volta na tela. Por outro lado, o for que busca para onde o asteroide
-  foi não funciona, então preciso pensar em outro método para fazer a
-  busca. Está tarde por hoje, então deixo para fazer isso amanhã
+================================
 
-update_pos() está quase funcionando. Se rodar o myAi.py por um tempo
-  e comprara a saída dos findInitialPos() com o update_pos(), há uma
-  diferença quando os asteróides dão a volta na tela. update_pos()
-  parece estar errado e tenho que descobrir o que é
+22/Jun/2018
+  Se o tempo for inicializado como t = 0, os asteroides são
+    renderizados quando t%2==0 (t=0, t=2, t=4, ...) enquanto
+    a nave e os tiros são renderizados quando t%2==1 (t=1, t=3,
+    t=5, ...)
+
+================================
+
+07~09/Jul/2018
+  Não sei se já anotei isso mais acima, mas há a possibilidade de haver
+    diversos asteroids com a mesma cor, o que torna armazená-los pela cor
+    ser inviável. Felizmente, no dicionário que armazena a cor e posição de
+    cada asteroide, cada asteroide já é identificado por um número ID tal
+    que ID = 0, 1, 2, ...
+
+  Depois de deixar o jogo rodando com apenas o findInitialAsteroids(obs)
+    sendo chamado, na segunda fase, percebi que a velocidade dos asteroids
+    é a mesma que na fase 1. Por hora, vou concluir que a velocidade dos
+    asteroids é sempre a mesma
+
+  Preciso testar se o update_pos() está funcionando
+
+  update_pos() foi alterado de forma que sempre consegue pegar os novos
+    limiter superior, inferior, esquerdo e direito, mesmo que eles deem
+    volta na tela. Por outro lado, o for que busca para onde o asteroide
+    foi não funciona, então preciso pensar em outro método para fazer a
+    busca. Está tarde por hoje, então deixo para fazer isso amanhã
+
+================================
+
+10/Jul/2018
+  update_pos() está quase funcionando. Se rodar o myAi.py por um tempo
+    e comprara a saída dos findInitialPos() com o update_pos(), há uma
+    diferença quando os asteróides dão a volta na tela. update_pos()
+    parece estar errado e tenho que descobrir o que é.
+
+================================
+
+11/Jul/2018
+  update_pos() o problema é que, quando dá uma volta na tela, o diff
+    aumenta ou diminui muito, porque se subtrai o número da linha de
+    cada extremo da tela. Pensando como solucionar esse problema
