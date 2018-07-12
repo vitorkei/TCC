@@ -71,7 +71,7 @@ if __name__ == "__main__":
         #print(k, "-", elem)
       #print()
       print("==============")
-      time.sleep(3)
+      #time.sleep(3)
 
     if rew > 0:
       print("time =", t, "\nReward:", rew, "\n")

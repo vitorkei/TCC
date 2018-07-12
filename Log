@@ -149,5 +149,7 @@ Início~15/Maio/2018
 
 11/Jul/2018
   update_pos() o problema é que, quando dá uma volta na tela, o diff
-    aumenta ou diminui muito, porque se subtrai o número da linha de
-    cada extremo da tela. Pensando como solucionar esse problema
+    aumenta ou diminui muito (diferença de antes para depois),
+    porque se subtrai o número da linha de cada extremo da tela.
+    Pensando como solucionar esse problema.
+    Até o final do dia, não tinha conseguido solucionar ainda

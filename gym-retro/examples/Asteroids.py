@@ -57,11 +57,14 @@ class Asteroids:
         j = leB
         while j != riB:
           if np.array_equal(obs[i][j], color):
+
             diff = i - elem['upperBound']
+
             print("v_diff =", diff)
             elem['upperBound'] = i
             print("loB =", loB, ";", "S_U_L =", SCREEN_UPPER_LIMIT, ";", "S_H =", SCREEN_HEIGHT, ";", "diff =", diff)
             elem['lowerBound'] = (loB - SCREEN_UPPER_LIMIT + SCREEN_HEIGHT - 3 + diff) % SCREEN_HEIGHT + SCREEN_UPPER_LIMIT
+
             break
           j -= SCREEN_LEFT_LIMIT
           j = (j + SCREEN_WIDTH + 1) % SCREEN_WIDTH
@@ -77,10 +80,13 @@ class Asteroids:
         i = upB
         while i != loB:
           if np.array_equal(obs[i][j], color):
+
             diff = j - elem['leftBound']
+
             print("h_diff =", diff)
             elem['leftBound'] = j
             elem['rightBound'] = (riB - SCREEN_LEFT_LIMIT + SCREEN_WIDTH - 3 + diff) % SCREEN_WIDTH + SCREEN_LEFT_LIMIT
+
             break
           i -= SCREEN_UPPER_LIMIT
           i = (i + SCREEN_HEIGHT + 1) % SCREEN_HEIGHT
