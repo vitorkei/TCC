@@ -153,3 +153,24 @@ Início~15/Maio/2018
     porque se subtrai o número da linha de cada extremo da tela.
     Pensando como solucionar esse problema.
     Até o final do dia, não tinha conseguido solucionar ainda
+
+================================
+
+12/Jul/2018
+  update_pos() acabei de descobrir o problema: por algum motivo,
+    existe uma linha de "limbo" em que uma linha do asteróide
+    pode ficar antes de dar a volta na tela (pelo menos por
+    cima/baixo; a velocidade horizontal dos asteróides é
+    muito baixa para eu me importar por hora). Ou seja, apesar
+    de o asteróide se mover 2 linhas a cada aparição (ou seja,
+    uma linha por frame, já que eles aparecem em frames
+    intercalados), se a linha mais de cima do asteróide
+    estiver na linha 18, ele não aparecerá na linha 193 em
+    sua próxima aparição, mas sim na 194. Isso aconteceu
+    nas poucas vezes que verifiquei e ele se movia para cima.
+    O comportamento parece se manter quando o asteróide se
+    move para baixo, mas, nesse caso, ele fica ainda mais tempo
+    sem aparecer. Quando finalmente reaparece na parte de
+    cima da tela, aparece um bloco inteiro do asteróide
+    de uma vez, ficando alguns frames com um pedaço faltando
+    até aparecer.
