@@ -174,3 +174,14 @@ Início~15/Maio/2018
     cima da tela, aparece um bloco inteiro do asteróide
     de uma vez, ficando alguns frames com um pedaço faltando
     até aparecer.
+
+================================
+
+14/Jul/2018
+  update_pos()
+    Definição dos limites de busca pela nova posição do
+    asteróide movidas para a função get_search_bounds();
+    
+    Quando um asteróide é destruído, isso será detectado
+    na primeira frame em que o asteróide aparece após
+    ser destruído.

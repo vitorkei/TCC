@@ -25,32 +25,44 @@ class Asteroids:
   def get_asteroids(self):
     return self.pos
 
+  # Retorna o limite em volta do asteroide em
+  # que será buscada a nova posição do asteroide
+  def get_search_bounds(self, asteroid, delta):
+    upB = asteroid['upperBound'] - SCREEN_UPPER_LIMIT # step1
+    upB += SCREEN_HEIGHT - delta # step2
+    upB = upB % SCREEN_HEIGHT # step3
+    upB += SCREEN_UPPER_LIMIT # step4
+
+    loB = asteroid['lowerBound'] - SCREEN_UPPER_LIMIT # step1
+    loB = (loB + delta + 1) % SCREEN_HEIGHT # step2
+    loB += SCREEN_UPPER_LIMIT # step3
+
+    leB = asteroid['leftBound'] - SCREEN_LEFT_LIMIT # step1
+    leB += SCREEN_WIDTH - delta # step2
+    leB = leB % SCREEN_WIDTH # step3
+    leB += SCREEN_LEFT_LIMIT # step4
+
+    riB = asteroid['rightBound'] - SCREEN_LEFT_LIMIT # step1
+    riB = (riB + delta + 1) % SCREEN_WIDTH # step2
+    riB += SCREEN_LEFT_LIMIT # step3
+
+    return upB, loB, leB, riB
+  
+  def get_smaller_asteroids(self, obs, old_asteroid):
+    pass 
+
   # Atualiza a posição dos asteroides
   # Precisa ser chamada em todos os frames
   # que os asteroides aparecem (frames pares)
   def update_pos(self, obs):
+    destroyed_asteroids = []
     for ID, elem in self.pos.items():
       color = elem['color']
     
       # Determinação dos novos limites. Vide documentação
-      upB = elem['upperBound'] - SCREEN_UPPER_LIMIT # step1
-      upB += SCREEN_HEIGHT - 2 # step2
-      upB = upB % SCREEN_HEIGHT # step3
-      upB += SCREEN_UPPER_LIMIT # step4
+      upB, loB, leB, riB = self.get_search_bounds(elem, 2)
 
-      loB = elem['lowerBound'] - SCREEN_UPPER_LIMIT # step1
-      loB = (loB + 3) % SCREEN_HEIGHT # step2
-      loB += SCREEN_UPPER_LIMIT # step3
-
-      leB = elem['leftBound'] - SCREEN_LEFT_LIMIT # step1
-      leB += SCREEN_WIDTH - 2 # step2
-      leB = leB % SCREEN_WIDTH # step3
-      leB += SCREEN_LEFT_LIMIT # step4
-
-      riB = elem['rightBound'] - SCREEN_LEFT_LIMIT # step1
-      riB = (riB + 3) % SCREEN_WIDTH # step2
-      riB += SCREEN_LEFT_LIMIT # step3
-
+      asteroid_destroyed = True
       # alteração VERTICAL/HORIZONTAL
       i = upB
       while i != loB:
@@ -59,12 +71,12 @@ class Asteroids:
           if np.array_equal(obs[i][j], color):
 
             diff = i - elem['upperBound']
+            #print("v_diff =", diff)
 
-            print("v_diff =", diff)
             elem['upperBound'] = i
-            print("loB =", loB, ";", "S_U_L =", SCREEN_UPPER_LIMIT, ";", "S_H =", SCREEN_HEIGHT, ";", "diff =", diff)
             elem['lowerBound'] = (loB - SCREEN_UPPER_LIMIT + SCREEN_HEIGHT - 3 + diff) % SCREEN_HEIGHT + SCREEN_UPPER_LIMIT
-
+            
+            asteroid_destroyed = False
             break
           j -= SCREEN_LEFT_LIMIT
           j = (j + SCREEN_WIDTH + 1) % SCREEN_WIDTH
@@ -82,11 +94,12 @@ class Asteroids:
           if np.array_equal(obs[i][j], color):
 
             diff = j - elem['leftBound']
+            #print("h_diff =", diff)
 
-            print("h_diff =", diff)
             elem['leftBound'] = j
             elem['rightBound'] = (riB - SCREEN_LEFT_LIMIT + SCREEN_WIDTH - 3 + diff) % SCREEN_WIDTH + SCREEN_LEFT_LIMIT
 
+            asteroid_destroyed = False
             break
           i -= SCREEN_UPPER_LIMIT
           i = (i + SCREEN_HEIGHT + 1) % SCREEN_HEIGHT
@@ -96,37 +109,14 @@ class Asteroids:
         j -= SCREEN_LEFT_LIMIT
         j = (j + SCREEN_WIDTH + 1) % SCREEN_WIDTH
         j += SCREEN_LEFT_LIMIT
-      print(elem, "\n")
+      
+      if asteroid_destroyed:
+        print ("DESTROYED asteroid(", ID, ") =", elem, "\n");
+        destroyed_asteroids.append(ID)
+      else:
+        print(ID, "-", elem, "\n")
     print()
-    #  # alteração VERTICAL
-    #  # TODO Não considera o caso de o asteroide
-    #  # ser destruído
-    #  for i in range(upB-2, loB+3):
-    #    for j in range(leB-2, riB + 3):
-    #      if np.array_equal(obs[i][j], color):
-    #        diff = i - elem['upperBound']
-    #        print("v_diff =", diff)
-    #        elem['upperBound'] += diff
-    #        elem['lowerBound'] += diff
-    #        if self.spd[0] == 0:
-    #          self.spd[0] = diff
-    #        break
-    #    if np.array_equal(obs[i][j], color):
-    #      break
-    # 
-    #  # alteração HORIZONTAL
-    #  # TODO não considera o caso de o asteroide
-    #  # ser destruído
-    #  for j in range(leB-2, riB+3):
-    #    for i in range(upB-2, loB+3):
-    #      if np.array_equal(obs[i][j], color):
-    #        diff = j - elem['leftBound']
-    #        print("h_diff =", diff)
-    #        elem['rightBound'] += diff
-    #        elem['leftBound'] += diff
-    #        if self.spd[1] == 0:
-    #          self.spd[1] = diff
-    #        break
-    #    if np.array_equal(obs[i][j], color):
-    #      break
+
+    for i in destroyed_asteroids:
+      del self.pos[i]
 
