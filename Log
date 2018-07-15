@@ -185,3 +185,59 @@ Início~15/Maio/2018
     Quando um asteróide é destruído, isso será detectado
     na primeira frame em que o asteróide aparece após
     ser destruído.
+
+=================
+
+15/Jul/2018
+  update_pos()
+    Em um teste que fiz hoje, descobri que alguns asteróides
+    desaparecem quando um é destruído.
+    A situação em que ocorreu foi: quando um asteróide pequeno
+    foi destruído (chamaremos os iniciais de grande, intermediários
+    de médios, e finais de pequenos), o outro asteróide pequeno
+    e um grande sumiram da tela no frame em que ocorreu a
+    destruição. Isso causou comportamente incorreto da IA: como
+    ela verifica frame a frame quais asteróides estão na tela,
+    esse sumiço fez ela assumir que o asteróide foi destruído.
+    
+    Vou tentar resolver o problema acima fazendo a busca
+    pelo asteróide supostamente destruído uma segunda vez 
+    em sua área para ver se realmente foi destruído.
+    A atualização de espaço do asteróide será feita
+    independente de ele ter sido destruído ou não, pois, se não
+    tiver sido, a IA ainda saberá onde ele está.
+    O corner case de haver mais um asteróide da mesma cor mais
+    ou menos na mesma região persiste, mas espero que isso
+    seja algo que a IA aprenda a lidar, da mesma forma
+    que seres humanos
+    
+    Acho que ainda terei que olhar o código de novo para ter
+    certeza de que não deixei passar nada. Uma ideia foi
+    aumentar o intervalo de verificação (ao invés de a cada 2
+    frames, que é quando os asteróides aparecem, fazer a cada
+    4 frames), mas, mesmo não acontecendo o problema, me toquei
+    que ele poderia simplesmente acontecer nos novos instantes
+    em que a busca pela nova posição do asteróide é feita.
+    Portanto, decidi simplesmente pular a primeira busca pela
+    nova posição dos asteróides após alguma recompensa (positiva
+    ou negativa) ser recebida (flag got_reward)
+    
+    Acho que ainda terei que olhar o código de novo para ter
+    certeza de que não deixei passar nada. Uma ideia foi
+    aumentar o intervalo de verificação (ao invés de a cada 2
+    frames, que é quando os asteróides aparecem, fazer a cada
+    4 frames), mas, mesmo não acontecendo o problema, me toquei
+    que ele poderia simplesmente acontecer nos novos instantes
+    em que a busca pela nova posição do asteróide é feita.
+    
+    Portanto, decidi simplesmente pular a primeira busca pela
+    nova posição dos asteróides após alguma recompensa (positiva
+    ou negativa) ser recebida (flag got_reward). Porém, ainda
+    preciso atualizar a área de busca do asteróide para isso...
+
+    Feito! Até que algum problema novo por causa do maldito emulador
+    ocorra de novo, a busca pelos asteróides deve estar funcionando
+    corretamente. Próximo passo é ele buscar pelos asteróides
+    menores que surgem após a destruíção dos asteróides. Pode
+    ser um pouco complicado já que eles podem aparecer da exata mesma
+    cor que o asteróide que os originou
