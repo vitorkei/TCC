@@ -75,18 +75,21 @@ if __name__ == "__main__":
 
         print("\nAsteroids.update_pos(obs):")
         asteroids.update_pos(obs, delta)
-        if delta == 4:
-          delta = 2
+       
+        # Vide Log (16/Jul/2018) para entender esta verificação
+        if delta > args.delta:
+          delta = args.delta
+
         #for k, elem in asteroids.get_asteroids().items():
           #print(asteroids.get_asteroids()[elem])
         # print(k, "-", elem)
         #print()
         print("==============")
-        time.sleep(1.5)
+        #time.sleep(1.5)
       else:
         print("got_reward = True!! Setando para False...\n")
         got_reward = False
-        delta = 4
+        delta += args.delta
 
     if rew > 0:
       print("time =", t, "\nReward:", rew, "\n")

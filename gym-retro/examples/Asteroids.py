@@ -3,6 +3,7 @@ import speedMethods as sM
 import auxMethods as aM
 import numpy as np
 import time
+import queue
 
 SCREEN_UPPER_LIMIT = 18
 SCREEN_LOWER_LIMIT = 195
@@ -17,6 +18,7 @@ class Asteroids:
     iniPos = pM.findInitialObjects(obs)
 
     self.count = len(iniPos)
+    print("num ast =", self.count)
     self.pos = dict()
 
     for i in range(self.count):
@@ -48,11 +50,40 @@ class Asteroids:
     riB += SCREEN_LEFT_LIMIT # step3
 
     return upB, loB, leB, riB
-  
-  def get_smaller_asteroids(self, obs, old_asteroid):
-    upB, loB, leB, riB = self.get_search_bounds(old_asteroid, 5)
+ 
+  # Quando um asteróide é destruído, é preciso ver
+  # a posição dos asteróides filhos se é que algum surgiu
+  def update_asteroids(self, obs, old_asteroid):
+    q = queue.Queue()
 
-    pass 
+    # Limites da área em que os "asteróides filhos" serão procurados
+    ID  = old_asteroid[0]
+    upB = old_asteroid[1]
+    loB = old_asteroid[2]
+    leB = old_asteroid[3]
+    riB = old_asteroid[4]
+    
+    visited = np.full((210, 160), False)
+
+    objsPos = []
+
+    # Encontra os asteróides filhos
+    # Vide Log (16/Jul/2018) para mais informações
+    for i in range(upB, loB):
+      for j in range(leB, riB):
+        if not visited[i][j]:
+          if sum(obs[i][j]) > 0:
+            objsPos.append(pM.asteroidBFS(obs, visited, i, j))
+    
+    for child_asteroid in objsPos:
+      print("\nold_asteroid:", self.pos[old_asteroid[0]])
+      self.pos[self.count] = child_asteroid
+      self.pos[self.count]['spd'] = self.pos[ID]['spd']
+      print("child_asteroid:", child_asteroid)
+      self.count += 1
+
+      print("num ast =", self.count)
+
 
   # Atualiza a posição dos asteroides
   # Precisa ser chamada em todos os frames
@@ -116,12 +147,14 @@ class Asteroids:
         j += SCREEN_LEFT_LIMIT
       
       if asteroid_destroyed:
-        print("aaaaaa\n")
-        destroyed_asteroids.append(ID)
+        print("One asteroid destroyed!\n")
+        destroyed_asteroids.append([ID, upB, loB, leB, riB])
+      else:
         print(ID, "-", elem, "\n")
-    print()
+    #print()
 
-    for i in destroyed_asteroids:
-      print("DESTROYED asteroid(", i, ") -", self.pos[i], "\n")
-      del self.pos[i]
-      destroyed_asteroids.remove(i)
+    for d_a in destroyed_asteroids:
+      print("Destroyed asteroids:\n(", d_a[0], ") -", self.pos[d_a[0]], "\nupB:", d_a[1], "; loB:", d_a[2], "; leB:", d_a[3], "; riB:", d_a[4])
+      self.update_asteroids(obs, d_a)
+      del self.pos[d_a[0]]
+      destroyed_asteroids.remove(d_a)

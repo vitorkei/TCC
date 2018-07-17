@@ -241,3 +241,30 @@ Início~15/Maio/2018
     menores que surgem após a destruíção dos asteróides. Pode
     ser um pouco complicado já que eles podem aparecer da exata mesma
     cor que o asteróide que os originou
+
+=================
+
+16/Jul/2018
+  main()
+    quando uma pontuação é feita (um asteróide é destruído), a primeira
+    busca pelas novas posições depois de marcar essa pontuação é pulada.
+    Para compensar a busca é feita em uma área maior de tal forma
+    que é como se a busca pela nova posição tivesse sido feita. Espera-se
+    que isso resolva o problema de a IA achar que um asteróide foi
+    destruído porque o emulador não o mostra quando um outro é destruído
+    em alguns casos.
+
+  A minha esperança é que nos casos em que a IA vir o mesmo asteróide
+  múltiplas vezes pensando que são diferentes é que eles todos sejam
+  destruídos e eliminados da visão da IA ao mesmo tempo, podendo talvez
+  diminuir a eficiência, mas não quebrando completamente;
+
+  posMethods():
+    Acabei de lembrar que preciso arrumar o asteroidBFS() para poder
+    buscar dando voltas na tela, para o caso de a tela inicial de uma
+    fase conter asteróides dando a volta na tela tanto vertical quanto
+    horizontalmente
+  
+  Rodando a IA, percebi que ela tem problema em perceber qual asteróide
+  foi destruído se o asteróide filho tiver a mesma cor que o pai. Está
+  dando uns problemas já na primeira fase

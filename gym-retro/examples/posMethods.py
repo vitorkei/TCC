@@ -33,30 +33,30 @@ def asteroidBFS(obs, visited, i, j):
     m, n = q.get()
 
     if not visited[m+1][n]: # pixel abaixo
-      visited[m+1][n] = True # não olha p/ mesmo pixel preto de novo
       if np.array_equal(obs[m+1][n], color):
+        visited[m+1][n] = True # não olha p/ mesmo pixel preto de novo
         q.put((m+1, n))
         if m+1 > lowerBound:
           lowerBound += 1
 
     if not visited[m][n-1]: # pixel a esquerda
-      visited[m][n-1] = True
       if np.array_equal(obs[m][n-1], color):
+        visited[m][n-1] = True
         q.put((m, n-1))
         if n-1 < leftBound:
           leftBound -= 1
 
     if not visited[m-1][n]: # pixel acima
-      visited[m-1][n] = True
       if np.array_equal(obs[m-1][n], color):
+        visited[m-1][n] = True
         q.put((m-1, n))
         if m-1 < upperBound:
           upperBound -= 1
     
     if n < SCREEN_RIGHT_LIMIT:
       if not visited[m][n+1]: # pixel a direita
-        visited[m][n+1] = True
         if np.array_equal(obs[m][n+1], color):
+          visited[m][n+1] = True
           q.put((m, n+1))
           if n+1 > rightBound:
             rightBound += 1
@@ -69,7 +69,7 @@ def asteroidBFS(obs, visited, i, j):
 
 # Procura todos os objetos na tela (obs) e retorna uma lista deles
 # Entrada:
-#   obs: observação do ambiente (matriz
+#   obs: observação do ambiente (matriz)
 # Saída:
 #   objsPos: lista com a cor, limite inferior, superior, esquerdo e
 #            e direito de cada objeto encontrado; eles são vistos
