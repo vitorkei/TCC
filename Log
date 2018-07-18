@@ -1,3 +1,12 @@
+Este Log serve como um acompanhamento das ideias que tive
+ao longo do desenvolvimento da IA, tanto para poder relembrar
+o que estava pensando caso pause por muito tempo, quanto para
+poder ver como evoluí ao longo do processo. O vocabulário
+utilizado não será formal nem informal demais. Com exceção
+de algumas escolhas de palavras (para não ficar muito feio
+em certos momentos), escrevi o que pensei na hora de fazer
+estas anotações
+
 Início~15/Maio/2018
   Coordenadas Sample.txt é um arquivo com o formato
     matricial de uma tela do jogo. printSample.py,
@@ -277,16 +286,37 @@ Início~15/Maio/2018
     Função asteroidBFS() atualizada para que a busca dê a volta na tela,
     não considerando partes de asteróides separados pelos limites da
     tela do jogo como objetos diferentes.
-    Uma descoberta sobre a forma como o emulador foi feito:
-    -A linha 195 da tela do jogo é uma pela qual os asteróides passam,
-    mas não ficam visíveis
-    -A linha 18 da tela do jogo não mostra nenhum asteróide quando
-    ele dá a volta de baixo para cima, mas aparece se der a volta de
-    cima para baixo. Por causa disso, se um asteróide der a volta na
-    tela ao se mover para cima, a IA enxerga as duas partes como o mesmo;
-    porém, se o asteróide der a volta na tela ao se mover para baixo,
-    por causa dessa linha 18 em que o asteróide não aparece nesse caso
-    específico, as duas metades são consideradas asteróides diferentes.
-    Esse é um caso difícil de tratar pois envolveria armazenar a velocidade
-    e direção de movimento do asteróide, o que acredito que seria muito
-    inconsistente e difícil de implementar
+  Uma descoberta sobre a forma como o emulador foi feito:
+  -A linha 195 da tela do jogo é uma pela qual os asteróides passam,
+  mas não ficam visíveis
+  -A linha 18 da tela do jogo não mostra nenhum asteróide quando
+  ele dá a volta de baixo para cima, mas aparece se der a volta de
+  cima para baixo. Por causa disso, se um asteróide der a volta na
+  tela ao se mover para cima, a IA enxerga as duas partes como o mesmo;
+  porém, se o asteróide der a volta na tela ao se mover para baixo,
+  por causa dessa linha 18 em que o asteróide não aparece nesse caso
+  específico, as duas metades são consideradas asteróides diferentes.
+  Esse é um caso difícil de tratar pois envolveria armazenar a velocidade
+  e direção de movimento do asteróide, o que acredito que seria muito
+  inconsistente e difícil de implementar.
+  -Parece, na verdade, que se há, por exemplo, apenas 5 linhas de um
+  asteróide na parte de cima da tela, essas 5 linhas simplesmente não
+  aparecem. Ou seja, quando um asteróide está dando a volta de cima
+  para baixo, chega uma hora que um pedaço de sua parte de baixo desaparece
+  da mesma forma que, quando um asteróide está dando a volta de baixo para
+  cima, leva um tempo até sua parte de baixo aparecer na parte de cima
+  da tela
+
+  Asteroids.py
+    Função update_pos() não possui mais um comportamento diferente quando
+    não encontra um asteróide na busca de sua nova posição. A nova ideia é:
+    quando um asteróide é destruído (e, por consequência, uma recompensa é
+    recebida), uma nova busca é feita na tela inteira de novo para ver quais
+    asteróides existem e onde estão. Isso significa que o self.pos deverá
+    ser atualizado
+
+  Finalizando pelo dia: deixei a nave fazendo seus movimento pseudo-aleatórios
+  até chegar na segunda fase do jogo. Não cheguei a testar se a IA estava
+  sempre conseguindo acompanhar o movimento dos asteroides. Acho que é algo
+  bom para se verificar amanhã. Depois disso, o próximo passo é ela enxergar
+  onde a própria nave está, ângulo para onde está virada e etc.

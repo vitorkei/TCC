@@ -8,7 +8,7 @@ import queue
 import sys
 
 import pos_methods as pos
-import spee_methods as spd
+import speed_methods as spd
 import aux_methods as aux
 import Asteroids
 
@@ -23,7 +23,7 @@ parser.add_argument('--scenario', '-s', default='scenario')
 parser.add_argument('--record', '-r', action='store_true')
 parser.add_argument('--verbose', '-v', action='count', default=1)
 parser.add_argument('--quiet', '-q', action='count', default=0)
-parser.add_argument("delta", type=int, default=4)
+parser.add_argument("delta", type=int) # intervalo de frames entre cada busca pela nova posição dos asteróides
 
 args = parser.parse_args()
 env = retro.make('Asteroids-Atari2600', args.state or retro.STATE_DEFAULT, scenario=args.scenario, record=args.record)
@@ -71,11 +71,13 @@ if __name__ == "__main__":
 #        print("vSPD =", ast[2])
 
     if t % args.delta == 0:
+      print("==============")
       print("t =", t, "| Delta =", delta, "\n")
       if next_action == 0:
-        print("find_objects(obs):")
-        for elem in pos.find_objects(obs):
-          print(elem)
+        if t > 3166:
+          print("find_objects(obs):")
+          for elem in pos.find_objects(obs):
+            print(elem)
 
         print("\nAsteroids.update_pos(obs):")
         asteroids.update_pos(obs, delta)
@@ -84,20 +86,35 @@ if __name__ == "__main__":
           #print(asteroids.get_asteroids()[elem])
         # print(k, "-", elem)
         #print()
-        print("==============")
-        #time.sleep(1.5)
+        #time.sleep(2)
+        if t > 3166:
+          input("pressione enter para o próximo passo...")
+
       elif next_action == 1:
-        find_objects(obs)
-        print("got_reward = True!! Setando para False...\n")
-        got_reward = False
-        delta += args.delta
+        print("next_action == 1\nasteroid.update_asteroids(obs):")
+        asteroids.update_asteroids(obs)
+        for ID, elem in asteroids.get_asteroids().items():
+          print(ID, "-", elem)
+
+        print("find_objects(obs):")
+        for elem in pos.find_objects(obs):
+          print(elem)
+        #print(asteroids.get_asteroids())
+        next_action = 0
+        print("next_action = 0\n")
+        #delta += args.delta
+
+      elif next_action == 2:
+        print("next_action == 2")
+        next_action = 1
+        print("next_action = 1\n")
 
     if rew > 0:
       print("time =", t, "\nReward:", rew, "\n")
-      got_reward = True
+      next_action = 2
     elif rew < 0:
       print("time =", t, "\nPenalty:", rew, "\n")
-      got_reward = True
+      next_action = 2
 
     if done:
       env.render()

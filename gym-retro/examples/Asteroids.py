@@ -1,6 +1,6 @@
-import posMethods as pM
-import speedMethods as sM
-import auxMethods as aM
+import pos_methods as pm
+import speed_methods as sm
+import aux_methods as am
 import numpy as np
 import time
 import queue
@@ -15,14 +15,14 @@ SCREEN_WIDTH = 152
 
 class Asteroids:
   def __init__(self, obs):
-    iniPos = pM.find_objects(obs)
+    ini_pos = pm.find_objects(obs)
 
-    self.count = len(iniPos)
+    self.count = len(ini_pos)
     #print("num ast =", self.count)
     self.pos = dict()
 
     for i in range(self.count):
-      self.pos[i] = iniPos[i]
+      self.pos[i] = ini_pos[i]
       self.pos[i]['spd'] = [0, 0] # (h_vel, v_vel)
 
   def get_asteroids(self):
@@ -82,8 +82,18 @@ class Asteroids:
       #print("child_asteroid:", child_asteroid)
       #self.count += 1
 
-      #print("num ast =", self.count)
+        #print("num ast =", self.count)
 
+
+  # Vide Log 17/Jul/2018 para mais informações sobre esta função
+  def update_asteroids(self, obs):
+    self.pos = dict()
+    new_pos = pm.find_objects(obs)
+    self.count = len(new_pos)
+    
+    for i in range(self.count):
+      self.pos[i] = new_pos[i]
+      self.pos[i]['spd'] = [0, 0]
 
   # Atualiza a posição dos asteroides
   # Precisa ser chamada em todos os frames
