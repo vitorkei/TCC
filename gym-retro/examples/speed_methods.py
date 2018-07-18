@@ -4,7 +4,7 @@ import numpy as np
 # dos asteroides
 
 # Retorna velocidade horizontal do asteroide
-def horizontalSpeed(obs, obj, delta):
+def horizontal_speed(obs, obj, delta):
   color = obj['color']
   for j in range(obj['leftBound'] - 3, obj['rightBound'] + 4):
     for i in range(obj['upperBound'] - 5, obj['lowerBound'] + 6):
@@ -12,7 +12,7 @@ def horizontalSpeed(obs, obj, delta):
         return (j - obj['rightBound']) / delta
 
 # Retorna velocidade vertical do asteroide
-def verticalSpeed(obs, obj, delta):
+def vertical_speed(obs, obj, delta):
   color = obj['color']
   for i in range(obj['upperBound'] - 5, obj['lowerBound'] + 6):
     for j in range(obj['rightBound'] - 3, obj['leftBound'] + 4):
@@ -28,15 +28,15 @@ def verticalSpeed(obs, obj, delta):
 #   color: cor que identifica o asteroide
 #   hSPD: velocidade horizontal do asteroide
 #   vSPD: velocidade vertical do steroide
-def asteroidsSpeed(iniPos, obs, delta):
-  astsSpeed = []
-  for k, v in iniPos:
-    print(iniPos[obj])
+def asteroidsSpeed(ini_pos, obs, delta):
+  asts_speed = []
+  for k, v in ini_pos:
+    print(ini_pos[obj])
     color = v['color']
 
-    hSPD = horizontalSpeed(obs, v, delta)
-    vSPD = verticalSpeed(obs, v, delta)
+    h_SPD = horizontal_speed(obs, v, delta)
+    v_SPD = vertical_speed(obs, v, delta)
 
-    astsSpeed.append((color, hSPD, vSPD))
+    asts_speed.append((color, h_SPD, v_SPD))
 
-  return astsSpeed
+  return asts_speed

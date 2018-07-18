@@ -7,9 +7,9 @@ import numpy as np
 import queue
 import sys
 
-import posMethods as pos
-import speedMethods as spd
-import auxMethods as aux
+import pos_methods as pos
+import spee_methods as spd
+import aux_methods as aux
 import Asteroids
 
 ########################################################
@@ -49,7 +49,10 @@ if __name__ == "__main__":
   totrew = 0 # total reward
 
   # Vide Log (15/Jul/2018) para entender esta flag
-  got_reward = False
+  next_action = 0 # 0 = update_pos() - faz update_pos()
+                  # 1 = find_objects() - faz find_objects()
+                  # 2 = wait - aguarda uma iteração porque uma
+                  #            recompensa foi recebida recentemente
 
   while True:
     action = env.action_space.sample()
@@ -69,25 +72,22 @@ if __name__ == "__main__":
 
     if t % args.delta == 0:
       print("t =", t, "| Delta =", delta, "\n")
-      if not got_reward:
-        print("findObjects(obs):")
-        for elem in pos.findObjects(obs):
+      if next_action == 0:
+        print("find_objects(obs):")
+        for elem in pos.find_objects(obs):
           print(elem)
 
         print("\nAsteroids.update_pos(obs):")
         asteroids.update_pos(obs, delta)
        
-        # Vide Log (16/Jul/2018) para entender esta verificação
-        if delta > args.delta:
-          delta = args.delta
-
         #for k, elem in asteroids.get_asteroids().items():
           #print(asteroids.get_asteroids()[elem])
         # print(k, "-", elem)
         #print()
         print("==============")
-        time.sleep(1.5)
-      else:
+        #time.sleep(1.5)
+      elif next_action == 1:
+        find_objects(obs)
         print("got_reward = True!! Setando para False...\n")
         got_reward = False
         delta += args.delta

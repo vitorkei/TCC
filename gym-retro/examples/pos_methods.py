@@ -20,7 +20,7 @@ SCREEN_WIDTH = 152
 #    lowerBound: número da linha do pixel mais abaixo (maior)
 #    leftBound: número da coluna do pixel mais a esquerda (menor)
 #    rightbound: número da coluna do pixel mais a direita (maior)
-def asteroidBFS(obs, visited, i, j):
+def asteroid_BFS(obs, visited, i, j):
   q = queue.Queue()
 
   color = obs[i][j].copy()
@@ -116,7 +116,7 @@ def asteroidBFS(obs, visited, i, j):
 # A área extra que não faz realmente parte dos objetos encontrados
 # pode ser vista como uma margem de segurança caso o agente se
 # aproxime demais
-def findObjects(obs):
+def find_objects(obs):
   visited = np.full((210, 160), False)
 
   objsPos = []
@@ -125,7 +125,7 @@ def findObjects(obs):
     for j in range(SCREEN_LEFT_LIMIT, SCREEN_RIGHT_LIMIT+1):
       if not visited[i][j]:
         if sum(obs[i][j]) > 0:
-          objsPos.append(asteroidBFS(obs, visited, i, j))
+          objsPos.append(asteroid_BFS(obs, visited, i, j))
 
   return objsPos
   
