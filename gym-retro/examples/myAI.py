@@ -44,6 +44,7 @@ if __name__ == "__main__":
     print(elem)
 
   print("===============")
+  #time.sleep(2)
 
   totrew = 0 # total reward
 
@@ -69,8 +70,8 @@ if __name__ == "__main__":
     if t % args.delta == 0:
       print("t =", t, "| Delta =", delta, "\n")
       if not got_reward:
-        print("findInitialObjects(obs):")
-        for elem in pos.findInitialObjects(obs):
+        print("findObjects(obs):")
+        for elem in pos.findObjects(obs):
           print(elem)
 
         print("\nAsteroids.update_pos(obs):")
@@ -85,7 +86,7 @@ if __name__ == "__main__":
         # print(k, "-", elem)
         #print()
         print("==============")
-        #time.sleep(1.5)
+        time.sleep(1.5)
       else:
         print("got_reward = True!! Setando para False...\n")
         got_reward = False

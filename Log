@@ -268,3 +268,25 @@ Início~15/Maio/2018
   Rodando a IA, percebi que ela tem problema em perceber qual asteróide
   foi destruído se o asteróide filho tiver a mesma cor que o pai. Está
   dando uns problemas já na primeira fase
+
+=================
+
+17/Jul/2018
+  posMethods
+    findInitialObjects() -> findObjects()
+    Função asteroidBFS() atualizada para que a busca dê a volta na tela,
+    não considerando partes de asteróides separados pelos limites da
+    tela do jogo como objetos diferentes.
+    Uma descoberta sobre a forma como o emulador foi feito:
+    -A linha 195 da tela do jogo é uma pela qual os asteróides passam,
+    mas não ficam visíveis
+    -A linha 18 da tela do jogo não mostra nenhum asteróide quando
+    ele dá a volta de baixo para cima, mas aparece se der a volta de
+    cima para baixo. Por causa disso, se um asteróide der a volta na
+    tela ao se mover para cima, a IA enxerga as duas partes como o mesmo;
+    porém, se o asteróide der a volta na tela ao se mover para baixo,
+    por causa dessa linha 18 em que o asteróide não aparece nesse caso
+    específico, as duas metades são consideradas asteróides diferentes.
+    Esse é um caso difícil de tratar pois envolveria armazenar a velocidade
+    e direção de movimento do asteróide, o que acredito que seria muito
+    inconsistente e difícil de implementar

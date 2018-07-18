@@ -116,7 +116,7 @@ def asteroidBFS(obs, visited, i, j):
 # A área extra que não faz realmente parte dos objetos encontrados
 # pode ser vista como uma margem de segurança caso o agente se
 # aproxime demais
-def findInitialObjects(obs):
+def findObjects(obs):
   visited = np.full((210, 160), False)
 
   objsPos = []

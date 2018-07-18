@@ -15,7 +15,7 @@ SCREEN_WIDTH = 152
 
 class Asteroids:
   def __init__(self, obs):
-    iniPos = pM.findInitialObjects(obs)
+    iniPos = pM.findObjects(obs)
 
     self.count = len(iniPos)
     print("num ast =", self.count)
