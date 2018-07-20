@@ -12,6 +12,14 @@ import speed_methods as spd
 import aux_methods as aux
 import Asteroids
 
+SCREEN_UPPER_LIMIT = 18
+SCREEN_LOWER_LIMIT = 195
+SCREEN_LEFT_LIMIT = 8
+SCREEN_RIGHT_LIMIT = 159
+
+SCREEN_HEIGHT = 178
+SCREEN_WIDTH = 152
+
 ########################################################
 # Parser retirado do exemplo do Gym-Retro
 # Poderia tentar fazer o retro.make() funcionar sem eles,
@@ -45,6 +53,7 @@ if __name__ == "__main__":
     print(elem)
 
   print("===============")
+  #input("waiting...")
   #time.sleep(2)
 
   totrew = 0 # total reward
@@ -79,10 +88,9 @@ if __name__ == "__main__":
       print("==============")
       print("t =", t, "| Delta =", delta, "\n")
       if next_action == 0:
-        #if t > 3166:
-          #print("find_objects(obs):")
-          #for elem in pos.find_objects(obs):
-            #print(elem)
+        #print("find_objects(obs):")
+        #for elem in pos.find_objects(obs):
+          #print(elem)
 
         print("\nAsteroids.update_pos(obs):")
         asteroids.update_pos(obs, delta)
@@ -92,8 +100,7 @@ if __name__ == "__main__":
         # print(k, "-", elem)
         #print()
         #time.sleep(2)
-        #if t > 3166:
-          #input("pressione enter para o próximo passo...")
+        #input("pressione enter para o próximo passo...")
 
       elif next_action == 1:
         print("next_action == 1\nasteroid.update_asteroids(obs):")
@@ -114,6 +121,9 @@ if __name__ == "__main__":
         next_action = 1
         print("next_action = 1\n")
 
+    #if t % (args.delta * 10) == 0:
+      #input("waiting...")
+
     if rew > 0:
       print("time =", t, "\nReward:", rew, "\n")
       next_action = 2
@@ -127,6 +137,7 @@ if __name__ == "__main__":
       input("Press enter to close")
       print()
       break
-
+    
+    #aux.printCoords(obs, 500)
   env.close()
 

@@ -320,3 +320,38 @@ Início~15/Maio/2018
   sempre conseguindo acompanhar o movimento dos asteroides. Acho que é algo
   bom para se verificar amanhã. Depois disso, o próximo passo é ela enxergar
   onde a própria nave está, ângulo para onde está virada e etc.
+
+=================
+
+18/Jul/2018
+  Classe Ship.py criada que conterá funções referentes a nave em oposição a
+  classe Asteroids.py.
+
+  Encontrada a posição inicial da nave quando o jogo começa e quando reaparece
+  após perder uma vida.
+
+=================
+
+19/Jul/2018
+  Queria tentar encontrar o significado de cada ação que a IA pode tomar, mas
+  acabei fazendo o gym-retro parar de funcionar. O resto do dia foi tentando
+  consertar isso
+
+=================
+
+20/Jul/2018
+  Após não muito tempo, consegui fazer o gym-retro funcionar (reinstalando).
+  Ele voltou com algumas coisas diferentes. Antes, a IA conseguia passar
+  da primeira fase sem perder nenhuma vida tomando apenas ações aleatórias
+  (que, pelo visto, o RNG está com uma seed com valor já atribuído, fazendo
+  a IA tomar sempre as mesmas ações "aleatórias"); agora, ela perde uma ou
+  duas vidas antes de passar para a segunda fase. A disposição dos asteróides
+  da segunda fase parece ter mudado também.
+
+  Outro fato interessante: antes, no arquivo pos_methods.py, a variável
+  global SCREEN_LOWER_LIMIT tinha que ficar com valor 194 e a SCREEN_HEIGHT
+  precisava ter o valor 177, ambos 1 a menos que nos outros arquivos. As
+  contas saíam incorretas se eu usasse o mesmo valor que nos outros arquivos.
+  Após conseguir reinstalar o gym-retro, eu precisei voltar esses valores para
+  195 e 178 respectivamente, ficando igual aos outros arquivos (Asteroids.py
+  por exemplo).

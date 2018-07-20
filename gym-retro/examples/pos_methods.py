@@ -3,12 +3,39 @@ import numpy as np
 import queue
 
 SCREEN_UPPER_LIMIT = 18
-SCREEN_LOWER_LIMIT = 194
+SCREEN_LOWER_LIMIT = 195
 SCREEN_LEFT_LIMIT  = 8
 SCREEN_RIGHT_LIMIT = 159
 
-SCREEN_HEIGHT = 177
+SCREEN_HEIGHT = 178
 SCREEN_WIDTH = 152
+
+########################################################
+#################### OUTROS MÉTODOS ####################
+########################################################
+
+# Retorna o limite em volta do asteroide em
+# que será buscada a nova posição do asteroide
+def get_search_bounds(body, delta):
+  upB = body['upperBound'] - SCREEN_UPPER_LIMIT # step1
+  upB += SCREEN_HEIGHT - delta # step2
+  upB = upB % SCREEN_HEIGHT # step3
+  upB += SCREEN_UPPER_LIMIT # step4
+
+  loB = body['lowerBound'] - SCREEN_UPPER_LIMIT # step1
+  loB = (loB + delta + 1) % SCREEN_HEIGHT # step2
+  loB += SCREEN_UPPER_LIMIT # step3
+
+  leB = body['leftBound'] - SCREEN_LEFT_LIMIT # step1
+  leB += SCREEN_WIDTH - delta # step2
+  leB = leB % SCREEN_WIDTH # step3
+  leB += SCREEN_LEFT_LIMIT # step4
+
+  riB = body['rightBound'] - SCREEN_LEFT_LIMIT # step1
+  riB = (riB + delta + 1) % SCREEN_WIDTH # step2
+  riB += SCREEN_LEFT_LIMIT # step3
+
+  return upB, loB, leB, riB
 
 #######################################################
 ######### MÉTODOS RELACIONADOS AOS ASTEROIDES #########
@@ -97,16 +124,16 @@ def object_BFS(obs, visited, i, j):
           if riB > rightBound + SCREEN_WIDTH - SCREEN_LEFT_LIMIT:
             #print("rightBound | riB | n_right =", rightBound, "|", riB, "|", n_right)
             rightBound = n_right
-  
-  #for m in range (210):
-    #for n in range(160):
-      #if visited[m][n]:
-        #print(m, n)
   #print(color)
   #print(upperBound)
   #print(lowerBound)
   #print(leftBound)
   #print(rightBound)
+  #for m in range (210):
+    #for n in range(160):
+      #if visited[m][n]:
+        #print(m, n)
+  
   #input("esperando...")
   return {'color': color,
           'upperBound': upperBound,

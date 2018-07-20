@@ -27,29 +27,6 @@ class Asteroids:
 
   def get_asteroids(self):
     return self.pos
-
-  # Retorna o limite em volta do asteroide em
-  # que será buscada a nova posição do asteroide
-  def get_search_bounds(self, asteroid, delta):
-    upB = asteroid['upperBound'] - SCREEN_UPPER_LIMIT # step1
-    upB += SCREEN_HEIGHT - delta # step2
-    upB = upB % SCREEN_HEIGHT # step3
-    upB += SCREEN_UPPER_LIMIT # step4
-
-    loB = asteroid['lowerBound'] - SCREEN_UPPER_LIMIT # step1
-    loB = (loB + delta + 1) % SCREEN_HEIGHT # step2
-    loB += SCREEN_UPPER_LIMIT # step3
-
-    leB = asteroid['leftBound'] - SCREEN_LEFT_LIMIT # step1
-    leB += SCREEN_WIDTH - delta # step2
-    leB = leB % SCREEN_WIDTH # step3
-    leB += SCREEN_LEFT_LIMIT # step4
-
-    riB = asteroid['rightBound'] - SCREEN_LEFT_LIMIT # step1
-    riB = (riB + delta + 1) % SCREEN_WIDTH # step2
-    riB += SCREEN_LEFT_LIMIT # step3
-
-    return upB, loB, leB, riB
  
   # Quando um asteróide é destruído, é preciso ver
   # a posição dos asteróides filhos se é que algum surgiu
@@ -104,7 +81,7 @@ class Asteroids:
       color = elem['color']
     
       # Determinação dos novos limites. Vide documentação
-      upB, loB, leB, riB = self.get_search_bounds(elem, delta)
+      upB, loB, leB, riB = pm.get_search_bounds(elem, delta)
 
       #asteroid_destroyed = True
       # alteração VERTICAL/HORIZONTAL

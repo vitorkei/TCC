@@ -19,5 +19,8 @@ class Ship:
                 'leftBound': 84,
                 'rightBound': 88}
 
-  def get_pos():
+  def get_pos(self):
     return self.pos
+
+  def update_pos(self, delta):
+    upB, loB, leB, riB = pos.get_search_bounds(self.get_pos(), delta)
