@@ -23,10 +23,11 @@ parser.add_argument('--scenario', '-s', default='scenario')
 parser.add_argument('--record', '-r', action='store_true')
 parser.add_argument('--verbose', '-v', action='count', default=1)
 parser.add_argument('--quiet', '-q', action='count', default=0)
+parser.add_argument('--players', '-p', type=int, default=1, help='number of players/agents (default: 1)')
 parser.add_argument("delta", type=int) # intervalo de frames entre cada busca pela nova posição dos asteróides
 
 args = parser.parse_args()
-env = retro.make('Asteroids-Atari2600', args.state or retro.STATE_DEFAULT, scenario=args.scenario, record=args.record)
+env = retro.make('Asteroids-Atari2600', args.state or retro.State.DEFAULT, scenario=args.scenario, record=args.record, players=args.players)
 verbosity = args.verbose - args.quiet
 
 ########################################################
@@ -60,6 +61,10 @@ if __name__ == "__main__":
     t += 1
     env.render()
     time.sleep(0.01)
+   
+    #if t == 1:
+      #a = pos.find_objects(obs)
+      #input("waiting...")
 
     totrew += rew
 #    if t % 10 == 0:
@@ -74,10 +79,10 @@ if __name__ == "__main__":
       print("==============")
       print("t =", t, "| Delta =", delta, "\n")
       if next_action == 0:
-        if t > 3166:
-          print("find_objects(obs):")
-          for elem in pos.find_objects(obs):
-            print(elem)
+        #if t > 3166:
+          #print("find_objects(obs):")
+          #for elem in pos.find_objects(obs):
+            #print(elem)
 
         print("\nAsteroids.update_pos(obs):")
         asteroids.update_pos(obs, delta)
@@ -87,8 +92,8 @@ if __name__ == "__main__":
         # print(k, "-", elem)
         #print()
         #time.sleep(2)
-        if t > 3166:
-          input("pressione enter para o próximo passo...")
+        #if t > 3166:
+          #input("pressione enter para o próximo passo...")
 
       elif next_action == 1:
         print("next_action == 1\nasteroid.update_asteroids(obs):")

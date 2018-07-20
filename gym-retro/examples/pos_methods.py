@@ -10,6 +10,10 @@ SCREEN_RIGHT_LIMIT = 159
 SCREEN_HEIGHT = 177
 SCREEN_WIDTH = 152
 
+#######################################################
+######### MÉTODOS RELACIONADOS AOS ASTEROIDES #########
+#######################################################
+
 # Entrada:
 #    obs: observação do ambiente (matriz)
 #    visited: define pixels já visitados (matriz)
@@ -20,7 +24,7 @@ SCREEN_WIDTH = 152
 #    lowerBound: número da linha do pixel mais abaixo (maior)
 #    leftBound: número da coluna do pixel mais a esquerda (menor)
 #    rightbound: número da coluna do pixel mais a direita (maior)
-def asteroid_BFS(obs, visited, i, j):
+def object_BFS(obs, visited, i, j):
   q = queue.Queue()
 
   color = obs[i][j].copy()
@@ -98,8 +102,12 @@ def asteroid_BFS(obs, visited, i, j):
     #for n in range(160):
       #if visited[m][n]:
         #print(m, n)
+  #print(color)
+  #print(upperBound)
+  #print(lowerBound)
+  #print(leftBound)
+  #print(rightBound)
   #input("esperando...")
-
   return {'color': color,
           'upperBound': upperBound,
           'lowerBound': lowerBound,
@@ -119,13 +127,30 @@ def asteroid_BFS(obs, visited, i, j):
 def find_objects(obs):
   visited = np.full((210, 160), False)
 
-  objsPos = []
+  objects_pos = []
 
   for i in range(SCREEN_UPPER_LIMIT, SCREEN_LOWER_LIMIT+1):
     for j in range(SCREEN_LEFT_LIMIT, SCREEN_RIGHT_LIMIT+1):
       if not visited[i][j]:
         if sum(obs[i][j]) > 0:
-          objsPos.append(asteroid_BFS(obs, visited, i, j))
+          objects_pos.append(object_BFS(obs, visited, i, j))
 
-  return objsPos
-  
+  return objects_pos
+
+#######################################################
+############# MÉTODOS RELACIONADOS À NAVE #############
+#######################################################
+
+# Encontra a posição da nave
+# A princípio, não devo precisar, pois parece que
+# a nave aparece sempre no mesmo lugar, com a mesma cor,
+# toda vez que o jogo começa ou a nave respawna após ser
+# destruída, mas já está aqui caso necessário.
+# NÃO DIFERENCIA TIRO DE NAVE E RETORNA O PRIMEIRO OBJETO ENCONTRADO
+def find_ship(obs):
+  visited = np.full((210, 160), False)
+  for i in range(SCREEN_UPPER_LIMIT, LIMIT, SCREEN_LOWER_LIMIT+1):
+    for j in range(SCREEN_LEFT_LIMIT, SCREEN_RIGHT_LIMIT+1):
+      if not visited[i][j]:
+        if sum(obs[i][j]) > 0:
+          return object_BFS(obs, visited, i, j)
