@@ -51,7 +51,7 @@ def get_search_bounds(body, delta):
 #    lowerBound: número da linha do pixel mais abaixo (maior)
 #    leftBound: número da coluna do pixel mais a esquerda (menor)
 #    rightbound: número da coluna do pixel mais a direita (maior)
-def object_BFS(obs, visited, i, j):
+def object_BFS(obs, visited, i, j, wide):
   q = queue.Queue()
 
   color = obs[i][j].copy()
@@ -116,25 +116,61 @@ def object_BFS(obs, visited, i, j):
           #print("upperBound | upB | m_up =", upperBound, "|", upB, "|", m_up)
           upperBound = m_up
     
-    if n < SCREEN_RIGHT_LIMIT:
-      if not visited[m][n_right]: # pixel a direita
-        if np.array_equal(obs[m][n_right], color):
-          visited[m][n_right] = True
-          q.put((m, n_right))
+    if not visited[m][n_right]: # pixel a direita
+      if np.array_equal(obs[m][n_right], color):
+        visited[m][n_right] = True
+        q.put((m, n_right))
+        if riB > rightBound + SCREEN_WIDTH - SCREEN_LEFT_LIMIT:
+          #print("rightBound | riB | n_right =", rightBound, "|", riB, "|", n_right)
+          rightBound = n_right
+
+    if wide: # Se for verdade, faz a busca na diagonal, uma busca mais larga
+      if not visited[m_down][n_left]: # pixel abaixo-esquerda
+        if np.array_equal(obs[m_down][n_left], color):
+          visited[m_down][n_left] = True
+          q.put((m_down, n_left))
+          if loB > lowerBound + SCREEN_HEIGHT - SCREEN_UPPER_LIMIT:
+            lowerBound = m_down
+          if leB < leftBound + SCREEN_WIDTH - SCREEN_LEFT_LIMIT:
+            leftBound = n_left
+
+      if not visited[m_up][n_left]: # pixel acima-esquerda
+        if np.array_equal(obs[m_up][n_left], color):
+          visited[m_up][n_left] = True
+          q.put((m_up, n_left))
+          if upB < upperBound + SCREEN_HEIGHT - SCREEN_UPPER_LIMIT:
+            upperBound = m_up
+          if leB < leftBound + SCREEN_WIDTH - SCREEN_LEFT_LIMIT:
+            leftBound = n_left
+
+      if not visited[m_up][n_right]: # pixel acima-direita
+        if np.array_equal(obs[m_up][n_right], color):
+          visited[m_up][n_right] = True
+          q.put((m_up, n_right))
+          if upB < upperBound + SCREEN_HEIGHT - SCREEN_UPPER_LIMIT:
+            upperBound = m_up
           if riB > rightBound + SCREEN_WIDTH - SCREEN_LEFT_LIMIT:
-            #print("rightBound | riB | n_right =", rightBound, "|", riB, "|", n_right)
+            rightBound = n_right
+
+      if not visited[m_down][n_right]: # pixel abaixo-direita
+        if np.array_equal(obs[m_down][n_right], color):
+          visited[m_down][n_right] = True
+          q.put((m_down, n_right))
+          if loB > lowerBound + SCREEN_HEIGHT - SCREEN_UPPER_LIMIT:
+            lowerBound = m_down
+          if riB > rightBound + SCREEN_WIDTH - SCREEN_LEFT_LIMIT:
             rightBound = n_right
   #print(color)
   #print(upperBound)
   #print(lowerBound)
   #print(leftBound)
   #print(rightBound)
-  #for m in range (210):
-    #for n in range(160):
-      #if visited[m][n]:
-        #print(m, n)
-  
-  #input("esperando...")
+  #if wide:
+    #for m in range (210):
+      #for n in range(160):
+        #if visited[m][n]:
+          #print(m, n)
+    #input("esperando...")
   return {'color': color,
           'upperBound': upperBound,
           'lowerBound': lowerBound,
@@ -160,7 +196,7 @@ def find_objects(obs):
     for j in range(SCREEN_LEFT_LIMIT, SCREEN_RIGHT_LIMIT+1):
       if not visited[i][j]:
         if sum(obs[i][j]) > 0:
-          objects_pos.append(object_BFS(obs, visited, i, j))
+          objects_pos.append(object_BFS(obs, visited, i, j, False))
 
   return objects_pos
 
@@ -174,10 +210,28 @@ def find_objects(obs):
 # toda vez que o jogo começa ou a nave respawna após ser
 # destruída, mas já está aqui caso necessário.
 # NÃO DIFERENCIA TIRO DE NAVE E RETORNA O PRIMEIRO OBJETO ENCONTRADO
-def find_ship(obs):
+def find_ship(obs, ship, delta):
   visited = np.full((210, 160), False)
-  for i in range(SCREEN_UPPER_LIMIT, LIMIT, SCREEN_LOWER_LIMIT+1):
+  upB, loB, leB, riB = get_search_bounds(ship, delta)
+
+  for i in range(upB, loB+1):
+    for j in range(leB, riB+1):
+      if not visited[i][j]:
+        if np.array_equal(obs[i][j], ship['color']):
+          return object_BFS(obs, visited, i, j, True)
+
+# Uma das ações da nave é um teleporte que eu não sei
+# para onde ela vai, então a ideia é ficar buscando
+# pela nave em todos os frames que ela deveria aparecer
+# (frames ímpares) até finalmente encontrar. É possível
+# a IA acabar acompanhando um tiro, mas ele deve desaparecer
+# antes de a nave reaparecer, o que fará com que esta função
+# volte a ser chamada
+def blink(obs, color):
+  visited = np.full((210, 160), False)
+
+  for i in range(SCREEN_UPPER_LIMIT, SCREEN_LOWER_LIMIT+1):
     for j in range(SCREEN_LEFT_LIMIT, SCREEN_RIGHT_LIMIT+1):
       if not visited[i][j]:
-        if sum(obs[i][j]) > 0:
-          return object_BFS(obs, visited, i, j)
+        if np.array_equal(obs[i][j], color):
+          return object_BFS(obs, visited, i, j, True)

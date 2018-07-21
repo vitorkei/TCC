@@ -355,3 +355,8 @@ Início~15/Maio/2018
   Após conseguir reinstalar o gym-retro, eu precisei voltar esses valores para
   195 e 178 respectivamente, ficando igual aos outros arquivos (Asteroids.py
   por exemplo).
+
+  IA agora sabe onde a nave está e inclusive consegue reencontrar se ela
+  se teleportar (é um dos comandos que a nave tem). Porém, parece que essa busca
+  pela nave APÓS o teleporte não está funcionando direito; parece que a IA para
+  de acompanha a movimentação da nave. Preciso testar mais.

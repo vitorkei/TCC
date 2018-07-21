@@ -11,6 +11,7 @@ import pos_methods as pos
 import speed_methods as spd
 import aux_methods as aux
 import Asteroids
+import Ship
 
 SCREEN_UPPER_LIMIT = 18
 SCREEN_LOWER_LIMIT = 195
@@ -47,16 +48,14 @@ if __name__ == "__main__":
   delta = args.delta
   obs = env.reset()
   t = 0
-  asteroids = Asteroids.Asteroids(obs)
-  print("env.reset():")
-  for k, elem in asteroids.get_asteroids().items():
-    print(elem)
-
-  print("===============")
-  #input("waiting...")
-  #time.sleep(2)
-
   totrew = 0 # total reward
+  asteroids = Asteroids.Asteroids(obs)
+  ship = Ship.Ship()
+
+  #print("env.reset():")
+  #for k, elem in asteroids.get_asteroids().items():
+    #print(elem)
+  #print("===============")
 
   # Vide Log (15/Jul/2018) para entender esta flag
   next_action = 0 # 0 = update_pos() - faz update_pos()
@@ -66,24 +65,14 @@ if __name__ == "__main__":
 
   while True:
     action = env.action_space.sample()
+    print(env.get_action_meaning(action))
     obs, rew, done, info = env.step(action)
     t += 1
     env.render()
     time.sleep(0.01)
    
-    #if t == 1:
-      #a = pos.find_objects(obs)
-      #input("waiting...")
-
     totrew += rew
-#    if t % 10 == 0:
-#      astsSPD = spd.asteroidsSpeed(asteroids.get_asteroids(), obs, t)
-#      print("\nt =", t)
-#      for ast in astsSPD:
-#        print("color:", ast[0])
-#        print("hSPD =", ast[1])
-#        print("vSPD =", ast[2])
-
+    
     if t % args.delta == 0:
       print("==============")
       print("t =", t, "| Delta =", delta, "\n")
@@ -95,13 +84,6 @@ if __name__ == "__main__":
         print("\nAsteroids.update_pos(obs):")
         asteroids.update_pos(obs, delta)
        
-        #for k, elem in asteroids.get_asteroids().items():
-          #print(asteroids.get_asteroids()[elem])
-        # print(k, "-", elem)
-        #print()
-        #time.sleep(2)
-        #input("pressione enter para o próximo passo...")
-
       elif next_action == 1:
         print("next_action == 1\nasteroid.update_asteroids(obs):")
         asteroids.update_asteroids(obs)
@@ -111,18 +93,23 @@ if __name__ == "__main__":
         print("find_objects(obs):")
         for elem in pos.find_objects(obs):
           print(elem)
-        #print(asteroids.get_asteroids())
         next_action = 0
         print("next_action = 0\n")
-        #delta += args.delta
 
       elif next_action == 2:
         print("next_action == 2")
         next_action = 1
         print("next_action = 1\n")
 
-    #if t % (args.delta * 10) == 0:
-      #input("waiting...")
+    else:
+      print("==============")
+      print("t =", t, "| Delta =", delta, "\n")
+      ship.update_pos(obs, delta)
+      print(ship.get_pos())
+      #input("ship_update_pos() waiting...")
+
+    if t >= 175:
+      input("wait")
 
     if rew > 0:
       print("time =", t, "\nReward:", rew, "\n")
@@ -138,6 +125,7 @@ if __name__ == "__main__":
       print()
       break
     
-    #aux.printCoords(obs, 500)
+    aux.printCoords(obs, t, 500, 0)
+    aux.printCoords(obs, t, 499, 0)
   env.close()
 

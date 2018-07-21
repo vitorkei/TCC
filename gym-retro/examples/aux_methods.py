@@ -12,8 +12,8 @@ SCREEN_WIDTH = 152
 # Imprime as coordenadas de todos os pixels não pretos
 # da tela (obs) e para o programa durante delta segundos
 # FUNÇÃO DE DEBUGGING
-def printCoords(obs, delta):
-  if t % 500 == 0:
+def printCoords(obs, t, delta, result):
+  if t % delta == result:
     for i in range(SCREEN_UPPER_LIMIT, SCREEN_LOWER_LIMIT+1):
       for j in range(SCREEN_LEFT_LIMIT, SCREEN_RIGHT_LIMIT+1):
         if np.sum(obs[i][j]) > 0:
