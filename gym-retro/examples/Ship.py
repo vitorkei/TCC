@@ -26,8 +26,10 @@ class Ship:
     return self.pos
 
   def update_pos(self, obs, delta):
+    print ("blink =", self.blink)
     if not self.blink:
       aux = pos.find_ship(obs, self.pos, delta)
+      self.pos = aux
       if aux == None:
         self.blink = True
         self.pos = self.base_pos
