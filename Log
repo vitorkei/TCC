@@ -402,4 +402,13 @@ Início~15/Maio/2018
   Quando a nave desaparece, seja por teleporte ou por morte, para evitar que 
   o programa fique lento durante esse tempo, ele espera 1 segundo para voltar a
   procurar se a nave tiver sumido por teleporte e, se tiver sido por morte,
-  espera 2 segundos (já com os 10 frames de atualização da vida contados)
+  espera 2 segundos (já com os 10 frames de atualização da vida contados);
+  O programa fica lento nesse tempo porque ele faz uma busca pela tela para ver
+  se encontra a nave. enquanto esse atributo self.blink_timer for maior do que
+  zero, a busca não é executada
+
+  Ship.ast_dist é um atributo que recebe a distância da nave até cada asteróide.
+  Ele é atualizado todos os frames, pois tanto a nave quanto os asteróides se movem.
+  Por hora, ele armazena a distância horizontal e a distância vertical como números
+  diferentes. Ou seja, NÃO calcula o tamanho da linha reta entre o centro da nave
+  e o centro de cada asteróide.
