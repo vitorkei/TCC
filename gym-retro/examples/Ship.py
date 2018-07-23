@@ -37,7 +37,7 @@ class Ship:
       if aux == None:
         self.blink = True
         self.pos = self.base_pos
-        self.blink_timer = 30
+        self.blink_timer = 31
         #input("SUMIU")
     else:
       if self.blink_timer == 0:
@@ -60,7 +60,7 @@ class Ship:
     return self.blink_timer
 
   def has_died(self):
-    self.blink_timer = 57
+    self.blink_timer = 63
     self.life_count -= 16
 
   def get_ast_dist(self):
@@ -77,25 +77,36 @@ class Ship:
     ship_center[1] = ship_center[1] % SCREEN_WIDTH
     ship_center[1] = round(ship_center[1] / 2) + self.pos['leftBound']
     ship_center[1] = ship_center[1] % SCREEN_WIDTH
-    print(ship_center)
+    #print(ship_center)
     for ID, asteroid in asteroids.items():
-      print("\n", ID, "-", asteroid)
+      #print("\n", ID, "-", asteroid)
       self.ast_dist[ID] = [0, 0]
       
-      print("ast_center_line:")
+      #print("ast_center_line:")
       # Número da linha (aproximada) em que o centro do asteróide está
       ast_center_line = asteroid['lowerBound'] + SCREEN_HEIGHT - asteroid['upperBound']
+      #print("1)", ast_center_line)
       ast_center_line = ast_center_line % SCREEN_HEIGHT
+      #print("2)", ast_center_line)
       ast_center_line = round(ast_center_line / 2) + asteroid['upperBound']
+      #print("3)", ast_center_line)
       ast_center_line = ast_center_line % SCREEN_HEIGHT
+      #print("4)", ast_center_line)
+      if (ast_center_line == 17) or (ast_center_line == 195):
+        ast_center_line = 18
 
+      #print("\nast_center_col:")
       # Número da coluna (aproximada) em que o centro do asteróide esta
       ast_center_col = asteroid['rightBound'] + SCREEN_WIDTH - asteroid['leftBound']
+      #print("1)", ast_center_col)
       ast_center_col = ast_center_col % SCREEN_WIDTH
+      #print("2)", ast_center_col)
       ast_center_col = round(ast_center_col / 2) + asteroid['leftBound']
+      #print("3)", ast_center_col)
       ast_center_col = ast_center_col % SCREEN_WIDTH
+      #print("4)", ast_center_col)
 
-      print(ast_center_line, "|", ast_center_col)
+      #print(ast_center_line, "|", ast_center_col)
 
       line_dist_0 = abs(ast_center_line - ship_center[0])
       line_dist_1 = SCREEN_HEIGHT - line_dist_0

@@ -411,4 +411,18 @@ Início~15/Maio/2018
   Ele é atualizado todos os frames, pois tanto a nave quanto os asteróides se movem.
   Por hora, ele armazena a distância horizontal e a distância vertical como números
   diferentes. Ou seja, NÃO calcula o tamanho da linha reta entre o centro da nave
-  e o centro de cada asteróide.
+  e o centro de cada asteróide. Ainda são necessários testes para ver se está
+  acompanhando essas distâncias corretamente.
+  Parece estar funcionando corretamente, mas farei mais uma leva de testes para
+  garantir.
+
+  Um corner case que eu não estou realmente com tempo de tentar arrumar para
+  melhorar a fluidez que se assiste a IA aprender: caso a nave vá para o "limbo"
+  da tela, ou seja, atravessar de um lado para o outro mas não aparecer porque
+  existe um espaço em que isso é possível, o jogo fica lento porque passa vários
+  frames buscando pela nave. Nos casos em que ela se teleporta ou morre, o número
+  de frames até reaparecer é fixo, então é mais fácil lidar. Nesse, a nave poderia
+  ficar até acabar a fase lá, ou já sair no frame seguinte. Como ficar sem saber
+  onde a nave está é mais perigoso do que ficar buscando o tempo todo, decidi
+  deixar a IA ficar procurando a nave em todos os frames que a nave estiver fora
+  da tela.

@@ -77,8 +77,7 @@ if __name__ == "__main__":
     #print("life_count =", life_count)
     t += 1
     env.render()
-    if ship.get_blink_timer() == 0:
-      time.sleep(0.01)
+    time.sleep(0.01)
     
     print("==============")
     print("t =", t, "| Delta =", delta, "\n")
@@ -116,9 +115,9 @@ if __name__ == "__main__":
       #input("ship_update_pos() waiting...")
 
     ship.set_ast_dist(asteroids.get_asteroids())
-    for ID, elem in ship.get_ast_dist().items():
-      print(ID, "-", elem)
-    input("waiting...")
+    #for ID, elem in ship.get_ast_dist().items():
+      #print(ID, "-", elem)
+    #input("waiting...")
 
     sys_tot_rew += rew
     if life_count < ship.get_life_count():
