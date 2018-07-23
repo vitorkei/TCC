@@ -8,7 +8,7 @@ def puts(text):
 def printSample():
     np.set_printoptions(threshold=np.nan)
     m = np.full((210, 160), "0")
-    f = open('teste', 'r')
+    f = open('teste3', 'r')
     for line in f:
         a = [int(s) for s in line.split() if s.isdigit()]
         i = a[0]

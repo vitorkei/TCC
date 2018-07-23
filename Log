@@ -360,3 +360,46 @@ Início~15/Maio/2018
   se teleportar (é um dos comandos que a nave tem). Porém, parece que essa busca
   pela nave APÓS o teleporte não está funcionando direito; parece que a IA para
   de acompanha a movimentação da nave. Preciso testar mais.
+
+================================
+
+21/Jul/2018
+  Fiz um pequeno ajuste para que a IA voltasse a acompanhar a movimentação
+  da nave após ela reaparecer, fosse o motivo do desaparecimento um teleporte
+  (comando que a nave tem) ou colisão com asteroide
+
+================================
+
+22/Jul/2018
+  A quantidade de vidas que a nave tem não diminui no exato instante em que
+  a nave é destruída, mas cerca de 10 frames depois.
+  Ainda sobre a quantidade de vidas, parece que a nave começa com 4 vidas.
+  
+  Quando um step() é dado, obs é a tela do jogo (matriz de 210, 160, 3), info
+  é a quantidade de vidas e a pontuação total conseguida até o momento,
+  rew é a pontuação obtida por essa ação, e done é se o jogo acabou ou não.
+  Destaca-se que rew é a pontuação obtida pela ação multiplicada por 10.
+  Ou seja, destruír um asteróide grande rende 20 pontos pelo que aparece
+  na tela, mas o sistema entende que só 2 pontos foram recebidos. Um asteróide
+  médio vale 5 pontos para o sistema e 50 para o jogador, e destruír um
+  asteróide pequeno vale 10 pontos para o sistema e 100 pontos para o jogador.
+
+  Como a colisão entre a nave e um asteróide resulta no asteróide sendo destruído,
+  jogar a nave contra um asteróide é uma maneira válida de conseguir pontos. Porém,
+  não é boa porque tem como custo perder uma vida. Para lidar com isso, a IA
+  terá sua própria pontuação (AI_tot_reward), que terá descontos se a nave for
+  destruída, diferente da pontuação do sistema (sys_tot_rew), que é apenas
+  incrementado
+
+  Preciso ainda ver outros casos para confirmar os valores, mas parece que:
+  1) a nave desaparece por ~64 frames quando usa o teleporte
+  2) a nave desaparece por ~128 frames quando morre, sendo que o jogo leva
+     ~10 frames para atualizar a quantidade de vidas
+  Ou seja, contando frames de atualização de estado e o jogo roda a 60FPS
+  (que eu atraso um pouco para ser possível ver o que a nave faz), então
+  o teleporte dura 1 segundo e a morte dura 2 segundos aproximadamente.
+  O atributo self.blink_timer da classe Ship serve exatamente para lidar com isso.
+  Quando a nave desaparece, seja por teleporte ou por morte, para evitar que 
+  o programa fique lento durante esse tempo, ele espera 1 segundo para voltar a
+  procurar se a nave tiver sumido por teleporte e, se tiver sido por morte,
+  espera 2 segundos (já com os 10 frames de atualização da vida contados)

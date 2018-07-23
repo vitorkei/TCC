@@ -138,7 +138,7 @@ class Asteroids:
         #destroyed_asteroids.append([ID, upB, loB, leB, riB])
       #else:
         #print(ID, "-", elem, "\n")
-      print(ID, "-", elem, "\n")
+      #print(ID, "-", elem, "\n")
     #print()
 
     #for d_a in destroyed_asteroids:
