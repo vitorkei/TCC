@@ -426,3 +426,29 @@ Início~15/Maio/2018
   onde a nave está é mais perigoso do que ficar buscando o tempo todo, decidi
   deixar a IA ficar procurando a nave em todos os frames que a nave estiver fora
   da tela.
+
+================================
+
+23/Jul/2018
+  O Fábio me passou dois links falando sobre desenvolvimento de IA utilizando
+  Deep Q Learning ao invés de approximate Q learning. Parece que facilitariam
+  muito meu trabalho - um deles inclusive parece que servia até como uma cola
+  para escrever meu código. Tenho que ter certeza de que posso utilizar esses
+  links como base para fazer a minha IA, mas isso também alteraria bastante a
+  proposta: talvez meu TCC se tornar um estudo sobre como a alteração nos 
+  hiperparâmetros mudaria o comportamento da IA, bem como velocidade e qualidade
+  de aprendizado. Um dos links é para aprendizado utilizando Tensorflow, e o
+  outro utilizando PyTorch.
+  https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html
+  https://medium.freecodecamp.org/an-introduction-to-deep-q-learning-lets-play-doom-54d02d8017d8
+  Pretendo passar este dia e talvez o próximo lendo os textos e escrevendo os
+  códigos para ver mais ou menos como se comportam em seus respectivos exemplos
+  (cartpole do gym no do Pytorch, e space invaders no do Tensorflow), entendê-los
+  melhor e considerar sobre como eles afetariam meu TCC.
+
+================================
+
+24/Jul/2018
+  Após receber a aprovação, comecei a fazer a IA me baseando no link que fala sobre
+  desenvolver uma IA para Doom usando Tensorflow.
+  O problema foi que gastei o dia inteiro só tentando instalar o TensorFlow...
