@@ -150,5 +150,10 @@ if __name__ == "__main__":
     
     #aux.printCoords(obs, t, 500, 0)
     #aux.printCoords(obs, t, 499, 0)
+    if sys_tot_rew >= 1000:
+      for i in range(210):
+        for j in range(160):
+          if sum(obs[i][j]) > 0:
+            print(i, j)
   env.close()
 
