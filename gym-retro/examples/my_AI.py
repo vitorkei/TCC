@@ -6,6 +6,7 @@ import time
 import numpy as np
 import queue
 import sys
+import random
 
 import pos_methods as pos
 import speed_methods as spd

@@ -472,3 +472,44 @@ Início~15/Maio/2018
   conv2d: https://www.tensorflow.org/api_docs/python/tf/layers/conv2d
   ELU: https://www.tensorflow.org/api_docs/python/tf/nn/elu
   max_pooling2: https://www.tensorflow.org/api_docs/python/tf/layers/max_pooling2d
+
+================================
+
+26/Jul/2018
+  Links que explicam alguns parâmetros pedidos nas funções do Tensorflow:
+  Stride: https://stackoverflow.com/questions/34642595/tensorflow-strides-argument
+  Padding: https://stackoverflow.com/questions/37674306/what-is-the-difference-between-same-and-valid-padding-in-tf-nn-max-pool-of-t
+
+  TensorBoard: https://www.youtube.com/embed/eBbEDRsCmv4
+
+  Mais uma pequena descoberta relacionada ao Gym-Retro: 
+  o guia de desenvolvimento de uma IA por Deep Q learning neural network para jogar Space
+  Invaders seleciona ação de uma maneira bem específica e diferente do random_agent.py
+  que veio de exemplo com o Gym-Retro.
+  Existem 8 ações possíveis: UP, DOWN, LEFT, RIGHT, BUTTON, SELECT, RESET, null
+  Quando uma ação é tomada, um vetor de 8 digitos é utilizado. Cada um desses 8 digitos
+  pode assumir o valor de 0 ou 1 (ou seja, são tecnicamente booleanos, mas aparecem
+  0 ou 1 quando impressos na tela) e corresponde a uma das 8 ações acima.
+  A função utilizada pelo random_agent.py, env.action_space.sample(), preenche esse vetor
+  de maneira aleatória com 0 e 1.
+  Ou seja, uma ação que ele retorna pode ser, por exemplo, apertar UP, DOWN, SELECT e null.
+  Essa é uma ação que não deve ser válida em nenhum jogo de Atari2600 e, como apoio a essa
+  afirmação, só alguns desses botões são de fato recebidos pelo gym-retro. Em alguns testes,
+  eu mandei imprimir tanto esse vetor quanto o que a ação significava. Por vezes, aparecia
+  algo tipo [0 0 1 1 1 0 1 1], mas a ação era só ['DOWN', 'BUTTON'] por exemplo.
+  O guia de tensorflow contorna esse problema setando apenas um desses 8 valores para 1,
+  tomando apenas uma ação de cada vez. Em alguns jogos, talvez isso não seja o suficiente.
+  Talvez, em alguns jogos, o agente gostaria de andar na diagonal e aperta 'UP' e 'LEFT'
+  ao mesmo tempo, por exemplo, mas não é o caso do Asteroids, então vou manter esse formato.
+
+  Preciso estudar o epsilon-greedy strategy utilizado pelo guia para entender melhor como
+  esse algoritmo funciona. Além disso, o notebook fala que uma versão melhor dessa
+  estratégia é utilizada no notebook de Q-learning, então é bom eu entender como essa
+  versão melhor funciona.
+  Além disso, o guia que estou seguindo está em um notebook, então estou um pouco confuso
+  sobre o que vai e o que não vai na main(), se é que alguma coisa vai nela
+
+  Terminei de traduzir o código do notebook para um arquivo em .py, mas preciso reler
+  com mais calma para ver se o que eu fiz está certo, já que o port de um para o outro
+  pareceu meio estranho para mim. Depois disso, eu testo para ver se a arquitetura
+  que escolhi serve para o aprendizado da IA.
