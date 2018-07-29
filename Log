@@ -513,3 +513,20 @@ Início~15/Maio/2018
   com mais calma para ver se o que eu fiz está certo, já que o port de um para o outro
   pareceu meio estranho para mim. Depois disso, eu testo para ver se a arquitetura
   que escolhi serve para o aprendizado da IA.
+
+================================
+
+27~28/Jul/2018
+  O pouco que trabalhei nesses dias foi rever o código e tentar insalar TensorFlow
+  que use GPU, mas não consegui fazer funcionar
+
+================================
+
+29/Jul/2018
+  Após tentar mais um pouco instalar TensorFlow por GPU, desisti porque pareceu
+  complicado demais. Vou tentar trodar uns treinamentos menores na CPU mesmo para
+  ver como ele se sai. Um treinamento grande já fez o computador praticamente travar.
+
+  Treinamentos menores também travaram. Parece que eu realmente preciso de um servidor
+  para treinar minha IA, então mandei um e-mail para o meu orientador perguntando
+  se eu poderia usar um do IME.
