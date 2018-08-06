@@ -1,0 +1,34 @@
+Uma breve estrutura de como a monografia talvez venha a ser.
+O objetivo desde arquivo de texto é jogar vários tópicos e subtópicos
+que possam aparecer na monografia, então não há ordem específica para
+cada um, muito menos são definitivos. Baseando-se na leitura de monografias
+de TCCs anteriores.
+
+-Agradecimentos
+-Resumo
+
+-Introdução
+ -Motivação
+ -Objetivos
+ -Proposta inicial do trabalho
+
+-Proposta
+ -O que é Asteroids
+ -O que é inteligência artificial
+  -O que é aprendizado por reforço
+  -O que é Deep Learning
+  -O que é Deep Q learning
+ -O que é Gym-Retro
+ -O que é TensorFlow
+
+-Implementação
+ -Objetivos (<- repetido, mas talvez seja necessário)
+ -Experimentos
+ -Resultados
+
+-Conclusão
+ -Parte Subjetiva
+ -Desafios
+ -Disciplinas Relacionadas
+
+-Referências bibliográficas
