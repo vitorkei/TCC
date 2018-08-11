@@ -1,1 +1,0 @@
-/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/can_clone_file.dir/can_clone_file.c.o  -o can_clone_file 

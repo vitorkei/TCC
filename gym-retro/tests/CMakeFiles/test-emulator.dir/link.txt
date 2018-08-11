@@ -1,1 +1,0 @@
-/usr/bin/c++   -Wall -Wextra -Wno-sign-compare -Wno-missing-field-initializers -mssse3 -O3 -DNDEBUG  -rdynamic CMakeFiles/test-emulator.dir/emulator.cpp.o  -o test-emulator ../libretro-base.a ../third-party/gtest/googlemock/libgmock_main.a ../third-party/libzip/lib/libzip.a -lz -lbz2 ../third-party/luajit/src/libluajit.a -ldl -pthread 

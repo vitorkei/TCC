@@ -1,1 +1,0 @@
-/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/tryopen.dir/tryopen.c.o  -o tryopen ../lib/libzip.a -lz -lbz2 

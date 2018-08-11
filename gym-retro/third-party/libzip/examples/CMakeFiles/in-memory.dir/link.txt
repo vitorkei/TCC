@@ -1,1 +1,0 @@
-/usr/bin/cc -O3 -DNDEBUG  -rdynamic CMakeFiles/in-memory.dir/in-memory.c.o  -o in-memory ../lib/libzip.a -lz -lbz2 
