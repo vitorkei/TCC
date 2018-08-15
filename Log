@@ -547,3 +547,79 @@ Início~15/Maio/2018
   monografias para ter uma ideia de como estruturar a minha. Além disso, talvez
   pesquisar alguma forma de determinar a arquitetura da IA (além de tentativa e
   erro - não creio que não haja alguma guia de como começar pelo menos).
+
+================================
+
+06~12/Ago/2018
+  Tentativas de fazer o Gym-Retro rodar no servidor do IME e primeiros testes
+  do treinamento. No início, acho que estava muito pesado, então fui diminuindo
+  alguns parâmetros, como número de passos, episódios, batch_size, kernel_size,
+  strides e etc. até que o servidor conseguisse rodar. Estou lidando com outros
+  problemas ainda semelhantes no momento, mas acho que estou conseguindo resolvê-
+  -los.
+  Algumas das coisas que eu talvez possa alterar no código de treinamento:
+  -retirar as partes de maxpooling2d;
+  -manter ou não as linhas relacionadas ao Tensorboard
+
+================================
+
+13/Ago/2018
+  O agente que deixam treinando desde ontem a noite não crashou!! Só que como
+  desliguei o computador no meio do caminho, não sei exatamente quanto tempo
+  levou. De qualquer forma, o resultado foi:
+
+  140 pontos para
+  resize: 110x84x1
+  stack_size: 4
+  learning_rate: 0.00025
+  total_episodes: 5
+  max_steps: 1000
+  batch_size: 16
+  explore_begin: 1.0
+  explore_end: 0.01
+  decay_rate: 0.0001
+  gamma: 0.9
+  memory_size: 10000
+  conv_filter: [12, 16]
+  kernel_size: [5, 3]
+  stride_size: [1, 1]
+  pool_kernal: [3, 2]
+  SEM maxpooling
+
+  Foi um resultado bem ruim com parâmetros bem baixos, então não foi surpreendente,
+  porém, agora sei que funciona!
+
+================================
+
+14/Ago/2018
+  Quando rodei ontem à noite o treinamento, descobri hoje de manhã que havia sido
+  encerrado prematuramente porque a lista rewards_list não havia sido inicializada.
+  Portanto, inicializei a lista e mandei ela ser impressa depois que o treinamento
+  terminasse e voltei a rodar o programa. Era aproximadamente 9h. Por volta das
+  19h, o segundo episódio de 31 havia terminado. Deve demorar um bom tempo para
+  terminar, se é que vou deixar ele chegar ao fim, já que pode acabar levando
+  muito mais tempo do que o tolerável. Entretanto, colocarei nesta entrada os hiper
+  parâmetros utilizados nesse treinamento:
+  
+  resize: 110x84x1
+  stack_size: 4
+  learning_rate: 0.00025
+  total_episodes: 31
+  max_steps: 10,000
+  batch_size: 32
+  explore_begin: 1.0
+  explore_end: 0.01
+  decay_rate: 0.00001
+  gamma: 0.9
+  memory_size: 100,000
+  conv_filters: [12, 16]
+  kernel_sizes: [5, 3]
+  stride_sizes: [1, 1]
+  pool_kernel: [3, 2]
+
+  Comecei a escrever a monografia e, enquanto esse treinamento segue, é bom ver
+  quais parâmetros eu poderia alterar para o treinamento ser mais rápido (além de número
+  máximo de passos e de episódios). Assim que os resultados desse treinamento acabarem
+  (pontuação, probabilidade de exploração, training loss, etc forem imprimidos na tela),
+  serão devidamente colocados aqui.
+  Parece que cada episódios leva umas 4 ou 5 horas para terminar.

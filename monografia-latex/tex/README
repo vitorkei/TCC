@@ -1,0 +1,98 @@
+============
+Modo de usar
+============
+
+1. Editar o arquivo 'texto.tex' e preencher informações sobre o trabalho.
+   Dentre elas:
+      \nome{Nome do Aluno}
+      \titulo{Titulo do Trabalho}
+      \mestrado{Programa} ou \doutorado{Programa}
+         em que Programa pode ser Ciência da Computação, Matemática, ...
+      \orientador{Nome}{Instituição}
+      \apoiofinanceiro{CAPES, Fapesp, CNPq}
+      \datadeposito{data a aparecer na capa. Data do depósito}
+
+2. Se for um texto de qualificação, incluir a opção quali no documento:
+   \documentclass[quali]{monografiaime}
+
+3. Editar arquivo 'capitulos.tex'. Esse arquivo deve conter exclusivamente
+   inputs e serve apenas para incluir na ordem desejada os arquivos de conteúdo,
+   que devem ficar na pasta 'chapters'.
+
+4. Editar arquivo 'apendices.tex'. Os arquivos que forem adicionados nessa lista
+   terão formatação de apêndice.
+
+5. No terminal, usar o comando 'make'. Caso for desejado ver os retângulos da
+   abertura da sobre-capa e a "margem de segurança" da primeira página, use o
+   comando 'make debug'.
+
+
+=================
+Função das pastas
+=================
+
+* chapters   -> Contém os arquivos dos capítulos referenciados em
+                'capitulos.tex', além do arquivo 'resumoagradecimento.tex' onde
+                devem ser escritos o resumo (e o abstract) e, opcionalmente, os
+                agradecimentos.
+
+* appendices -> Contém os arquivos de apêndices referenciados em
+                'apendices.tex'.
+
+* images     -> Contém as imagens usadas em todo o documento.
+
+
+===========================
+Função dos arquivos
+(que precisam ser editados)
+===========================
+
+* apendices.tex    -> Lista os arquivos da pasta 'appendices' que serão
+                      inseridos no documento (na ordem especificada).
+
+* bibliografia.bib -> Contém todas as referências bibliográficas.
+
+* capitulos.tex    -> Lista os arquivos da pasta 'chapters' que serão inseridos
+                      no documento (na ordem especificada).
+
+* texto.tex        -> Arquivo onde são inseridas as informações básicas do
+                      documento, tais como nome do aluno, título do trabalho,
+                      nome do orientador, etc.
+
+
+----
+Obs:
+----
+
+* Se quiser que o instituto do orientador (ou do coorientador) apareça na capa,
+  basta incluir o comando \mostrarinstitutoorientadorcapa
+  (\mostrarinstitutocoorientadorcapa)
+
+* Páginas em branco são colocadas automaticamente em determinadas posições para
+  facilitar a impressão correta do documento usando a frente e o verso das
+  folhas.
+
+
+--------------
+Contribuidores
+--------------
+
+Este modelo de documento visa facilitar a produção de teses e dissertações
+seguindo as normas estabelecidas pelo IME-USP e se baseou na versão criada por
+Jesús P. Mena-Chalco.
+A partir do modelo original, Diogo Haruki Kykuta criou uma versão mais
+modularizada e flexível, de modo a minimizar a necessidade do usuário fazer
+alterações no modelo, focando-se apenas na escrita do trabalho.
+Por fim, Vinícius Kiwi Daros fez apenas alguns ajustes na versão do Diogo,
+acertando o alinhamento de alguns elementos das capas, inserindo suporte à
+escrita de algoritmos e tentando melhorar a legibilidade do código.
+
+* Detalhamento das normas e padrões do IME-USP:
+  http://www.ime.usp.br/dcc/pos/normas/tesesedissertacoes
+
+* Versão original de Jesús P. Mena-Chalco <jmena@vision.ime.usp.br>:
+  http://www.vision.ime.usp.br/~jmena/stuff/tese-exemplo/
+
+* Diogo Haruki Kykuta <haruki@ime.usp.br>
+
+* Vinícius Kiwi Daros <vkdaros@ime.usp.br>

@@ -1,0 +1,70 @@
+% falar do jogo, qq eu planejava, fazer o GDD do jogo
+
+% ---------------------------------------------------------------------------- %
+\chapter{Proposta}
+\label{cap:proposta}
+% ---------------------------------------------------------------------------- %
+
+Durante o desenvolvimento de um jogo, seja ele digital ou analógico, é de extrema importância
+que todos os detalhes (como mecânicas, estética ou até mesmo público alvo) estejam bem documentados
+em algum lugar para que todos que participam da criação do jogo estejam em sintonia. Desta forma
+foi criado o \textit{Game Design Document}, ou \textit{GDD}.
+
+O objetivo do \textit{GDD} é servir como um guia para artistas, desenvolvedores ou músicos em um
+jogo. Entretanto, ele não é um documento estático, pois um jogo nunca está completamente definido desde seu
+início. Características ou detalhes do jogo vão sendo acrescentados ou removidos conforme vão se mostrando
+benéficos ou prejudiciais para a experiência desejada do projeto final. Desta forma, fica a cargo do \textit{Game Designer} mantê-lo sempre atualizado.
+
+Com isso vamos descrever um breve \textit{GDD} do \textit{PsyChO: The Ball} com todos os conceitos e
+estéticas que foram planejados até o momento.
+
+% ---------------------------------------------------------------------------- %
+\section{Temática}
+\label{sec:tematica}
+
+\textit{PsyChO: The Ball} é um \textit{Top-Down Shooter} psicodélico, minimalista e frenético. Ele tem grandes influências de outros grandes jogos do mesmo gênero como \textbf{\textit{Hotline Miami}}\cite{hotline} ou jogos da série \textbf{\textit{Touhou Project}}\cite{touhou}. Além disso, foi pensado para ser um jogo difícil, desafiando o jogador constantemente. É esperado que ele fracasse bastante, mas melhore em cada partida nova, conforme vá melhorando seus reflexos.
+
+O estilo psicodélico e minimalista foi inspirado no jogo \textbf{\textit{Hexagon}}\cite{hexagon}. Quase
+todos elementos de \textit{PsyChO: The Ball} são composições de círculos com cores vibrantes que mudam ao longo do tempo. O jogador, desta forma, não fica sobrecarregado de informação na tela e pode focar sua atenção em desviar de projeteis e destruir inimigos.
+
+O jogo foi desenvolvido para ser jogado com um teclado e mouse, porém com controles minimalistas para que, no futuro, tenha suporte a \textit{joysticks}.
+
+% ---------------------------------------------------------------------------- %
+\section{Mecânicas}
+\label{sec:mecanicas}
+
+\textit{PsyChO: The Ball} segue a fórmula básica de jogos \textit{Top-Down Shooters}: o jogador controla um círculo colorido, chamado de \textit{PsyChO}, que pode se mover livremente no espaço da tela. Desta forma, o jogador consegue se esquivar de golpes inimigos ou obstáculos durante o jogo.
+
+Para interagir com os inimigos, \textit{PsyChO} possui dois golpes: atirar (ataque ofensivo) ou usar um \textit{ULTRABLAST} (ataque defensivo).
+
+Atirar é o jeito normal de atacar e destruir inimigos. Segurando um botão e mirando com o mouse, o jogador escolhe onde vai atirar projéteis, que andam em linha reta, até colidir com um inimigo ou com os cantos da tela de jogo. Os projéteis são bem pequenos e velozes, de forma que uma boa precisão seja necessária para acertar um alvo. Atirar não gasta nenhum recurso e pode ser utilizado a qualquer momento.
+
+\textit{ULTRABLAST} é um golpe extremamente poderoso, porém limitado. Ao pressionar um botão especial, \textit{PsyChO} cria um anel em sua volta que se expande rapidamente. Esse anel consegue destruir um número grande de inimigos antes de desaparecer, sendo muito útil para escapar de situações de extremo perigo. Além disso, ao utilizar o golpe, \textit{PsyChO} fica invulnerável por um curto período de tempo, dando uma folga para o jogador se reposicionar estrategicamente.
+
+Por último, o jogador pode segurar um botão para entrar no modo \textit{Focus}. Neste modo, o tamanho do jogador diminui ligeiramente e sua velocidade de movimento é drasticamente reduzida. Também neste modo o jogador pode fazer movimentos mais precisos e delicados para desviar de obstáculos ou outros perigos.
+
+O número reduzido de mecânicas (em comparação a outros jogos do mesmo gênero) foi uma escolha proposital no \textit{design}. Com um arsenal limitado de ações para fazer, se torna um desafio tanto para o jogador (que vai ter que masterizar cada detalhe e nuância das ações disponíveis para enfrentar os obstáculos do jogo), quanto para o \textit{game designer} (que vai ter de pensar em interações e níveis inovadores que aprofundem o uso de cada mecânica para manter o interesse do usuário).
+
+% ---------------------------------------------------------------------------- %
+\section{Gameplay}
+\label{sec:gameplay}
+
+\textit{PsyChO: The Ball} segue o modelo clássico de estruturação encontrado em vídeo-games: níveis. O jogo será composto de 5 níveis sequenciais, cada um apresentando novos desafios e uma curva crescente de dificuldade. Ao final de cada nível, o jogador enfrenta um \textit{chefão}, sendo este um inimigo bem mais forte e que resiste muito mais aos golpes de \textit{PsyChO}, em comparação com os demais. Se conseguir derrotá-lo, avançará para o nível seguinte. Se sobreviver ao chefão final do último nível, o jogo termina em sucesso.
+
+O jogador começa cada partida do jogo no primeiro nível e com 10 vidas, necessitando enfrentar todos os desafios que cada um deles fornece. Estes desafios podem ser inimigos que atiram projéteis em direção ao jogador, que se multiplicam, ou até mesmo invencíveis (de forma que o jogador precisará evitá-los até desaparecerem). Porém, \textit{PsyChO} é extremamente frágil e qualquer objeto inimigo que o atinja é o suficiente para destruí-lo e lhe tirar uma vida. Cabe ao jogador aprender a utilizar seus golpes eficientemente e desvendar quando é mais prudente atacar ou fugir dos inimigos. Se a qualquer momento o jogador perde todas suas vidas, o jogo termina em fracasso e será preciso recomeçar a partir do último nível.
+
+\textit{PsyChO} irá, normalmente, atirar para destruir inimigos. Porém, quando estiver em apuros, se o jogador tiver reflexos rápidos poderá utilizar seu golpe especial \textit{ULTRABLAST} para matar inimigos próximos e ficar invunerável temporariamente. \textit{PsyChO} começa cada vida com 2 \textit{ULTRABLASTs} e precisará destruir inimigos para ganhar mais destes.
+
+Ao destruir inimigos, o jogador ganha pontos. Além do uso comum em jogos da utilização de pontos para recompensar o jogador e servir de métrica para seu progresso no jogo, ao acumular pontos, o jogador ganha vidas e \textit{ULTRABLASTs} para gastar. Desta forma, o jogo influencia o jogador a jogar ofensivamente para chegar mais longe.
+
+Por último, cada nível é dividido em seções. Isto ajuda no \textit{level design} do jogo de forma a organizar o fluxo do \textit{gameplay} e melhor apresentar elementos novos. De maneira geral, as primeiras seções de um nível servem para apresentar inimigos ou conceitos novos que estão relacionados entre si. A penúltima seção junta todos os elementos novos apresentados, que deveriam se encaixar organicamente, já que seguem um tema em comum. A seção final é reservada para o \textit{chefão} do nível, que vai testar todo conhecimento acumulado pelo jogador até então.
+
+% ---------------------------------------------------------------------------- %
+\section{Recursos Audiovisuais}
+\label{sec:audio_visuais}
+
+Os recursos audiovisuais do jogo foram pensados para complementar a jogabilidade minimalista e psicodélica presente. Todos objetos em \textit{PsyCho: The Ball} são composições geométricas abstratas, com o intuito de facilitar a associação do jogador com o que é benéfico ou prejudical. Cada tipo diferente de inimigo segue um padrão próprio de cores. \textit{PsyChO} permuta entre muitas cores vibrantes. Além disso o fundo do jogo fica transitando entre cores com baixa saturação para não distrair o jogador.
+
+Para complementar a experiência do jogo, a trilha sonora original é baseada em gêneros eletrônicos e psicodélicos, que combinam muito bem com a jogabilidade frenética e as cores pulsantes. Os efeitos sonoros possuem vários efeitos de ressonância e eco, típicos em jogos com a mesma temática.
+
+Para ficar mais emocionante, \textit{PsyChO: The Ball} é repleto de efeitos de partículas e explosões para criar a ilusão de que todas ações do jogador tem um impacto enorme sobre o jogo.

@@ -1,0 +1,77 @@
+\documentclass{monografiaime}
+\usepackage{wrapfig}
+%\documentclass[quali]{monografiaime}
+
+\nome{Vítor Kei Taira Tamada}
+\titulo{Deep Q Learning para ensinar inteligência artificial a jogar Asteroids}
+\graduacao{Ciência da Computação}
+\orientador{Prof. Dr. Denis Deratani Mauá}{IME-USP}
+
+\datadeposito{novembro de 2018} % data do deposito
+
+% Cria o comando \argmax{}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+% Caso sua defesa já tenha ocorrido e esta é a versão corrigida do seu trabalho,
+% insira a data de defesa e o nome dos professores que participaram da banca nas
+% linhas abaixo e as descomente.
+%\dadosdefesa{01/01/1900}%
+%            {\orientadorcominstituto}%
+%            {Prof. Dr. Dois - IME-USP}%
+%            {Prof. Dr. Três - UNICAMP}
+
+
+% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- %
+% PARTE PADRÃO
+%
+% Não precisa mexer daqui para baixo
+% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- %
+\begin{document}
+\formatacaopaginaspreliminares
+
+
+% ---------------------------------------------------------------------------- %
+% CAPA
+% ---------------------------------------------------------------------------- %
+\capas
+
+\pagenumbering{roman}        % Começamos a numeração romana.
+\input chapters/resumoagradecimento
+
+
+% ---------------------------------------------------------------------------- %
+% Sumário
+% ---------------------------------------------------------------------------- %
+\tableofcontents             % Imprime o sumário.
+
+
+% ---------------------------------------------------------------------------- %
+% Corpo do Trabalho
+% ---------------------------------------------------------------------------- %
+\formatacaocorpotrabalho
+%\formatacaocorpotrabalho[\onehalfspacing]
+
+\input capitulos             % Insere conteúdo do arquivo: 'capitulos.tex'
+
+% Cabeçalho para os apêndices.
+\formatacaoapendices
+\appendix
+\input apendices             % Insere conteúdo do arquivo: 'apendices.tex'
+
+
+% ---------------------------------------------------------------------------- %
+% Bibliografia
+% ---------------------------------------------------------------------------- %
+\backmatter \singlespacing   % Espaçamento simples.
+\bibliographystyle{alpha-ime}% Citação bibliográfica alpha.
+\bibliography{bibliografia}  % Insere conteúdo do arquivo: 'bibliografia.bib'
+
+
+% ---------------------------------------------------------------------------- %
+% Índice remissivo
+% ---------------------------------------------------------------------------- %
+\printindex                  % Imprime o índice remissivo no documento.
+
+\end{document}
