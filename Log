@@ -623,3 +623,8 @@ Início~15/Maio/2018
   (pontuação, probabilidade de exploração, training loss, etc forem imprimidos na tela),
   serão devidamente colocados aqui.
   Parece que cada episódios leva umas 4 ou 5 horas para terminar.
+
+  Atualizei o repositório do git com o esquema da monografia em latex (créditos ao Rica),
+  dei commit e push no repositório, mas lembrei que alterei um pouco o código da IA em
+  outro computador, então provavelmente terei que resolver alguns conflitos do repositório
+  depois....
