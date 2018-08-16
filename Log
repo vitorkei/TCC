@@ -628,3 +628,29 @@ Início~15/Maio/2018
   dei commit e push no repositório, mas lembrei que alterei um pouco o código da IA em
   outro computador, então provavelmente terei que resolver alguns conflitos do repositório
   depois....
+
+================================
+
+15/Ago/2018
+  O modelo ainda está treinando. Após 1 dia e meio, fez 1 terço dos episódios. A pontuação
+  não está muito boa até o momento.
+  Para deixar anotado, as saídas até agora foram:
+  Episode - Total reward - Explore prob - Training loss
+  0       - 1030         - 0.9677       - 0.6024
+  1       - 1180         - 0.9184       - 2.3302
+  2       - 830          - 0.8955       - 0.0719
+  3       - 280          - 0.8777       - 3.8982
+  4       - 1030         - 0.8516       - 76.585
+  5       - 730          - 0.8346       - 0.0004
+  6       - 830          - 0.8167       - 12.204
+  7       - 580          - 0.7989       - 0.2182
+  8       - 580          - 0.7811       - 0.0008
+  9       - 760          - 0.7644       - 0.0085
+  10      - 930          - 0.7433       - 77.328
+
+  Preciso dar uma olhada de por que o Training loss disparou em alguns momentos e como isso
+  se relaciona com a pontuação do episódio.
+
+  Também continuei a monografia, mais precisamente o capítulo Fundamentos. As ideias estão
+  um tanto desorganizadas e o último pedaço escrito até o momento (Inteligência Artificial)
+  está mais separado em tópicos por hora, para poder ser deviamente organizado mais tarde.
