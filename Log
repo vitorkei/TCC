@@ -785,3 +785,6 @@ Início~15/Maio/2018
   kernel_sizes = [6, 3, 2]
   stride_sizes = [3, 2, 2]
   pool_kernal = [3, 2] (NÃO UTILIZADO)
+
+  Estes foram os melhores resultados até agora, então acho que vou começar o fine tuning,
+  alterando um parâmetro de cada vez para ver como melhora
