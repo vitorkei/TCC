@@ -654,3 +654,47 @@ Início~15/Maio/2018
   Também continuei a monografia, mais precisamente o capítulo Fundamentos. As ideias estão
   um tanto desorganizadas e o último pedaço escrito até o momento (Inteligência Artificial)
   está mais separado em tópicos por hora, para poder ser deviamente organizado mais tarde.
+
+================================
+
+16/Ago/2018
+  Em algum momento do dia de hoje, a execução parou espontaneamente E o screen fechou. Não
+  sei o que aconteceu, mas sequer posso ver os resultados dos últimos episódios que conseguiu
+  rodar. O lado bom é que anotei alguns resultados ontem. Além disso, da última vez que eu vi,
+  estava no episódio 14 e a pontuação não estava aumentando, então acho que não foi tão ruim.
+  Agora, eu vou tentar mudar alguns parâmetros para ver se ele roda mais rápido e realmente
+  aprende ao longo dos episódios.
+  Um pouco triste mesmo assim.....
+
+  Tentando rodar de novo com os parâmetros menores, o screen simplesmente estava fechado quando
+  voltei. Não sei o que aconteceu, então estou tentando rodar de novo, desta vez sem usar o
+  screen. Está visivelmente mais rápido (em uns 5 ou 10 minutos, já foram 4 episódios). Para
+  garantir que não vou perder nada de novo, já vou começar a anotar aqui os resultados:
+  Episode - Total reward - Explore prob - Training loss
+  0       - 1300         - 0.96701      - 0.0619
+  1       - 680          - 0.94590      - 0.0213
+  2       - 510          - 0.93043      - 0.4450
+  3       - 480          - 0.91459      - 0.0131
+  4       - 1350         - 0.86892      - 0.1357
+  5       - 380          - 0.84935      - 0.2490
+  6       - 580          - 0.83183      - 0.1164
+  7       - 580          - 0.81302      - 0.0177
+  8       - 880          - 0.79192      - 12.235
+  9       - 330          - 0.77188      - 0.2744
+  10      - 1660         - 0.74121      - 0.0791
+  11      - 1420         - 0.71336      - 0.0069
+  12      - 680          - 0.69907      - 0.1217
+  13      - 1320         - 0.67051      - 12.125
+  14      - 260          - 0.66072      - 0.1081
+  15      - 530          - 0.64623      - 0.0584
+  16      - 460          - 0.63308      - 0.1345
+  17      - 1320         - 0.60727      - 312.02
+  18      - 510          - 0.59547      - 0.0720
+  19      - 830          - 0.57283      - 0.1150
+  20      - 830          - 0.54933      - 0.1839
+
+  Foi até que rápido, levando em torno de 1 hora para esses 21 episódios. A pontuação que a IA
+  conseguiu depois desse treinamento foid e 160! Foi bem ruim.... Mas pelo menos agora ela terminou.
+  Próximo passo: alterar os hiper parâmetros até ela aprender direito!
+  
+  Escrevi mais um pouco da monografia também

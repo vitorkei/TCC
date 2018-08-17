@@ -59,12 +59,22 @@ Apesar de não ter sido utilizado, esta biblioteca também possui uma ferramenta
 Inteligência artificial (IA) é um dos campos mais recentes de ciência e engenharia, tendo trabalhos no assunto sendo iniciados pouco depois da Segunda Guerra Mundial. Atualmente, ela é composta por diversos campos menores de estudo, podendo ser mais genérico, como aprendizado e percepção, até mais específico, como a capacidade de jogar um jogo, provar teoremas matemáticas, ou dirigir um carro em uma via movimentada.
 No livro Artificial Intelligence: A Morden Approach, de Stuart Jonathan Russel e Peter Norvig, oito definições são apresentadas em uma tabela de duas linhas por duas colunas. A linha de cima define processo de pensamento (thought process) e raciocínio (reasoning), enquanto a linha de baixo define comportamento (behaviour). Além disso, a coluna da esquerda mede o grau de fidelidade da inteligência quando comparado com performance humana, enquanto a da direita mede a racionalidade da performance - ou seja, se toma a ação "correta" dado o que o sistema sabe.
 
-  \begin{tabular}{| l | l |}
-    \hline
-    \textbf{Pensando como um humano} & \textbf{Pensando racionalmente} \\ \hline
-    \thead{\textit{O empolgante novo esforço de fazer} \\ \textit{computadores pensarem, serem máquinas} \\ \textit{com mentes, no sentido completo e literal}} & bla \\ \hline \hline
-    \textbf{Agindo como um huamno} & \textbf{Agindo racionalmente} \\ \hline
-  \end{tabular}
+
+%  \begin{tabular}{ | p{1cm} | p{1cm} | }
+%    \hline
+%    \textbf{Pensando como um humano} & \textbf{Pensando racionalmente} \\ \hline
+%    \thead[l]{\textit{O empolgante novo esforço de fazer} \\ \textit{computadores pensarem, serem máquinas} \\ \textit{com mentes, no sentido completo e literal} \\ (Haugeland, 1986) \\ \\ \textit{[A automação de] atividades} \\ \texit{que são associadas ao pensamento} \\ \textit{humano, como resolução de} \\ \textit{de problemas, tomada de decisão,} \\ \textit{aprendizado...} \\ (Hellman, 1978)} & \thead[l]{\textit{O estudo das faculdades mentais através} \\ \textit{de modelos computacionais} \\ (Charniak \& McDermott, 1985) \\ \\ \textit{O estudo das computações que tornam possível} \\ \textit{a percepção, razão, e ação} \\ (Winston, 1992)} \\ \hline
+%    \textbf{Agindo como um huamno} & \textbf{Agindo racionalmente} \\ \hline
+%    \thead[l]{\textit{A arte de criar máquinas que realizam} \\ \textit{funções que requerem inteligência quando feitas} \\ \textit{por pessoas} \\ (Kurzweil, 1990)} & bla \\ \hline
+%  \end{tabular}
+
+\begin{tabular}{| p{7cm} | p{7cm} |}
+  \hline
+  \textbf{Pensando como um humano} & \textbf{Pensando racionalmente} \\ \hline
+  \textit{O empolgante novo esforço de fazer computadores pensarem, serem máquinas com mentes, no sentido completo e literal da expressão} \newline (Haugeland, 1986) & \textit{O estudo das faculdades mentais através de modelos computacionais} \newline (Charniak \& McDermott, 1985) \\ & \\ \textit{[A automação de] atividades que são associadas ao pensamento humano, como resolução de problemas, tomada de decisão, aprendizado, ...} \newline (Hellman, 1978) & \textit{O estudo das computações que tornam possível a percepção, razão, e ação} \newline (Winston, 1992) \\ \hline
+  \textbf{Agindo como um humano} & \textbf{Agindo radionalmente} \\ \hline
+  \textit{A arte de criar máquinas capazes de realizar funções que requerem inteligência quando feitas por pessoas} \newline (Kurzweil, 1990) & \textit{Inteligência computacional é o estudo do design de agentes inteligentes} \newline (Poole \textit{et at}, 1998) \\ & \\ \textit{O estudo de como fazer os computadores fazerem coisas que, no momento, pessoas fazem melhor} \newline (Rich and Knight, 1991) & \textit{IA... está relacionada a comportamento inteligente em objetos} \newline (Nilsson, 1998) \\ \hline
+\end{tabular}
 
 Agindo como um humano: Teste de Turing. Envolve processamento de linguagem natural, representação de conhecimento, raciocínio automatizado, aprendizado de máquina e, no caso do teste de Turing total, visão computacional e robótica. Contudo, cientistas dedicaram pouco tempo em passar nesse teste, pois acreditam ser mais importante estudar os princípios da inteligência do que duplicar uma.
 
@@ -78,10 +88,6 @@ Agindo racionalmente: Um agente racional é esperado que aja de forma que atinja
 
 \begin{displayquote}
   \textit{Game Design é o ato de decidir como um jogo deve ser.}\footnote{Tradução livre feita pelo autor}
-\end{displayquote}
-
-\begin{displayquote}
-  \textit{Os documentos gravam decisões feitas e concordadas oralmente [entre os integrantes do grupo]; (...) mais importante que isso, eles transformam ideias vagas em planos explícitos.}\footnote{Tradução livre feita pelo autor}
 \end{displayquote}
 
 \begin{lstlisting}
