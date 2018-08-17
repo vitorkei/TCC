@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+
 
 import argparse
 import retro
@@ -30,7 +30,7 @@ try:
                     if info:
                         infostr = ', info: ' + ', '.join(['%s=%i' % (k, v) for k, v in info.items()])
                     print(('t=%i' % t) + infostr)
-                env.render()
+                #env.render()
             if args.players == 1:
                 rew = [rew]
             for i, r in enumerate(rew):
@@ -41,7 +41,7 @@ try:
                     if r < 0:
                         print('t=%i p=%i got penalty: %g, current reward: %g' % (t, i, r, totrew[i]))
             if done:
-                env.render()
+                #env.render()
                 try:
                     if verbosity >= 0:
                         if args.players > 1:

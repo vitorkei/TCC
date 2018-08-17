@@ -698,3 +698,90 @@ Início~15/Maio/2018
   Próximo passo: alterar os hiper parâmetros até ela aprender direito!
   
   Escrevi mais um pouco da monografia também
+
+================================
+
+17/Ago/2018
+  Rodei mais três vezes a IA com parâmetros diferentes. Seguem os parâmetros e respectivos resultados:
+  Episode - Tot Rew - Explore prob - Train loss
+  0       - 510     - 0.97948      - 38.4610
+  1       - 530     - 0.96356      - 45.0468
+  2       - 1420    - 0.88429      - 0.00262
+  3       - 610     - 0.86584      - 0.32183
+  4       - 980     - 0.84280      - 0.10690
+  5       - 1880    - 0.77844      - 0.00006
+  6       - 1300    - 0.71754      - 0.00760
+  7       - 1080    - 0.69885      - 195.166
+  8       - 980     - 0.67643      - 0.00475
+  9       - 830     - 0.66161      - 156.220
+  10      - 1540    - 0.62970      - 155.674
+  11      - 780     - 0.61333      - 38.8195
+  12      - 430     - 0.60476      - 0.20307
+  13      - 930     - 0.58227      - 0.02497
+  14      - 310     - 0.57687      - 0.16114
+  15      - 330     - 0.56824      - 0.03382
+  16      - 980     - 0.54118      - 0.07011
+  17      - 140     - 0.53680      - 0.08106
+  18      - 680     - 0.52805      - 0.01833
+  19      - 980     - 0.51640      - 0.00042
+  20      - 380     - 0.50898      - 0.15614
+
+  SCORE DO MODELO APRENDIDO: 160
+  
+  Hiper parâmetros do teste acima:
+  stack_size = 4
+  learning_rate = 0.00025
+  total_episodes = 21
+  max_steps = 10000
+  batch_size = 64
+  explore_begin = 1.0
+  explore_end = 0.01
+  decay_rate = 0.00001
+  gamma = 0.9
+  memory_size = 100000
+  conv_filters = [32, 64, 64]
+  kernel_sizes = [8, 4, 3]
+  stride_sizes = [4, 2, 2]
+  pool_kernel = [3, 2] (NÃO UTILIZADO)
+
+  ****************************************
+  Episode - Tot Rew - Explore prob - Train loss
+  0       - 380     - 0.98525      - 0.00637
+  1       - 1470    - 0.89335      - 0.02207
+  2       - 1610    - 0.84688      - 0.03757
+  3       - 1130    - 0.80726      - 0.07063
+  4       - 2600    - 0.75529      - 0.04968
+  5       - 530     - 0.73789      - 0.07771
+  6       - 780     - 0.72542      - 0.04274
+  7       - 1910    - 0.68667      - 0.00684
+  8       - 630     - 0.67063      - 38.6643
+  9       - 430     - 0.66141      - 0.18445
+  10      - 230     - 0.65426      - 0.25809
+  11      - 680     - 0.64367      - 6.15982
+  12      - 680     - 0.63329      - 0.01713
+  13      - 930     - 0.61287      - 0.10042
+  14      - 980     - 0.59549      - 0.08502
+  15      - 1030    - 0.57594      - 0.03683
+  16      - 1710    - 0.53498      - 0.02378
+  17      - 1180    - 0.51377      - 0.10808
+  18      - 1180    - 0.50402      - 0.03998
+  19      - 1360    - 0.48326      - 155.283
+  20      - 780     - 0.47211      - 0.20134
+
+  SCORE DO MODELO APRENDIDO: 210
+
+  Hiper parâmetros dos testes acima:
+  stack_size = 4
+  learning_rate = 0.00025
+  total_episodes = 21
+  max_steps = 10000
+  batch_size = 64
+  explore_begin = 1.0
+  explore_end = 0.01
+  decay_rate = 0.00001
+  gamma = 0.9
+  memory_size = 100000
+  conv_filters = [24, 32, 32]
+  kernel_sizes = [6, 3, 2]
+  stride_sizes = [3, 2, 2]
+  pool_kernal = [3, 2] (NÃO UTILIZADO)

@@ -19,15 +19,15 @@ warnings.filterwarnings('ignore')
 base_height = 190
 base_width = 152
 
-new_height = 190 # 110
-new_width =  152 # 84
+new_height = 110
+new_width =  84
 num_channels = 4
 
 env = retro.make(game='Asteroids-Atari2600')
-print("frame size:", env.observation_space)
-print("action size:", env.action_space.n)
+#print("frame size:", env.observation_space)
+#print("action size:", env.action_space.n)
 possible_actions = np.array(np.identity(env.action_space.n, dtype=int).tolist())
-print(possible_actions)
+#print(possible_actions)
 
 
 ########################################################
@@ -43,9 +43,9 @@ action_size = env.action_space.n                 # 8 ações possíveis
 learning_rate = 0.00025
 
 ### TREINAMENTO
-total_episodes = 20 # número total de episódios para o treinamento
-max_steps = 500   # número máximo de ações tomadas em um episódio
-batch_size = 18
+total_episodes = 21 # número total de episódios para o treinamento
+max_steps = 10000   # número máximo de ações tomadas em um episódio
+batch_size = 64
 
 ### Parâmetros de exploração para estratégia gulosa epsilon
 explore_begin = 1.0  # Probabilidade de se explorar no início
@@ -57,17 +57,17 @@ gamma = 0.9 # Taxa de desconto
 
 ### MEMÓRIA
 pretrain_length = batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
-memory_size = 10000        # Número de experiências capazes de serem armazenadas na memória
+memory_size = 100000        # Número de experiências capazes de serem armazenadas na memória
 
 ### FLAGS
 training = True        # Mudar para True se quiser treinar o agente
 episode_render = False # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
-conv_filters = [32, 64, 64] # Número de filtros em cada camada de conv2d - ELU
-kernel_sizes = [8, 4, 3] # Tamanho do kernel de cada camada de conv2d - ELU
-stride_sizes = [1, 1, 1] # Número de strides em cada camada de conv2d - ELU
-pool_kernel = [4, 4, 4] # Tamanho do kernel de cada camada de maxpool2d
+conv_filters = [24, 32, 32] # Número de filtros em cada camada de conv2d - ELU
+kernel_sizes = [6, 3, 2] # Tamanho do kernel de cada camada de conv2d - ELU
+stride_sizes = [3, 2, 2] # Número de strides em cada camada de conv2d - ELU
+pool_kernel = [3, 2] # Tamanho do kernel de cada camada de maxpool2d
 
 ########################################################
 ########################################################
@@ -78,12 +78,10 @@ def preprocess_frame(frame):
   gray = rgb2gray(frame)
   cropped_frame = gray[5:-15, 8:]
   normalized_frame = cropped_frame/255.0
+  preprocessed_frame = transform.resize(normalized_frame, [new_height, new_width])
+  return preprocessed_frame # 110x84x1 frame
 
-  # Tentar usar o frame inteiro por hora
-  #preprocessed_frame = transform.resize(cropped_frame, [new_height, new_width])
-  #return preprocesses_frame
-
-  return normalized_frame
+  #return normalized_frame
 
 stacked_frames = deque([np.zeros((new_height, new_width), dtype=np.int) for i in range(stack_size)], maxlen=stack_size)
 
@@ -129,25 +127,27 @@ class DQNetwork:
                                      kernel_size = k_s[0],
                                      strides = s_s[0],
                                      padding = "VALID",
-                                     kernel_initializer = tf.contrib.layers.xavier_initializer_conv2d())
+                                     kernel_initializer=tf.contrib.layers.xavier_initializer_conv2d())
       self.elu = tf.nn.elu(self.conv2d)
-      self.maxpool2d = tf.layers.max_pooling2d(inputs = self.elu,
-                                               pool_size = p_k[0],
-                                               strides = s_s[0])
+      #self.maxpool2d = tf.layers.max_pooling2d(inputs = self.elu,
+                                               #pool_size = p_k[0],
+                                               #strides = s_s[0])
 
       for i in range(1, len(conv_filters)-1):
-        self.conv2d = tf.layers.conv2d(inputs = self.maxpool2d,
+        self.conv2d = tf.layers.conv2d(#inputs = self.maxpool2d,
+                                       inputs = self.elu,
                                        filters = c_f[i],
                                        kernel_size = k_s[i],
                                        strides = s_s[i],
                                        padding = "VALID",
                                        kernel_initializer = tf.contrib.layers.xavier_initializer_conv2d())
         self.elu = tf.nn.elu(self.conv2d)
-        self.maxpool2d = tf.layers.max_pooling2d(inputs = self.elu,
-                                                 pool_size = p_k[i],
-                                                 strides = s_s[i])
+        #self.maxpool2d = tf.layers.max_pooling2d(inputs = self.elu,
+                                                 #pool_size = p_k[i],
+                                                 #strides = s_s[i])
 
-      self.flatten = tf.contrib.layers.flatten(self.maxpool2d)
+      #self.flatten = tf.contrib.layers.flatten(self.maxpool2d)
+      self.flatten = tf.contrib.layers.flatten(self.elu)
 
       # fully connected layer
       self.fc = tf.layers.dense(inputs = self.flatten,
@@ -242,7 +242,7 @@ def predict_action(explore_begin, explore_end, decay_rate, decay_step, state, ac
   explore_probability = explore_end + (explore_begin - explore_end) * np.exp(-decay_rate * decay_step)
 
   if (explore_probability > exp_exp_tradeoff): # Realiza uma ação aleatória
-    choice = random.randint(1, len(possible_actions))-1
+    choice = random.randint(0, len(possible_actions)-1)
     action = possible_actions[choice]
   else: # ou a com maior recompensa imediata
     Qs = sess.run(DQNetwork.output, feed_dict = {DQNetwork.inputs_: state.reshape((1, *state.shape))})
@@ -252,6 +252,8 @@ def predict_action(explore_begin, explore_end, decay_rate, decay_step, state, ac
   return action, explore_probability
 
 saver = tf.train.Saver() # Ajuda a salvar o modelo
+
+rewards_list = []
 
 if training == True:
   with tf.Session() as sess:
@@ -287,7 +289,7 @@ if training == True:
 
           print("Episode:", episode, "\nTotal reward:", total_reward, "\nExplore prob:", explore_probability, "Training loss:", loss)
 
-          reward_list.append((episode, total_reward))
+          rewards_list.append((episode, total_reward))
 
           memory.add((state, action, reward, next_state, done))
         else:
@@ -329,13 +331,17 @@ if training == True:
         writer.flush()
         
       if episode % 5 == 0:
-        save_path = saver.save(sess, "./models/model.ckpt")
+        save_path = saver.save(sess, "/var/tmp/models/model.ckpt")
         print("Model Saved")
+
+print("rewards list:")
+for reward in rewards_list:
+  print("episode:", reward[0], " - reward:", reward[1])
 
 with tf.Session() as sess:
   total_test_rewards = []
 
-  saver.restore(sess, "./models/model.ckpt")
+  saver.restore(sess, "/var/tmp/models/model.ckpt")
 
   for episode in range(1):
     total_rewards = 0
@@ -353,7 +359,8 @@ with tf.Session() as sess:
       action = possible_actions[choice]
 
       next_state, reward, done, info = env.step(action)
-      env.render()
+      if episode_render:
+        env.render()
 
       total_rewards += reward
 
