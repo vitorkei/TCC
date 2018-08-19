@@ -788,3 +788,46 @@ Início~15/Maio/2018
 
   Estes foram os melhores resultados até agora, então acho que vou começar o fine tuning,
   alterando um parâmetro de cada vez para ver como melhora
+
+  ****************************************
+  Episode - Tot Rew - Explore prob - Train loss
+  0       - 1300    - 0.94101      - 0.33855
+  1       - 490     - 0.92465      - 0.00745
+  2       - 930     - 0.90069      - 0.00012
+  3       - 1300    - 0.86142      - 154.869
+  4       - 680     - 0.84599      - 39.0267
+  5       - 1350    - 0.81222      - 0.05511
+  6       - 1180    - 0.77451      - 161.528
+  7       - 630     - 0.75912      - 0.38794
+  8       - 660     - 0.73645      - 0.10403
+  9       - 1300    - 0.69705      - 0.17067
+  10      - 880     - 0.68387      - 0.01808
+  11      - 1180    - 0.65493      - 0.04504
+  12      - 710     - 0.63628      - 0.00840
+  13      - 980     - 0.62455      - 0.02014
+  14      - 560     - 0.60952      - 0.17008
+  15      - 130     - 0.59494      - 154.976
+  16      - 630     - 0.58234      - 0.01038
+  17      - 1030    - 0.55909      - 0.17386
+  18      - 580     - 0.54652      - 0.12331
+  19      - 780     - 0.52905      - 38.7622
+
+  SCORE DO MODELO APRENDIDO: 140
+
+  Hiper parâmetros dos testes acima:
+  stack_size = 4
+  learning_rate = 0.00025
+  total_episodes = 21 (por algum motivo, só fez 20 episódios...)
+  max_steps = 10000
+  batch_size = 64
+  explore_begin = 1.0
+  explore_end = 0.01
+  decay_rate = 0.00001
+  gamma = 0.9
+  memory_size = 100000
+  conv_filters = [16, 32, 32]
+  kernel_sizes = [6, 3, 2]
+  stride_sizes = [3, 2, 2]
+
+  Eu vou tentar aumentar o número de episódios rodados após aprender
+  e guardar só o modelo que der a melhor pontuação para ver o quanto melhora.
