@@ -40,7 +40,7 @@ stack_size = 4
 ### MODELO
 state_size = [new_height, new_width, stack_size] # Entrada é uma pilha de 4 frames
 action_size = env.action_space.n                 # 8 ações possíveis
-learning_rate = 0.00025
+learning_rate = 0.0025
 
 ### TREINAMENTO
 total_episodes = 21 # número total de episódios para o treinamento
@@ -64,7 +64,7 @@ training = True        # Mudar para True se quiser treinar o agente
 episode_render = False # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
-conv_filters = [24, 32, 32] # Número de filtros em cada camada de conv2d - ELU
+conv_filters = [16, 32, 32] # Número de filtros em cada camada de conv2d - ELU
 kernel_sizes = [6, 3, 2] # Tamanho do kernel de cada camada de conv2d - ELU
 stride_sizes = [3, 2, 2] # Número de strides em cada camada de conv2d - ELU
 pool_kernel = [3, 2] # Tamanho do kernel de cada camada de maxpool2d
@@ -254,6 +254,7 @@ def predict_action(explore_begin, explore_end, decay_rate, decay_step, state, ac
 saver = tf.train.Saver() # Ajuda a salvar o modelo
 
 rewards_list = []
+highest_score = 0
 
 if training == True:
   with tf.Session() as sess:
@@ -287,7 +288,7 @@ if training == True:
           step = max_steps
           total_reward = np.sum(episode_rewards)
 
-          print("Episode:", episode, "\nTotal reward:", total_reward, "\nExplore prob:", explore_probability, "Training loss:", loss)
+          print(episode, total_reward, explore_probability, loss)
 
           rewards_list.append((episode, total_reward))
 
@@ -330,13 +331,14 @@ if training == True:
         writer.add_summary(summary, episode)
         writer.flush()
         
-      if episode % 5 == 0:
+      if total_reward > highest_score:
         save_path = saver.save(sess, "/var/tmp/models/model.ckpt")
-        print("Model Saved")
+        highest_score = total_reward
+        print(episode, "saved")
 
-print("rewards list:")
-for reward in rewards_list:
-  print("episode:", reward[0], " - reward:", reward[1])
+#print("rewards list:")
+#for reward in rewards_list:
+#  print("episode:", reward[0], " - reward:", reward[1])
 
 with tf.Session() as sess:
   total_test_rewards = []
@@ -373,3 +375,15 @@ with tf.Session() as sess:
       state = next_state
 
   env.close()
+
+print(total_episodes)
+print(max_steps)
+print(batch_size)
+print(explore_begin)
+print(explore_end)
+print(decay_rate)
+print(gamma)
+print(memory_size)
+print(conv_filters)
+print(kernel_sizes)
+print(stride_sizes)
