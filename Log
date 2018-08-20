@@ -831,3 +831,17 @@ Início~15/Maio/2018
 
   Eu vou tentar aumentar o número de episódios rodados após aprender
   e guardar só o modelo que der a melhor pontuação para ver o quanto melhora.
+
+================================
+
+18-19/Ago/2018
+  Treinei mais um pouco a IA (resultados salvos nos arquivos training_logx,
+  sendo x um número, na pasta ai/). Os resultados têm sido bem ruins, então
+  mandei um e-mail para o Denis perguntando se ele sabe de alguma referência
+  para eu poder aprender um pouco mais sobre treinamento em deep Q learning
+  e saber quais hiper parâmetros modificar e como.
+
+  Fora isso, escrevi um pouco mais da monografia. Falta terminar de falar
+  sobre IA. Como esse é o ponto mais importante do trabalho, terei que falar
+  mais nessa seção, que inclui aprendizagem por reforço, deep learning e
+  deep Q learning.
