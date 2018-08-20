@@ -67,7 +67,7 @@ No livro Artificial Intelligence: A Morden Approach, de Stuart Jonathan Russel e
   \textit{A arte de criar máquinas capazes de realizar funções que requerem inteligência quando feitas por pessoas} \newline (Kurzweil, 1990) & \textit{Inteligência computacional é o estudo do design de agentes inteligentes} \newline (Poole \textit{et at}, 1998) \\ & \\ \textit{O estudo de como fazer os computadores fazerem coisas que, no momento, pessoas fazem melhor} \newline (Rich and Knight, 1991) & \textit{IA... está relacionada a comportamento inteligente em objetos} \newline (Nilsson, 1998) \\ \hline
 \end{tabular}
 
-Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma inteligência artificial que se pareça com um humano, enquanto as da direita sobre uma inteligência artificial que toma ações visando estar correta e a atingir o melhor resultado possível. Pela natureza de \textit{Deep Q Learning}, tipo de aprendizado utilizado neste trabalho, o foco será em agir racionalmente, ou seja, tomar ações que são mais prováveis de retornar a melhor recompensa.
+Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma inteligência artificial que se pareça com um humano, enquanto as da direita sobre uma inteligência artificial que toma ações visando estar correta e a atingir o melhor resultado possível. Este trabalho terá um foco maior na categoria "\textbf{Agindo racionalmente}", pois as ações tomadas pelo agente terão como objetivo o retorno da maior recompensa possível.
 
 %Agindo como um humano: Teste de Turing. Envolve processamento de linguagem natural, representação de conhecimento, raciocínio automatizado, aprendizado de máquina e, no caso do teste de Turing total, visão computacional e robótica. Contudo, cientistas dedicaram pouco tempo em passar nesse teste, pois acreditam ser mais importante estudar os princípios da inteligência do que duplicar uma.
 
@@ -80,7 +80,10 @@ Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma int
 \subsection{Aprendizagem por reforço}
 \label{sec:rl}
 
-Aprendizagem por reforço (\textit{reinforcement learning}) é uma das técnicas de aprendizado de inteligência artificial e a utilizada neste trabalho.
+Aprendizagem por reforço (\textit{reinforcement learning}) é uma das técnicas de aprendizado de inteligência artificial e uma das bases da utilizada neste trabalho.
+Para domínios mais simples, como Jogo da velha, é possível determinar qual a ação com maior recompensa esperada para cada estado - ou seja, a ação com maior probabilidade de vencer o jogo. Conforme o domínio se torna mais complexo, fazer esse mapeamento se torna inviável por conta da quantidade de dados que precisam ser armazenado, como é o caso do jogo \textit{Asteroids}. Além disso, não é raro haver casos em que não é possível dizer se uma ação tomada deve ter recompensa positiva ou negativa. Nesses casos, é mais viável criar e treinar um agente que aprenda a se comportar no ambiente em que está inserido do que informar se cada uma de suas ações em cada um dos estados possíveis é boa ou ruim.
+
+Para tomar as decisões com melhor resultado, o agente precisa de NÚMERO informações
 
 
 
