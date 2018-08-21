@@ -845,3 +845,13 @@ Início~15/Maio/2018
   sobre IA. Como esse é o ponto mais importante do trabalho, terei que falar
   mais nessa seção, que inclui aprendizagem por reforço, deep learning e
   deep Q learning.
+
+================================
+
+20/Ago/2018
+  Li a continuação do jupyter notebook que fala sobre como construir uma IA
+  que aprende a jogar Space Invanders utilizando TensorFlow e deep Q learning.
+  Essa continuação fala sobre algumas melhores no aprendizado e comecei a
+  implementá-las em um outro arquivo (my_AIv2.py).
+  O professor também me passou duas referências para eu aprender um pouco
+  mais sobre deep learning e reinforcement learning.

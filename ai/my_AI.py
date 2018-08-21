@@ -133,7 +133,7 @@ class DQNetwork:
                                                #pool_size = p_k[0],
                                                #strides = s_s[0])
 
-      for i in range(1, len(conv_filters)-1):
+      for i in range(1, len(conv_filters)):
         self.conv2d = tf.layers.conv2d(#inputs = self.maxpool2d,
                                        inputs = self.elu,
                                        filters = c_f[i],
