@@ -97,7 +97,7 @@ def stack_frames(stacked_frames, state, is_new_episode):
   if is_new_episode:
     stacked_frames = deque([np.zeros((new_height, new_width), dtype=np.int) for i in range(stack_size)], maxlen=stack_size)
 
-    for i in range(stack_size);
+    for i in range(stack_size):
       stacked_frames.append(frame)
 
     stacked_state = np.stack(stacked_frames, axis=2)
@@ -149,8 +149,8 @@ class DDDQNNet:
                                        name=("conv2d"+str(i)))
         self.elu = tf.nn.elu(self.conv2d, name=("elu"+str(i)))
      
-      self.flatten = tf.layers.flatten(self.elu)
-      #self.flatten = tf.contrib.layers.flatten(self.elu) # usado na v1 da IA
+      #self.flatten = tf.layers.flatten(self.elu) # não tem na versão 1.0.1, que é a do brucutuiv
+      self.flatten = tf.contrib.layers.flatten(self.elu) # usado na v1 da IA
 
       # value_fc e value calculam V(s)
       self.value_fc = tf.layers.dense(inputs = self.flatten,
@@ -175,11 +175,12 @@ class DDDQNNet:
                                        units = self.action_size,
                                        activation = None,
                                        kernel_initializer=tf.contrib.layers.xavier_initializer(),
-                                       name="advantage")
+                                       name="advantages")
 
       # Agrega as camadas
       # Q(s, a) = V(s) + (A(s, a) - 1/|A| * sum A(s, a'))
-      self.output = self.value + tf.subtract(self.advantage, tf.reduce_mean(self.advantage, axis=1, keepdims=True))
+      self.output = self.value + tf.subtract(self.advantage, tf.reduce_mean(self.advantage, axis=1, keep_dims=True))
+      print((self.output).shape)
       
       # Q é o Q-valor previsto
       self.Q = tf.reduce_sum(tf.multiply(self.output, self.actions_), axis=1)
@@ -277,11 +278,11 @@ class Memory(object):
     b_idx       = np.empty((n,), dtype=np.int32)
     b_ISWeights = np.empty((n, 1), dtype=np.float32)
 
-    priority_segment = self.tree.total_priority / n
+    priority_segment = self.tree.total_priority() / n
 
     self.PER_b = np.min([1., self.PER_b + self.PER_b_increment_per_sampling]) # max = 1
 
-    p_min = np.min(self.tree.tree[-self.tree.capacity:]) / self.tree.total_priority
+    p_min = np.min(self.tree.tree[-self.tree.capacity:]) / self.tree.total_priority()
     max_weight = (p_min * n) ** (-self.PER_b)
     
     for i in range(n):
@@ -290,7 +291,7 @@ class Memory(object):
       value = np.random.uniform(a, b)
 
       index, priority, data = self.tree.get_leaf(value)
-      sampling_probabilities = priority / self.tree.total_priority
+      sampling_probabilities = priority / self.tree.total_priority()
       b_ISWeights[i, 0] = np.power(n * sampling_probabilities, -self.PER_b) / max_weight
       b_idx[i] = index
       experience = [data]
@@ -385,7 +386,7 @@ if training == True:
         tau += 1
         decay_step += 1
 
-        action, explore_probability = predic_action(explore_begin, explore_end,
+        action, explore_probability = predict_action(explore_begin, explore_end,
                                                     decay_rate, decay_step,
                                                     step, possible_actions)
 
@@ -421,9 +422,10 @@ if training == True:
 
         target_Qs_batch = []
 
-        Qs_next_state - sess.run(DQNetwork.output, feed_dict = {DQNetwork.inputs_: next_states_mb})
+        print(type(DQNetwork.output), "-", shape(DQNetwork.output))
+        Qs_next_state = sess.run(DQNetwork.output, feed_dict = {DQNetwork.inputs_: next_states_mb})
 
-        Qs_target_next_state = sess.run(TargetNetwork.output, feed_dict = {TargetNetwork.output, feed_dict = {TargetNetwork.inputs_: next_states_mb})
+        Qs_target_next_state = sess.run(TargetNetwork.output, feed_dict = {TargetNetwork.inputs_: next_states_mb})
 
         for i in range(len(batch)):
           terminal = dones_mb[i]
