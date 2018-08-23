@@ -15,12 +15,12 @@ warnings.filterwarnings('ignore')
 #######################################################
 #######################################################
 
-base_height = 190 # Altura da tela sem contar partes desnecessárias da moldura
-base_width = 152 # Largura da tela sem contar partes desnecessárias da moldura
+#base_height = 190 # Altura da tela sem contar partes desnecessárias da moldura
+#base_width = 152 # Largura da tela sem contar partes desnecessárias da moldura
 
 new_height = 110 # Altura da tela redimensionada
 new_width = 84   # Largura da tela redimensionada
-num_channels = 4 # número de canais
+#num_channels = 4 # número de canais
 
 # Inicializa o jogo e recebe as ações possíveis
 env = retro.make(game='Asteroids-Atari2600')
@@ -42,6 +42,9 @@ learning_rate = 0.00025
 total_episodes = 21
 max_steps = 10000
 batch_size = 64
+
+### Número de passos até o Target Network ser atualizado
+max_tau = 10000
 
 ### Parâmetros de exploração para estratégia gulosa epsilon
 explore_begin = 1.0
@@ -73,9 +76,9 @@ stride_sizes = [3, 2, 2]
 ### computação) ao ao reduzir o tamanho da tela e utilizar
 ### apenas tons de cinza
 def preprocess_frame(frame):
-  #gray = rgb2gray(frame) # tentar usar sem acinzentar antes
-  #cropped_frame = gray[5:-15, 8:]
-  cropped_frame = frame[5:-15, 8:]
+  gray = rgb2gray(frame) # tentar usar sem acinzentar antes
+  cropped_frame = gray[5:-15, 8:]
+  #cropped_frame = frame[5:-15, 8:]
   normalized_frame = cropped_frame/255.0
   preprocessed_frame = transform.resize(normalized_frame, [new_height, new_width])
 
@@ -162,7 +165,7 @@ class DDDQNNet:
                                    name="value")
 
       # advantage_fc e advantage calculam A(s, a)
-      self.advantage_fc = tf.layers.dense(inptus = self.flatten,
+      self.advantage_fc = tf.layers.dense(inputs = self.flatten,
                                           units = 512,
                                           activation = tf.nn.elu,
                                           kernel_initializer=tf.contrib.layers.xavier_initializer(),
@@ -304,6 +307,7 @@ class Memory(object):
       self.tree.update(ti, p)
 
 memory = Memory(memory_size)
+#env.reset() # <<<<<<<<<<<< CONTINUAR CONFERINDO A PARTIR DAQUI
 
 for i in range(pretrain_length):
   if i == 0:
@@ -316,6 +320,7 @@ for i in range(pretrain_length):
 
   #env.render()
 
+  # sem stackar no DDDQNN, mas stacka no DQN
   #next_state, stacked_frames = stack_frames(stacked_frames, next_state, False)
 
   if done:
@@ -329,9 +334,9 @@ for i in range(pretrain_length):
     next_state = memory.store((state, action, reward, next_state, done))
     state = next_state
 
-#writer = tf.summary.FileWriter("./tensorboard/dddqn/1")
-#tf.summary.scalar("Loss", DQNetwork.loss)
-#write_op = tf.summary.merge_all()
+writer = tf.summary.FileWriter("./tensorboard/dddqn/1")
+tf.summary.scalar("Loss", DQNetwork.loss)
+write_op = tf.summary.merge_all()
 
 def predict_action(explore_begin, explore_end, decay_rate, decay_step, state, actions):
   exp_exp_tradeoff = np.random.rand() # exploration exploitation tradeoff
@@ -359,9 +364,156 @@ def update_target_graph():
   return op_holder
 
 saver = tf.train.Saver()
+highest_score = 0
 if training == True:
   with tf.Session() as sess:
     sess.run(tf.global_variables_initializer())
     decay_step = 0
     tau = 0
-    
+    #env.reset()
+    update_target = update_target_graph()
+    sess.run(update_target)
+
+    for episode in range(total_episodes):
+      step = 0
+      episode_rewards = []
+      state = env.reset()
+      state, stacked_frames = stack_frames(stacked_frames, state, True)
+
+      while step < max_steps:
+        step += 1
+        tau += 1
+        decay_step += 1
+
+        action, explore_probability = predic_action(explore_begin, explore_end,
+                                                    decay_rate, decay_step,
+                                                    step, possible_actions)
+
+        next_state, reward, done, info = env.step(action)
+
+        if episode_render:
+          env.render()
+
+        episode_rewards.append(reward)
+
+        if done:
+          next_state = np.zeros((new_height, new_width), dtype=np.int)
+          next_state, stacked_frames = stack_frames(stacked_frames, next_state, False)
+
+          step = max_steps
+          total_reward = np.sum(episode_rewards)
+
+          print(episode, total_reward, explore_probability, loss)
+          memory.store((state, action, reward, next_state, done))
+        else:
+          next_state, stacked_frames = stack_frames(stacked_frames, next_state, False)
+
+          memory.store((state, action, reward, next_state, done))
+
+          state = next_state
+
+        tree_idx, batch, ISWeights_mb = memory.sample(batch_size)
+        states_mb = np.array([each[0][0] for each in batch], ndmin=3)
+        actions_mb = np.array([each[0][1] for each in batch])
+        rewards_mb = np.array([each[0][2] for each in batch])
+        next_states_mb = np.array([each[0][3] for each in batch], ndmin=3)
+        dones_mb = np.array([each[0][4] for each in batch])
+
+        target_Qs_batch = []
+
+        Qs_next_state - sess.run(DQNetwork.output, feed_dict = {DQNetwork.inputs_: next_states_mb})
+
+        Qs_target_next_state = sess.run(TargetNetwork.output, feed_dict = {TargetNetwork.output, feed_dict = {TargetNetwork.inputs_: next_states_mb})
+
+        for i in range(len(batch)):
+          terminal = dones_mb[i]
+          action = np.argmax(Qs_next_state[i])
+
+          if terminal:
+            target_Qs_batch.append(rewards_mb[i])
+          else:
+            target = rewards_mb[i] + gamma * Qs_target_next_state[i][action]
+            target_Qs_batch.append(target)
+
+        targets_mb = np.array([each for each in target_Qs_batch])
+
+        _, loss, absolute_errors = sess.run([DQNetwork.optimizer, DQNetwork.loss, DQNetwork.absolute_errors],
+                                            feed_dict={DQNetwork.inputs_: states_mb,
+                                                       DQNetwork.target_Q: targets_mb,
+                                                       DQNetwork.actions_: actions_mb,
+                                                       DQNetwork.ISWeights_: ISWeights_mb})
+
+        memory.batch_update(tree_idx, absolute_errors)
+
+        summary = sess.run(write_op, feed_dict={DQNetwork.inputs_: states_mb,
+                                                DQNetwork.target_Q: targets_mb,
+                                                DQNetwork.actions_: actions_mb,
+                                                DQNetwork.ISWeights_: ISWeights_mb})
+        writer.add_summary(summary, episode)
+        writer.flush()
+        
+        if tau > max_tau:
+          update_target = update_target_graph()
+          sess.run(update_target)
+          tau = 0
+          print("Model updated")
+      
+      if total_reward > highest_score:
+        save_path = saver.save(sess, "/var/tmp/models/modelv2.ckpt")
+        highest_score = total_reward
+        print(episode, "saved")
+
+with tf.Session() as sess:
+  total_test_rewards = []
+  saver.restore(sess, "/var/tmp/models/modelv2.ckpt")
+
+  total_rewards = 0
+  
+  for ep in range(2):
+    print("episode", ep)
+    state = env.reset()
+    state, stacked_frames = stack_frames(stacked_frames, state, True)
+
+    done = False
+    while not done:
+      exp_exp_tradeoff = np.random.rand()
+      explore_probability = 0.01
+
+      if explore_probability > exp_exp_tradeoff:
+        action = random.choice(possible_actions)
+      else:
+        Qs = sess.run(DQNetwork.output, feed_dict = {DQNetwork.inputs_: state.reshape((1, *state.shape))})
+        choice = np.argmax(Qs)
+        action = possible_actions[choice]
+
+      next_state, reward, done, info = env.step(action)
+        
+      if episode_render:
+        env.render()
+
+      total_rewards += reward
+
+      if done:
+        pritn("Score:", total_rewards)
+        total_test_rewards.append(total_rewards)
+        break
+
+      next_state, stacked_frames = stack_frames(stacked_frames, next_state, False)
+      state = next_state
+  
+  env.close()
+
+print(stack_size)
+print(learning_rate)
+print(total_episodes)
+print(max_steps)
+print(batch_size)
+print(max_tau)
+print(explore_begin)
+print(explore_end)
+print(decay_rate)
+print(gamma)
+print(memory_size)
+print(conv_filters)
+print(kernel_sizes)
+print(stride_sizes)
