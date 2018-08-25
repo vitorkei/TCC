@@ -7,21 +7,24 @@
 \contentsline {section}{\numberline {2.3}TensorFlow}{4}{section.2.3}
 \contentsline {section}{\numberline {2.4}Intelig\IeC {\^e}ncia artificial (IA)}{4}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Aprendizagem por refor\IeC {\c c}o}{5}{subsection.2.4.1}
-\contentsline {section}{\numberline {2.5}T\IeC {\'e}cnicas}{6}{section.2.5}
-\contentsline {section}{\numberline {2.6}Ferramentas}{7}{section.2.6}
-\contentsline {chapter}{\numberline {3}Proposta}{9}{chapter.3}
-\contentsline {section}{\numberline {3.1}Tem\IeC {\'a}tica}{9}{section.3.1}
-\contentsline {section}{\numberline {3.2}Mec\IeC {\^a}nicas}{9}{section.3.2}
-\contentsline {section}{\numberline {3.3}Gameplay}{10}{section.3.3}
-\contentsline {section}{\numberline {3.4}Recursos Audiovisuais}{11}{section.3.4}
-\contentsline {chapter}{\numberline {4}Desenvolvimento}{13}{chapter.4}
-\contentsline {section}{\numberline {4.1}STEAMING}{13}{section.4.1}
-\contentsline {section}{\numberline {4.2}Gerenciador de Saves}{14}{section.4.2}
-\contentsline {section}{\numberline {4.3}Script de Fases}{15}{section.4.3}
-\contentsline {section}{\numberline {4.4}Shaders}{17}{section.4.4}
-\contentsline {section}{\numberline {4.5}Juiceness}{19}{section.4.5}
-\contentsline {section}{\numberline {4.6}Problemas e Desafios}{20}{section.4.6}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es - Parte Subjetiva}{23}{chapter.5}
-\contentsline {section}{\numberline {5.1}Gradua\IeC {\c c}\IeC {\~a}o e o Trabalho de Formatura}{23}{section.5.1}
-\contentsline {section}{\numberline {5.2}Trabalhos Futuros}{24}{section.5.2}
+\contentsline {subsubsection}{Processo de Decis\IeC {\~a}o de Markov}{5}{section*.4}
+\contentsline {subsubsection}{Q-learning}{6}{section*.5}
+\contentsline {subsubsection}{\textit {Approximate Q-learning}}{7}{section*.6}
+\contentsline {section}{\numberline {2.5}T\IeC {\'e}cnicas}{8}{section.2.5}
+\contentsline {section}{\numberline {2.6}Ferramentas}{9}{section.2.6}
+\contentsline {chapter}{\numberline {3}Proposta}{11}{chapter.3}
+\contentsline {section}{\numberline {3.1}Tem\IeC {\'a}tica}{11}{section.3.1}
+\contentsline {section}{\numberline {3.2}Mec\IeC {\^a}nicas}{11}{section.3.2}
+\contentsline {section}{\numberline {3.3}Gameplay}{12}{section.3.3}
+\contentsline {section}{\numberline {3.4}Recursos Audiovisuais}{13}{section.3.4}
+\contentsline {chapter}{\numberline {4}Desenvolvimento}{15}{chapter.4}
+\contentsline {section}{\numberline {4.1}STEAMING}{15}{section.4.1}
+\contentsline {section}{\numberline {4.2}Gerenciador de Saves}{16}{section.4.2}
+\contentsline {section}{\numberline {4.3}Script de Fases}{17}{section.4.3}
+\contentsline {section}{\numberline {4.4}Shaders}{19}{section.4.4}
+\contentsline {section}{\numberline {4.5}Juiceness}{21}{section.4.5}
+\contentsline {section}{\numberline {4.6}Problemas e Desafios}{22}{section.4.6}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es - Parte Subjetiva}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Gradua\IeC {\c c}\IeC {\~a}o e o Trabalho de Formatura}{25}{section.5.1}
+\contentsline {section}{\numberline {5.2}Trabalhos Futuros}{26}{section.5.2}
 \contentsfinish 
