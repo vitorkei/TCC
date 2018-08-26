@@ -11,16 +11,16 @@ Este capítulo tem o intuito de familiarizar o leitor com a teoria e as ferramen
 % https://en.wikipedia.org/wiki/Golden_age_of_arcade_video_games
 % https://www.arcade-museum.com/game_detail.php?game_id=6939
 % https://www.ranker.com/list/the-most-popular-golden-age-arcade-games/video-games-lists
-\section{Asteroids}
+\section{\textit{Asteroids}}
 \label{sec:asteroids}
 
-Asteroids é um jogo de fliperama do gênero shooter (jogo eletrônico de tiro) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida apenas como Atari. O jogo foi inspirado por Spacewar!, Computer Space, Space Invaders, e Cosmos, sendo este último um jogo não finalizado.
+\textit{Asteroids} é um jogo de fliperama do gênero shooter (jogo eletrônico de tiro) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida apenas como Atari. O jogo foi inspirado por \textit{Spacewar!}, \textit{Computer Space}, \textit{Space Invaders}, e \textit{Cosmos}, sendo este último um jogo não finalizado.
 
 O jogador controla uma nave espacial que se encontra em um campo de asteróides e precisa atirar para destruir todos enquanto evita colisões com os mesmos. A dificuldade aumenta conforme o número de asteróides na tela aumenta.
 Diversas versões deste jogo foram criadas ao longo dos anos. Além das diferenças gráficas, as mudanças incluem naves espaciais inimigas que atiram contra o jogador, e tamanhos e formatos diferentes que os asteróides podem ter.
-Asteroids é considerado um dos primeiros grandes sucessos da era de ouro dos jogos de fliperama, época em que os jogos eletrônicos se estabeleceram como uma força dominante na cultura popular. 
+\textit{Asteroids} é considerado um dos primeiros grandes sucessos da era de ouro dos jogos de fliperama, época em que os jogos eletrônicos se estabeleceram como uma força dominante na cultura popular. 
 
-Para este trabalho, Asteroids foi emulado utilizando a plataforma Gym-Retro da companhia de pesquisas de inteligência artificial OpenAI. Todas as informações sobre o jogo apresentadas a seguir referem-se a tal versão.
+Para este trabalho, \textit{Asteroids} foi emulado utilizando a plataforma Gym-Retro da companhia de pesquisas de inteligência artificial OpenAI. Todas as informações sobre o jogo apresentadas a seguir referem-se a tal versão.
 Para o aprendizado da inteligência artificial, não há naves inimigas e os asteróides podem assumir três tamanhos e três formatos distintos. Os tamanhos são grande (inicial), médio e pequeno, enquanto os formatos são consideravelmente parecidos.
 Há cinco comandos disponíveis: mover-se para frente, girar a nave no sentido horário, girar a nave no sentido anti-horário, atirar para frente, e entrar no hiper espaço. Mover-se para frente e girar no sentido horário ou anti-horário são as principais formas de movimento disponíveis ao jogador, e atirar serve para destruir os asteróides. Mover-se no hiper espaço consiste em fazer a nave desaparecer e, depois de alguns instantes, reaparecer em um local aleatório da tela. Há o risco de reaparecer em cima de um asteróide e, com isso, ter a nave destruída e perder uma vida.
 A nave possui aceleração e desaceleração - ou seja, inércia. Em outras palavras, mesmo que o jogador deixe de pressionar o botão de mover-se para frente, ele continuará em movimento por um curto período de tempo antes de parar por completo. Isso gera um grau a mais de complexidade, pois faz com que manobras de esquiva e curvas sejam mais difíceis de serem devidamente executadas.
@@ -37,7 +37,7 @@ Gym-Retro é uma plataforma para pesquisa de aprendizado por reforços e general
 Apesar de não ter sido utilizada neste trabalho, a plataforma disponibiliza uma ferramente que permite criar save states (salvar um estado a partir do qual é possível continuar o jogo), encontrar locais da memória, criar cenarios para o agente resolver, gravar e passar arquivos de vídeo, dentre outras funcionalidades.
 
 Gym-Retro baseia-se na ferramenta Gym, desenvolvida e mantida pela OpenAI, que também tem como objetivo pesquisas em aprendizado por reforço, mas não apenas para jogos.
-Esta ferramenta foi utilizada por ter suporte para desenvolvimento de aprendizado para o jogo Asteroids e ser de fácil uso. A plataforma permite a entrada de oito ações diferentes: UP, DOWN, LEFT, RIGHT, BUTTON, SELECT, RESET, null, sendo que a ação realiada por cada botão varia de acordo com o jogo. Como descrito anteriormente, Asteroids utiliza apenas cinco deles: UP (mover-se para frente), DOWN (mover-se no hiper espaço), RIGHT (girar no sentido horário), LEFT (mover-se no sentido anti-horário), e BUTTON (atirar). Os demais botões (SELECT e RESET) possuem funções relacioandas ao sistema e não ao jogo, e null é não realizar nenhuma ação.
+Esta ferramenta foi utilizada por ter suporte para desenvolvimento de aprendizado para o jogo \textit{Asteroids} e ser de fácil uso. A plataforma permite a entrada de oito ações diferentes: UP, DOWN, LEFT, RIGHT, BUTTON, SELECT, RESET, null, sendo que a ação realiada por cada botão varia de acordo com o jogo. Como descrito anteriormente, \textit{Asteroids} utiliza apenas cinco deles: UP (mover-se para frente), DOWN (mover-se no hiper espaço), RIGHT (girar no sentido horário), LEFT (mover-se no sentido anti-horário), e BUTTON (atirar). Os demais botões (SELECT e RESET) possuem funções relacioandas ao sistema e não ao jogo, e null é não realizar nenhuma ação.
 
 % ---------------------------------------------------------------------------- %
 % https://en.wikipedia.org/wiki/TensorFlow
@@ -110,7 +110,7 @@ Política gulosa para função valor ótima:
 
 Entretanto, essas fórmulas são aplicáveis somente quando as funções de reforço $R$ e de probabilidade de transição $P$ são conhecidas, que não é o caso do jogo \textit{Asteroids}. Para lidar com esse problema, foi adotado o uso de \textbf{Q-learning}.
 
-\subsubsection{Q-learning}
+\subsubsection{\textit{Q-learning}}
 \label{sec:ql}
 
 Quando não se conhece as probabilidades de transição, informação necessária para se obter a função valor pela equação de Bellman, é possível estimar $V(S)$ a partir de observações feitas sobre o ambiente. Logo, o problema deixa de ser tentar encontrar $P$ e passa a ser como extrair a política do agente de uma função valor estimada.
@@ -153,6 +153,25 @@ Outro problema enfrentado por Q-learning é o de generalização. A política $\
 
 \subsubsection{\textit{Approximate Q-learning}}
 \label{sec:aql}
+
+Para lidar com o enorme espaço de estados que alguns ambientes possuem, o agente armazena e aprende apenas algumas propriedades, que são funções de valor real, para tomar as decisões. Tais informações são armazenadas em um vetor e cada elemento desse vetor recebe um peso que determina a respectiva importância para que escolhas sejam feitas. Ou seja, a função Q-valor é representada por uma combinação linear das propriedades.
+
+\begin{equation} \label{eq:q_lin_comb}
+Q(S,A) = \omega_{1}f_{1}(S,A) + \omega_{2}f_{2}(S,A) + ... + \omega_{n}f_{n}(S,A)
+\end{equation}
+
+Como o $V(S')$ é o valor esperado e $Q(S,A)$ é o valor previsto, a atualização pode ser interpretada como ajustar o valor do Q-valor pela diferença desses dois valores. Além disso, como o \textit{approximate Q-learning} avalia características, apenas os pesos precisam ser atualizados:
+
+\begin{equation} \label{eq:w_update}
+\omega_{k}^{(i+1)}(S,A) = \omega_{k}^{(i)}(S,A) + \alpha[R(S,A,S') + \gamma V(S') - Q^{(i)}(S,A)]f_{k}(S,A), \hfill k = 1, 2, ..., n
+\end{equation}
+
+Duas grandes vantagens de representar o Q-valor como uma combinação linear são evitar \textit{overfitting} (a IA aprender tanto com o conjunto de treinamento que não consegue tomar decisões que diferem demais dele), e ser matematicamente conveniente, ter maneiras convenientes de calcular erro e funções que generalizem as decisões.
+
+\subsection{\textit{Deep learning}}
+\label{sec:dl}
+%http://www.deeplearningbook.org/
+
 
 \begin{displayquote}
   \textit{Game Design é o ato de decidir como um jogo deve ser.}\footnote{Tradução livre feita pelo autor}
