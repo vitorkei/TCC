@@ -53,7 +53,7 @@ explore_end = 0.01   # Probabilidade mínima de explorar
 decay_rate = 0.00001 # Taxa de decaimento exponencial para a probabilidade de exploração
 
 ### Q-LEARNING
-gamma = 0.9 # Taxa de desconto
+gamma = 0.6 # Taxa de desconto
 
 ### MEMÓRIA
 pretrain_length = batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
@@ -64,9 +64,9 @@ training = True        # Mudar para True se quiser treinar o agente
 episode_render = False # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
-conv_filters = [16, 32, 32] # Número de filtros em cada camada de conv2d - ELU
-kernel_sizes = [6, 3, 2] # Tamanho do kernel de cada camada de conv2d - ELU
-stride_sizes = [3, 2, 2] # Número de strides em cada camada de conv2d - ELU
+conv_filters = [32, 64, 32] # Número de filtros em cada camada de conv2d - ELU
+kernel_sizes = [8, 4, 3] # Tamanho do kernel de cada camada de conv2d - ELU
+stride_sizes = [4, 2, 2] # Número de strides em cada camada de conv2d - ELU
 pool_kernel = [3, 2] # Tamanho do kernel de cada camada de maxpool2d
 
 ########################################################
