@@ -11,16 +11,16 @@ Este capítulo tem o intuito de familiarizar o leitor com a teoria e as ferramen
 % https://en.wikipedia.org/wiki/Golden_age_of_arcade_video_games
 % https://www.arcade-museum.com/game_detail.php?game_id=6939
 % https://www.ranker.com/list/the-most-popular-golden-age-arcade-games/video-games-lists
-\section{Asteroids}
+\section{\textit{Asteroids}}
 \label{sec:asteroids}
 
-Asteroids é um jogo de fliperama do gênero shooter (jogo eletrônico de tiro) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida apenas como Atari. O jogo foi inspirado por Spacewar!, Computer Space, Space Invaders, e Cosmos, sendo este último um jogo não finalizado.
+\textit{Asteroids} é um jogo de fliperama do gênero shooter (jogo eletrônico de tiro) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida apenas como Atari. O jogo foi inspirado por \textit{Spacewar!}, \textit{Computer Space}, \textit{Space Invaders}, e \textit{Cosmos}, sendo este último um jogo não finalizado.
 
 O jogador controla uma nave espacial que se encontra em um campo de asteróides e precisa atirar para destruir todos enquanto evita colisões com os mesmos. A dificuldade aumenta conforme o número de asteróides na tela aumenta.
 Diversas versões deste jogo foram criadas ao longo dos anos. Além das diferenças gráficas, as mudanças incluem naves espaciais inimigas que atiram contra o jogador, e tamanhos e formatos diferentes que os asteróides podem ter.
-Asteroids é considerado um dos primeiros grandes sucessos da era de ouro dos jogos de fliperama, época em que os jogos eletrônicos se estabeleceram como uma força dominante na cultura popular. 
+\textit{Asteroids} é considerado um dos primeiros grandes sucessos da era de ouro dos jogos de fliperama, época em que os jogos eletrônicos se estabeleceram como uma força dominante na cultura popular. 
 
-Para este trabalho, Asteroids foi emulado utilizando a plataforma Gym-Retro da companhia de pesquisas de inteligência artificial OpenAI. Todas as informações sobre o jogo apresentadas a seguir referem-se a tal versão.
+Para este trabalho, \textit{Asteroids} foi emulado utilizando a plataforma Gym-Retro da companhia de pesquisas de inteligência artificial OpenAI. Todas as informações sobre o jogo apresentadas a seguir referem-se a tal versão.
 Para o aprendizado da inteligência artificial, não há naves inimigas e os asteróides podem assumir três tamanhos e três formatos distintos. Os tamanhos são grande (inicial), médio e pequeno, enquanto os formatos são consideravelmente parecidos.
 Há cinco comandos disponíveis: mover-se para frente, girar a nave no sentido horário, girar a nave no sentido anti-horário, atirar para frente, e entrar no hiper espaço. Mover-se para frente e girar no sentido horário ou anti-horário são as principais formas de movimento disponíveis ao jogador, e atirar serve para destruir os asteróides. Mover-se no hiper espaço consiste em fazer a nave desaparecer e, depois de alguns instantes, reaparecer em um local aleatório da tela. Há o risco de reaparecer em cima de um asteróide e, com isso, ter a nave destruída e perder uma vida.
 A nave possui aceleração e desaceleração - ou seja, inércia. Em outras palavras, mesmo que o jogador deixe de pressionar o botão de mover-se para frente, ele continuará em movimento por um curto período de tempo antes de parar por completo. Isso gera um grau a mais de complexidade, pois faz com que manobras de esquiva e curvas sejam mais difíceis de serem devidamente executadas.
@@ -37,7 +37,7 @@ Gym-Retro é uma plataforma para pesquisa de aprendizado por reforços e general
 Apesar de não ter sido utilizada neste trabalho, a plataforma disponibiliza uma ferramente que permite criar save states (salvar um estado a partir do qual é possível continuar o jogo), encontrar locais da memória, criar cenarios para o agente resolver, gravar e passar arquivos de vídeo, dentre outras funcionalidades.
 
 Gym-Retro baseia-se na ferramenta Gym, desenvolvida e mantida pela OpenAI, que também tem como objetivo pesquisas em aprendizado por reforço, mas não apenas para jogos.
-Esta ferramenta foi utilizada por ter suporte para desenvolvimento de aprendizado para o jogo Asteroids e ser de fácil uso. A plataforma permite a entrada de oito ações diferentes: UP, DOWN, LEFT, RIGHT, BUTTON, SELECT, RESET, null, sendo que a ação realiada por cada botão varia de acordo com o jogo. Como descrito anteriormente, Asteroids utiliza apenas cinco deles: UP (mover-se para frente), DOWN (mover-se no hiper espaço), RIGHT (girar no sentido horário), LEFT (mover-se no sentido anti-horário), e BUTTON (atirar). Os demais botões (SELECT e RESET) possuem funções relacioandas ao sistema e não ao jogo, e null é não realizar nenhuma ação.
+Esta ferramenta foi utilizada por ter suporte para desenvolvimento de aprendizado para o jogo \textit{Asteroids} e ser de fácil uso. A plataforma permite a entrada de oito ações diferentes: UP, DOWN, LEFT, RIGHT, BUTTON, SELECT, RESET, null, sendo que a ação realiada por cada botão varia de acordo com o jogo. Como descrito anteriormente, \textit{Asteroids} utiliza apenas cinco deles: UP (mover-se para frente), DOWN (mover-se no hiper espaço), RIGHT (girar no sentido horário), LEFT (mover-se no sentido anti-horário), e BUTTON (atirar). Os demais botões (SELECT e RESET) possuem funções relacioandas ao sistema e não ao jogo, e null é não realizar nenhuma ação.
 
 % ---------------------------------------------------------------------------- %
 % https://en.wikipedia.org/wiki/TensorFlow
@@ -80,15 +80,98 @@ No livro Artificial Intelligence: A Morden Approach, de Stuart Jonathan Russel e
 \subsection{Aprendizagem por reforço}
 \label{sec:rl}
 
-Aprendizagem por reforço (\textit{reinforcement learning}) é uma das técnicas de aprendizado de inteligência artificial e uma das bases da utilizada neste trabalho.
-Para domínios mais simples, como Jogo da velha, é possível determinar qual a ação com maior recompensa esperada para cada estado - ou seja, a ação com maior probabilidade de vencer o jogo.
-Conforme o domínio se torna mais complexo, fazer esse mapeamento se torna inviável por conta da quantidade de dados que precisam ser armazenado, como é o caso do jogo \textit{Asteroids}. Além disso, não é raro haver situações em que não é possível dizer se uma ação tomada deve ter recompensa positiva ou negativa.
+Aprendizagem por reforço (\textit{reinforcement learning}) é uma técnica de aprendizado de inteligência artificial e uma das bases da utilizada neste trabalho.
+Para domínios mais simples, como Jogo da velha, é possível determinar qual a ação com maior recompensa esperada para cada estado - ou seja, a ação com maior probabilidade de vitória.
+Conforme o domínio se torna mais complexo, fazer esse mapeamento se torna inviável por conta da quantidade de estados que precisam ser armazenado, como é o caso do jogo \textit{Asteroids}. Além disso, é comum haver situações em que não é possível determinar qual ação retornará a maior recompensa.
 Nesses casos, é mais viável criar e treinar um agente que aprenda a se comportar no ambiente em que está inserido do que informar se cada uma de suas ações em cada um dos estados possíveis é boa ou ruim.
 
-Essa abordagem é um \textbf{Processo de Decisão de Markov} (\textit{Markov Decision Process} (\textit{MDP})) para ambientes desconhecidos.
-Em um MDP, a probabilidade de se chegar em um estado \textit{s'} dado que o agente se encontra no estado \textit{s} depende apenas da ação \textit{a} tomada nesse estado \textit{s}, o que caracteriza a \textbf{propriedade Markoviana}, e existe um modelo probabilístico que caracteriz essa transição, dado por \textbf{P(\textit{s'} | \textit{s}, \textit{a})}; todos os estados do ambiente, e todas as ações que o agente pode tomar em cada estado são conhecidas; e a recompensa é imediatamente recebida após cada ação ser tomada.
+Essa abordagem é conhecida como \textbf{Processo de Decisão de Markov} (\textit{Markov Decision Process} (\textit{MDP})) para ambientes desconhecidos.
 
-As probabilidades de o agente tomar cada ação em um dado espaço são definidas por uma política $\pi$. A qualidade de uma política é medida por sua \textit{utilidade esperada}, e a política ótima é denotada por $\pi$*. Para calcular $\pi$*, utiliza-se um algoritmo de iteração de valor (\textit{value iteration}). 
+\subsubsection{Processo de Decisão de Markov}
+\label{sec:mdp}
+
+Em um MDP padrão, a probabilidade de se chegar em um estado $S'$ dado que o agente se encontra no estado $S$ depende apenas da ação $A$ tomada nesse estado \textit{s}, o que caracteriza a \textbf{propriedade Markoviana}, existe um modelo probabilístico que caracteriza essa transição, dado por $P(S'|S,A)$; todos os estados do ambiente e todas as ações que o agente pode tomar em cada estado são conhecidas; e a recompensa é imediatamente recebida após cada ação ser tomada.
+
+As probabilidades de o agente tomar cada ação em um dado espaço são definidas por uma política $\pi$. A qualidade de uma política é medida por sua \textit{utilidade esperada}, e a política ótima é denotada por $\pi^{*}$. Para calcular $\pi^{*}$, utiliza-se um algoritmo de iteração de valor (\textit{value iteration}), que computa a utilidade esperada do estado atual: começando a partir de um estado arbitrário $S$ tal que seu valor esperado é $V(S)$, aplica-se a equação de Bellman (\textit{Bellman update} ou \textit{Bellman equation}) até haver convergência de $V(S)$, que será denotado por $V^{*}(S)$. Esse $V^{*}(S)$ é usado para calcular a política ótima $\pi^{*}(s)$.
+
+Seja $i$ a iteração atual, $S$ o estado atual, $S'$ o estado futuro, $A$ a ação tomada no estado atual, $R(S,A,S')$ a recompensa pela transição do estado $S$ para o estado $S'$ por tomar a ação $A$, e $\gamma$ o valor de desconto (valor entre 0 e 1 tal que determina a importância de recompensas futuras para o agente), temos que:
+
+Equação de Bellman:
+
+\begin{equation} \label{eq:bellman}
+V^{(i)}(S) = \max_{A}\sum_{S'}P(S'|S,A)[R(S,A,S') + \gamma V^{(i-1)}(S')]
+\end{equation}
+
+Política gulosa para função valor ótima:
+
+\begin{equation} \label{eq:opt_pol}
+\pi^{*}(s) = \argmax_{A}\sum_{S'}P(S'|S,A)[R(S,A,S') + \gamma V^{*}(S')]
+\end{equation}
+
+Entretanto, essas fórmulas são aplicáveis somente quando as funções de reforço $R$ e de probabilidade de transição $P$ são conhecidas, que não é o caso do jogo \textit{Asteroids}. Para lidar com esse problema, foi adotado o uso de \textbf{Q-learning}.
+
+\subsubsection{\textit{Q-learning}}
+\label{sec:ql}
+
+Quando não se conhece as probabilidades de transição, informação necessária para se obter a função valor pela equação de Bellman, é possível estimar $V(S)$ a partir de observações feitas sobre o ambiente. Logo, o problema deixa de ser tentar encontrar $P$ e passa a ser como extrair a política do agente de uma função valor estimada.
+
+Seja $Q^{*}(S,A)$ a função Q-valor que expressa a recompensa esperada por começar no estado $S$, tomar a ação $A$ e continuar de maneira ótima. $Q^{*}(S,A)$ é uma parte da política gulosa para função valor ótima e é dada por:
+
+\begin{equation} \label{eq:qfunction}
+\begin{align*}
+Q^{*}(S,A) &= \sum_{S'}P(S'|S,A)[R(S,A,S') + \gamma V^{*}(S')] \\
+        &= \sum_{S'}P(S'|S,A)[R(S,A,S') + \gamma \max_{A'}Q^{*}(S',A')]
+\end{align*}
+\end{equation}
+
+Logo, substituindo \ref{eq:qfunction} em \ref{eq:opt_pol}, temos que a política gulosa ótima para a função Q-valor ótima é dada por:
+
+\begin{equation} \label{eq:q_opt_pol}
+\pi^{*}(S) = \argmax_{A}Q^{*}(S,A)
+\end{equation}
+
+O próximo passo será entender como atualizar a função Q-valor.
+
+Supondo que o agente se encontra no estado $S$ e toma a ação $A$, que causa uma transição no ambiente para o estado $S'$ e gera uma recompensa $R(S,A,S')$, como computar $Q^{(i+1)}(S,A)$ baseado em $Q^{(i)}(S,A)$ e em $R(S,A,S')$, sendo $i$ o momento atual? Para responder a essa pergunta, duas restrições precisam ser feitas: $Q^{(i+1)}(S,A)$ deve obedecer, pelo menos de forma aproximada, a equação de Bellman, e não deve ser muito diferente de $Q^{(i)}(S,A)$, dado que são médias de recompensas. A seguinte equação responde essa questão.
+
+Seja $\alpha$ a taxa de aprendizado (valor entre 0 e 1 que determina o quão importantes informações novas são em relação ao conhecimento que o agente possui),
+
+\begin{equation} \label{eq:q_update}
+\begin{align*}
+Q^{(i+1)}(S,A) &= (1-\alpha)Q^{(i)}(S,A) + \alpha[R(S,A,S') + \gamma \max_{A'}Q^{(i)}(S',A')] \\
+            &= Q^{(i)}(S,A) + \alpha[R(S,A,S') + \gamma \max_{A'}Q^{(i)}(S',A') - Q^{(i)}(S,A)]
+\end{align*}
+\end{equation}
+
+A convergência de $Q^{(i)}(S,A)$ em $Q^{*}(S,A)$ é garantida mesmo que o agente aja de forma subótima contanto que o ambiente seja um MDP, a taxa de aprendizado seja manipulada corretamente, e se a exploração não ignorar alguns estados e ações por completo - ou seja, raramente. Mesmo que as condições sejam satisfeitas, a convergência provavelmente será demasiadamente lenta. Entretanto, é interessante analisar os problemas levantados pela segunda e pela terceira condição que garantem a convergência e maneiras de solucioná-los.
+
+Se a \textbf{taxa de aprendizado} for muito alta (próxima de 1), a atualização do aprendizado se torna instável. Por outro lado, se for muito baixa (próxima de 0), a convergência se torna lenta. Uma solução possível para essa questão é utilizar valores que mudam de acordo com o estado: utilizar valores mais baixos em estados que já foram visitados muitas vezes, pois o agente já terá uma boa noção da qualidade de cada ação possível, então há pouco que aprender; e utilizar valores mais altos em estados raramente visitados, pois o agente precisa aprender melhor sobre o estado.
+
+Uma vez que a política é gulosa, o agente sempre tomará a ação que retorne a maior recompensa imediata. Isso é bom somente se todas as recompensas possíveis para aquele estados são conhecidas. Porém, se houver ações não exploradas, o agente pode perder uma recompensa maior do que ele já conhece apenas porque não está ciente de seu valor. Essa situação caracteriza o dilema \textit{Exploration versus Exploitation}: é melhor tomar a ação que retorna a maior recompensa ou buscar uma melhor? Da mesma forma que na taxa de aprendizado, uma forma de contornar esse problema é mudar a probabilidade de decidir explorar o ambiente (\textit{explore}) de acordo com a situação. Conforme o mundo é descoberto, se torna cada vez mais interessante agir de forma gulosa (\textit{exploit}) do que explorar em estados muito visitado, e vice-versa em estados pouco visitados. Esse comportamento pode ser definido por uma função de exploração (\textit{exploration function}).
+
+Outro problema enfrentado por Q-learning é o de generalização. A política $\pi^{*}(S)$ determina a melhor ação a se tomar em cada estado. Logo, utiliza-se uma tabela para armazenar todas essas escolhas. Porém, como mencionado anteriormente, isso se torna inviável para espaços de estado muito grandes. Portanto, a solução é generalizar o aprendizado de um estado para o outro: se o agente sabe se comportar em um pequeno conjunto de estados, o ideal é ele saber o que fazer em um estado desconhecido contanto que seja parecido com um já aprendido. Em outras palavras, o agente aprende propriedades (\textit{features}) dos estados ao invés dos estados propriamente ditos, e toma decisões a partir dessas informações. Essa forma de fazer escolhar é chamada de \textit{approximate Q-learning}.
+
+\subsubsection{\textit{Approximate Q-learning}}
+\label{sec:aql}
+
+Para lidar com o enorme espaço de estados que alguns ambientes possuem, o agente armazena e aprende apenas algumas propriedades, que são funções de valor real, para tomar as decisões. Tais informações são armazenadas em um vetor e cada elemento desse vetor recebe um peso que determina a respectiva importância para que escolhas sejam feitas. Ou seja, a função Q-valor é representada por uma combinação linear das propriedades.
+
+\begin{equation} \label{eq:q_lin_comb}
+Q(S,A) = \omega_{1}f_{1}(S,A) + \omega_{2}f_{2}(S,A) + ... + \omega_{n}f_{n}(S,A)
+\end{equation}
+
+Como o $V(S')$ é o valor esperado e $Q(S,A)$ é o valor previsto, a atualização pode ser interpretada como ajustar o valor do Q-valor pela diferença desses dois valores. Além disso, como o \textit{approximate Q-learning} avalia características, apenas os pesos precisam ser atualizados:
+
+\begin{equation} \label{eq:w_update}
+\omega_{k}^{(i+1)}(S,A) = \omega_{k}^{(i)}(S,A) + \alpha[R(S,A,S') + \gamma V(S') - Q^{(i)}(S,A)]f_{k}(S,A), \hfill k = 1, 2, ..., n
+\end{equation}
+
+Duas grandes vantagens de representar o Q-valor como uma combinação linear são evitar \textit{overfitting} (a IA aprender tanto com o conjunto de treinamento que não consegue tomar decisões que diferem demais dele), e ser matematicamente conveniente, ter maneiras convenientes de calcular erro e funções que generalizem as decisões.
+
+\subsection{\textit{Deep learning}}
+\label{sec:dl}
+%http://www.deeplearningbook.org/
+
 
 \begin{displayquote}
   \textit{Game Design é o ato de decidir como um jogo deve ser.}\footnote{Tradução livre feita pelo autor}
