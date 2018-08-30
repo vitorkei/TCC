@@ -855,3 +855,15 @@ Início~15/Maio/2018
   implementá-las em um outro arquivo (my_AIv2.py).
   O professor também me passou duas referências para eu aprender um pouco
   mais sobre deep learning e reinforcement learning.
+
+================================
+
+21-29/Ago/2018
+  No geral, fiquei trabalhando na monografia durante os últimos dias, já
+  que estou dependendo da SI do IME atualizar o tensorflow para 1.10 (estão
+  na 1.0.1) para treinar a IAv2.
+
+  Dia 29, li um artigo sobre deep q learning em jogos de Atari, possivelmente
+  o que inspirou o cara que fez um vídeo sobre deep reinforcement learning
+  para space invaders. Usei os parâmetros mencionados nele para tentar com
+  minha IAv1 para ver se funciona bem.
