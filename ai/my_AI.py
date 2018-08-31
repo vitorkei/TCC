@@ -19,7 +19,8 @@ warnings.filterwarnings('ignore')
 base_height = 190
 base_width = 152
 
-new_height = 110
+new_height_aux = 110
+new_height = 84
 new_width =  84
 num_channels = 4
 
@@ -45,28 +46,28 @@ learning_rate = 0.0025
 ### TREINAMENTO
 total_episodes = 21 # número total de episódios para o treinamento
 max_steps = 10000   # número máximo de ações tomadas em um episódio
-batch_size = 64
+batch_size = 32
 
 ### Parâmetros de exploração para estratégia gulosa epsilon
 explore_begin = 1.0  # Probabilidade de se explorar no início
-explore_end = 0.01   # Probabilidade mínima de explorar
-decay_rate = 0.00001 # Taxa de decaimento exponencial para a probabilidade de exploração
+explore_end = 0.1   # Probabilidade mínima de explorar
+decay_rate = 0.000001 # Taxa de decaimento exponencial para a probabilidade de exploração
 
 ### Q-LEARNING
-gamma = 0.6 # Taxa de desconto
+gamma = 0.9 # Taxa de desconto
 
 ### MEMÓRIA
 pretrain_length = batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
-memory_size = 100000        # Número de experiências capazes de serem armazenadas na memória
+memory_size = 1000000        # Número de experiências capazes de serem armazenadas na memória
 
 ### FLAGS
 training = True        # Mudar para True se quiser treinar o agente
 episode_render = False # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
-conv_filters = [32, 64, 32] # Número de filtros em cada camada de conv2d - ELU
-kernel_sizes = [8, 4, 3] # Tamanho do kernel de cada camada de conv2d - ELU
-stride_sizes = [4, 2, 2] # Número de strides em cada camada de conv2d - ELU
+conv_filters = [16, 32] # Número de filtros em cada camada de conv2d - ELU
+kernel_sizes = [8, 4] # Tamanho do kernel de cada camada de conv2d - ELU
+stride_sizes = [4, 2] # Número de strides em cada camada de conv2d - ELU
 pool_kernel = [3, 2] # Tamanho do kernel de cada camada de maxpool2d
 
 ########################################################
@@ -76,10 +77,12 @@ pool_kernel = [3, 2] # Tamanho do kernel de cada camada de maxpool2d
 
 def preprocess_frame(frame):
   gray = rgb2gray(frame)
-  cropped_frame = gray[5:-15, 8:]
-  normalized_frame = cropped_frame/255.0
-  preprocessed_frame = transform.resize(normalized_frame, [new_height, new_width])
-  return preprocessed_frame # 110x84x1 frame
+  #cropped_frame = gray[5:-15, 8:]
+  #normalized_frame = cropped_frame/255.0
+  normalized_frame = gray/255.0
+  preprocessed_frame = transform.resize(normalized_frame, [new_height_aux, new_width])
+  preprocessed_frame = preprocessed_frame[7:-19, :]
+  return preprocessed_frame # 84x84x1 frame
 
   #return normalized_frame
 
@@ -151,7 +154,7 @@ class DQNetwork:
 
       # fully connected layer
       self.fc = tf.layers.dense(inputs = self.flatten,
-                                units = 512,
+                                units = 256,
                                 activation = tf.nn.elu,
                                 kernel_initializer = tf.contrib.layers.xavier_initializer())
 
@@ -165,7 +168,7 @@ class DQNetwork:
       # loss é a diferença entre a previsão do Q-valor e o Q-alvo
       self.loss = tf.reduce_mean(tf.square(self.target_Q - self.Q))
 
-      self.optimizer = tf.train.AdamOptimizer(self.learning_rate).minimize(self.loss)
+      self.optimizer = tf.train.RMSPropOptimizer(self.learning_rate).minimize(self.loss)
 
 # Reinicia o grafo e inicializa uma instância da classe DQNetwork
 tf.reset_default_graph()
@@ -254,7 +257,8 @@ def predict_action(explore_begin, explore_end, decay_rate, decay_step, state, ac
 saver = tf.train.Saver() # Ajuda a salvar o modelo
 
 rewards_list = []
-highest_score = 0
+#highest_score = 0
+lowest_loss = 1000.0
 
 if training == True:
   with tf.Session() as sess:
@@ -330,11 +334,14 @@ if training == True:
                                                   DQNetwork.actions_: actions_mb})
         writer.add_summary(summary, episode)
         writer.flush()
-        
-      if total_reward > highest_score:
-        save_path = saver.save(sess, "/var/tmp/models/model.ckpt")
-        highest_score = total_reward
-        print(episode, "saved")
+      
+      save_path = saver.save(sess, "/var/tmp/models/model.ckpt")
+      print(episode, "saved")
+      #if loss < lowest_loss:
+      #  save_path = saver.save(sess, "/var/tmp/models/model.ckpt")
+      #  #highest_score = total_reward
+      #  lowest_loss = loss
+      #  print(episode, "saved")
 
 #print("rewards list:")
 #for reward in rewards_list:
