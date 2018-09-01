@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.2.19)  30 AUG 2018 11:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.5.4)  31 AUG 2018 19:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1296,97 +1296,7 @@ Package babel Info: Redefining portuges shorthand "|
 
 
 ]
-(./chapters/resumoagradecimento.tex
-Underfull \hbox (badness 10000) in paragraph at lines 5--6
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 13--14
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 20.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 20.
-pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.20 \chapter
-             *{Resumo} [1
-
-]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 20.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 20.
-pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.20 \chapter
-             *{Resumo} [2
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 23--28
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 29--31
-
- []
-
-)
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 50.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 50.
-pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.50 \tableofcontents
-                                  % Imprime o sumário. [3]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 50.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 50.
-pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.50 \tableofcontents
-                                  % Imprime o sumário. [4
-
-] (./texto.toc)
+(./chapters/resumoagradecimento.tex) (./texto.toc)
 \tf@toc=\write5
 \openout5 = `texto.toc'.
 
@@ -1394,20 +1304,29 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 58.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 58.
+pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.58 
+      [1
 
-[5]
+]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 58.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 58.
- [6
+pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.58 
+      [2
 
 ] (./capitulos.tex (./chapters/introducao.tex
 Cap\'{\i }tulo 1.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 16.
 ) (./chapters/fundamentos.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
@@ -1420,7 +1339,9 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [2]
+ [2
+
+]
 Cap\'{\i }tulo 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
@@ -1430,9 +1351,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 33.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 33.
-[3
-
-]
+[3]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 33.
 Package babel Info: Redefining portuges shorthand "|
@@ -1485,288 +1404,81 @@ Package babel Info: Redefining portuges shorthand "|
 [7]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 171.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 195.
-
-
-Package natbib Warning: Citation `kleberkanban' on page 8 undefined on input li
-ne 202.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 206.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 206.
-[8] <./images/kanban.jpeg, id=256, 1284.8pt x 963.6pt>
-File: ./images/kanban.jpeg Graphic file (type jpg)
-
-<use ./images/kanban.jpeg>
-Package pdftex.def Info: ./images/kanban.jpeg used on input line 209.
-(pdftex.def)             Requested size: 385.44298pt x 289.08223pt.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 219.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 223.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 223.
- [9 <./images/kanban.jpeg>]
-<./images/icons.png, id=275, 935.495pt x 177.66376pt>
-File: ./images/icons.png Graphic file (type png)
- <use ./images/icons.png>
-Package pdftex.def Info: ./images/icons.png used on input line 233.
-(pdftex.def)             Requested size: 467.74635pt x 88.83165pt.
-
-Overfull \hbox (12.50224pt too wide) in paragraph at lines 233--235
- [][] 
- []
-
 ) (./chapters/proposta.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 4.
- [10 <./images/icons.png (PNG copy)>]
+ [8]
 Cap\'{\i }tulo 3.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 4.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 22.
-
-Package natbib Warning: Citation `hotline' on page 11 undefined on input line 2
-5.
-
-
-Package natbib Warning: Citation `touhou' on page 11 undefined on input line 25
-.
-
-
-Package natbib Warning: Citation `hexagon' on page 11 undefined on input line 2
-7.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 33.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 41.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 41.
-[11
-
-]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 49.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 61.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 61.
- [12]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 63.
 ) (./chapters/implementacao.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [13]
+ [9
+
+]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [14
+ [10
 
 ]
 Cap\'{\i }tulo 4.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 13.
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2014/09/06 1.5e listings language file
-)
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2014/09/06 1.5e listings language file
-)
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 32.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 32.
- [15]
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 44.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 71.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 77.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 77.
- [16]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 79.
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 111--112
-
- []
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 115.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 115.
-[17]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 162.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 162.
- [18]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 164.
- <./images/anti-aliasing.png, id=425, 613.54219pt x 353.06906pt>
-File: ./images/anti-aliasing.png Graphic file (type png)
-
-<use ./images/anti-aliasing.png>
-Package pdftex.def Info: ./images/anti-aliasing.png used on input line 172.
-(pdftex.def)             Requested size: 184.06407pt x 105.92152pt.
-
-(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2014/09/06 1.5e listings language file
-)
-Underfull \hbox (badness 10000) in paragraph at lines 191--192
-
- []
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 195.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 195.
-[19 <./images/anti-aliasing.png>]
-<./images/blur-ingame.png, id=440, 901.11656pt x 335.00156pt>
-File: ./images/blur-ingame.png Graphic file (type png)
-
-<use ./images/blur-ingame.png>
-Package pdftex.def Info: ./images/blur-ingame.png used on input line 197.
-(pdftex.def)             Requested size: 450.55717pt x 167.50037pt.
-
-Overfull \hbox (0.64804pt too wide) in paragraph at lines 212--213
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-
-Overfull \hbox (0.64804pt too wide) in paragraph at lines 214--215
-[][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
- []
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 230.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 230.
-[20 <./images/blur-ingame.png>]
-Overfull \hbox (4.67747pt too wide) in paragraph at lines 240--241
-[]\T1/cmr/m/n/10 Para apli-car os dois sha-ders na mesma ima-gem, uti-li-za-mos
- uma das fer-ra-men-tas do ar-ca-bou�o \T1/cmr/m/it/10 LOVE2D\T1/cmr/m/n/10 :
- []
-
-<./images/blur-effect.png, id=466, 635.37375pt x 284.56313pt>
-File: ./images/blur-effect.png Graphic file (type png)
-
-<use ./images/blur-effect.png>
-Package pdftex.def Info: ./images/blur-effect.png used on input line 243.
-(pdftex.def)             Requested size: 254.14499pt x 113.82323pt.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 250.
-
-
-Package natbib Warning: Citation `martinpetri' on page 21 undefined on input li
-ne 253.
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 262.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 266.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 266.
-[21 <./images/blur-effect.png>]
-<./images/color_transitions.png, id=483, 603.0028pt x 447.92343pt>
-File: ./images/color_transitions.png Graphic file (type png)
-
-<use ./images/color_transitions.png>
-Package pdftex.def Info: ./images/color_transitions.png used on input line 270.
-
-(pdftex.def)             Requested size: 180.90224pt x 134.37805pt.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 300.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 300.
- [22 <./images/color_transitions.png>])
-(./chapters/conclusao.tex
+) (./chapters/conclusao.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [23]
+ [11]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
- [24
+ [12
 
 ]
 Cap\'{\i }tulo 5.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 13.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 27.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 27.
-[25]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 27.
 )) (./apendices.tex)
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 70.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 70.
- [26]
+ [13]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 70.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 70.
+ [14
+
+]
 No file texto.bbl.
 No file texto.ind.
-
-Package natbib Warning: There were undefined citations.
-
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 80.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 80.
 (./texto.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
-
-
-Package rerunfilecheck Warning: File `texto.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `texto.out':
-(rerunfilecheck)             Before: 86859AA8A7E520F75183871CF5A77D0F;1566
-(rerunfilecheck)             After:  16C491783B416BE9AD9F3CCA7C8CFF43;1598.
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `texto.out' has not changed.
+(rerunfilecheck)             Checksum: E11AA42DB2296A6998A5FB6E15B21D29;670.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 80.
  ) 
 Here is how much of TeX's memory you used:
- 16271 strings out of 493105
- 232784 string characters out of 6137072
- 521204 words of memory out of 5000000
- 19144 multiletter control sequences out of 15000+600000
- 24462 words of font info for 56 fonts, out of 8000000 for 9000
+ 15280 strings out of 493105
+ 220480 string characters out of 6137073
+ 486596 words of memory out of 5000000
+ 18416 multiletter control sequences out of 15000+600000
+ 17591 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,13n,45p,1135b,1914s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,13n,45p,1120b,415s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -1777,23 +1489,19 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1000.pfb></usr/share/t
 exmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf/fonts/type1/pub
-lic/cm-super/sfbi1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx090
-0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/te
-xmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/publ
-ic/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2074
-.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/tex
-mf/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf/fonts/type1/publi
-c/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.
-pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texm
-f/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public
-/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.p
-fb></usr/share/texmf/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf
-/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf/fonts/type1/public/
-cm-super/sfti1200.pfb>
-Output written on texto.pdf (36 pages, 1463514 bytes).
+lic/cm-super/sfbi1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx100
+0.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/te
+xmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/publ
+ic/cm-super/sfbx2074.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488
+.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/tex
+mf/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/publi
+c/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.
+pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texm
+f/fonts/type1/public/cm-super/sfti1200.pfb>
+Output written on texto.pdf (20 pages, 344270 bytes).
 PDF statistics:
- 696 PDF objects out of 1000 (max. 8388607)
- 614 compressed objects within 7 object streams
- 273 named destinations out of 1000 (max. 500000)
- 239 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 261 PDF objects out of 1000 (max. 8388607)
+ 214 compressed objects within 3 object streams
+ 42 named destinations out of 1000 (max. 500000)
+ 89 words of extra memory for PDF output out of 10000 (max. 10000000)
 
