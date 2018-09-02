@@ -867,3 +867,21 @@ Início~15/Maio/2018
   o que inspirou o cara que fez um vídeo sobre deep reinforcement learning
   para space invaders. Usei os parâmetros mencionados nele para tentar com
   minha IAv1 para ver se funciona bem.
+
+================================
+
+31/Ago - 01/Set/2018
+  Consegui instalar TensorFlow na rede linux e arrumar algumas configurações,
+  mas acho que há alguma configuração que não foi instalada direito que está
+  causando segmentation fault para mim, alguma coisa a ver com o CuDNN...
+  Parece que a SI está tendo problemas em instalar o TensorFlow 1.10, mas
+  tem o 1.5 e 1.6 já. Tentei usá-los, mas não tenho espaço em disco suficiente
+  para fazer o upgrade, então tive que pedir para que aumentassem minha cota.
+  Enquanto aguardo a resposta, voltei a escrever a monografia. Mudei um pouco
+  a estrutura. Agora falo sobre aprendizado de máquina no início, falo de
+  aprendizado supervisionado e, depois, aprendizado por reforço. O fluxo parece
+  ser melhor dessa forma. Pelo menos a parte de aprendizado por reforço já
+  está "pronta" (ainda preciso reler para fazer ajustes, mandar para outras
+  pessoas lerem para ver se está bom e etc). Próximo passo é ler e escrever
+  sobre redes neurais e deep learning. Quando essa parte terminar, vou poder
+  falar sobre deep q-learning, que é a real base de aprendizado da minha IA.

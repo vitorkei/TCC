@@ -77,10 +77,40 @@ No livro Artificial Intelligence: A Morden Approach, de Stuart Jonathan Russel e
 
 %Agindo racionalmente: Um agente racional é esperado que aja de forma que atinja o melhor resultado possível ou, se houver incerteza, o melhor resultado esperado. Esta abordagem pode ser considerada um passo além das leis do pensamento, pois consegue tomar decisões quando necessário mesmo que não haja uma escolha provadamente correta.
 
-\subsection{Aprendizagem por reforço}
+\subsection{Aprendizado de máquina - \textit{Machine learning}}
+\label{sec:ml}
+%https://medium.com/data-science-brigade/a-diferen%C3%A7a-entre-intelig%C3%AAncia-artificial-machine-learning-e-deep-learning-930b5cc2aa42
+%https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12
+%https://arxiv.org/pdf/1602.01783.pdf
+Aprendizado de máquina, ou \textit{machine learning} (ML) como é mais conhecido, é um campo de ciência da computação e um dos ramos de inteligência artificial que estuda a capacidade dos computadores de aprender a realizar uma tarefa a partir de dados, sem ser explicitamente programado para executá-la. Após ter a tarefa que deve ser cumprida pelo computador definida, o programa recebe uma grande quantidade de dados, tenta reconhecer um padrão nessa entrada e, por fim, constrói um modelo para realizar predições.
+Por conta do enorme volume de dados necessários para o computador aprender, aprendizado de máquina é um campo que teve grandes avanços apenas nas últimas décadas, com o avanço da internet. Com cada vez mais pessoas tendo acesso a computadores mais rápidos e eficientes, bem como o surgimento de redes sociais, a quantidade de informação digital sendo gerada, armazenada, e disponibilizada cresceu.
+As três técnicas de aprendizado de máquina mais conhecidas são \textbf{aprendizado supervisionado}, \textbf{aprendizado não supervisionado}, e \textbf{aprendizado por reforço}.
+Aprendizado supervisionado e aprendizado por reforço serão os mais discutidos neste trabalho por serem as bases para as duas principais técnicas usadas: \textit{Deep learning} e \textit{Q-learning} respectivamente.
+
+\subsection{Aprendizado supervisionado}
+\label{sec:sl}
+%https://medium.com/opensanca/aprendizagem-de-maquina-supervisionada-ou-n%C3%A3o-supervisionada-7d01f78cd80a
+
+Aprendizado supervisionado consiste em dar uma tarefa, uma entrada e uma saída esperada para o computador. A entrada e a saída são grandes volumes de dados e respectivas categorias, rótulos. Em outras palavras, a máquina tem um "professor" que diz se a resposta dada está certa ou errada. Um exemplo simples que ajuda a ilustrar como aprendizado supervisionado funciona é fazer um computador dizer se uma imagem é de um cachorro ou não. Após mostrar diversas imagens de cachorro, dizendo quais são cachorros e quais não são, o computador deve conseguir ver uma imagem e dizer se é um ou não. 
+
+Esta técnica cai em dois tipos de problemas: classificação e regressão.
+Em problemas de regressão, é esperado que os dados de entrada sigam uma função $g$, e o algoritmo deve encontrar uma função $h$ que se aproxime o melhor possível de $g$. Um exemplo deste tipo de problema é fornecer dados sobre uma residência, como a metragem, e dizer seu valor. Com entrada suficiente, o programa deve conseguir dizer o valor de uma casa ou apartamento apenas pelas medidas.
+Em problemas de classificação, deseja-se que o computador classifique corretamente uma entrada, dentre uma série de categorias pré-determinadas. Um exemplo simples deste problema é o fornecido anteriormente, de classificar uma imagem se é de cachorro ou não.
+É possível que um problema possa ser tanto de classificação quanto de regressão. Ao invés de o programa dizer o preço do imóvel, ele poderia dizer se o preço é superior ou inferior a um certo valor.
+
+Redes neurais (\textit{neural networks}), Máquinas de Vetor de Suporte (\textit{Support Vector Machine}, SVM) e Classificadores Naive Bayes são alguns dos algoritmos de aprendizado supervisionado mais comuns. O foco será em redes neurais.
+
+\subsubsection{Aprendizagem profunda - \textit{Deep learning}}
+\label{sec:dl}
+%http://www.deeplearningbook.org/
+%https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
+
+%\textit{Deep learning} é um dos ramos de aprendizado de máquina (\textit{machine learning}, ML) e
+
+\subsection{Aprendizado por reforço}
 \label{sec:rl}
 
-Aprendizagem por reforço (\textit{reinforcement learning}) é uma técnica de aprendizado de inteligência artificial e uma das bases da utilizada neste trabalho.
+%Aprendizado por reforço (\textit{reinforcement learning}) é uma técnica de aprendizado de inteligência artificial e uma das bases da utilizada neste trabalho.
 Para domínios mais simples, como Jogo da velha, é possível determinar qual a ação com maior recompensa esperada para cada estado - ou seja, a ação com maior probabilidade de vitória.
 Conforme o domínio se torna mais complexo, fazer esse mapeamento se torna inviável por conta da quantidade de estados que precisam ser armazenado, como é o caso do jogo \textit{Asteroids}. Além disso, é comum haver situações em que não é possível determinar qual ação retornará a maior recompensa.
 Nesses casos, é mais viável criar e treinar um agente que aprenda a se comportar no ambiente em que está inserido do que informar se cada uma de suas ações em cada um dos estados possíveis é boa ou ruim.
@@ -168,15 +198,4 @@ Como o $V(S')$ é o valor esperado e $Q(S,A)$ é o valor previsto, a atualizaç�
 
 Duas grandes vantagens de representar o Q-valor como uma combinação linear são evitar \textit{overfitting} (a IA aprender tanto com o conjunto de treinamento que não consegue tomar decisões que diferem demais dele), e ser matematicamente conveniente, ter maneiras convenientes de calcular erro e funções que generalizem as decisões.
 
-\subsection{Aprendizagem de máquina - \textit{Machine learning}}
-\label{sec:ml}
-%https://medium.com/data-science-brigade/a-diferen%C3%A7a-entre-intelig%C3%AAncia-artificial-machine-learning-e-deep-learning-930b5cc2aa42
 
-%Aprendizagem de máquina, ou \textit{machine learning} (ML) como é mais conhecida, é um campo de ciência da computação que estuda a capacidade dos computadores de aprender a realizar uma tarefa a partir de dados, sem ser explicitamente programado para executá-la.
-
-\subsubsection{Aprendizagem profunda - \textit{Deep learning}}
-\label{sec:dl}
-%http://www.deeplearningbook.org/
-%https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
-
-%\textit{Deep learning} é um dos ramos de aprendizagem de máquina (\textit{machine learning}, ML) e

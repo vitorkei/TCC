@@ -1,4 +1,4 @@
-\select@language {brazil}
+\babel@toc {brazil}{}
 \contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{1}{chapter.1}
 \contentsline {chapter}{\numberline {2}Fundamentos}{3}{chapter.2}
 \contentsline {section}{\numberline {2.1}\textit {Asteroids}}{3}{section.2.1}
