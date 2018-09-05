@@ -885,3 +885,16 @@ Início~15/Maio/2018
   pessoas lerem para ver se está bom e etc). Próximo passo é ler e escrever
   sobre redes neurais e deep learning. Quando essa parte terminar, vou poder
   falar sobre deep q-learning, que é a real base de aprendizado da minha IA.
+
+================================
+
+02-04/Set/2018
+  Escrevi algumas coisas na monografia e fiz uns estudos sobre o que está
+  dando errado na IAv2. Ainda não entendi direito o que está acontecendo.....
+  Fiz um teste pequeno com valores parecidos, mas não funcionou
+  (passar np.empty((64, 1), dtype=np.float32) via feed_dict para a variável
+  DDDQNNetwork.ISWeights_, que é um tf.float32, funcionou, mas na IA não).
+  Estou bem confuso sobre o que pode estar dando errado. Tentei mudar as
+  duas variáveis para serem (n,) ao invés de (n,1) nas quatro combinações
+  possíveis e nenhuma deu certo. O problema é com o ndarray, mas ainda
+  não sei o que fazer.

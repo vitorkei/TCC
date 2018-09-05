@@ -21,7 +21,8 @@ config.gpu_options.allow_growth = True
 #base_height = 190 # Altura da tela sem contar partes desnecessárias da moldura
 #base_width = 152 # Largura da tela sem contar partes desnecessárias da moldura
 
-new_height = 110 # Altura da tela redimensionada
+
+new_height = 84 # Altura da tela redimensionada
 new_width = 84   # Largura da tela redimensionada
 #num_channels = 4 # número de canais
 
@@ -39,7 +40,7 @@ stack_size = 4
 ### MODELO
 state_size = [new_height, new_width, stack_size]
 action_size = env.action_space.n
-learning_rate = 0.00025
+learning_rate = 0.0025
 
 ### TREINAMENTO
 total_episodes = 21
@@ -66,9 +67,13 @@ training = True
 episode_render = False
 
 ### ARQUITETURA
-conv_filters = [16, 32]
-kernel_sizes = [8, 4]
-stride_sizes = [4, 2]
+#conv_filters = [16, 32]
+#kernel_sizes = [8, 4]
+#stride_sizes = [4, 2]
+
+conv_filters = [32, 48]
+kernel_sizes = [16, 8]
+stride_sizes = [6, 3]
 
 #######################################################
 #######################################################
@@ -81,11 +86,13 @@ stride_sizes = [4, 2]
 def preprocess_frame(frame):
   gray = rgb2gray(frame) # tentar usar sem acinzentar antes
   cropped_frame = gray[5:-15, 8:]
-  #cropped_frame = frame[5:-15, 8:]
   normalized_frame = cropped_frame/255.0
-  preprocessed_frame = transform.resize(normalized_frame, [new_height, new_width])
+  #normalized_frame = gray/255.0
+  preprocessed_frame = transform.resize(normalized_frame, [110, new_width]) # new_height ao invés de 110
+  preprocessed_frame = preprocessed_frame[6:-20, 0:]
 
   return preprocessed_frame
+  #return normalized_frame
 
 ### Inicializa uma double-ended queue
 stacked_frames = deque([np.zeros((new_height, new_width), dtype=int) for i in range(stack_size)], maxlen=stack_size)
@@ -128,10 +135,10 @@ class DDDQNNet:
     with tf.variable_scope(self.name):
       # Se, por exemplo, state_size = [110, 84, 4], então
       # [None, *state_size] = [None, 110, 84, 4]
-      self.inputs_ = tf.placeholder(tf.float32, [None, *state_size], name="inputs_")
-      self.ISWeights_ = tf.placeholder(tf.float32, [None, 1], name="IS_weights")
-      self.actions_ = tf.placeholder(tf.float32, [None, action_size], name="actions_")
-      self.target_Q = tf.placeholder(tf.float32, [None], name="target_Q")
+      self.inputs_ = tf.placeholder(np.float32, [None, *state_size], name="inputs_")
+      self.ISWeights_ = tf.placeholder(np.float32, [None, 1], name="IS_weights")
+      self.actions_ = tf.placeholder(np.float32, [None, action_size], name="actions_")
+      self.target_Q = tf.placeholder(np.float32, [None], name="target_Q")
 
       # Primeira camada de convolução e de ELU
       self.conv2d = tf.layers.conv2d(inputs = self.inputs_,
@@ -280,8 +287,7 @@ class Memory(object):
   
   def sample(self, n):
     memory_b = []
-    b_idx       = np.empty((n,), dtype=np.int32)
-    b_ISWeights = np.empty((n, 1), dtype=np.float32)
+    b_idx, b_ISWeights = np.empty((n,), dtype=np.int32), np.empty((n, 1), dtype=np.float32)
 
     priority_segment = self.tree.total_priority / n
 
@@ -437,6 +443,10 @@ if training == True:
             target = rewards_mb[i] + gamma * Qs_target_next_state[i][action]
             target_Qs_batch.append(target)
         targets_mb = np.array([each for each in target_Qs_batch])
+
+        print("ISWeights_mb:\n", ISWeights_mb, "\n", ISWeights_mb.shape, "\n", type(ISWeights_mb), type(ISWeights_mb[0]), type(ISWeights_mb[0][0]))
+        print("DQNetwork.ISWeights_:\n", DQNetwork.ISWeights_, "\n", DQNetwork.ISWeights_.shape,"\n", type(DQNetwork.ISWeights_), type(DQNetwork.ISWeights_[0]), type(DQNetwork.ISWeights_[0][0]))
+
         _, loss, absolute_errors = sess.run([DQNetwork.optimizer, DQNetwork.loss, DQNetwork.absolute_errors],
                                             feed_dict={DQNetwork.inputs_: states_mb,
                                                        DQNetwork.target_Q: targets_mb,
