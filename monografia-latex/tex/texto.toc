@@ -10,7 +10,7 @@
 \contentsline {subsubsection}{Redes neurais - \textit {Neural networks}}{6}{section*.2}
 \contentsline {subsubsection}{Aprendizagem profunda - \textit {Deep learning}}{6}{section*.3}
 \contentsline {subsection}{\numberline {2.4.3}Aprendizado por refor\IeC {\c c}o}{6}{subsection.2.4.3}
-\contentsline {subsubsection}{Processo de Decis\IeC {\~a}o de Markov}{6}{section*.4}
+\contentsline {subsubsection}{Processo de Decis\IeC {\~a}o de Markov}{7}{section*.4}
 \contentsline {subsubsection}{\textit {Q-learning}}{7}{section*.5}
 \contentsline {subsubsection}{\textit {Approximate Q-learning}}{8}{section*.6}
 \contentsline {chapter}{\numberline {3}Proposta}{9}{chapter.3}

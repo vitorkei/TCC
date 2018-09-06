@@ -112,13 +112,23 @@ Redes neurais artificiais, mais conhecidas como redes neurais, são uma forma de
 
 Com os avanços nesse campo nos últimos anos, diversos tipos diferentes de redes neurais foram desenvolvidos, como redes neurais convolucionais (\textit{Convolutional neural networks}, CNN) e redes neurais de memória de curto-longo prazo\footnote{Tradução livre feita pelo autor} (\textit{Long/Short term memory}, LSTM). Apesar de cada uma ter sua particularidade, redes neurais clássicas possuem duas características principais: os neurônios, e a estrutura dividida em camadas. Existem redes que não são redes neurais da maneira clássica, como Redes de Hopfiels (\textit{Hopfield Network}) e Máquinas de Boltzmann (\textit{Boltzmann Machine}), que não serão abordadas neste trabalho.
 
-Neurônios são objetos que armazenam um número, em geral entre 0 e 1 inclusos, cujo significado varia de acordo com o trabalho em questão. No caso deste, os neurônios da primeira camada armazenam o número que representa cada pixel da imagem, após serem convertidos para uma escala de cinza e em um número entre 0 e 1. Os quadros (\textit{frames}) de entrada também são redimensionados antes de serem analisados e processados pela IA.
+Neurônios são funções que recebem como entrada a saída de cada neurônio da camada anterior, e devolvem um número, em geral entre 0 e 1 inclusos, cujo significado varia de acordo com o trabalho em questão. No caso deste, os neurônios da primeira camada têm como saída o número que representa cada pixel da imagem, após serem convertidos para uma escala de cinza e em um número entre 0 e 1. Os quadros (\textit{frames}) de entrada também são redimensionados antes de serem analisados e processados pela IA. Os neurônios da última camada, por outro lado, têm como saída a ação tomada pela IA.
 
 A estrutura das redes neurais clássicas é dividida em camadas que podem ser classificadas de três formas distintas: entrada, camadas ocultas, e saída.
-A entrada é o que a IA recebe inicialmente e precisa processar, as camadas ocultas (\textit{hidden layers}) bem como as transições para elas e entre elas são o processamento, e a saída é a decisão tomada pela IA. No caso este trabalho, a entrada é o \textit{frame} atual do jogo e a saída é a ação tomada (mover-se, atirar e etc).
+A entrada é o que a IA recebe inicialmente e precisa processar; as camadas ocultas (\textit{hidden layers}) são o processamento; e a saída é a decisão tomada pela IA. No caso este trabalho, a entrada é o \textit{frame} atual do jogo e a saída é a ação tomada (mover-se, atirar e etc).
 A saída, assim como a entrada e as camadas ocultas, é composta por neurônios, mas que representam a probabilidade de cada decisão ser tomada. Para a IA, existem 8 neurônios na saída, um para cada ação (ainda que não seja diretamente relacionada ao jogo, como \textit{RESET} e \textit{null}) e a respectiva probabilidade de ela ser tomada dado o \textit{frame} de entrada.
 Enquanto o número de neurônios na entrada e na saída são definidos pelo trabalho em questão, como número de pixels da tela e número de ações possíveis, o número de camadas ocultas e de neurônios em cada uma delas é arbitrário, sendo que essas quantidades são normalmente definidas por meio de experimentos.
 
+Cada neurônio das camadas ocultas representa uma característica (\textit{feature}) desejada pelo desenvolvedor da IA. Se essa característica estiver presente na entrada, então esse neurônio será \textbf{ativado}. A ativação de um ou mais neurônios pode levar a ativação de outros neurônios na próxima camada, que é um comportamento inspirado na forma como neurônios do cérebro enviam sinais de um para o outro. No caso das redes neurais, um neurônio é ativado quando a soma dos números de entrada passam de um certo valor. Porém, nem todos os valores de entrada devem ser igualmente importantes, então cada um desses números recebe um peso que determina sua importância para a ativação da característica.
+
+Em forma matemática, seja $n$ o número de neurônios na camada anterior, $w_{i}, i = 1, ..., n$ os pesos das saídas de cada neurônio da camada anterior, e $a_{i}, i = 1, ..., n$ o valor de saída de cada neurônio da camada anterior e, por consequência, cada valor de entrada do neurônio atual, e $b$ o valor que a soma deve ultrapassar para que o neurônio seja ativado.
+
+\begin{equation} \label{eq:nn01}
+w_{1}a_{1} + w_{2}a_{2} + ... + w_{n}a_{n} - b
+\end{equation}
+
+Se a soma \ref{eq:nn01} for maior que zero, então o neurônio será ativado. Essa comparação é feita em cada neurônio de cada camada da rede neural.
+Essas operações são mais fácil e rapidamente resolvidas utilizando matrizes.
 
 \subsubsection{Aprendizagem profunda - \textit{Deep learning}}
 \label{sec:dl}
