@@ -64,8 +64,10 @@ No livro Artificial Intelligence: A Morden Approach, de Stuart Jonathan Russel e
   \textbf{Pensando como um humano} & \textbf{Pensando racionalmente} \\ \hline
   \textit{O empolgante novo esforço de fazer computadores pensarem, serem máquinas com mentes, no sentido completo e literal da expressão} \newline (Haugeland, 1986) & \textit{O estudo das faculdades mentais através de modelos computacionais} \newline (Charniak \& McDermott, 1985) \\ & \\ \textit{[A automação de] atividades que são associadas ao pensamento humano, como resolução de problemas, tomada de decisão, aprendizado, ...} \newline (Hellman, 1978) & \textit{O estudo das computações que tornam possível a percepção, razão, e ação} \newline (Winston, 1992) \\ \hline
   \textbf{Agindo como um humano} & \textbf{Agindo racionalmente} \\ \hline
-  \textit{A arte de criar máquinas capazes de realizar funções que requerem inteligência quando feitas por pessoas} \newline (Kurzweil, 1990) & \textit{Inteligência computacional é o estudo do design de agentes inteligentes} \newline (Poole \textit{et at}, 1998) \\ & \\ \textit{O estudo de como fazer os computadores fazerem coisas que, no momento, pessoas fazem melhor} \newline (Rich and Knight, 1991) & \textit{IA... está relacionada a comportamento inteligente em objetos} \newline (Nilsson, 1998) \\ \hline
+  \textit{A arte de criar máquinas capazes de realizar funções que requerem inteligência quando feitas por pessoas} \newline (Kurzweil, 1990) & \textit{Inteligência computacional é o estudo do design de agentes inteligentes} \newline (Poole \textit{et at}, 1998) \\ & \\ \textit{O estudo de como fazer os computadores fazerem coisas que, no momento, pessoas fazem melhor} \newline (Rich and Knight, 1991) & \textit{IA... está relacionada ao comportamento inteligente em objetos} \newline (Nilsson, 1998) \\ \hline
 \end{tabular}
+
+\footnotesize Traduções livres feitas pelo autor
 
 \bigskip Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma inteligência artificial que se pareça com um humano, enquanto as da direita sobre uma inteligência artificial que toma ações visando estar correta e a atingir o melhor resultado possível. Este trabalho terá um foco maior na categoria "\textbf{Agindo racionalmente}", pois as ações tomadas pelo agente terão como objetivo o retorno da maior recompensa possível.
 
@@ -96,16 +98,37 @@ Aprendizado supervisionado consiste em dar uma tarefa, uma entrada e uma saída 
 Esta técnica cai em dois tipos de problemas: classificação e regressão.
 Em problemas de regressão, é esperado que os dados de entrada sigam uma função $g$, e o algoritmo deve encontrar uma função $h$ que se aproxime o melhor possível de $g$. Um exemplo deste tipo de problema é fornecer dados sobre uma residência, como a metragem, e dizer seu valor. Com entrada suficiente, o programa deve conseguir dizer o valor de uma casa ou apartamento apenas pelas medidas.
 Em problemas de classificação, deseja-se que o computador classifique corretamente uma entrada, dentre uma série de categorias pré-determinadas. Um exemplo simples deste problema é o fornecido anteriormente, de classificar uma imagem se é de cachorro ou não.
-É possível que um problema possa ser tanto de classificação quanto de regressão. Ao invés de o programa dizer o preço do imóvel, ele poderia dizer se o preço é superior ou inferior a um certo valor.
+Um problema pode ser tanto de classificação quanto de regressão a depender de como for montado. Ao invés de o programa dizer o preço do imóvel, ele poderia dizer se o preço é superior ou inferior a um certo valor.
 
-Redes neurais (\textit{neural networks}), Máquinas de Vetor de Suporte (\textit{Support Vector Machine}, SVM) e Classificadores Naive Bayes são alguns dos algoritmos de aprendizado supervisionado mais comuns. O foco será em redes neurais.
+Redes neurais (\textit{neural networks}), Máquinas de Vetor de Suporte (\textit{Support Vector Machine}, SVM) e Classificadores \textit{Naive Bayes} são alguns dos algoritmos de aprendizado supervisionado mais comuns. O foco será em redes neurais.
+
+\subsubsection{Redes neurais - \textit{Neural networks}}
+\label{sec:nn}
+%https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html#What%20is%20a%20Neural%20Network
+%https://www.youtube.com/watch?v=aircAruvnKk&list=WL
+%https://towardsdatascience.com/the-mostly-complete-chart-of-neural-networks-explained-3fb6f2367464
+
+Redes neurais artificiais, mais conhecidas como redes neurais, são uma forma de processamento de informação inspirada no funcionamento do cérebro. Assim como o cérebro, redes neurais possuem uma grande quantidade de elementos de processamento de informação conectados entre si chamados de neurônios, que trabalham em conjunto para resolver problemas. Uma vez que aprendem com exemplos, similar a pessoas, é uma técnica de aprendizado supervisionado.
+
+Com os avanços nesse campo nos últimos anos, diversos tipos diferentes de redes neurais foram desenvolvidos, como redes neurais convolucionais (\textit{Convolutional neural networks}, CNN) e redes neurais de memória de curto-longo prazo\footnote{Tradução livre feita pelo autor} (\textit{Long/Short term memory}, LSTM). Apesar de cada uma ter sua particularidade, redes neurais clássicas possuem duas características principais: os neurônios, e a estrutura dividida em camadas. Existem redes que não são redes neurais da maneira clássica, como Redes de Hopfiels (\textit{Hopfield Network}) e Máquinas de Boltzmann (\textit{Boltzmann Machine}), que não serão abordadas neste trabalho.
+
+Neurônios são objetos que armazenam um número, em geral entre 0 e 1 inclusos, cujo significado varia de acordo com o trabalho em questão. No caso deste, os neurônios da primeira camada armazenam o número que representa cada pixel da imagem, após serem convertidos para uma escala de cinza e em um número entre 0 e 1. Os quadros (\textit{frames}) de entrada também são redimensionados antes de serem analisados e processados pela IA.
+
+A estrutura das redes neurais clássicas é dividida em camadas que podem ser classificadas de três formas distintas: entrada, camadas ocultas, e saída.
+A entrada é o que a IA recebe inicialmente e precisa processar, as camadas ocultas (\textit{hidden layers}) bem como as transições para elas e entre elas são o processamento, e a saída é a decisão tomada pela IA. No caso este trabalho, a entrada é o \textit{frame} atual do jogo e a saída é a ação tomada (mover-se, atirar e etc).
+A saída, assim como a entrada e as camadas ocultas, é composta por neurônios, mas que representam a probabilidade de cada decisão ser tomada. Para a IA, existem 8 neurônios na saída, um para cada ação (ainda que não seja diretamente relacionada ao jogo, como \textit{RESET} e \textit{null}) e a respectiva probabilidade de ela ser tomada dado o \textit{frame} de entrada.
+Enquanto o número de neurônios na entrada e na saída são definidos pelo trabalho em questão, como número de pixels da tela e número de ações possíveis, o número de camadas ocultas e de neurônios em cada uma delas é arbitrário, sendo que essas quantidades são normalmente definidas por meio de experimentos.
+
 
 \subsubsection{Aprendizagem profunda - \textit{Deep learning}}
 \label{sec:dl}
 %http://www.deeplearningbook.org/
 %https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
+%https://machinelearningmastery.com/what-is-deep-learning/
 
 %\textit{Deep learning} é um dos ramos de aprendizado de máquina (\textit{machine learning}, ML) e
+
+\textit{Deep learning} é um ramo de aprendizado de máquina cujos algoritmos são inspirados na estrutura e funcionamento do cérebro.
 
 \subsection{Aprendizado por reforço}
 \label{sec:rl}
