@@ -57,7 +57,8 @@ decay_rate = 0.000001 # Taxa de decaimento exponencial para a probabilidade de e
 gamma = 0.9 # Taxa de desconto
 
 ### MEMÓRIA
-pretrain_length = batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
+#pretrain_length = batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
+pretrain_length = 1000
 memory_size = 1000000        # Número de experiências capazes de serem armazenadas na memória
 
 ### FLAGS
@@ -129,7 +130,7 @@ class DQNetwork:
                                      filters = c_f[0],
                                      kernel_size = k_s[0],
                                      strides = s_s[0],
-                                     padding = "VALID",
+                                     padding = "SAME",
                                      kernel_initializer=tf.contrib.layers.xavier_initializer_conv2d())
       self.elu = tf.nn.elu(self.conv2d)
       #self.maxpool2d = tf.layers.max_pooling2d(inputs = self.elu,
@@ -142,7 +143,7 @@ class DQNetwork:
                                        filters = c_f[i],
                                        kernel_size = k_s[i],
                                        strides = s_s[i],
-                                       padding = "VALID",
+                                       padding = "SAME",
                                        kernel_initializer = tf.contrib.layers.xavier_initializer_conv2d())
         self.elu = tf.nn.elu(self.conv2d)
         #self.maxpool2d = tf.layers.max_pooling2d(inputs = self.elu,

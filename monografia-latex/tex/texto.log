@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.8.14)  6 SEP 2018 12:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.8.14)  7 SEP 2018 01:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -954,7 +954,11 @@ Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 Package csquotes Info: Adjusting default style.
 Package csquotes Info: Redefining alias 'default' -> 'brazil'.
-(./texto.aux)
+(./texto.aux
+
+LaTeX Warning: Label `eq:nn01' multiply defined.
+
+)
 \openout1 = `texto.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
@@ -1261,23 +1265,17 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 102.
  [5]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 142.
+(babel)             in language  on input line 140.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 149.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 149.
+(babel)             in language  on input line 140.
  [6]
-
-! Package amsmath Error: Erroneous nesting of equation structures;
-(amsmath)                trying to recover with `aligned'.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.186 \end{align*}
-                  
-? 
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 161.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 180.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 180.
+ [7]
 
 ! Package amsmath Error: Erroneous nesting of equation structures;
 (amsmath)                trying to recover with `aligned'.
@@ -1289,38 +1287,38 @@ Type  H <return>  for immediate help.
 l.205 \end{align*}
                   
 ? 
+
+! Package amsmath Error: Erroneous nesting of equation structures;
+(amsmath)                trying to recover with `aligned'.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.224 \end{align*}
+                  
+? 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 209.
+(babel)             in language  on input line 234.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 209.
-[7]) (./chapters/proposta.tex
+(babel)             in language  on input line 234.
+[8]) (./chapters/proposta.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 4.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 4.
- [8]
+ [9]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 4.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 4.
+ [10
+
+]
 Cap\'{\i }tulo 3.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 4.
 ) (./chapters/implementacao.tex
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 2.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 2.
- [9
-
-]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 2.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 2.
- [10
-
-]
-Cap\'{\i }tulo 4.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 2.
-) (./chapters/conclusao.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
 Package babel Info: Redefining portuges shorthand "|
@@ -1333,6 +1331,22 @@ Package babel Info: Redefining portuges shorthand "|
  [12
 
 ]
+Cap\'{\i }tulo 4.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 2.
+) (./chapters/conclusao.tex
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 2.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 2.
+ [13]
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 2.
+Package babel Info: Redefining portuges shorthand "|
+(babel)             in language  on input line 2.
+ [14
+
+]
 Cap\'{\i }tulo 5.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 2.
@@ -1341,12 +1355,12 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 70.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 70.
- [13]
+ [15]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 70.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 70.
- [14
+ [16
 
 ]
 No file texto.bbl.
@@ -1358,16 +1372,20 @@ Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 80.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 80.
 Package rerunfilecheck Info: File `texto.out' has not changed.
 (rerunfilecheck)             Checksum: 242B9FEF528FF8FFCDFDFB50A3CDC698;747.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 80.
  ) 
 Here is how much of TeX's memory you used:
- 14981 strings out of 492649
- 218944 string characters out of 6135778
- 489140 words of memory out of 5000000
+ 14984 strings out of 492649
+ 218972 string characters out of 6135778
+ 489179 words of memory out of 5000000
  18533 multiletter control sequences out of 15000+600000
  22929 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,13n,45p,1119b,406s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 43i,13n,45p,1119b,404s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
 exmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/pub
@@ -1390,10 +1408,10 @@ re/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/f
 onts/type1/public/cm-super/sfti0800.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sft
 i1200.pfb>
-Output written on texto.pdf (20 pages, 450870 bytes).
+Output written on texto.pdf (22 pages, 456304 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 234 compressed objects within 3 object streams
- 46 named destinations out of 1000 (max. 500000)
+ 295 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
+ 49 named destinations out of 1000 (max. 500000)
  97 words of extra memory for PDF output out of 10000 (max. 10000000)
 

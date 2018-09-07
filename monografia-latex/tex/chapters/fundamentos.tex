@@ -116,12 +116,12 @@ Neurônios são funções que recebem como entrada a saída de cada neurônio da
 
 A estrutura das redes neurais clássicas é dividida em camadas que podem ser classificadas de três formas distintas: entrada, camadas ocultas, e saída.
 A entrada é o que a IA recebe inicialmente e precisa processar; as camadas ocultas (\textit{hidden layers}) são o processamento; e a saída é a decisão tomada pela IA. No caso este trabalho, a entrada é o \textit{frame} atual do jogo e a saída é a ação tomada (mover-se, atirar e etc).
-A saída, assim como a entrada e as camadas ocultas, é composta por neurônios, mas que representam a probabilidade de cada decisão ser tomada. Para a IA, existem 8 neurônios na saída, um para cada ação (ainda que não seja diretamente relacionada ao jogo, como \textit{RESET} e \textit{null}) e a respectiva probabilidade de ela ser tomada dado o \textit{frame} de entrada.
+A saída, assim como a entrada e as camadas ocultas, é composta por neurônios, mas que representam a probabilidade de cada decisão ser tomada. Para a IA deste trabalho, existem 8 neurônios na saída, um para cada ação (ainda que não seja diretamente relacionada ao jogo, como \textit{RESET} e \textit{null}) e a respectiva recompensa esperada por se tomar aquela ação naquele \textit{frame}. Portanto, é comum, principalmente no início do treinamento, haver múltiplas ações com recompensa esperada alta, ou seja, múltiplas ações que a IA considera como uma boa escolha.
 Enquanto o número de neurônios na entrada e na saída são definidos pelo trabalho em questão, como número de pixels da tela e número de ações possíveis, o número de camadas ocultas e de neurônios em cada uma delas é arbitrário, sendo que essas quantidades são normalmente definidas por meio de experimentos.
 
-Cada neurônio das camadas ocultas representa uma característica (\textit{feature}) desejada pelo desenvolvedor da IA. Se essa característica estiver presente na entrada, então esse neurônio será \textbf{ativado}. A ativação de um ou mais neurônios pode levar a ativação de outros neurônios na próxima camada, que é um comportamento inspirado na forma como neurônios do cérebro enviam sinais de um para o outro. No caso das redes neurais, um neurônio é ativado quando a soma dos números de entrada passam de um certo valor. Porém, nem todos os valores de entrada devem ser igualmente importantes, então cada um desses números recebe um peso que determina sua importância para a ativação da característica.
+Cada neurônio das camadas ocultas representa uma característica (\textit{feature}) detectada pela IA ao longo do treinamento. Se essa característica estiver presente na camada de entrada, então o neurônio correspondente a essa característica será \textbf{ativado}. A ativação de um ou mais neurônios pode levar a ativação de outros neurônios na próxima camada e assim sucessivamente. Esse é um comportamento inspirado na forma como neurônios do cérebro enviam sinais de um para o outro. No caso das redes neurais, um neurônio é ativado quando a soma dos números de entrada passam de um certo valor. Porém, nem todos os valores de entrada devem ser igualmente importantes, então cada um desses números recebe um peso que determina sua importância para a ativação da característica.
 
-Em forma matemática, seja $n$ o número de neurônios na camada anterior, $w_{i}, i = 1, ..., n$ os pesos das saídas de cada neurônio da camada anterior, e $a_{i}, i = 1, ..., n$ o valor de saída de cada neurônio da camada anterior e, por consequência, cada valor de entrada do neurônio atual, e $b$ o valor que a soma deve ultrapassar para que o neurônio seja ativado.
+Em forma matemática, seja $n$ o número de neurônios na camada anterior, $w_{i}, i = 1, ..., n$ os pesos das saídas de cada neurônio da camada anterior, e $a_{i}, i = 1, ..., n$ o valor de saída de cada neurônio da camada anterior e, por consequência, cada valor de entrada do neurônio atual, e $b$ o valor que a soma deve ultrapassar para que o neurônio seja ativado, chamado de viés (\textit{bias}).
 
 \begin{equation} \label{eq:nn01}
 w_{1}a_{1} + w_{2}a_{2} + ... + w_{n}a_{n} - b
@@ -129,6 +129,24 @@ w_{1}a_{1} + w_{2}a_{2} + ... + w_{n}a_{n} - b
 
 Se a soma \ref{eq:nn01} for maior que zero, então o neurônio será ativado. Essa comparação é feita em cada neurônio de cada camada da rede neural.
 Essas operações são mais fácil e rapidamente resolvidas utilizando matrizes.
+
+Seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{i}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés para cada um dos neurônios da camada atual, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
+
+\begin{equation} \label{eq:nn01}
+Wa^{(i)} + b, \qquad i = 1, ..., n
+\end{equation}
+
+Apesar de as contas serem as mesmas quando feitas individualmente, esse formato é mais conveniente e eficiente de se programar por haver diversas bibliotecas que otimizam operações matriciais, além de ser mais fácil e rápido de ler e entender.
+
+Dependendo do problema, essa soma pode assumir qualquer valor real. Contudo, é mais desejado que seja um valor entre 0 e 1 na maioria dos casos. Por conta disso, utiliza-se funções que convertem o resultado da soma para o intervalo de interesse. Alguns exemplos de funções que eram ou são comumente utilizadas para isso são a sigmoide (também conhecida como curva logistica), ReLU (\textit{Rectified Linear Unit}) e ELU (\textit{Exponential Linear Unit}).
+
+O próximo passo é entender como os valores dos neurônios e os respectivos pesos são utilizados para a inteligência conseguir soltar a resposta correta.
+Como mencionado anteriormente, conforme as características se mostram presentes na camada de entrada, os neurônios referentes a esses atributos são ativados, até que o neurônio com a resposta dada pela inteligência artificial seja ativado.
+No início, múltiplas saídas serão consideradas como boas respostas (alta recompensa esperada), pois a IA tem comportamento aleatório.
+Para que o computador saiba o quão ruim foi sua saída, é definida uma função de erro (também conhecida como função de custo). Uma forma comum de calcular esse erro, e a utilizada neste trabalho, é o erro quadrático médio, que consiste em subtrair o valor devolvido pela IA pelo valor esperado e elevar ao quadrado. Após essas operações serem realizadas em cada neurônio, os resultados são somados e obtém-se um valor numérico para o quão errada a IA estava em um determinado exemplo. Quanto maior esse valor, mais incorreta a IA está. Após esse procedimento ser feito com milhares de exemplos, calcula-se a média dos erros obtidos e, com isso, avalia-se o desempenho da inteligência.
+
+Percebe-se que esse procedimento para avaliar o desempenho do código é uma forma de encapsular a rede neural em uma função que tem como entrada os pesos e viés de cada neurônio e, como saída, o quão bom ou ruim eles são. Por ser uma função, é possível calcular "para onde ela deve se mover" de forma que minimize a saída utilizando um método chamado de gradiente descendente (\textit{gradient descent}). \textit{Gradient descent} é um algoritmo utilizado para encontrar o mínimo local de uma função, que é quase o que se deseja. O melhor caso para a função de erro seria encontrar o mínimo global, mas como isso nem sempre é possível, em parte por não haver garantias de que se encontrou o mínimo global, encontrar o melhor mínimo local é o suficiente.
+De forma resumida, uma rede neural clássica aprende recebendo uma série de números como entrada e devolve uma saída; calcula-se o quão errada essa saída éem relação ao desejado para aquela determinada entrada e faz os ajustes necessários para minimizar o erro; após repetir esses passos milhares de vezes, espera-se que a IA tenha aprendido o suficiente a resolver o problema em mãos.
 
 \subsubsection{Aprendizagem profunda - \textit{Deep learning}}
 \label{sec:dl}
