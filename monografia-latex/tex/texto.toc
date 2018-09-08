@@ -8,12 +8,12 @@
 \contentsline {subsection}{\numberline {2.4.1}Aprendizado de m\IeC {\'a}quina - \textit {Machine learning}}{5}{subsection.2.4.1}
 \contentsline {subsection}{\numberline {2.4.2}Aprendizado supervisionado}{5}{subsection.2.4.2}
 \contentsline {subsubsection}{Redes neurais - \textit {Neural networks}}{6}{section*.2}
-\contentsline {subsubsection}{Aprendizagem profunda - \textit {Deep learning}}{7}{section*.3}
-\contentsline {subsection}{\numberline {2.4.3}Aprendizado por refor\IeC {\c c}o}{7}{subsection.2.4.3}
-\contentsline {subsubsection}{Processo de Decis\IeC {\~a}o de Markov}{7}{section*.4}
-\contentsline {subsubsection}{\textit {Q-learning}}{8}{section*.5}
-\contentsline {subsubsection}{\textit {Approximate Q-learning}}{9}{section*.6}
-\contentsline {chapter}{\numberline {3}Proposta}{11}{chapter.3}
-\contentsline {chapter}{\numberline {4}Desenvolvimento}{13}{chapter.4}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es - Parte Subjetiva}{15}{chapter.5}
+\contentsline {subsubsection}{Aprendizagem profunda - \textit {Deep learning}}{8}{section*.3}
+\contentsline {subsection}{\numberline {2.4.3}Aprendizado por refor\IeC {\c c}o}{8}{subsection.2.4.3}
+\contentsline {subsubsection}{Processo de Decis\IeC {\~a}o de Markov}{8}{section*.4}
+\contentsline {subsubsection}{\textit {Q-learning}}{9}{section*.5}
+\contentsline {subsubsection}{\textit {Approximate Q-learning}}{10}{section*.6}
+\contentsline {chapter}{\numberline {3}Proposta}{13}{chapter.3}
+\contentsline {chapter}{\numberline {4}Desenvolvimento}{15}{chapter.4}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es - Parte Subjetiva}{17}{chapter.5}
 \contentsfinish 
