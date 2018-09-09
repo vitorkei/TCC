@@ -51,7 +51,7 @@ O principal motivo de esta ferramenta ter sido escolhida é o suporte ao jogo \t
 \section{TensorFlow}
 \label{sec:tensorflow}
 
-TensorFlow é um arcabouço de código aberto para computações numéricas de alta performance, desenvolvido e mantido pela Google. Seu núcleo de computação numérica flexível permite o uso da biblioteca em diversos campos cienctíficos. Oferece, em particular, grande suporte a aprendizado de máquina e aprendizagem profunda, ou, como é mais conhecida, \textit{deep learning}.
+TensorFlow é um arcabouço de código aberto para computações numéricas de alta performance, desenvolvido e mantido pela Google. Seu núcleo de computação numérica flexível permite o uso da biblioteca em diversos campos cienctíficos. Oferece, em particular, grande suporte a aprendizado de máquina e aprendizado profundo, ou, como é mais conhecida, \textit{deep learning}.
 Esta ferramenta foi utilizada por oferecer uma API em Python estável, ter grande suporte, comunidade ativa, e ser de código aberto.
 %Apesar de não ter sido utilizado, esta biblioteca também possui uma ferramenta de visualização de dados chamada TensorBoard.
 
@@ -128,7 +128,7 @@ A entrada é o que a IA recebe inicialmente e precisa processar; as camadas ocul
 %A saída, assim como a entrada e as camadas ocultas, é composta por neurônios, mas que representam a probabilidade de cada decisão ser tomada. Para a IA deste trabalho, existem 8 neurônios na saída, um para cada ação (ainda que não seja diretamente relacionada ao jogo, como \textit{RESET} e \textit{null}) e a respectiva recompensa esperada por se tomar aquela ação naquele \textit{frame}. Portanto, é comum, principalmente no início do treinamento, haver múltiplas ações com recompensa esperada alta, ou seja, múltiplas ações que a IA considera como uma boa escolha.
 Enquanto o número de neurônios na entrada e na saída são definidos pelo trabalho em questão, como número de pixels da tela e número de ações possíveis, o número de camadas ocultas e de neurônios em cada uma delas é arbitrário, sendo que essas quantidades são normalmente definidas por meio de experimentos.
 
-Cada neurônio das camadas ocultas representa uma característica (\textit{feature}) detectada pela IA ao longo do treinamento. Se essa característica estiver presente na camada de entrada, então o neurônio correspondente a essa característica será \textbf{ativado}. A ativação de um ou mais neurônios pode levar a ativação de outros neurônios na próxima camada e assim sucessivamente. Esse é um comportamento inspirado na forma como neurônios do cérebro enviam sinais de um para o outro. No caso das redes neurais, um neurônio é ativado quando a soma dos números de entrada passam de um certo valor. Porém, nem todos os valores de entrada devem ser igualmente importantes, então cada um desses números recebe um peso que determina sua importância para a ativação da característica.
+Cada neurônio das camadas ocultas representa uma característica (\textit{feature}) detectada pela IA ao longo do treinamento. Se essa característica estiver presente na camada de entrada, então o neurônio correspondente a essa característica será \textbf{ativado}. A ativação de um ou mais neurônios pode levar a ativação de outros neurônios na próxima camada e assim sucessivamente. Esse é um comportamento inspirado na forma como neurônios do cérebro enviam sinais de um para o outro. No caso das redes neurais, um neurônio é ativado quando a soma dos números de entrada passa de um certo valor e por uma função de ativação. Porém, nem todos os valores de entrada devem ser igualmente importantes, então cada um desses números recebe um peso que determina sua importância para a ativação da característica.
 
 Em forma matemática, seja $n$ o número de neurônios na camada anterior, $w_{i}, i = 1, ..., n$ os pesos das saídas de cada neurônio da camada anterior, e $a_{i}, i = 1, ..., n$ o valor de saída de cada neurônio da camada anterior e, por consequência, cada valor de entrada do neurônio atual, e $b$ o valor que a soma deve ultrapassar para que o neurônio seja ativado, chamado de viés (\textit{bias}).
 
@@ -136,7 +136,7 @@ Em forma matemática, seja $n$ o número de neurônios na camada anterior, $w_{i
 w_{1}a_{1} + w_{2}a_{2} + ... + w_{n}a_{n} - b
 \end{equation}
 
-Se a soma \ref{eq:nn01} for maior que zero, então o neurônio será ativado. Essa comparação é feita em cada neurônio de cada camada da rede neural.
+A soma \ref{eq:nn01} é então utilizada como entrada para a função de ativação escolhida pelo desenvolvedor da IA e, a depender da saída, o neurônio será ativado. Esse procedimento é feita em cada neurônio de cada camada da rede neural.
 Essas operações são mais fácil e rapidamente resolvidas utilizando matrizes.
 
 Seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{i}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés para cada um dos neurônios da camada atual, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
@@ -147,25 +147,38 @@ Wa^{(i)} + b, \qquad i = 1, ..., n
 
 Apesar de as contas serem as mesmas quando feitas individualmente, esse formato é mais conveniente e eficiente de se programar por haver diversas bibliotecas que otimizam operações matriciais, além de ser mais fácil e rápido de ler e entender.
 
-Dependendo do problema, essa soma pode assumir qualquer valor real. Contudo, é mais desejado que seja um valor entre 0 e 1 na maioria dos casos. Por conta disso, utiliza-se funções que convertem o resultado da soma para o intervalo de interesse. Alguns exemplos de funções que eram ou são comumente utilizadas para isso são a sigmoide (também conhecida como curva logistica), ReLU (\textit{Rectified Linear Unit}) e ELU (\textit{Exponential Linear Unit}).
+Dependendo do problema, essa soma pode assumir qualquer valor real. Contudo, é mais desejado que seja um valor entre 0 e 1 na maioria dos casos. Por conta disso, utiliza-se funções que convertem o resultado da soma para o intervalo de interesse chamadas de funções de ativação. Alguns exemplos de funções que eram ou são comumente utilizadas para isso são a sigmoide (também conhecida como curva logistica), ReLU (\textit{Rectified Linear Unit}) e ELU (\textit{Exponential Linear Unit}).
 
 O próximo passo é entender como os valores dos neurônios e os respectivos pesos são utilizados para a inteligência conseguir soltar a resposta correta.
 Como mencionado anteriormente, conforme as características se mostram presentes na camada de entrada, os neurônios referentes a esses atributos são ativados, até que o neurônio com a resposta dada pela inteligência artificial seja ativado.
 No início, múltiplas saídas serão consideradas como boas respostas (alta recompensa esperada), pois a IA tem comportamento aleatório.
-Para que o computador saiba o quão ruim foi sua saída, é definida uma função de erro (também conhecida como função de custo). Uma forma comum de calcular esse erro, e a utilizada neste trabalho, é o erro quadrático médio, que consiste em subtrair o valor devolvido pela IA pelo valor esperado e elevar ao quadrado. Após essas operações serem realizadas em cada neurônio, os resultados são somados e obtém-se um valor numérico para o quão errada a IA estava em um determinado exemplo. Quanto maior esse valor, mais incorreta a IA está. Após esse procedimento ser feito com milhares de exemplos, calcula-se a média dos erros obtidos e, com isso, avalia-se o desempenho da inteligência.
+Para que o computador saiba o quão ruim foi sua saída, é definida uma função de erro (também conhecida como função de custo). Uma forma comum de calcular esse erro é o erro quadrático médio, que consiste em subtrair o valor devolvido pela IA pelo valor esperado e elevar ao quadrado. Após essas operações serem realizadas em cada neurônio, os resultados são somados e obtém-se um valor numérico para o quão errada a IA estava em um determinado exemplo. Quanto maior esse valor, mais incorreta a IA está. Após esse procedimento ser feito com milhares de exemplos, calcula-se a média dos erros obtidos e, com isso, avalia-se o desempenho da inteligência.
 
-Percebe-se que esse procedimento para avaliar o desempenho do código é uma forma de encapsular a rede neural em uma função que tem como entrada os pesos e viés de cada neurônio e, como saída, o quão bom ou ruim eles são. Por ser uma função, é possível calcular "para onde ela deve se mover" de forma que minimize a saída utilizando um método chamado de gradiente descendente (\textit{gradient descent}). \textit{Gradient descent} é um algoritmo utilizado para encontrar o mínimo local de uma função, que é quase o que se deseja. O melhor caso para a função de erro seria encontrar o mínimo global, mas como isso nem sempre é possível, em parte por não haver garantias de que se encontrou o mínimo global, encontrar o melhor mínimo local é o suficiente.
+Percebe-se que esse procedimento para avaliar o desempenho do código é uma forma de encapsular a rede neural em uma função que tem como entrada os pesos e viés de cada neurônio e, como saída, o quão bom ou ruim eles são. Por ser uma função, é possível calcular "para onde ela deve se mover" de forma que minimize a saída utilizando um método chamado de gradiente descendente (\textit{gradient descent}).
+Gradiente é uma generalização de derivada para multiplas variáveis. Ela representa a inclinação da tangente da função no ponto dado e aponta para a direção de maior crescimento, direção para onde a função deve "mover-se" para chegar no máximo local. Consequentemente, se tomar o valor negativo do gradiente da função, obtém-se a direção de maior decrescimento, direção do mínimo local.
+Em outras palavras, \textit{gradient descent} é um algoritmo utilizado para encontrar o mínimo local de uma função, que é quase o que se deseja. O melhor caso para a função de erro seria encontrar o mínimo global, mas como isso nem sempre é possível, em parte por não haver garantias de que se encontrou o mínimo global, encontrar o melhor mínimo local é o suficiente.
+
 De forma resumida, uma rede neural clássica aprende recebendo uma série de números como entrada e devolve uma saída; calcula-se o quão errada essa saída éem relação ao desejado para aquela determinada entrada e faz os ajustes necessários para minimizar o erro; após repetir esses passos milhares de vezes, espera-se que a IA tenha aprendido o suficiente a resolver o problema em mãos.
 
-\subsubsection{Aprendizagem profunda - \textit{Deep learning}}
+\subsubsection{Aprendizado profundo - \textit{Deep learning}}
 \label{sec:dl}
 %http://www.deeplearningbook.org/
 %https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
 %https://machinelearningmastery.com/what-is-deep-learning/
+%https://stats.stackexchange.com/questions/182734/what-is-the-difference-between-a-neural-network-and-a-deep-neural-network-and-w
 
 %\textit{Deep learning} é um dos ramos de aprendizado de máquina (\textit{machine learning}, ML) e
+%\textit{Deep learning} é um ramo de aprendizado de máquina cujos algoritmos são inspirados na estrutura e funcionamento do cérebro.
+Como explicado anteriormente, redes neurais podem ser divididas em três tipos distintos de camadas: entrada, ocultas, e saída. Enquanto existe apenas uma camada de entrada e uma de saída, é possível haver uma ou mais camadas ocultas. Se houver muitas camadas ocultas, a rede neural passa a ser chamada de rede neural profunda (\textit{deep neural network}). Atualmente, não existe uma definição exata de quantas camadas a rede neural precisa ter para começar a ser classificada como profunda e, mesmo que houvesse, esse número provavelmente mudaria com o passar do tempo.
 
-\textit{Deep learning} é um ramo de aprendizado de máquina cujos algoritmos são inspirados na estrutura e funcionamento do cérebro.
+Uma rede neural profunda que segue o modelo apresentado na seção anterior é chamado de \textit{feedforward} e é o mais típico de \textit{deep learning}. Ele recebe esse nome pois a informação flui da entrada para a saída sem haver conexões de \textit{feedback} para que a previsão seja feita. Este tipo de rede neural forma a base para redes neurais convolucionais (\textit{convolutional neural network}, CNN), técnica muito utilizada em reconhecimento de imagens. Como a ideia é treinar uma inteligência artificial que aprende vendo a tela do jogo, foi escolhido esse tipo de rede neural para este trabalho.
+
+Uma das partes mais peculiares sobre \textit{deep learning} é o fato de muitos dos avanços feitos nos últimos anos serem resultado de tentativa e erro e não de formalização e demonstração da teoria. Ainda não se entende perfeitamente o que faz uma rede neural profunda funcionar tão bem. As características na construção de um modelo consideradas como essenciais mudam rapidamente com o passar do tempo, com algumas inclusive passando a ser consideradas estorvos ao invés de atributos chave para acelerar e aprimorar o aprendizado.
+
+\subsubsection{Rede neural convolucional - \textit{Convolutional neural network}}
+\label{sec:cnn}
+
+
 
 \subsection{Aprendizado por reforço}
 \label{sec:rl}
