@@ -4,26 +4,28 @@
 % ---------------------------------------------------------------------------- %
 
 Para se criar e treinar uma inteligência artificial, diversos arcabouçous são necessários. Por um lado, existe a parte teórica e matemática na qual a inteligência se baseia para aprender. Por outro, do lado computacional, existem as bibliotecas que auxiliam no desenvolvimento, efetuando as contas necessárias e, neste trabalho em particular, emulando o jogo que serve de ambiente para o aprendizado.
-Este capítulo tem o intuito de familiarizar o leitor com a teoria e as ferramentas utilizadas no treinamento da inteligência artificial deste trabalho.
+Este capítulo tem o intuito de familiarizar o leitor com a teoria e as ferramentas utilizadas na modelagem e treinamento da inteligência artificial deste trabalho.
 
 % ---------------------------------------------------------------------------- %
 % https://en.wikipedia.org/wiki/Asteroids_(video_game)
 % https://en.wikipedia.org/wiki/Golden_age_of_arcade_video_games
 % https://www.arcade-museum.com/game_detail.php?game_id=6939
 % https://www.ranker.com/list/the-most-popular-golden-age-arcade-games/video-games-lists
+% https://stella-emu.github.io/index.html
+% https://stella-emu.github.io/docs/index.html
 \section{\textit{Asteroids}}
 \label{sec:asteroids}
 
-\textit{Asteroids} é um jogo de fliperama do gênero \textit{shooter} (jogo eletrônico de tiro) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida apenas como Atari. O jogo foi inspirado por \textit{Spacewar!}, \textit{Computer Space}, \textit{Space Invaders}, e \textit{Cosmos}, sendo este último um jogo não finalizado.
+\textit{Asteroids} é um jogo de fliperama do gênero \textit{shooter} (jogo eletrônico de tiro) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida como Atari. O jogo foi inspirado em \textit{Spacewar!}, \textit{Computer Space}, \textit{Space Invaders}, e \textit{Cosmos}, sendo este último um jogo não finalizado.
 
-Diversas versões deste jogo foram criadas ao longo dos anos, então serão mencionadas somentes as características da iteração utilizada neste trabalho.
+Diversas versões deste jogo foram criadas ao longo dos anos, então serão mencionadas somentes as características da iteração utilizada neste trabalho, a do Atari2600.
 O jogador controla uma nave espacial que se encontra em um campo de asteróides e precisa atirar para destrui-los enquanto evita colisões. A dificuldade aumenta conforme os asteróides se tornam mais numerosos. Os alvos podem assumir três tamanhos e três formatos diferentes. Enquanto os tamanhos são grande (inicial), médio e pequeno, os formatos são aproximadamente os mesmos em quesito de altura e largura.
 %Diversas versões deste jogo foram criadas ao longo dos anos. Além das diferenças gráficas, as mudanças incluem naves espaciais inimigas que atiram contra o jogador, e tamanhos e formatos diferentes que os asteróides podem ter.
 \textit{Asteroids} é considerado um dos primeiros grandes sucessos da era de ouro dos jogos de fliperama, época em que os jogos eletrônicos começaram a se tornar comuns na cultura popular. 
 
-Para este trabalho, \textit{Asteroids} foi emulado utilizando a plataforma Gym-Retro da companhia de pesquisas de inteligência artificial OpenAI.
+Para este trabalho, \textit{Asteroids} foi emulado utilizando o emulador Stella, do Stella Team, e a plataforma Gym-Retro, da companhiaOpenAI.
 Há cinco comandos disponíveis: mover-se para frente, girar a nave no sentido horário, girar a nave no sentido anti-horário, atirar para frente, e entrar no hiper espaço. Mover-se para frente e girar no sentido horário ou anti-horário são as principais formas de movimento disponíveis ao jogador, e atirar serve para destruir os asteróides. Mover-se no hiper espaço consiste em fazer a nave desaparecer e, depois de alguns instantes, reaparecer em um local aleatório da tela. Esse é um movimento de alto risco, pois é possível reaparecer em cima de um asteróide, resultando na perda de uma vida. Por outro lado, é útil para fugir rapidamente de situações complicadas.
-A nave também possui inércia, o que dificulta a movimentação dentro do jogo.
+A nave também possui inércia, o que dificulta a realização de manobras como curvas e esquivas.
 %A nave possui aceleração e desaceleração - ou seja, inércia. Mesmo que o jogador deixe de pressionar o botão de mover-se para frente, ele continuará em movimento por um curto período de tempo antes de parar por completo. Isso gera um grau a mais de complexidade, pois faz com que manobras de esquiva e curvas sejam mais difíceis de serem devidamente executadas.
 
 % ---------------------------------------------------------------------------- %
@@ -34,7 +36,7 @@ A nave também possui inércia, o que dificulta a movimentação dentro do jogo.
 \section{Gym-Retro}
 \label{sec:gymretro}
 
-Gym-Retro é uma plataforma para pesquisa de aprendizado por reforços e generalização em jogos desenvolvida e mantida pela empresa de pesquisas em inteligência artificial OpenAI. Essa ferramente permite emulação de diversos consoles de videogame, como Sega Genesis, Nintendo Entertainment System (NES) e, o utilizado neste trabalho, Atari2600. Para qualquer jogo que o usuário deseje emular, é necessário que ele tenha a ROM (\textit{Read Only Memory}) do jogo.
+Gym-Retro é uma plataforma para pesquisa de aprendizado por reforços e generalização em jogos desenvolvida e mantida pela empresa de pesquisas em inteligência artificial OpenAI. Essa ferramenta auxilia na emulação de diversos consoles de jogos eletrônicos, como Sega Genesis, Nintendo Entertainment System (NES) e Atari2600. Para qualquer jogo que o usuário deseje emular, é necessário que ele tenha a ROM (\textit{Read Only Memory}) do jogo.
 %Gym-Retro é uma plataforma para pesquisa de aprendizado por reforços e generalização em jogos desenvolvida e mantida pela empresa de pesquisas em inteligência artificial OpenAI. O lançamento mais recente inclui jogos do Sega Genesis, Sega Master System, Nintendo Entertainment System (NES), Super Nintendo Entertainment System (SNES) e Nintendo Game Boy, como ambientes para o desenvolvimento de IA, além de suporte preliminar para Sega Game Gear, Nintendo Game Boy Color, Nintendo Game Boy Advance e NEC TurboGrafx. Em qualquer um desses consoles, a ROM (\textit{Read Only Memory}) do jogo é necessária.
 %Apesar de não ter sido utilizada neste trabalho, a plataforma disponibiliza uma ferramente que permite criar \textit{save states} (salvar um estado a partir do qual é possível continuar o jogo), encontrar locais da memória, criar cenários para o agente resolver, gravar e passar arquivos de vídeo, dentre outras funcionalidades.
 
@@ -51,8 +53,8 @@ O principal motivo de esta ferramenta ter sido escolhida é o suporte ao jogo \t
 \section{TensorFlow}
 \label{sec:tensorflow}
 
-TensorFlow é um arcabouço de código aberto para computações numéricas de alta performance, desenvolvido e mantido pela Google. Seu núcleo de computação numérica flexível permite o uso da biblioteca em diversos campos cienctíficos. Oferece, em particular, grande suporte a aprendizado de máquina e aprendizado profundo, ou, como é mais conhecida, \textit{deep learning}.
-Esta ferramenta foi utilizada por oferecer uma API em Python estável, ter grande suporte, comunidade ativa, e ser de código aberto.
+TensorFlow é um arcabouço de código aberto para computações numéricas de alta performance, desenvolvido e mantido pela Google. Seu núcleo de computação numérica flexível permite o uso da biblioteca em diversos campos cienctíficos. Oferece, em particular, grande suporte a aprendizado de máquina e aprendizado profundo, ou, como é mais conhecido, \textit{deep learning}.
+Esta ferramenta foi escolhida por oferecer uma API em Python estável, ter grande suporte, comunidade ativa, e ser de código aberto.
 %Apesar de não ter sido utilizado, esta biblioteca também possui uma ferramenta de visualização de dados chamada TensorBoard.
 
 % ---------------------------------------------------------------------------- %
@@ -61,9 +63,14 @@ Esta ferramenta foi utilizada por oferecer uma API em Python estável, ter grand
 \section{Inteligência artificial (IA)}
 \label{sec:ia}
 
-Inteligência artificial (IA) é um dos campos mais recentes de ciência e de engenharia, tendo trabalhos no assunto sendo iniciados pouco depois da Segunda Guerra Mundial. Atualmente, ela é composta por diversos campos menores de estudo, podendo ser mais genérico, como aprendizado e percepção, até mais específico, como a capacidade de jogar um jogo, provar teoremas matemáticos, ou dirigir um carro em uma via movimentada.
-No livro Artificial Intelligence: A Morden Approach, de Stuart Jonathan Russel e Peter Norvig, oito definições são apresentadas em uma tabela de duas linhas por duas colunas. A linha de cima define processo de pensamento (\textit{thought process}) e raciocínio (\textit{reasoning}), enquanto a linha de baixo define comportamento (\textit{behaviour}). Além disso, a coluna da esquerda mede o grau de fidelidade da inteligência quando comparado com performance humana, enquanto a da direita mede a racionalidade da performance - ou seja, se toma a ação "correta" dado o que o sistema sabe.
+Inteligência artificial (IA) é um dos campos mais recentes de ciência e de engenharia, tendo trabalhos no assunto sendo iniciados em meados do século XX. Atualmente, é composta por diversos campos menores de estudo, podendo ser mais genérico, como aprendizado e percepção, até mais específico, como a capacidade de jogar um jogo, provar teoremas matemáticos, ou dirigir um carro em uma via movimentada.
+%No livro Artificial Intelligence: A Morden Approach, de Stuart Jonathan Russel e Peter Norvig,
+RUSSEL et al. (2010) separaram oito definições de inteligência artificial em uma tabela de duas linhas por duas colunas, com duas definições por espaço. A linha de cima define processo de pensamento (\textit{thought process}) e raciocínio (\textit{reasoning}), enquanto a linha de baixo define comportamento (\textit{behaviour}). Além disso, a coluna da esquerda mede o grau de fidelidade da inteligência quando comparado com performance humana, enquanto a da direita mede a racionalidade da performance - ou seja, se toma a ação "correta"{} dado o que o sistema sabe.
 
+Essa tabela é representada pela tabela \ref{table:1}.
+
+\begin{table}
+\centering
 \begin{tabular}{| p{7cm} | p{7cm} |}
   \hline
   \textbf{Pensando como um humano} & \textbf{Pensando racionalmente} \\ \hline
@@ -71,12 +78,11 @@ No livro Artificial Intelligence: A Morden Approach, de Stuart Jonathan Russel e
   \textbf{Agindo como um humano} & \textbf{Agindo racionalmente} \\ \hline
   \textit{A arte de criar máquinas capazes de realizar funções que requerem inteligência quando feitas por pessoas} \newline (Kurzweil, 1990) & \textit{Inteligência computacional é o estudo do design de agentes inteligentes} \newline (Poole \textit{et at}, 1998) \\ & \\ \textit{O estudo de como fazer os computadores fazerem coisas que, no momento, pessoas fazem melhor} \newline (Rich and Knight, 1991) & \textit{IA... está relacionada ao comportamento inteligente em objetos} \newline (Nilsson, 1998) \\ \hline
 \end{tabular}
+\caption{Definições para inteligência artificial. Apresentação conforme a do livro de RUSSEL et al. (2010). Traduções livres feitas pelo autor.}
+\label{table:1}
+\end{table}
 
-\begin{footnotesize}
-Traduções livres feitas pelo autor
-\end{footnotesize}
-
-\bigskip Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma inteligência artificial que se pareça com um humano, enquanto as da direita sobre uma inteligência artificial que toma ações visando estar correta e a atingir o melhor resultado possível. Este trabalho terá um foco maior na categoria "\textbf{Agindo racionalmente}", pois as ações tomadas pelo agente terão como objetivo o retorno da maior recompensa possível.
+Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma inteligência artificial que se pareça com um humano, enquanto as da direita sobre uma inteligência artificial que toma ações visando estar correta e a atingir o melhor resultado possível. Este trabalho terá um foco maior na categoria "\textbf{Agindo racionalmente}", pois as ações tomadas pelo agente terão como objetivo o retorno da maior recompensa possível.
 
 %Agindo como um humano: Teste de Turing. Envolve processamento de linguagem natural, representação de conhecimento, raciocínio automatizado, aprendizado de máquina e, no caso do teste de Turing total, visão computacional e robótica. Contudo, cientistas dedicaram pouco tempo em passar nesse teste, pois acreditam ser mais importante estudar os princípios da inteligência do que duplicar uma.
 
@@ -92,7 +98,7 @@ Traduções livres feitas pelo autor
 %https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12
 %https://arxiv.org/pdf/1602.01783.pdf
 Aprendizado de máquina, ou \textit{machine learning} (ML) como é mais conhecido, é um campo de ciência da computação e um dos ramos de inteligência artificial que estuda a capacidade dos computadores de aprender a realizar uma tarefa sem ser explicitamente programado para isso. Após ter a tarefa definida, o computador recebe uma grande quantidade de dados, tenta reconhecer um padrão nessa entrada e, por fim, constrói um modelo para realizar predições.
-Por conta do enorme volume de dados necessários para o computador aprender, aprendizado de máquina é um campo que teve grandes avanços apenas nas últimas décadas, com o avanço da internet. Com cada vez mais pessoas tendo acesso a computadores mais rápidos e eficientes, bem como o surgimento de redes sociais, a quantidade de informação digital sendo gerada, armazenada, e disponibilizada cresceu.
+Por conta do enorme volume de dados necessários para o computador aprender, aprendizado de máquina teve grandes avanços apenas nas últimas décadas, com o avanço da Internet. Com cada vez mais pessoas tendo acesso a computadores mais rápidos e eficientes, bem como o surgimento de redes sociais, a quantidade de informação digital sendo gerada, armazenada, e disponibilizada cresceu.
 As três técnicas de aprendizado de máquina mais conhecidas são \textbf{aprendizado supervisionado}, \textbf{aprendizado não supervisionado}, e \textbf{aprendizado por reforço}.
 Aprendizado supervisionado e aprendizado por reforço serão os mais discutidos neste trabalho por serem as bases para as duas principais técnicas usadas: \textit{Deep learning} e \textit{Q-learning} respectivamente.
 
@@ -101,47 +107,51 @@ Aprendizado supervisionado e aprendizado por reforço serão os mais discutidos 
 %https://medium.com/opensanca/aprendizagem-de-maquina-supervisionada-ou-n%C3%A3o-supervisionada-7d01f78cd80a
 
 É mais fácil entender aprendizado supervisionado por meio de uma alegoria. O desenvolvedor da IA é um professor que fornece exercícios, cujas respostas ele possui, para o computador, seu aluno. O computador resolve os exercícios e o professor diz se as respostas dadas por seu aluno estão corretas.
-Resolver o exercício é a tarefa delegada ao computador, os exercícios são os exemplos a partir dos quais o programa deve aprender, e a resposta que o professor tem é a saída esperada. Os exercícios com as respostas que o "professor" serão chamados de exemplos rotulados, enquanto a resposta do "aluno" será chamada de saída da IA.
+Resolver o exercício é a tarefa delegada ao computador, os exercícios são os exemplos a partir dos quais o programa deve aprender, e a resposta que o professor tem é a saída esperada. Os exercícios com as respostas que o "professor"{} possui serão chamados de exemplos rotulados, enquanto a resposta do "aluno"{} será chamada de saída da IA.
+
 %Aprendizado supervisionado consiste em dar uma tarefa e um conjunto de exemplos com respectivas classificações esperadas para o computador. A entrada e a saída são grandes volumes de dados e respectivas categorias, rótulos. Em outras palavras, a máquina tem um "professor" que diz se a resposta dada está certa ou errada. Um exemplo simples que ajuda a ilustrar como aprendizado supervisionado funciona é fazer um computador dizer se uma imagem é de um cachorro ou não. Após mostrar diversas imagens de cachorro, dizendo quais são cachorros e quais não são, o computador deve conseguir ver uma imagem e dizer se é um ou não. 
 
-Esta técnica costuma cair em dois tipos de problemas: classificação e regressão.
-Em problemas de classificação, deseja-se que o computador classifique corretamente uma entrada, dentre duas ou mais categorias pré-determinadas. Um exemplo simples deste tipo de problema é o de classificar se uma imagem é de cachorro ou não: após mostrar milhares de imagens para o computador, dizendo quais são de cachorro e quais não são, espera-se que ele classifique corretamente ao mostrar uma nova imagem.
-Em problemas de regressão, é esperado que os dados de entrada sigam uma função $g$, e o algoritmo deve encontrar uma função $h$ que se aproxime o melhor possível de $g$. Um exemplo deste tipo de problema é fornecer a metragem uma residência, e ter o seu valor como saída da IA. Com entrada suficiente, o programa deve conseguir determinar o preço de uma residência apenas pelas medidas.
+Esta técnica costuma cair em dois tipos de problemas: \textbf{classificação} e \textbf{regressão}.
+Em problemas de \textbf{classificação}, deseja-se que o computador classifique corretamente uma entrada dentre duas ou mais categorias pré-determinadas. Um exemplo simples deste tipo de problema é o de classificar se uma imagem é de cachorro ou não: após mostrar milhares de imagens para o computador, dizendo quais são de cachorro e quais não são, espera-se que ele classifique corretamente ao mostrar uma nova imagem.
+Em problemas de \textbf{regressão}, é esperado que os dados de entrada sigam uma função $g$ desconhecida, e o algoritmo deve encontrar uma função $h$ que se aproxime o melhor possível de $g$. Um exemplo deste tipo de problema é fornecer a metragem e número de cômodos de uma residência, e ter o seu valor como saída da IA. Com exemplos suficientes, o programa deve conseguir determinar o preço de uma residência apenas pelos números fornecidos.
 Um problema pode ser tanto de classificação quanto de regressão a depender de como for montado. Por exemplo, ao invés de o programa dizer o preço do imóvel, ele poderia dizer se o preço é superior ou inferior a um certo valor.
 
-Redes neurais (\textit{neural networks}), Máquinas de Vetor de Suporte (\textit{Support Vector Machine}, SVM) e Classificadores \textit{Naive Bayes} são alguns dos algoritmos de aprendizado supervisionado mais comuns. O foco será em redes neurais neste trabalho.
+Redes neurais (\textit{neural networks}), Máquinas de Vetor de Suporte (\textit{Support Vector Machine}, SVM) e Classificadores \textit{Naive Bayes} são alguns dos algoritmos de aprendizado supervisionado mais comuns. O foco deste trabalho será em redes neurais.
 
-\subsubsection{Redes neurais - \textit{Neural networks}}
+\subsubsection{Aprendizado não supervisionado}
+\label{sec:usl}
+Em aprendizado não supervisionado, o aluno recebe os exercícios sem um professor para dizer se suas respostas estão certas ou erradas. Ou seja, os exemplos fornecidos ao computador não são rotulados. A principal vantagem deste tipo de aprendizado é inferência, detecção de padrões e agrupamento de elementos semelhantes.
+
+\subsection{Redes neurais - \textit{Neural networks}}
 \label{sec:nn}
 %https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html#What%20is%20a%20Neural%20Network
 %https://www.youtube.com/watch?v=aircAruvnKk&list=WL
 %https://towardsdatascience.com/the-mostly-complete-chart-of-neural-networks-explained-3fb6f2367464
 
-Redes neurais artificiais, mais conhecidas como redes neurais, são uma forma de processamento de informação inspirada no funcionamento do cérebro. Assim como o órgão que as inspirou, redes neurais possuem uma grande quantidade de elementos de processamento de informação conectados entre si chamados de neurônios, que trabalham em conjunto para resolver problemas. Dado que aprendem com exemplos, similar a pessoas, é considerado uma técnica de aprendizado supervisionado.
+Redes neurais artificiais, mais conhecidas como redes neurais, são uma forma de processamento de informação inspirada no funcionamento do cérebro. Assim como o órgão que as inspirou, redes neurais possuem uma grande quantidade de elementos de processamento de informação conectados entre si chamados de neurônios, que trabalham em conjunto para resolver problemas. Dado que aprendem com exemplos, similar a pessoas, é considerada uma técnica de aprendizado supervisionado.
 
-Com os avanços nesse campo nos últimos anos, diversos tipos diferentes de redes neurais foram desenvolvidos, como redes neurais convolucionais (\textit{Convolutional neural networks}, CNN) e redes neurais de memória de curto-longo prazo\footnote{Tradução livre feita pelo autor} (\textit{Long/Short Term Memory}, LSTM). Apesar de cada uma ter sua particularidade, redes neurais clássicas possuem duas características principais: os neurônios, e a estrutura dividida em camadas. Existem redes que não são redes neurais da maneira clássica, como Redes de Hopfield (\textit{Hopfield Network}) e Máquinas de Boltzmann (\textit{Boltzmann Machine}), que não serão abordadas neste trabalho.
+Com os avanços nesse campo nos últimos anos, diversos tipos diferentes de redes neurais foram desenvolvidos, como redes neurais convolucionais (\textit{Convolutional Neural Networks}, CNN) e redes neurais de memória de curto-longo prazo\footnote{Tradução livre feita pelo autor} (\textit{Long/Short Term Memory}, LSTM). Apesar de cada uma ter sua particularidade, redes neurais clássicas possuem duas características principais: os \textbf{neurônios}, e a estrutura dividida em \textbf{camadas}. Existem redes que não são consideradas clássicas pela falta de estrutura em camadas, como Redes de Hopfield (\textit{Hopfield Network}) e Máquinas de Boltzmann (\textit{Boltzmann Machine}), que não serão abordadas neste trabalho.
 
-Neurônios são funções que recebem como entrada a saída de cada neurônio da camada anterior, e devolvem um número, em geral entre 0 e 1 inclusos, cujo significado varia de acordo com o trabalho em questão. No caso deste, os neurônios da primeira camada têm como saída o número que representa cada pixel da imagem, após serem convertidos para uma escala de cinza e em um número entre 0 e 1. Os quadros (\textit{frames}) de entrada também são redimensionados antes de serem analisados e processados pela IA. Os neurônios da última camada, por outro lado, têm como saída o valor utilidade esperado\footnote{Mais detalhes sobre valor esperado na seção \ref{sec:rl} - Aprendizado por reforço} a ser recebido caso aquela ação seja tomada. Esse valor é utilizado para se tomar a decisão em cada \textit{frame}. 
+\textbf{Neurônios} são funções que recebem como entrada a saída de cada neurônio da camada anterior, e devolvem um número, em geral entre 0 e 1 inclusos, cujo significado varia de acordo com o trabalho em questão.
+No caso deste, os neurônios da primeira camada têm como saída o número que representa cada pixel da imagem, após serem convertidos para uma escala de cinza e em um valor entre 0 e 1. Os quadros (\textit{frames}) de entrada também são redimensionados antes de serem inseridos na rede para acelerar o processamento.
+Os neurônios da última camada, por outro lado, têm como saída o valor utilidade esperado\footnote{Mais detalhes sobre valor esperado na seção \ref{sec:rl} - Aprendizado por reforço} a ser recebido caso aquela ação seja tomada. Esse valor é utilizado para se tomar a decisão em cada \textit{frame}. 
 
-A estrutura das redes neurais clássicas é dividida em camadas que podem ser classificadas de três formas distintas: entrada, camadas ocultas, e saída.
-A entrada é o que a IA recebe inicialmente e precisa processar; as camadas ocultas (\textit{hidden layers}) são o processamento; e a saída é uma série de números utilizados pela IA para tomar uma decisão, como probabilidades ou valores utilidade esperados. No caso deste trabalho, a entrada é o \textit{frame} atual do jogo e a saída é o valor utilidade esperado de cada ação possível (mover-se, atirar e etc).
+A estrutura das redes neurais clássicas é dividida em \textbf{camadas} que podem ser classificadas de três formas distintas: entrada, oculta, ou saída.
+A entrada é o que a IA recebe inicialmente e precisa processar; as camadas ocultas (\textit{hidden layers}) são o processamento; e a saída é uma série de números utilizados pela IA para tomar uma decisão ou fazer uma predição, como probabilidades ou valores utilidade esperados. No caso deste trabalho, a entrada é o \textit{frame} atual do jogo e a saída é o valor utilidade esperado de cada ação possível (mover-se, atirar e etc).
 %A saída, assim como a entrada e as camadas ocultas, é composta por neurônios, mas que representam a probabilidade de cada decisão ser tomada. Para a IA deste trabalho, existem 8 neurônios na saída, um para cada ação (ainda que não seja diretamente relacionada ao jogo, como \textit{RESET} e \textit{null}) e a respectiva recompensa esperada por se tomar aquela ação naquele \textit{frame}. Portanto, é comum, principalmente no início do treinamento, haver múltiplas ações com recompensa esperada alta, ou seja, múltiplas ações que a IA considera como uma boa escolha.
 Enquanto o número de neurônios na entrada e na saída são definidos pelo trabalho em questão, como número de pixels da tela e número de ações possíveis, o número de camadas ocultas e de neurônios em cada uma delas é arbitrário, sendo que essas quantidades são normalmente definidas por meio de experimentos.
 
-Cada neurônio das camadas ocultas representa uma característica (\textit{feature}) detectada pela IA ao longo do treinamento. Se essa característica estiver presente na camada de entrada, então o neurônio correspondente a essa característica será \textbf{ativado}. A ativação de um ou mais neurônios pode levar a ativação de outros neurônios na próxima camada e assim sucessivamente. Esse é um comportamento inspirado na forma como neurônios do cérebro enviam sinais de um para o outro. No caso das redes neurais, um neurônio é ativado quando a soma dos números de entrada passa de um certo valor e por uma função de ativação. Porém, nem todos os valores de entrada devem ser igualmente importantes, então cada um desses números recebe um peso que determina sua importância para a ativação da característica.
+Cada neurônio das camadas ocultas representa uma característica (\textit{feature}) detectada pela IA ao longo do treinamento. Se essa característica estiver presente na camada de entrada, então o neurônio correspondente a essa característica será \textbf{ativado}. A ativação de um ou mais neurônios pode levar a ativação de outros neurônios na camada seguinte e assim sucessivamente. Esse é um comportamento inspirado na forma como neurônios do cérebro enviam sinais de um para o outro. Um neurônio é ativado quando a soma dos números de entrada passa de um certo valor e por uma função de ativação. Porém, nem todos os valores de entrada devem ser igualmente importantes, então cada um desses números recebe um peso que determina sua importância para a ativação da característica.
 
-Em forma matemática, seja $n$ o número de neurônios na camada anterior, $w_{i}, i = 1, ..., n$ os pesos das saídas de cada neurônio da camada anterior, e $a_{i}, i = 1, ..., n$ o valor de saída de cada neurônio da camada anterior e, por consequência, cada valor de entrada do neurônio atual, e $b$ o valor que a soma deve ultrapassar para que o neurônio seja ativado, chamado de viés (\textit{bias}).
+Matematicamente, isso é representado da seguinte forma: seja $n$ o número de neurônios na camada anterior, $w_{i}, i = 1, ..., n$ os pesos das saídas de cada neurônio da camada anterior, e $a_{i}, i = 1, ..., n$ o valor de saída de cada neurônio da camada anterior e, por consequência, cada valor de entrada do neurônio atual, e $b$ o valor que a soma deve ultrapassar para que o neurônio seja ativado, chamado de viés (\textit{bias}).
 
 \begin{equation} \label{eq:nn01}
 w_{1}a_{1} + w_{2}a_{2} + ... + w_{n}a_{n} - b
 \end{equation}
 
-A soma \ref{eq:nn01} é então utilizada como entrada para a função de ativação escolhida pelo desenvolvedor da IA e, a depender da saída, o neurônio será ativado. Esse procedimento é feita em cada neurônio de cada camada da rede neural.
-Essas operações são mais fácil e rapidamente resolvidas utilizando matrizes.
+A soma \ref{eq:nn01} é então utilizada como entrada para a função de ativação escolhida pelo desenvolvedor da IA e, a depender da saída dessa função, o neurônio será ativado. Esse procedimento é feita em cada neurônio de cada camada da rede neural, e são mais fácil e rapidamente executados utilizando matrizes: seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{(i)}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés para cada um dos neurônios da camada atual, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
 
-Seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{i}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés para cada um dos neurônios da camada atual, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
-
-\begin{equation} \label{eq:nn01}
+\begin{equation} \label{eq:nn02}
 Wa^{(i)} + b, \qquad i = 1, ..., n
 \end{equation}
 
@@ -151,16 +161,16 @@ Dependendo do problema, essa soma pode assumir qualquer valor real. Contudo, é 
 
 O próximo passo é entender como os valores dos neurônios e os respectivos pesos são utilizados para a inteligência conseguir soltar a resposta correta.
 Como mencionado anteriormente, conforme as características se mostram presentes na camada de entrada, os neurônios referentes a esses atributos são ativados, até que o neurônio com a resposta dada pela inteligência artificial seja ativado.
-No início, múltiplas saídas serão consideradas como boas respostas (alta recompensa esperada), pois a IA tem comportamento aleatório.
+No início, múltiplas saídas serão consideradas como boas respostas (alta probabilidade ou recompensa esperada), pois a IA tem comportamento aleatório.
 Para que o computador saiba o quão ruim foi sua saída, é definida uma função de erro (também conhecida como função de custo). Uma forma comum de calcular esse erro é o erro quadrático médio, que consiste em subtrair o valor devolvido pela IA pelo valor esperado e elevar ao quadrado. Após essas operações serem realizadas em cada neurônio, os resultados são somados e obtém-se um valor numérico para o quão errada a IA estava em um determinado exemplo. Quanto maior esse valor, mais incorreta a IA está. Após esse procedimento ser feito com milhares de exemplos, calcula-se a média dos erros obtidos e, com isso, avalia-se o desempenho da inteligência.
 
-Percebe-se que esse procedimento para avaliar o desempenho do código é uma forma de encapsular a rede neural em uma função que tem como entrada os pesos e viés de cada neurônio e, como saída, o quão bom ou ruim eles são. Por ser uma função, é possível calcular "para onde ela deve se mover" de forma que minimize a saída utilizando um método chamado de gradiente descendente (\textit{gradient descent}).
-Gradiente é uma generalização de derivada para multiplas variáveis. Ela representa a inclinação da tangente da função no ponto dado e aponta para a direção de maior crescimento, direção para onde a função deve "mover-se" para chegar no máximo local. Consequentemente, se tomar o valor negativo do gradiente da função, obtém-se a direção de maior decrescimento, direção do mínimo local.
-Em outras palavras, \textit{gradient descent} é um algoritmo utilizado para encontrar o mínimo local de uma função, que é quase o que se deseja. O melhor caso para a função de erro seria encontrar o mínimo global, mas como isso nem sempre é possível, em parte por não haver garantias de que se encontrou o mínimo global, encontrar o melhor mínimo local é o suficiente.
+Percebe-se que esse procedimento para avaliar o desempenho do código é uma forma de encapsular a rede neural em uma função que tem como entrada os pesos e viés de cada neurônio e, como saída, o quão bom ou ruim eles são. Por ser uma função, é possível calcular "para onde ela deve se mover"{}, de forma que minimize a saída, utilizando um método chamado de gradiente descendente (\textit{gradient descent}).
+Gradiente é uma generalização de derivada para multiplas variáveis que representa a inclinação da tangente da função no ponto dado e aponta para a direção de maior crescimento, direção para onde a função deve "se mover"{} para chegar no máximo local. Consequentemente, se tomar o valor negativo do gradiente da função, obtém-se a direção de maior decrescimento, direção do mínimo local.
+Em outras palavras, gradiente descendente é um algoritmo utilizado para encontrar o mínimo local de uma função, que é quase o que se deseja. O melhor caso para a função de erro seria encontrar o mínimo global, mas como isso nem sempre é possível e dificilmente alcançável, em parte por não haver garantias de que se encontrou o mínimo global, encontrar o melhor mínimo local é o suficiente.
 
-De forma resumida, uma rede neural clássica aprende recebendo uma série de números como entrada e devolve uma saída; calcula-se o quão errada essa saída éem relação ao desejado para aquela determinada entrada e faz os ajustes necessários para minimizar o erro; após repetir esses passos milhares de vezes, espera-se que a IA tenha aprendido o suficiente a resolver o problema em mãos.
+De forma resumida, uma rede neural clássica aprende recebendo uma série de números como entrada e devolve uma saída; calcula-se o quão errada essa saída está em relação ao desejado para aquela determinada entrada, e faz os ajustes necessários para minimizar o erro; após repetir esses passos milhares de vezes, espera-se que a IA tenha aprendido o suficiente a resolver o problema em mãos.
 
-\subsubsection{Aprendizado profundo - \textit{Deep learning}}
+\subsection{Aprendizado profundo - \textit{Deep learning}}
 \label{sec:dl}
 %http://www.deeplearningbook.org/
 %https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
@@ -171,38 +181,52 @@ De forma resumida, uma rede neural clássica aprende recebendo uma série de nú
 %\textit{Deep learning} é um ramo de aprendizado de máquina cujos algoritmos são inspirados na estrutura e funcionamento do cérebro.
 Como explicado anteriormente, redes neurais podem ser divididas em três tipos distintos de camadas: entrada, ocultas, e saída. Enquanto existe apenas uma camada de entrada e uma de saída, é possível haver uma ou mais camadas ocultas. Se houver muitas camadas ocultas, a rede neural passa a ser chamada de rede neural profunda (\textit{deep neural network}). Atualmente, não existe uma definição exata de quantas camadas a rede neural precisa ter para começar a ser classificada como profunda e, mesmo que houvesse, esse número provavelmente mudaria com o passar do tempo.
 
-Uma rede neural profunda que segue o modelo apresentado na seção anterior é chamado de \textit{feedforward} e é o mais típico de \textit{deep learning}. Ele recebe esse nome pois a informação flui da entrada para a saída sem haver conexões de \textit{feedback} para que a previsão seja feita. Este tipo de rede neural forma a base para redes neurais convolucionais (\textit{convolutional neural network}, CNN), técnica muito utilizada em reconhecimento de imagens. Como a ideia é treinar uma inteligência artificial que aprende vendo a tela do jogo, foi escolhido esse tipo de rede neural para este trabalho.
+Uma rede neural profunda que segue o modelo apresentado na seção anterior é chamada de \textit{feedforward} e é o mais típico de \textit{deep learning}. Ele recebe esse nome pois a informação flui da entrada para a saída sem haver conexões de \textit{feedback} para que a previsão seja feita. Este tipo de rede neural forma a base para redes neurais convolucionais, técnica muito utilizada em reconhecimento de imagens. Como a ideia é treinar uma inteligência artificial que aprende vendo a tela do jogo, foi escolhido esse tipo de rede neural para este trabalho.
 
-Uma das partes mais peculiares sobre \textit{deep learning} é o fato de muitos dos avanços feitos nos últimos anos serem resultado de tentativa e erro e não de formalização e demonstração da teoria. Ainda não se entende perfeitamente o que faz uma rede neural profunda funcionar tão bem. As características na construção de um modelo consideradas como essenciais mudam rapidamente com o passar do tempo, com algumas inclusive passando a ser consideradas estorvos ao invés de atributos chave para acelerar e aprimorar o aprendizado.
+Uma das partes mais peculiares sobre \textit{deep learning} é o fato de muitos dos avanços feitos nos últimos anos serem resultado de tentativa e erro e não de formalização e demonstração da teoria. Ainda não se entende perfeitamente o que faz uma rede neural profunda funcionar tão bem, e as características na construção de um modelo consideradas como essenciais mudam rapidamente com o passar do tempo, com algumas inclusive passando a ser consideradas estorvos ao invés de atributos chave para acelerar e aprimorar o aprendizado.
 
-\subsubsection{Rede neural convolucional - \textit{Convolutional neural network}}
+\subsection{Rede neural convolucional - \textit{Convolutional neural network}}
 \label{sec:cnn}
+%https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721
 
+Como neste trabalho a IA precisa aprender o que é um asteróide apenas enxergando a tela e interagindo com o ambiente, utilizar apenas redes neurais profundas sofre de um problema: o computador não consegue reconhecer um mesmo objeto em diferentes locais da tela e diferentes tamanhos como o mesmo. Para cada local muito diferente que ele aparecer, como direita e esquerda da tela, a IA teria que re-aprender a identificá-lo.
 
+Para não precisar fornecer à rede neural imagens inteiras para que ela aprenda que um objeto continua sendo o mesmo não importa onde da tela apareça, foi utilizada convolução, mais precisamente a 2D, já que a entrada é uma imagem, uma matriz de pixels.
+Uma rede neural convolucional continua sendo um tipo de rede neural profunda e, portanto, mantém o formato de três tipos de camadas (entrada, ocultas, e saída). Porém, para facilitar o entendimento de convolução, esta explicação dividirá a rede em duas partes: \textbf{convolução} e \textbf{previsão}.
+Na etapa de \textbf{convolucão}, a imagem de entrada é dividida em várias imagens menores; elas podem ser adjacentes ou parcialmente sobrepostas, sendo o segundo caso mais comum. Em seguida, cada uma dessas imagens menores é passada por uma rede neural menor, sendo processada normalmente. As saídas dessas redes neurais menores são então passadas como entrada para a próxima etapa.
+Na etapa de \textbf{previsão}, a informação passa por uma ou mais redes neurais maiores que farão a previsão. Para diferenciá-la das redes da etapa de convolução, as desta fase são chamadas de \textit{fully-connected}.
+
+É possível haver mais de uma camada de convolução assim como pode haver mais de uma camada \textit{fully-connected}, e isso pode ser mais vantajoso. Quanto mais camadas houver, mais precisa será a prediçã. Entretanto, não só o custo em tempo e espaço aumenta, como há um limite para o quão melhor será o desempenho da IA. A partir de um certo ponto, a melhora será ínfima em comparação com o tempo desprendido e, portanto, deixa de ser benéfico colocar mais camadas.
+%Cada uma dessas duas etapas podem ter diversas camadas: na de convolução, pode haver mais de uma camada de convolução; e na de previsão, é possível haver mais de uma camada \textit{fully-conected}.
 
 \subsection{Aprendizado por reforço}
 \label{sec:rl}
 
 %Aprendizado por reforço (\textit{reinforcement learning}) é uma técnica de aprendizado de inteligência artificial e uma das bases da utilizada neste trabalho.
-Para domínios mais simples, como Jogo da velha, é possível determinar qual a ação com maior recompensa esperada para cada estado - ou seja, a ação com maior probabilidade de vitória.
-Conforme o domínio se torna mais complexo, fazer esse mapeamento se torna inviável por conta da quantidade de estados que precisam ser armazenado, como é o caso do jogo \textit{Asteroids}. Além disso, é comum haver situações em que não é possível determinar qual ação retornará a maior recompensa.
+Aprendizado por reforço, diferente do supervisionado, não recebe exemplos com rótulos que dizem qual a resposta esperada como entrada. Ao invés disso, a IA, normalmente chamada de agente, interage com um ambiente e recebe recompensas positivas ou negativas por suas ações. Seu objetivo costuma ser tomar a ação com maior recompensa esperada para cada estado - ou seja, tomar a ação que acredite ser a melhor em cada instante.
+Para domínios mais simples, como Jogo da velha, é possível determinar qual a ação com maior recompensa esperada para cada estado, a ação com maior probabilidade de vitória.
+Conforme o domínio se torna mais complexo, fazer esse mapeamento se torna inviável por conta da quantidade de estados que precisam ser armazenado, como é o caso do jogo \textit{Asteroids}. Para se ter uma noção, um pixel que esteja diferente já é considerado um estado novo para o agente. Além disso, é comum haver situações em que não é possível determinar qual ação retornará a maior recompensa.
 Nesses casos, é mais viável criar e treinar um agente que aprenda a se comportar no ambiente em que está inserido do que informar se cada uma de suas ações em cada um dos estados possíveis é boa ou ruim.
 
 Essa abordagem é conhecida como \textbf{Processo de Decisão de Markov} (\textit{Markov Decision Process} (\textit{MDP})) para ambientes desconhecidos.
 
-\subsubsection{Processo de Decisão de Markov}
+\subsection{Processo de Decisão de Markov}
 \label{sec:mdp}
 
-Em um MDP padrão, a probabilidade de se chegar em um estado $S'$ dado que o agente se encontra no estado $S$ depende apenas da ação $A$ tomada nesse estado \textit{s}, o que caracteriza a \textbf{propriedade Markoviana}, existe um modelo probabilístico que caracteriza essa transição, dado por $P(S'|S,A)$; todos os estados do ambiente e todas as ações que o agente pode tomar em cada estado são conhecidas; e a recompensa é imediatamente recebida após cada ação ser tomada.
+Em um MDP padrão, a probabilidade de se chegar em um estado $S'$ dado que o agente se encontra no estado $S$ depende apenas da ação $A$ tomada nesse estado \textit{S}, o que caracteriza a \textbf{propriedade Markoviana}; existe um modelo probabilístico que caracteriza essa transição, dado por $P(S'|S,A)$; todos os estados do ambiente e todas as ações que o agente pode tomar em cada estado são conhecidas; e a recompensa é imediatamente recebida após cada ação ser tomada.
 
 As probabilidades de o agente tomar cada ação em um dado espaço são definidas por uma política $\pi$. A qualidade de uma política é medida por sua \textit{utilidade esperada}, e a política ótima é denotada por $\pi^{*}$. Para calcular $\pi^{*}$, utiliza-se um algoritmo de iteração de valor (\textit{value iteration}), que computa a utilidade esperada do estado atual: começando a partir de um estado arbitrário $S$ tal que seu valor esperado é $V(S)$, aplica-se a equação de Bellman (\textit{Bellman update} ou \textit{Bellman equation}) até haver convergência de $V(S)$, que será denotado por $V^{*}(S)$. Esse $V^{*}(S)$ é usado para calcular a política ótima $\pi^{*}(s)$.
 
-Seja $i$ a iteração atual, $S$ o estado atual, $S'$ o estado futuro, $A$ a ação tomada no estado atual, $R(S,A,S')$ a recompensa pela transição do estado $S$ para o estado $S'$ por tomar a ação $A$, e $\gamma$ o valor de desconto (valor entre 0 e 1 tal que determina a importância de recompensas futuras para o agente), temos que:
+Seja $i$ a iteração atual, $S$ o estado atual, $S'$ o estado futuro, $A$ a ação tomada no estado atual, $R(S,A,S')$ a recompensa pela transição do estado $S$ para o estado $S'$ por tomar a ação $A$, e $\gamma$ o valor de desconto (valor entre 0 e 1 que determina a importância de recompensas futuras para o agente), temos que:
 
 Equação de Bellman:
 
 \begin{equation} \label{eq:bellman}
 V^{(i)}(S) = \max_{A}\sum_{S'}P(S'|S,A)[R(S,A,S') + \gamma V^{(i-1)}(S')]
+\end{equation}
+
+\begin{equation} \label{eq:qvalue}
+\lim_{i\to\infty} V^{(i)}(S) = V^{*}(S)
 \end{equation}
 
 Política gulosa para função valor ótima:
@@ -211,14 +235,14 @@ Política gulosa para função valor ótima:
 \pi^{*}(s) = \argmax_{A}\sum_{S'}P(S'|S,A)[R(S,A,S') + \gamma V^{*}(S')]
 \end{equation}
 
-Entretanto, essas fórmulas são aplicáveis somente quando as funções de reforço $R$ e de probabilidade de transição $P$ são conhecidas, que não é o caso do jogo \textit{Asteroids}. Para lidar com esse problema, foi adotado o uso de \textbf{Q-learning}.
+Entretanto, essas fórmulas são aplicáveis somente quando as funções de reforço $R$ e de probabilidade de transição $P$ são conhecidas, que não é o caso do jogo \textit{Asteroids}. Para lidar com esse problema, foi adotado o uso de \textit{\textbf{Q-learning}}.
 
-\subsubsection{\textit{Q-learning}}
+\subsection{\textit{Q-learning}}
 \label{sec:ql}
 
 Quando não se conhece as probabilidades de transição, informação necessária para se obter a função valor pela equação de Bellman, é possível estimar $V(S)$ a partir de observações feitas sobre o ambiente. Logo, o problema deixa de ser tentar encontrar $P$ e passa a ser como extrair a política do agente de uma função valor estimada.
 
-Seja $Q^{*}(S,A)$ a função Q-valor que expressa a recompensa esperada por começar no estado $S$, tomar a ação $A$ e continuar de maneira ótima. $Q^{*}(S,A)$ é uma parte da política gulosa para função valor ótima e é dada por:
+Seja $Q^{*}(S,A)$ a função Q-valor que expressa a recompensa esperada, a qualidade em começar no estado $S$, tomar a ação $A$ e continuar de maneira ótima. $Q^{*}(S,A)$ é uma parte da política gulosa para função valor ótima e é dada por:
 
 \begin{equation} \label{eq:qfunction}
 \begin{align*}
@@ -252,9 +276,9 @@ Se a \textbf{taxa de aprendizado} for muito alta (próxima de 1), a atualizaçã
 
 Uma vez que a política é gulosa, o agente sempre tomará a ação que retorne a maior recompensa imediata. Isso é bom somente se todas as recompensas possíveis para aquele estados são conhecidas. Porém, se houver ações não exploradas, o agente pode perder uma recompensa maior do que ele já conhece apenas porque não está ciente de seu valor. Essa situação caracteriza o dilema \textit{Exploration versus Exploitation}: é melhor tomar a ação que retorna a maior recompensa ou buscar uma melhor? Da mesma forma que na taxa de aprendizado, uma forma de contornar esse problema é mudar a probabilidade de decidir explorar o ambiente (\textit{explore}) de acordo com a situação. Conforme o mundo é descoberto, se torna cada vez mais interessante agir de forma gulosa (\textit{exploit}) do que explorar em estados muito visitado, e vice-versa em estados pouco visitados. Esse comportamento pode ser definido por uma função de exploração (\textit{exploration function}).
 
-Outro problema enfrentado por Q-learning é o de generalização. A política $\pi^{*}(S)$ determina a melhor ação a se tomar em cada estado. Logo, utiliza-se uma tabela para armazenar todas essas escolhas. Porém, como mencionado anteriormente, isso se torna inviável para espaços de estado muito grandes. Portanto, a solução é generalizar o aprendizado de um estado para o outro: se o agente sabe se comportar em um pequeno conjunto de estados, o ideal é ele saber o que fazer em um estado desconhecido contanto que seja parecido com um já aprendido. Em outras palavras, o agente aprende propriedades (\textit{features}) dos estados ao invés dos estados propriamente ditos, e toma decisões a partir dessas informações. Essa forma de fazer escolhar é chamada de \textit{approximate Q-learning}.
+Outro problema enfrentado por Q-learning é o de generalização. A política $\pi^{*}(S)$ determina a melhor ação a se tomar em cada estado. Logo, utiliza-se uma tabela para armazenar todas essas escolhas. Porém, como mencionado anteriormente, isso se torna inviável para espaços de estado muito grandes. Portanto, a solução é generalizar o aprendizado de um estado para o outro: se o agente sabe se comportar em um pequeno conjunto de estados, o ideal é ele saber o que fazer em um estado desconhecido contanto que seja parecido com um já aprendido. Em outras palavras, o agente aprende propriedades (\textit{features}) dos estados ao invés dos estados propriamente ditos, e toma decisões a partir dessas informações. Essa forma de fazer escolhar é chamada de \textit{\textbf{approximate Q-learning}}.
 
-\subsubsection{\textit{Approximate Q-learning}}
+\subsection{\textit{Approximate Q-learning}}
 \label{sec:aql}
 
 Para lidar com o enorme espaço de estados que alguns ambientes possuem, o agente armazena e aprende apenas algumas propriedades, que são funções de valor real, para tomar as decisões. Tais informações são armazenadas em um vetor e cada elemento desse vetor recebe um peso que determina a respectiva importância para que escolhas sejam feitas. Ou seja, a função Q-valor é representada por uma combinação linear das propriedades.
@@ -263,12 +287,11 @@ Para lidar com o enorme espaço de estados que alguns ambientes possuem, o agent
 Q(S,A) = \omega_{1}f_{1}(S,A) + \omega_{2}f_{2}(S,A) + ... + \omega_{n}f_{n}(S,A)
 \end{equation}
 
-Como o $V(S')$ é o valor esperado e $Q(S,A)$ é o valor previsto, a atualização pode ser interpretada como ajustar o valor do Q-valor pela diferença desses dois valores. Além disso, como o \textit{approximate Q-learning} avalia características, apenas os pesos precisam ser atualizados:
+Como o $V(S')$ é o valor esperado e $Q(S,A)$ é o valor previsto, a atualização pode ser interpretada como ajustar o Q-valor pela diferença desses dois número. Além disso, como o \textit{approximate Q-learning} avalia características, apenas os pesos precisam ser atualizados:
 
 \begin{equation} \label{eq:w_update}
 \omega_{k}^{(i+1)}(S,A) = \omega_{k}^{(i)}(S,A) + \alpha[R(S,A,S') + \gamma V(S') - Q^{(i)}(S,A)]f_{k}(S,A), \hfill k = 1, 2, ..., n
 \end{equation}
 
 Duas grandes vantagens de representar o Q-valor como uma combinação linear são evitar \textit{overfitting} (a IA aprender tanto com o conjunto de treinamento que não consegue tomar decisões que diferem demais dele), e ser matematicamente conveniente, ter maneiras convenientes de calcular erro e funções que generalizem as decisões.
-
-
+Percebe-se neste ponto uma semelhança bem grande com a forma como redes neurais profundas funcionam.
