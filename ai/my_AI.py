@@ -44,14 +44,14 @@ action_size = env.action_space.n                 # 8 ações possíveis
 learning_rate = 0.0025
 
 ### TREINAMENTO
-total_episodes = 21 # número total de episódios para o treinamento
+total_episodes = 41 # número total de episódios para o treinamento
 max_steps = 10000   # número máximo de ações tomadas em um episódio
 batch_size = 32
 
 ### Parâmetros de exploração para estratégia gulosa epsilon
 explore_begin = 1.0  # Probabilidade de se explorar no início
 explore_end = 0.1   # Probabilidade mínima de explorar
-decay_rate = 0.000001 # Taxa de decaimento exponencial para a probabilidade de exploração
+decay_rate = 0.00001 # Taxa de decaimento exponencial para a probabilidade de exploração
 
 ### Q-LEARNING
 gamma = 0.9 # Taxa de desconto
