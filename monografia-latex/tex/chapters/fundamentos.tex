@@ -92,37 +92,37 @@ Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma int
 
 %Agindo racionalmente: Um agente racional é esperado que aja de forma que atinja o melhor resultado possível ou, se houver incerteza, o melhor resultado esperado. Esta abordagem pode ser considerada um passo além das leis do pensamento, pois consegue tomar decisões quando necessário mesmo que não haja uma escolha provadamente correta.
 
-\subsection{Aprendizado de máquina - \textit{Machine learning}}
-\label{sec:ml}
+%\subsection{Aprendizado de máquina - \textit{Machine learning}}
+%\label{sec:ml}
 %https://medium.com/data-science-brigade/a-diferen%C3%A7a-entre-intelig%C3%AAncia-artificial-machine-learning-e-deep-learning-930b5cc2aa42
 %https://medium.com/machine-learning-for-humans/why-machine-learning-matters-6164faf1df12
 %https://arxiv.org/pdf/1602.01783.pdf
-Aprendizado de máquina, ou \textit{machine learning} (ML) como é mais conhecido, é um campo de ciência da computação e um dos ramos de inteligência artificial que estuda a capacidade dos computadores de aprender a realizar uma tarefa sem ser explicitamente programado para isso. Após ter a tarefa definida, o computador recebe uma grande quantidade de dados, tenta reconhecer um padrão nessa entrada e, por fim, constrói um modelo para realizar predições.
-Por conta do enorme volume de dados necessários para o computador aprender, aprendizado de máquina teve grandes avanços apenas nas últimas décadas, com o avanço da Internet. Com cada vez mais pessoas tendo acesso a computadores mais rápidos e eficientes, bem como o surgimento de redes sociais, a quantidade de informação digital sendo gerada, armazenada, e disponibilizada cresceu.
-As três técnicas de aprendizado de máquina mais conhecidas são \textbf{aprendizado supervisionado}, \textbf{aprendizado não supervisionado}, e \textbf{aprendizado por reforço}.
-Aprendizado supervisionado e aprendizado por reforço serão os mais discutidos neste trabalho por serem as bases para as duas principais técnicas usadas: \textit{Deep learning} e \textit{Q-learning} respectivamente.
+%Aprendizado de máquina, ou \textit{machine learning} (ML) como é mais conhecido, é um campo de ciência da computação e um dos ramos de inteligência artificial que estuda a capacidade dos computadores de aprender a realizar uma tarefa sem ser explicitamente programado para isso. Após ter a tarefa definida, o computador recebe uma grande quantidade de dados, tenta reconhecer um padrão nessa entrada e, por fim, constrói um modelo para realizar predições.
+%Por conta do enorme volume de dados necessários para o computador aprender, aprendizado de máquina teve grandes avanços apenas nas últimas décadas, com o avanço da Internet. Com cada vez mais pessoas tendo acesso a computadores mais rápidos e eficientes, bem como o surgimento de redes sociais, a quantidade de informação digital sendo gerada, armazenada, e disponibilizada cresceu.
+%As três técnicas de aprendizado de máquina mais conhecidas são \textbf{aprendizado supervisionado}, \textbf{aprendizado não supervisionado}, e \textbf{aprendizado por reforço}.
+%Aprendizado supervisionado e aprendizado por reforço serão os mais discutidos neste trabalho por serem as bases para as duas principais técnicas usadas: \textit{Deep learning} e \textit{Q-learning} respectivamente.
 
-\subsection{Aprendizado supervisionado}
-\label{sec:sl}
+%\subsection{Aprendizado supervisionado}
+%\label{sec:sl}
 %https://medium.com/opensanca/aprendizagem-de-maquina-supervisionada-ou-n%C3%A3o-supervisionada-7d01f78cd80a
 
-É mais fácil entender aprendizado supervisionado por meio de uma alegoria. O desenvolvedor da IA é um professor que fornece exercícios, cujas respostas ele possui, para o computador, seu aluno. O computador resolve os exercícios e o professor diz se as respostas dadas por seu aluno estão corretas.
-Resolver o exercício é a tarefa delegada ao computador, os exercícios são os exemplos a partir dos quais o programa deve aprender, e a resposta que o professor tem é a saída esperada. Os exercícios com as respostas que o "professor"{} possui serão chamados de exemplos rotulados, enquanto a resposta do "aluno"{} será chamada de saída da IA.
+%É mais fácil entender aprendizado supervisionado por meio de uma alegoria. O desenvolvedor da IA é um professor que fornece exercícios, cujas respostas ele possui, para o computador, seu aluno. O computador resolve os exercícios e o professor diz se as respostas dadas por seu aluno estão corretas.
+%Resolver o exercício é a tarefa delegada ao computador, os exercícios são os exemplos a partir dos quais o programa deve aprender, e a resposta que o professor tem é a saída esperada. Os exercícios com as respostas que o "professor"{} possui serão chamados de exemplos rotulados, enquanto a resposta do "aluno"{} será chamada de saída da IA.
 
 %Aprendizado supervisionado consiste em dar uma tarefa e um conjunto de exemplos com respectivas classificações esperadas para o computador. A entrada e a saída são grandes volumes de dados e respectivas categorias, rótulos. Em outras palavras, a máquina tem um "professor" que diz se a resposta dada está certa ou errada. Um exemplo simples que ajuda a ilustrar como aprendizado supervisionado funciona é fazer um computador dizer se uma imagem é de um cachorro ou não. Após mostrar diversas imagens de cachorro, dizendo quais são cachorros e quais não são, o computador deve conseguir ver uma imagem e dizer se é um ou não. 
 
-Esta técnica costuma cair em dois tipos de problemas: \textbf{classificação} e \textbf{regressão}.
-Em problemas de \textbf{classificação}, deseja-se que o computador classifique corretamente uma entrada dentre duas ou mais categorias pré-determinadas. Um exemplo simples deste tipo de problema é o de classificar se uma imagem é de cachorro ou não: após mostrar milhares de imagens para o computador, dizendo quais são de cachorro e quais não são, espera-se que ele classifique corretamente ao mostrar uma nova imagem.
-Em problemas de \textbf{regressão}, é esperado que os dados de entrada sigam uma função $g$ desconhecida, e o algoritmo deve encontrar uma função $h$ que se aproxime o melhor possível de $g$. Um exemplo deste tipo de problema é fornecer a metragem e número de cômodos de uma residência, e ter o seu valor como saída da IA. Com exemplos suficientes, o programa deve conseguir determinar o preço de uma residência apenas pelos números fornecidos.
-Um problema pode ser tanto de classificação quanto de regressão a depender de como for montado. Por exemplo, ao invés de o programa dizer o preço do imóvel, ele poderia dizer se o preço é superior ou inferior a um certo valor.
+%Esta técnica costuma cair em dois tipos de problemas: \textbf{classificação} e \textbf{regressão}.
+%Em problemas de \textbf{classificação}, deseja-se que o computador classifique corretamente uma entrada dentre duas ou mais categorias pré-determinadas. Um exemplo simples deste tipo de problema é o de classificar se uma imagem é de cachorro ou não: após mostrar milhares de imagens para o computador, dizendo quais são de cachorro e quais não são, espera-se que ele classifique corretamente ao mostrar uma nova imagem.
+%Em problemas de \textbf{regressão}, é esperado que os dados de entrada sigam uma função $g$ desconhecida, e o algoritmo deve encontrar uma função $h$ que se aproxime o melhor possível de $g$. Um exemplo deste tipo de problema é fornecer a metragem e número de cômodos de uma residência, e ter o seu valor como saída da IA. Com exemplos suficientes, o programa deve conseguir determinar o preço de uma residência apenas pelos números fornecidos.
+%Um problema pode ser tanto de classificação quanto de regressão a depender de como for montado. Por exemplo, ao invés de o programa dizer o preço do imóvel, ele poderia dizer se o preço é superior ou inferior a um certo valor.
 
-Redes neurais (\textit{neural networks}), Máquinas de Vetor de Suporte (\textit{Support Vector Machine}, SVM) e Classificadores \textit{Naive Bayes} são alguns dos algoritmos de aprendizado supervisionado mais comuns. O foco deste trabalho será em redes neurais.
+%Redes neurais (\textit{neural networks}), Máquinas de Vetor de Suporte (\textit{Support Vector Machine}, SVM) e Classificadores \textit{Naive Bayes} são alguns dos algoritmos de aprendizado supervisionado mais comuns. O foco deste trabalho será em redes neurais.
 
-\subsubsection{Aprendizado não supervisionado}
-\label{sec:usl}
-Em aprendizado não supervisionado, o aluno recebe os exercícios sem um professor para dizer se suas respostas estão certas ou erradas. Ou seja, os exemplos fornecidos ao computador não são rotulados. A principal vantagem deste tipo de aprendizado é inferência, detecção de padrões e agrupamento de elementos semelhantes.
+%\subsubsection{Aprendizado não supervisionado}
+%\label{sec:usl}
+%Em aprendizado não supervisionado, o aluno recebe os exercícios sem um professor para dizer se suas respostas estão certas ou erradas. Ou seja, os exemplos fornecidos ao computador não são rotulados. A principal vantagem deste tipo de aprendizado é inferência, detecção de padrões e agrupamento de elementos semelhantes.
 
-\subsection{Redes neurais - \textit{Neural networks}}
+\subsection{Redes neurais}
 \label{sec:nn}
 %https://www.doc.ic.ac.uk/~nd/surprise_96/journal/vol4/cs11/report.html#What%20is%20a%20Neural%20Network
 %https://www.youtube.com/watch?v=aircAruvnKk&list=WL
@@ -170,7 +170,7 @@ Em outras palavras, gradiente descendente é um algoritmo utilizado para encontr
 
 De forma resumida, uma rede neural clássica aprende recebendo uma série de números como entrada e devolve uma saída; calcula-se o quão errada essa saída está em relação ao desejado para aquela determinada entrada, e faz os ajustes necessários para minimizar o erro; após repetir esses passos milhares de vezes, espera-se que a IA tenha aprendido o suficiente a resolver o problema em mãos.
 
-\subsection{Aprendizado profundo - \textit{Deep learning}}
+\subsection{Aprendizado profundo}
 \label{sec:dl}
 %http://www.deeplearningbook.org/
 %https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
@@ -185,7 +185,7 @@ Uma rede neural profunda que segue o modelo apresentado na seção anterior é c
 
 Uma das partes mais peculiares sobre \textit{deep learning} é o fato de muitos dos avanços feitos nos últimos anos serem resultado de tentativa e erro e não de formalização e demonstração da teoria. Ainda não se entende perfeitamente o que faz uma rede neural profunda funcionar tão bem, e as características na construção de um modelo consideradas como essenciais mudam rapidamente com o passar do tempo, com algumas inclusive passando a ser consideradas estorvos ao invés de atributos chave para acelerar e aprimorar o aprendizado.
 
-\subsection{Rede neural convolucional - \textit{Convolutional neural network}}
+\subsection{Rede neural convolucional}
 \label{sec:cnn}
 %https://medium.com/@ageitgey/machine-learning-is-fun-part-3-deep-learning-and-convolutional-neural-networks-f40359318721
 
