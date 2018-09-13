@@ -62,8 +62,8 @@ pretrain_length = 1000
 memory_size = 1000000        # Número de experiências capazes de serem armazenadas na memória
 
 ### FLAGS
-training = True        # Mudar para True se quiser treinar o agente
-episode_render = False # Mudar para True se quiser ver o ambiente renderizado
+training = False        # Mudar para True se quiser treinar o agente
+episode_render = True # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
 conv_filters = [16, 32] # Número de filtros em cada camada de conv2d - ELU
@@ -351,7 +351,8 @@ if training == True:
 with tf.Session() as sess:
   total_test_rewards = []
 
-  saver.restore(sess, "/var/tmp/models/model.ckpt")
+  #saver.restore(sess, "/var/tmp/models/model.ckpt")
+  saver.restore(sess, "~/models/model.ckpt")
 
   for episode in range(1):
     total_rewards = 0
