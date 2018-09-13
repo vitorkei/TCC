@@ -149,8 +149,9 @@ Matematicamente, isso é representado da seguinte forma: seja $n$ o número de n
 w_{1}a_{1} + w_{2}a_{2} + ... + w_{n}a_{n} - b
 \end{equation}
 
-Como essa soma pode ter qualquer valor no intervalo $(-\infty, +\infty)$, o neurônio precisa saber a partir de que ponto ele estará ativado. Para isso, utiliza-se uma \textbf{função de ativação}. Funções de ativação recebem a soma \ref{eq:nn01} como entrada, limitam seu valor ao intervalo $[0, 1]$ ou $[-1, +1]$, a depender da função, e determinam se o neurônio deve ser ativado ou não.
-Esse procedimento é feita em cada neurônio de cada camada da rede neural, o que é pode ser muito custoso se não executado devidamente.
+Como essa soma pode ter qualquer valor no intervalo $(-\infty, +\infty)$, o neurônio precisa saber a partir de que ponto ele estará ativado. Para isso, utiliza-se uma \textbf{função de ativação}. Funções de ativação recebem a soma \ref{eq:nn01} como entrada, limitam seu valor a um certo intervalo, normalmente $[0, 1]$ ou $[-1, +1]$, a depender da função, e determinam se o neurônio deve ser ativado ou não.
+
+Esse procedimento é feito em cada neurônio de cada camada da rede neural, o que pode ser muito custoso se não executado com cuidado.
 Como existem diversas bibliotecas que otimizam operações matriciais, é mais rápido e conveniente utilizar matrizes: seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{(i)}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
 
 \begin{equation} \label{eq:nn02}
@@ -170,9 +171,23 @@ As funções de ativação mais comuns são a sigmoide (curva logística), ReLU 
 O próximo passo é entender como os valores dos neurônios e os respectivos pesos são utilizados para a inteligência conseguir soltar a resposta correta.
 Como mencionado anteriormente, conforme as características se mostram presentes na camada de entrada, os neurônios referentes a esses atributos são ativados, até que o neurônio com a resposta dada pela inteligência artificial seja ativado.
 No início, múltiplas saídas serão consideradas como boas respostas (alta probabilidade ou recompensa esperada), pois a IA tem comportamento aleatório.
-Para que o computador saiba o quão ruim foi sua saída, é definida uma função de erro (também conhecida como função de custo). Uma forma comum de calcular esse erro é o erro quadrático médio, que consiste em subtrair o valor devolvido pela IA pelo valor esperado e elevar ao quadrado. Após essas operações serem realizadas em cada neurônio, os resultados são somados e obtém-se um valor numérico para o quão errada a IA estava em um determinado exemplo. Quanto maior esse valor, mais incorreta a IA está. Depois de esse procedimento ser feito com milhares de exemplos, calcula-se a média dos erros obtidos e, com isso, avalia-se o desempenho da inteligência.
+Para que o computador saiba o quão ruim foi sua saída, é definida uma função de erro (também conhecida como função de custo). Uma forma comum de calcular esse erro é o erro quadrático médio, que consiste em subtrair o valor devolvido pela IA pelo valor esperado para aquele neurônio da camada de saída e elevar o resultado ao quadrado. Após essas operações serem realizadas em cada neurônio da camada de saída, os resultados são somados e obtém-se um valor numérico para o quão errada a IA estava em um determinado exemplo. Quanto maior esse valor, mais incorreta a IA está. Depois de esse procedimento ser feito com milhares de exemplos, calcula-se a média dos erros obtidos e, com isso, avalia-se o desempenho da inteligência.
 
-Percebe-se que esse procedimento para avaliar o desempenho do código é uma forma de encapsular a rede neural em uma função que tem como entrada os pesos e viés de cada neurônio e, como saída, o quão bom ou ruim eles são. Por ser uma função, é possível calcular "para onde ela deve se mover"{}, de forma que minimize a saída, utilizando um método chamado de gradiente descendente (\textit{gradient descent}).
+Seja $M$ o número de exemplos dados para a rede neural, $S$ o número de neurônios na camada de saída, $h_{i}$ o vetor que representa a saída da IA para o $i$-ésimo exemplo, $g_{i}$ o vetor que representa a saída esperada para o $i$-ésimo exemplo. O erro quadrático médio é dado por $E_{EQM}$:
+
+\begin{equation} \label{eq:sme01}
+\epsilon = (h_{i} - g_{i})^{2}
+\end{equation}
+
+\begin{equation} \label{eq:sme02}
+e_{i} = \sum_{j=1}^{S}\epsilon_{j}, \qquad \epsilon_{j} = \text{ j-ésimo elemento do vetor }\epsilon
+\end{equation}
+
+\begin{equation} \label{eq:sme03}
+E_{EQM} = \frac{1}{M} \sum_{i=1}^{M}e_{i}
+\end{equation}
+
+Percebe-se que esse procedimento para avaliar o desempenho do código é uma forma de encapsular a rede neural em uma função que tem como entrada os pesos ($W$) e viés ($b$) de cada neurônio e, como saída, o quão bom ou ruim eles são ($E_{EQM}$). Por ser uma função, é possível calcular "para onde ela deve se mover"{} de forma que minimize a saída utilizando um método chamado de gradiente descendente (\textit{gradient descent}).
 Gradiente é uma generalização de derivada para multiplas variáveis que representa a inclinação da tangente da função no ponto dado e aponta para a direção de maior crescimento, direção para onde a função deve "se mover"{} para chegar no máximo local. Consequentemente, se tomar o valor negativo do gradiente da função, obtém-se a direção de maior decrescimento, direção do mínimo local.
 Em outras palavras, gradiente descendente é um algoritmo utilizado para encontrar o mínimo local de uma função, que é quase o que se deseja. O melhor caso para a função de erro seria encontrar o mínimo global, mas como isso nem sempre é possível e dificilmente alcançável, em parte por não haver garantias de que se encontrou o mínimo global, encontrar o melhor mínimo local é o suficiente.
 
@@ -189,9 +204,9 @@ De forma resumida, uma rede neural clássica aprende recebendo uma série de nú
 %\textit{Deep learning} é um ramo de aprendizado de máquina cujos algoritmos são inspirados na estrutura e funcionamento do cérebro.
 Como explicado anteriormente, redes neurais podem ser divididas em três tipos distintos de camadas: entrada, ocultas, e saída. Enquanto existe apenas uma camada de entrada e uma de saída, é possível haver uma ou mais camadas ocultas. Se houver muitas camadas ocultas, a rede neural passa a ser chamada de rede neural profunda (\textit{deep neural network}). Atualmente, não existe uma definição exata de quantas camadas a rede neural precisa ter para começar a ser classificada como profunda e, mesmo que houvesse, esse número provavelmente mudaria com o passar do tempo.
 
-Uma rede neural profunda que segue o modelo apresentado na seção anterior é chamada de \textit{feedforward} e é o mais típico de \textit{deep learning}. Ele recebe esse nome pois a informação flui da entrada para a saída sem haver conexões de \textit{feedback} para que a previsão seja feita. Este tipo de rede neural forma a base para redes neurais convolucionais, técnica muito utilizada em reconhecimento de imagens. Como a ideia é treinar uma inteligência artificial que aprende vendo a tela do jogo, foi escolhido esse tipo de rede neural para este trabalho.
+Uma rede neural profunda que segue o modelo apresentado na seção anterior é chamada de \textit{feedforward} e é o mais típico de \textit{deep learning}. Ele recebe esse nome pois a informação flui da entrada para a saída sem haver conexões de \textit{feedback} para que a previsão seja feita. Este tipo de rede neural forma a base para \textbf{redes neurais convolucionais}, técnica muito utilizada em reconhecimento de imagens. Como a ideia é treinar uma inteligência artificial que aprende vendo a tela do jogo, foi escolhido esse tipo de rede para este trabalho.
 
-Uma das partes mais peculiares sobre \textit{deep learning} é o fato de muitos dos avanços feitos nos últimos anos serem resultado de tentativa e erro e não de formalização e demonstração da teoria. Ainda não se entende perfeitamente o que faz uma rede neural profunda funcionar tão bem, e as características na construção de um modelo consideradas como essenciais mudam rapidamente com o passar do tempo, com algumas inclusive passando a ser consideradas estorvos ao invés de atributos chave para acelerar e aprimorar o aprendizado.
+%Uma das partes mais peculiares sobre \textit{deep learning} é o fato de muitos dos avanços feitos nos últimos anos serem resultado de tentativa e erro, e não de formalização e demonstração da teoria. Ainda não se entende perfeitamente o que faz uma rede neural profunda funcionar tão bem, e as características na construção de um modelo consideradas como essenciais mudam rapidamente com o passar do tempo, com algumas inclusive passando a ser consideradas estorvos ao invés de atributos chave para acelerar e aprimorar o aprendizado.
 
 \subsection{Rede neural convolucional}
 \label{sec:cnn}
@@ -204,7 +219,7 @@ Uma rede neural convolucional continua sendo um tipo de rede neural profunda e, 
 Na etapa de \textbf{convolucão}, a imagem de entrada é dividida em várias imagens menores; elas podem ser adjacentes ou parcialmente sobrepostas, sendo o segundo caso mais comum. Em seguida, cada uma dessas imagens menores é passada por uma rede neural menor, sendo processada normalmente. As saídas dessas redes neurais menores são então passadas como entrada para a próxima etapa.
 Na etapa de \textbf{previsão}, a informação passa por uma ou mais redes neurais maiores que farão a previsão. Para diferenciá-la das redes da etapa de convolução, as desta fase são chamadas de \textit{fully-connected}.
 
-É possível haver mais de uma camada de convolução assim como pode haver mais de uma camada \textit{fully-connected}, e isso pode ser mais vantajoso. Quanto mais camadas houver, mais precisa será a prediçã. Entretanto, não só o custo em tempo e espaço aumenta, como há um limite para o quão melhor será o desempenho da IA. A partir de um certo ponto, a melhora será ínfima em comparação com o tempo desprendido e, portanto, deixa de ser benéfico colocar mais camadas.
+É possível haver mais de uma camada de convolução assim como pode haver mais de uma camada \textit{fully-connected}, e isso pode ser mais vantajoso. Quanto mais camadas houver, mais precisa será a predição. Entretanto, não só o custo em tempo e espaço aumenta, como há um limite para o quão melhor será o desempenho da IA. A partir de um certo ponto, a melhora será ínfima em comparação com o tempo desprendido e, portanto, deixa de ser benéfico colocar mais camadas.
 %Cada uma dessas duas etapas podem ter diversas camadas: na de convolução, pode haver mais de uma camada de convolução; e na de previsão, é possível haver mais de uma camada \textit{fully-conected}.
 
 \subsection{Aprendizado por reforço}
