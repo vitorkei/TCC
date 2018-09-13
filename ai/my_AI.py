@@ -36,29 +36,29 @@ possible_actions = np.array(np.identity(env.action_space.n, dtype=int).tolist())
 ########################################################
 
 ### PRÉ PROCESSAMENTO
-stack_size = 4
+stack_size = 5
 
 ### MODELO
 state_size = [new_height, new_width, stack_size] # Entrada é uma pilha de 4 frames
 action_size = env.action_space.n                 # 8 ações possíveis
-learning_rate = 0.0025
+learning_rate = 0.00025
 
 ### TREINAMENTO
-total_episodes = 41 # número total de episódios para o treinamento
-max_steps = 10000   # número máximo de ações tomadas em um episódio
+total_episodes = 10 # número total de episódios para o treinamento
+max_steps = 1000000   # número máximo de ações tomadas em um episódio
 batch_size = 32
 
 ### Parâmetros de exploração para estratégia gulosa epsilon
 explore_begin = 1.0  # Probabilidade de se explorar no início
 explore_end = 0.1   # Probabilidade mínima de explorar
-decay_rate = 0.00001 # Taxa de decaimento exponencial para a probabilidade de exploração
+decay_rate = 0.000001 # Taxa de decaimento exponencial para a probabilidade de exploração
 
 ### Q-LEARNING
-gamma = 0.9 # Taxa de desconto
+gamma = 0.4 # Taxa de desconto
 
 ### MEMÓRIA
-#pretrain_length = batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
-pretrain_length = 1000
+pretrain_length = batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
+#pretrain_length = 100
 memory_size = 1000000        # Número de experiências capazes de serem armazenadas na memória
 
 ### FLAGS
@@ -78,11 +78,11 @@ pool_kernel = [3, 2] # Tamanho do kernel de cada camada de maxpool2d
 
 def preprocess_frame(frame):
   gray = rgb2gray(frame)
-  #cropped_frame = gray[5:-15, 8:]
-  #normalized_frame = cropped_frame/255.0
-  normalized_frame = gray/255.0
-  preprocessed_frame = transform.resize(normalized_frame, [new_height_aux, new_width])
-  preprocessed_frame = preprocessed_frame[7:-19, :]
+  cropped_frame = gray[18:-15, 8:]
+  normalized_frame = cropped_frame/255.0
+  #normalized_frame = gray/255.0
+  preprocessed_frame = transform.resize(normalized_frame, [new_height, new_width])
+  #preprocessed_frame = preprocessed_frame[7:-19, :]
   return preprocessed_frame # 84x84x1 frame
 
   #return normalized_frame
@@ -368,6 +368,7 @@ with tf.Session() as sess:
 
       choice = np.argmax(Qs)
       action = possible_actions[choice]
+      print(action)
 
       next_state, reward, done, info = env.step(action)
       if episode_render:
