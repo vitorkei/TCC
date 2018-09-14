@@ -949,3 +949,23 @@ Início~15/Maio/2018
   eu encontrar o que preciso, filtrar e entender para escrever na
   monografia. Pelo menos o Denis gostou do que escrevi até o
   momento!
+
+================================
+
+11-13/Set/2018
+  Fiz algumas tentativas a mais de fazer a IA aprender melhor. Escrevi
+  um pequeno script bem básico para rodar a IA várias vezes, aumentando
+  o número de episódios. Decidi depois também colocar uma penalidade para
+  a IA quando ela morre. Afinal, quando para perder uma vida, ela precisa
+  colidir com um asteroide, o que destroi o asteroide e faz ela ganhar
+  ponto. Como a punição para isso vem muito depois, quando todas as vidas
+  acabam e ela deixa de aumentar a pontuação, essa penalidade deve ajudar
+  bastante. Aguardando o treinamento acabar para poder concluir com mais
+  certeza.
+  No meio tempo, acredito ter terminado o capítulo Fundamentos da monografia,
+  que imagino ser um dos mais complicados. Também escrevi o resumo (aquele
+  um parágrafo que tem no início da monografia, antes do índice) e acho que
+  a próxima parte vai ser a Proposta, em que terei que explicar com mais
+  detalhes qual o plano do TCC e definir melhor Deep Q-Learning, já que
+  no capítulo fundamentos só defini Deep Learning, CNN e approximate Q-learning.
+  Acho que esse capítulo será complicado também....
