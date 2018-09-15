@@ -44,7 +44,7 @@ action_size = env.action_space.n                 # 8 ações possíveis
 learning_rate = 0.00025
 
 ### TREINAMENTO
-total_episodes = 10 # número total de episódios para o treinamento
+total_episodes = 30 # número total de episódios para o treinamento
 max_steps = 1000000   # número máximo de ações tomadas em um episódio
 batch_size = 32
 
@@ -62,8 +62,8 @@ pretrain_length = batch_size # Número de experiências armazenadas na memória 
 memory_size = 1000000        # Número de experiências capazes de serem armazenadas na memória
 
 ### FLAGS
-training = False        # Mudar para True se quiser treinar o agente
-episode_render = True # Mudar para True se quiser ver o ambiente renderizado
+training = True        # Mudar para True se quiser treinar o agente
+episode_render = False # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
 conv_filters = [16, 32] # Número de filtros em cada camada de conv2d - ELU
@@ -351,8 +351,8 @@ if training == True:
 with tf.Session() as sess:
   total_test_rewards = []
 
-  #saver.restore(sess, "/var/tmp/models/model.ckpt")
-  saver.restore(sess, "~/models/model.ckpt")
+  saver.restore(sess, "/var/tmp/models/model.ckpt")
+  #saver.restore(sess, "~/models/model.ckpt")
 
   for episode in range(1):
     total_rewards = 0

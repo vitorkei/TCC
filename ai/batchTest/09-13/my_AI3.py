@@ -4,6 +4,7 @@ import retro
 import matplotlib.pyplot as plt
 import random
 import warnings
+import time
 
 from skimage import transform
 from skimage.color import rgb2gray
@@ -44,7 +45,7 @@ action_size = env.action_space.n                 # 8 ações possíveis
 learning_rate = 0.00025
 
 ### TREINAMENTO
-total_episodes = 10 # número total de episódios para o treinamento
+total_episodes = 25 # número total de episódios para o treinamento
 max_steps = 1000000   # número máximo de ações tomadas em um episódio
 batch_size = 32
 
@@ -62,14 +63,17 @@ pretrain_length = batch_size # Número de experiências armazenadas na memória 
 memory_size = 1000000        # Número de experiências capazes de serem armazenadas na memória
 
 ### FLAGS
-training = False        # Mudar para True se quiser treinar o agente
-episode_render = True # Mudar para True se quiser ver o ambiente renderizado
+training = True        # Mudar para True se quiser treinar o agente
+episode_render = False # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
 conv_filters = [16, 32] # Número de filtros em cada camada de conv2d - ELU
 kernel_sizes = [8, 4] # Tamanho do kernel de cada camada de conv2d - ELU
 stride_sizes = [4, 2] # Número de strides em cada camada de conv2d - ELU
 pool_kernel = [3, 2] # Tamanho do kernel de cada camada de maxpool2d
+
+### PENALIDADE
+old_life_count = 0
 
 ########################################################
 ########################################################
@@ -205,6 +209,10 @@ for i in range(pretrain_length):
   choice = random.randint(0, len(possible_actions)-1)
   action = possible_actions[choice]
   next_state, reward, done, info = env.step(action)
+  if info['lives'] < old_life_count: # perdeu vida
+    reward = -500
+  old_life_count = info['lives']
+  #print(info['lives'])
     
   # env.render()
 
@@ -351,8 +359,8 @@ if training == True:
 with tf.Session() as sess:
   total_test_rewards = []
 
-  #saver.restore(sess, "/var/tmp/models/model.ckpt")
-  saver.restore(sess, "~/models/model.ckpt")
+  saver.restore(sess, "/var/tmp/models/model.ckpt")
+  #saver.restore(sess, "~/models/model.ckpt")
 
   for episode in range(1):
     total_rewards = 0
