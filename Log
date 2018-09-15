@@ -969,3 +969,16 @@ Início~15/Maio/2018
   detalhes qual o plano do TCC e definir melhor Deep Q-Learning, já que
   no capítulo fundamentos só defini Deep Learning, CNN e approximate Q-learning.
   Acho que esse capítulo será complicado também....
+
+================================
+
+14/Set/2018
+  Colocar uma penalidade por morrer fez a IA começar a aprender!! Enquanto antes
+  ela pontuava por volta de 130 pontos com qualquer número de episódios entre 10
+  e 30, agora ela pontuou 1380 pontos com 30 episódios. Esse valor foi crescendo
+  conforme o número de episódios aumentou, então decidi rodá-la com ainda mais
+  (35~55) para ver até onde ela melhora e, depois disso, começar a alterar os
+  outros parâmetros até que aprenda muito bem.
+
+  Pequena atualização no capítulo Fundamentos (uso de \hyperref ao invés de \ref
+  em uma nota de rodapé). Também comecei a escrever o capítulo Proposta.

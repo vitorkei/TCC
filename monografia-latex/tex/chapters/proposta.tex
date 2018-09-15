@@ -4,6 +4,14 @@
 \chapter{Proposta}
 \label{cap:proposta}
 %% ---------------------------------------------------------------------------- %
+
+No capítulo anterior, \hyperref[cap:fundamentos]{Fundamentos}, foram apresentados os dois principais conceitos para o desenvolvimento deste trabalho: \textbf{redes neurais convolucionais} e \textbf{\textit{approximate Q-learning}}.
+Para a construção da inteligência artificial que jogará o jogo \textit{Asteroids}, cada uma dessas técnicas de aprendizado possui vantagens e desvantagens.
+\textbf{CNNs} são capazes de aprender características dos exemplos dados, mas eles precisam estar rotulados para isso. Uma vez que os exemplos fornecidos para o aprendizado seriam os \textit{frames} do jogo, fornecer exemplos rotulados é uma tarefa impossível, pois não há uma ação correta ou uma melhor ação na maior parte dos estados.
+\textbf{\textit{Approximate Q-learning}}, por outro lado, aprende sem a necessidade de exemplos rotulados, mas precisa que as características que a IA deve aprender estejam bem definidas. Apesar de ser mais factível do que resolver o problema que a CNN enfrenta, não há garantias de que todas as características relevantes tenham sido codificadas e nem que foram bem definidas.
+
+Portanto, a solução adotada foi unir as duas técnicas para o sucesso da IA no jogo: enquanto a parte de CNN se encarrega de identificar e aprender as características relevantes, a parte de aprendizado por reforço se preocupa em aprender quais as melhores ações para se tomar em cada momento.
+
 %
 %Durante o desenvolvimento de um jogo, seja ele digital ou analógico, é de extrema importância
 %que todos os detalhes (como mecânicas, estética ou até mesmo público alvo) estejam bem documentados
