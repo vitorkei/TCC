@@ -11,8 +11,8 @@
 \BOOKMARK [2][]{subsection.2.4.5}{Processo de Decis\343o de Markov}{section.2.4}% 11
 \BOOKMARK [2][]{subsection.2.4.6}{Q-learning}{section.2.4}% 12
 \BOOKMARK [2][]{subsection.2.4.7}{Approximate Q-learning}{section.2.4}% 13
-\BOOKMARK [0][]{chapter.3}{Proposta}{}% 14
+\BOOKMARK [0][]{chapter.3}{Implementa\347\343o}{}% 14
 \BOOKMARK [1][]{section.3.1}{Asteroids ver. Atari2600}{chapter.3}% 15
 \BOOKMARK [1][]{section.3.2}{Arquitetura}{chapter.3}% 16
-\BOOKMARK [0][]{chapter.4}{Desenvolvimento}{}% 17
-\BOOKMARK [0][]{chapter.5}{Conclus\365es - Parte Subjetiva}{}% 18
+\BOOKMARK [1][]{section.3.3}{Resultados}{chapter.3}% 17
+\BOOKMARK [0][]{chapter.4}{Conclus\365es - Parte Subjetiva}{}% 18

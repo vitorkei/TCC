@@ -154,15 +154,11 @@ w_{1}a_{1} + w_{2}a_{2} + ... + w_{n}a_{n} - b
 Como essa soma pode ter qualquer valor no intervalo $(-\infty, +\infty)$, o neurônio precisa saber a partir de que ponto ele estará ativado. Para isso, utiliza-se uma \textbf{função de ativação}. Funções de ativação recebem a soma \ref{eq:nn01} como entrada, limitam seu valor a um certo intervalo, normalmente $[0, 1]$ ou $[-1, +1]$, a depender da função, e determinam se o neurônio deve ser ativado ou não.
 
 Esse procedimento é feito em cada neurônio de cada camada da rede neural, o que pode ser muito custoso se não executado com cuidado.
-Como existem diversas bibliotecas que otimizam operações matriciais, é mais rápido e conveniente utilizar matrizes: seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{(i)}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
+Como existem diversas bibliotecas que otimizam operações matriciais, é mais rápido e conveniente utilizar matrizes, bem como facilita a leitura do código: seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{(i)}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
 
 \begin{equation} \label{eq:nn02}
 Wa^{(i)} + b, \qquad i = 1, ..., n
 \end{equation}
-
-Outro bônus é a facilidade de leitura do código:
-
-\textit{\textbf{INSERIR EXEMPLOS DE CÓDIGOS AQUI}}
 
 As funções de ativação mais comuns são a sigmoide (curva logística), ReLU (\textit{Rectified Linear Unit}) e ELU (\textit{Exponential Linear Unit}), sendo a sigmoide a mais antiga e a ELU a mais recente.
 
