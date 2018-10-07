@@ -42,12 +42,12 @@ stack_size = 4
 ### MODELO
 state_size = [new_height, new_width, stack_size] # Entrada é uma pilha de 4 frames
 action_size = env.action_space.n                 # 8 ações possíveis
-learning_rate = 0.00025
+learning_rate = 0.0000025
 
 ### TREINAMENTO
 total_episodes = 30 # número total de episódios para o treinamento
 max_steps = 1000000   # número máximo de ações tomadas em um episódio
-batch_size = 32
+batch_size = 32 
 
 ### Parâmetros de exploração para estratégia gulosa epsilon
 explore_begin = 1.0  # Probabilidade de se explorar no início
@@ -55,10 +55,10 @@ explore_end = 0.1   # Probabilidade mínima de explorar
 decay_rate = 0.000001 # Taxa de decaimento exponencial para a probabilidade de exploração
 
 ### Q-LEARNING
-gamma = 0.7 # Taxa de desconto
+gamma = 0.9 # Taxa de desconto
 
 ### MEMÓRIA
-pretrain_length = batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
+pretrain_length = 32# batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
 #pretrain_length = 100
 memory_size = 1000000        # Número de experiências capazes de serem armazenadas na memória
 
@@ -67,14 +67,14 @@ training = True        # Mudar para True se quiser treinar o agente
 episode_render = False # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
-conv_filters = [16, 32] # Número de filtros em cada camada de conv2d - ELU
-kernel_sizes = [8, 4] # Tamanho do kernel de cada camada de conv2d - ELU
-stride_sizes = [4, 2] # Número de strides em cada camada de conv2d - ELU
+conv_filters = [8, 16] # Número de filtros em cada camada de conv2d - ELU
+kernel_sizes = [4, 2] # Tamanho do kernel de cada camada de conv2d - ELU
+stride_sizes = [2, 1] # Número de strides em cada camada de conv2d - ELU
 pool_kernel = [3, 2] # Tamanho do kernel de cada camada de maxpool2d
 
 ### PENALIDADE
 old_life_count = 0
-penalty = -200
+penalty = -500
 
 ########################################################
 ########################################################
@@ -409,3 +409,4 @@ print(memory_size)
 print(conv_filters)
 print(kernel_sizes)
 print(stride_sizes)
+print(penalty)
