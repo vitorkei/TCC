@@ -61,6 +61,7 @@ A cada vez que a IA vê um novo \textit{frame}, o mais antigo é descartado e o 
   Taxa de aprendizado $\alpha$ & 0.000025 \\ \hline
   Taxa de desconto $\gamma$ & 0.7 \\ \hline
   Tamanho da memória & 1 000 000 experiências \\ \hline
+  Penalidade por morte & -500 pontos \\ \hline
 \end{tabular}
 \caption{Resumo da arquitetura da inteligência artificial}
 \label{table:2}
@@ -73,7 +74,7 @@ Em seguida, calcula-se o erro quadrático médio das saídas para avaliar o dese
 Como explicitado anteriormente, não é possível dizer qual a melhor ação a se tomar em cada \textit{frame} do jogo e, portanto, não seria possível calcular o erro da rede.
 Para contornar esse problema, a diferença é feita entre o Q-valor desejado (parte $R(S,A,S') + \gamma\max_{A'}Q^{*}(S',A)$ da fórmula \ref{eq:qfunction}) e o Q-valor previsto para a saída da rede neural.
 
-O treinamento teve 30 episódios, \textit{mini-batches} de tamanho 32, probabilidade de exploração inicial 1.0 que decai até um mínimo de 0.1, taxa de aprendizado $\alpha$ igual a 0.000025, e taxa de desconto $\gamma$ igual a 0.7.
+O treinamento teve 30 episódios, \textit{mini-batches} de tamanho 32, probabilidade de exploração inicial 1.0 que decai até um mínimo de 0.1, taxa de aprendizado $\alpha$ igual a 0.000025, e taxa de desconto $\gamma$ igual a 0.7. O agente também recebe uma penalidade de -500 pontos a cada vida perdida.
 
 Por fim, a IA utiliza uma técnica chamada de \textit{experience replay} para melhorar o aprendizado. Ela consiste em ter uma memória que guarda experiências passadas (tuplas ($S$, $A$, $S'$ e $R$)) e utilizá-las aleatóriamente ao longo do treinamento.
 Primeiro, o agente jogará o jogo uma determinada quantidade de vezes tomando apenas ações aleatórias e armazenando as experiências na memória.
@@ -89,3 +90,4 @@ Por fim, a inteligência artificial utiliza o modelo construído durante o trein
 \label{sec:res}
 
 Após inúmeras tentativas e erros para se chegar na arquitetura descrita \hyperref[table:2]{acima}, o melhor resultado foi de.
+Jogando sem muito compromisso, consegui 3570 pontos antes de perder todas as vidas e, esforçando-me para obter uma pontuação alta, cheguei em 25130 pontos. Logo, o desempenho da IA está bem abaixo do desejado.

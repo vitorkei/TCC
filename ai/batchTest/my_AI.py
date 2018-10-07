@@ -176,9 +176,11 @@ class DQNetwork:
 
       self.optimizer = tf.train.RMSPropOptimizer(self.learning_rate).minimize(self.loss)
 
+
 # Reinicia o grafo e inicializa uma instância da classe DQNetwork
 tf.reset_default_graph()
 DQNetwork = DQNetwork(state_size, action_size, learning_rate)
+TargetNetwork = DQNetwork(state_size, action_size, learning_rate, name="TargetNetwork")
 
 # Memória para que o agente se lembre de como lidou com cenários anteriores
 # deque = double ended queue
@@ -264,6 +266,17 @@ def predict_action(explore_begin, explore_end, decay_rate, decay_step, state, ac
 
   return action, explore_probability
 
+def update_target_graph():
+  from_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, "DQNewtork")
+  to_vars = tf.get_collection(tf.GraphKeys.TRAINABLE_VARIABLES, "TargetNetwork")
+
+  op_holder = []
+
+  for from_var, to_var in zip(from_vars, to_vars):
+    op_holder.append(to_var.assign(from_var))
+
+  return op_holder
+
 saver = tf.train.Saver() # Ajuda a salvar o modelo
 
 rewards_list = []
@@ -327,14 +340,16 @@ if training == True:
 
         # recebe Q-value do próximo estado
         Qs_next_state = sess.run(DQNetwork.output, feed_dict = {DQNetwork.inputs_: next_states_mb})
+        Qs_target_next_state = sess.run(TargetNetwork.output, feed_dict={TargetNetwork.inputs_: next_states_mb})
 
         for i in range(len(batch)):
           terminal = dones_mb[i]
+          action = np.argmax(Qs_next_state[i])
 
           if terminal:
             target_Qs_batch.append(rewards_mb[i])
           else:
-            target = rewards_mb[i] + gamma * np.max(Qs_next_state[i])
+            target = rewards_mb[i] + gamma * Qs_target_next_state[i][action]
             target_Qs_batch.append(target)
 
         targets_mb = np.array([each for each in target_Qs_batch])
