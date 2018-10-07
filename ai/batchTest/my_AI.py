@@ -156,20 +156,39 @@ class DQNetwork:
                                                  #strides = s_s[i])
 
       #self.flatten = tf.contrib.layers.flatten(self.maxpool2d)
-      self.flatten = tf.contrib.layers.flatten(self.elu)
+      #self.flatten = tf.contrib.layers.flatten(self.elu)
+      self.flatten = tf.layers.flatten(self.elu)
 
       # fully connected layer
-      self.fc = tf.layers.dense(inputs = self.flatten,
+      self.value_fc = tf.layers.dense(inputs = self.flatten,
                                 units = 256,
                                 activation = tf.nn.elu,
                                 kernel_initializer = tf.contrib.layers.xavier_initializer())
 
-      self.output = tf.layers.dense(inputs = self.fc,
-                                    kernel_initializer = tf.contrib.layers.xavier_initializer(),
-                                    units = self.action_size,
-                                    activation=None)
+      self.value = tf.layers.dense(inputs = self.value_fc,
+                                   units = 1,
+                                   activation = None,
+                                   kernel_initializaer=tf.contrib.layers.xavier_initializer())
+
+      self.advantage_fc = tf.layers.dense(inputs = self.flatten,
+                                          units = 256,
+                                          activation = tf.nn.elu,
+                                          kernel_initializer = tf.contrib.layers.xavier_initializer())
+      self.advantage = tf.layers.dense(inputs = self.advantage_fc,
+                                       units = self.action_size,
+                                       activation = None,
+                                       kernel_initializer = tf.contrib.layers.xavier_initializer())
+
+
+
+      #self.output = tf.layers.dense(inputs = self.fc,
+      #                              kernel_initializer = tf.contrib.layers.xavier_initializer(),
+      #                              units = self.action_size,
+      #                              activation=None)
+      
+      self.output = self.value + tf.subtract(self.advantage, tf.reduce_mean(self.advantage, axis=1, keepdims=True))
       # Q é a previsão do Q-valor
-      self.Q = tf.reduce_sum(tf.multiply(self.output, self.actions_))
+      self.Q = tf.reduce_sum(tf.multiply(self.output, self.actions_), axis=1)
 
       # loss é a diferença entre a previsão do Q-valor e o Q-alvo
       self.loss = tf.reduce_mean(tf.square(self.target_Q - self.Q))
