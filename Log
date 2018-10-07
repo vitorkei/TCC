@@ -982,3 +982,25 @@ Início~15/Maio/2018
 
   Pequena atualização no capítulo Fundamentos (uso de \hyperref ao invés de \ref
   em uma nota de rodapé). Também comecei a escrever o capítulo Proposta.
+
+================================
+
+15-16/Set/2018
+  Testes mais recentes mostraram que a IA não aprendeu tanto assim. Acho que a
+  pontuação mais alta foi sorte mesmo. Mesmo assim, parece continuar melhor
+  do que sem a penalidade.
+  Fiz mais alguns testes tentando obter uma pontuação melhor, mas ainda está
+  meio ruim.
+
+  Escrevi mais um pouco do capítulo Proposta e alterei um pouco do Fundamentos.
+  Expliquei melhor sobre a versão de Asteroids que estou usando em Proposta
+  e alterei a descrição do jogo em Fundamentos para algo mais geral sobre o jogo
+  e não de uma versão específica.
+
+================================
+
+27/Set/2018
+  Por causa de provas, passei os últimos dias quase que sem mexer na IA. O
+  máximo que eu fiz foi rodá-la algumas vezes, buscando os melhores hiper
+  parâmetros.
+  Hoje, dei uma olhada novamente na monografia e escrevi bem pouco.

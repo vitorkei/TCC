@@ -1,12 +1,12 @@
-% ---------------------------------------------------------------------------- %
+%% ---------------------------------------------------------------------------- %
 \chapter{Fundamentos}
 \label{cap:fundamentos}
-% ---------------------------------------------------------------------------- %
+%% ---------------------------------------------------------------------------- %
 
 Para se criar e treinar uma inteligência artificial, diversos arcabouçous são necessários. Por um lado, existe a parte teórica e matemática na qual a inteligência se baseia para aprender. Por outro, do lado computacional, existem as bibliotecas que auxiliam no desenvolvimento, efetuando as contas necessárias e, neste trabalho em particular, emulando o jogo que serve de ambiente para o aprendizado.
 Este capítulo tem o intuito de familiarizar o leitor com a teoria e as ferramentas utilizadas na modelagem e treinamento da inteligência artificial deste trabalho.
 
-% ---------------------------------------------------------------------------- %
+%% ---------------------------------------------------------------------------- %
 % https://en.wikipedia.org/wiki/Asteroids_(video_game)
 % https://en.wikipedia.org/wiki/Golden_age_of_arcade_video_games
 % https://www.arcade-museum.com/game_detail.php?game_id=6939
@@ -17,15 +17,17 @@ Este capítulo tem o intuito de familiarizar o leitor com a teoria e as ferramen
 \label{sec:asteroids}
 
 \textit{Asteroids} é um jogo de fliperama do gênero \textit{shooter} (jogo eletrônico de tiro) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida como Atari. O jogo foi inspirado em \textit{Spacewar!}, \textit{Computer Space}, \textit{Space Invaders}, e \textit{Cosmos}, sendo este último um jogo não finalizado.
-
-Diversas versões deste jogo foram criadas ao longo dos anos, então serão mencionadas somentes as características da iteração utilizada neste trabalho, a do Atari2600.
-O jogador controla uma nave espacial que se encontra em um campo de asteróides e precisa atirar para destrui-los enquanto evita colisões. A dificuldade aumenta conforme os asteróides se tornam mais numerosos. Os alvos podem assumir três tamanhos e três formatos diferentes. Enquanto os tamanhos são grande (inicial), médio e pequeno, os formatos são aproximadamente os mesmos em quesito de altura e largura.
-%Diversas versões deste jogo foram criadas ao longo dos anos. Além das diferenças gráficas, as mudanças incluem naves espaciais inimigas que atiram contra o jogador, e tamanhos e formatos diferentes que os asteróides podem ter.
+Diversas versões deste jogo foram criadas ao longo dos anos. As principais diferenças entre as iterações que \textit{Asteroids} teve incluem a presença de naves espaciais inimigas que atiram contra o jogador, formatos e tamanhos diferentes dos asteróides e direção que os asteróides se movem.
 \textit{Asteroids} é considerado um dos primeiros grandes sucessos da era de ouro dos jogos de fliperama, época em que os jogos eletrônicos começaram a se tornar comuns na cultura popular. 
 
-Para este trabalho, \textit{Asteroids} foi emulado utilizando o emulador Stella, do Stella Team, e a plataforma Gym-Retro, da companhiaOpenAI.
-Há cinco comandos disponíveis: mover-se para frente, girar a nave no sentido horário, girar a nave no sentido anti-horário, atirar para frente, e entrar no hiper espaço. Mover-se para frente e girar no sentido horário ou anti-horário são as principais formas de movimento disponíveis ao jogador, e atirar serve para destruir os asteróides. Mover-se no hiper espaço consiste em fazer a nave desaparecer e, depois de alguns instantes, reaparecer em um local aleatório da tela. Esse é um movimento de alto risco, pois é possível reaparecer em cima de um asteróide, resultando na perda de uma vida. Por outro lado, é útil para fugir rapidamente de situações complicadas.
-A nave também possui inércia, o que dificulta a realização de manobras como curvas e esquivas.
+%Diversas versões deste jogo foram criadas ao longo dos anos, então serão mencionadas somentes as características da iteração utilizada neste trabalho, a do Atari2600.
+%O jogador controla uma nave espacial que se encontra em um campo de asteróides e precisa atirar para destrui-los enquanto evita colisões. A dificuldade aumenta conforme os asteróides se tornam mais numerosos. Os alvos podem assumir três tamanhos e três formatos diferentes. Enquanto os tamanhos são grande (inicial), médio e pequeno, os formatos são aproximadamente os mesmos em quesito de altura e largura.
+
+%Para este trabalho, \textit{Asteroids} foi emulado utilizando o emulador Stella, do Stella Team, e a plataforma Gym-Retro, da companhia OpenAI.
+%Há cinco comandos disponíveis: mover-se para frente, girar a nave no sentido horário, girar a nave no sentido anti-horário, atirar para frente, e entrar no hiper espaço. Mover-se para frente e girar no sentido horário ou anti-horário são as principais formas de movimento disponíveis ao jogador, e atirar serve para destruir os asteróides. Mover-se no hiper espaço consiste em fazer a nave desaparecer e, depois de alguns instantes, reaparecer em um local aleatório da tela. Esse é um movimento de alto risco, pois é possível reaparecer em cima de um asteróide, resultando na perda de uma vida. Por outro lado, é útil para fugir rapidamente de situações complicadas.
+%A nave também possui inércia, o que dificulta a realização de manobras como curvas e esquivas.
+
+%------
 %A nave possui aceleração e desaceleração - ou seja, inércia. Mesmo que o jogador deixe de pressionar o botão de mover-se para frente, ele continuará em movimento por um curto período de tempo antes de parar por completo. Isso gera um grau a mais de complexidade, pois faz com que manobras de esquiva e curvas sejam mais difíceis de serem devidamente executadas.
 
 % ---------------------------------------------------------------------------- %
@@ -69,6 +71,8 @@ RUSSEL et al. (2010) separaram oito definições de inteligência artificial em 
 
 Essa tabela é representada pela tabela \ref{table:1}.
 
+Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma inteligência artificial que se pareça com um humano, enquanto as da direita sobre uma inteligência artificial que toma ações visando estar correta e a atingir o melhor resultado possível. Este trabalho terá um foco maior na categoria "\textbf{Agindo racionalmente}", pois as ações tomadas pelo agente terão como objetivo o retorno da maior recompensa possível.
+
 \begin{table}
 \centering
 \begin{tabular}{| p{7cm} | p{7cm} |}
@@ -81,8 +85,6 @@ Essa tabela é representada pela tabela \ref{table:1}.
 \caption{Definições para inteligência artificial. Apresentação conforme a do livro de RUSSEL et al. (2010). Traduções livres feitas pelo autor.}
 \label{table:1}
 \end{table}
-
-Em linhas gerais, as definições da coluna da esquerda dizem respeito a uma inteligência artificial que se pareça com um humano, enquanto as da direita sobre uma inteligência artificial que toma ações visando estar correta e a atingir o melhor resultado possível. Este trabalho terá um foco maior na categoria "\textbf{Agindo racionalmente}", pois as ações tomadas pelo agente terão como objetivo o retorno da maior recompensa possível.
 
 %Agindo como um humano: Teste de Turing. Envolve processamento de linguagem natural, representação de conhecimento, raciocínio automatizado, aprendizado de máquina e, no caso do teste de Turing total, visão computacional e robótica. Contudo, cientistas dedicaram pouco tempo em passar nesse teste, pois acreditam ser mais importante estudar os princípios da inteligência do que duplicar uma.
 
@@ -152,15 +154,11 @@ w_{1}a_{1} + w_{2}a_{2} + ... + w_{n}a_{n} - b
 Como essa soma pode ter qualquer valor no intervalo $(-\infty, +\infty)$, o neurônio precisa saber a partir de que ponto ele estará ativado. Para isso, utiliza-se uma \textbf{função de ativação}. Funções de ativação recebem a soma \ref{eq:nn01} como entrada, limitam seu valor a um certo intervalo, normalmente $[0, 1]$ ou $[-1, +1]$, a depender da função, e determinam se o neurônio deve ser ativado ou não.
 
 Esse procedimento é feito em cada neurônio de cada camada da rede neural, o que pode ser muito custoso se não executado com cuidado.
-Como existem diversas bibliotecas que otimizam operações matriciais, é mais rápido e conveniente utilizar matrizes: seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{(i)}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
+Como existem diversas bibliotecas que otimizam operações matriciais, é mais rápido e conveniente utilizar matrizes, bem como facilita a leitura do código: seja $W$ a matriz tal que cada linha contém os pesos de cada neurônio da camada anterior para um determinado neurônio da camada atual, $a^{(i)}$ o vetor tal que cada elemento é o valor de saída de cada neurônio da camada anterior, e $b$ o viés, é possível efetuar a soma \ref{eq:nn01} para todos os neurônios de uma camada da seguinte forma:
 
 \begin{equation} \label{eq:nn02}
 Wa^{(i)} + b, \qquad i = 1, ..., n
 \end{equation}
-
-Outro bônus é a facilidade de leitura do código:
-
-\textit{\textbf{INSERIR EXEMPLOS DE CÓDIGOS AQUI}}
 
 As funções de ativação mais comuns são a sigmoide (curva logística), ReLU (\textit{Rectified Linear Unit}) e ELU (\textit{Exponential Linear Unit}), sendo a sigmoide a mais antiga e a ELU a mais recente.
 
@@ -216,7 +214,7 @@ Como neste trabalho a IA precisa aprender o que é um asteróide apenas enxergan
 
 Para não precisar fornecer à rede neural imagens inteiras para que ela aprenda que um objeto continua sendo o mesmo não importa onde da tela apareça, foi utilizada convolução, mais precisamente a 2D, já que a entrada é uma imagem, uma matriz de pixels.
 Uma rede neural convolucional continua sendo um tipo de rede neural profunda e, portanto, mantém o formato de três tipos de camadas (entrada, ocultas, e saída). Porém, para facilitar o entendimento de convolução, esta explicação dividirá a rede em duas partes: \textbf{convolução} e \textbf{previsão}.
-Na etapa de \textbf{convolucão}, a imagem de entrada é dividida em várias imagens menores; elas podem ser adjacentes ou parcialmente sobrepostas, sendo o segundo caso mais comum. Em seguida, cada uma dessas imagens menores é passada por uma rede neural menor, sendo processada normalmente. As saídas dessas redes neurais menores são então passadas como entrada para a próxima etapa.
+Na etapa de \textbf{convolucão}, a imagem de entrada é dividida em várias imagens menores; elas podem ser adjacentes ou parcialmente sobrepostas, sendo o segundo caso mais comum. Cada uma dessas imagens menores é chamada de \textbf{filtro}. É possível dizer que se um filtro for arrastado para o lado, o local onde ele parar será o próximo filtro. Esse arrasto é chamado de passo (\textit{stride}) e a distância que o filtro é arrastado é chamada de tamanho do passo. Em seguida, cada uma dessas imagens menores é passada por uma rede neural menor, sendo processada normalmente. As saídas dessas redes neurais menores são então passadas como entrada para a próxima etapa.
 Na etapa de \textbf{previsão}, a informação passa por uma ou mais redes neurais maiores que farão a previsão. Para diferenciá-la das redes da etapa de convolução, as desta fase são chamadas de \textit{fully-connected}.
 
 É possível haver mais de uma camada de convolução assim como pode haver mais de uma camada \textit{fully-connected}, e isso pode ser mais vantajoso. Quanto mais camadas houver, mais precisa será a predição. Entretanto, não só o custo de tempo e espaço aumenta, como há um limite para o quão melhor será o desempenho da IA. A partir de um certo ponto, a melhora se torna ínfima em comparação com o tempo desprendido e, portanto, deixa de ser benéfico colocar mais camadas.
@@ -296,7 +294,9 @@ Q^{(i+1)}(S,A) &= (1-\alpha)Q^{(i)}(S,A) + \alpha[R(S,A,S') + \gamma \max_{A'}Q^
 
 A convergência de $Q^{(i)}(S,A)$ em $Q^{*}(S,A)$ é garantida mesmo que o agente aja de forma subótima contanto que o ambiente seja um MDP, a taxa de aprendizado seja manipulada corretamente, e se a exploração não ignorar alguns estados e ações por completo - ou seja, raramente. Mesmo que as condições sejam satisfeitas, a convergência provavelmente será demasiadamente lenta. Entretanto, é interessante analisar os problemas levantados pela segunda e pela terceira condição que garantem a convergência e maneiras de solucioná-los.
 
-Se a \textbf{taxa de aprendizado} for muito alta (próxima de 1), a atualização do aprendizado se torna instável. Por outro lado, se for muito baixa (próxima de 0), a convergência se torna lenta. Uma solução possível para essa questão é utilizar valores que mudam de acordo com o estado: utilizar valores mais baixos em estados que já foram visitados muitas vezes, pois o agente já terá uma boa noção da qualidade de cada ação possível, então há pouco que aprender; e utilizar valores mais altos em estados que foram visitados poucas vezes, pois o agente precisa aprender melhor sobre o estado.
+Se a \textbf{taxa de aprendizado} for muito alta (próxima de 1), a atualização do aprendizado se torna instável.
+Por outro lado, se for muito baixa (próxima de 0), a convergência se torna lenta.
+Uma solução possível para essa questão é utilizar valores que mudam de acordo com o estado: utilizar valores mais baixos em estados que já foram visitados muitas vezes, pois o agente já terá uma boa noção da qualidade de cada ação possível, então há pouco que aprender; e utilizar valores mais altos em estados que foram visitados poucas vezes, pois o agente precisa aprender melhor sobre o estado.
 
 Uma vez que a política é gulosa, o agente sempre tomará a ação que retorne a maior recompensa imediata. Isso é bom somente se todas as recompensas possíveis para aquele estados são conhecidas. Porém, se houver ações não exploradas, o agente pode perder uma recompensa maior do que ele já conhece apenas porque ignorou a ação que leva a ela. Essa situação caracteriza o dilema \textit{Exploration versus Exploitation}: é melhor tomar a ação que retorna a maior recompensa ou buscar uma melhor? Da mesma forma que na taxa de aprendizado, uma forma de contornar esse problema é mudar a probabilidade de decidir explorar o ambiente (\textit{explore}) de acordo com a situação. Conforme o mundo é descoberto, se torna cada vez mais interessante agir de forma gulosa (\textit{exploit}) do que explorar em estados muito visitado, e vice-versa em estados pouco visitados. Esse comportamento pode ser definido por uma função de exploração (\textit{exploration function}).
 
