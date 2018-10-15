@@ -10,7 +10,10 @@ Para a construção da inteligência artificial que jogará o jogo \textit{Aster
 \textbf{CNNs} são capazes de aprender características dos exemplos dados, mas eles precisam estar rotulados para isso. Uma vez que os exemplos fornecidos para o aprendizado seriam os \textit{frames} do jogo, fornecer exemplos rotulados é uma tarefa impossível, pois não há uma ação correta ou uma melhor ação na maior parte dos estados.
 \textbf{\textit{Approximate Q-learning}}, por outro lado, aprende sem a necessidade de exemplos rotulados, mas precisa que as características que a IA deve aprender estejam bem definidas. Apesar de ser mais factível do que resolver o problema que a CNN enfrenta, não há garantias de que todas as características relevantes tenham sido codificadas e nem que foram bem definidas.
 
-Portanto, a solução adotada foi unir as duas técnicas para o sucesso da IA no jogo: enquanto a parte de CNN se encarrega de identificar e aprender as características relevantes, a parte de aprendizado por reforço se preocupa em aprender quais as melhores ações para se tomar em cada momento. O resultado dessa união é uma técnica chamada de \textbf{\textit{Deep Q-Learning}} ou \textbf{\textit{Deep reinforecement learning}}.
+Portanto, a solução adotada foi unir as duas técnicas para o sucesso da IA no jogo: enquanto a parte de CNN se encarrega de identificar e aprender as características relevantes, a parte de aprendizado por reforço se preocupa em aprender quais as melhores ações para se tomar em cada momento. O resultado dessa união é uma técnica chamada de \textbf{\textit{Deep Q-Learning}} ou \textbf{\textit{Deep reinforcement learning}}.
+%[1]https://papers.nips.cc/paper/3964-double-q-learning
+%[2]https://arxiv.org/pdf/1511.06581.pdf
+Além disso, duas técnicas adicionais são utilizadas para melhorar o aprendizado da inteligência artificial: \textit{\textbf{double} deep reinforcement learning}[1] e \textit{\textbf{dueling} deep reinforcement learning}[2], sendo o resultado chamado de \textit{\textbf{Double Dueling Deep Reinforcement Learning}} ou \textit{\textbf{Double Dueling Deep Q-Learning}}.
 
 \section{\textit{Asteroids} ver. Atari2600}
 \label{sec:aa2600}
@@ -37,9 +40,9 @@ Agora que as técnicas utilizadas para o treinamento e detalhes do ambiente fora
 
 Antes de um \textit{frame} ser analisado pela IA, suas cores são convertidas para escalas de cinza.
 Em seguida, a moldura da tela do jogo é removida, ficando visível apenas a área de jogo por onde a nave e os asteroides transitam.
-Os \textit{frames} são então redimensionados para o tamanho 150x150 pixels.
+Os \textit{frames} são então redimensionados para o tamanho 84x84 pixels.
 
-Em seguida, os \textit{frames} são inseridos em filas de tamanho quatro, com o mais antigo ficando no começo e o mais novo no final. Isso serve para que a IA tenha noção de movimento.
+A última etapa do pré-processamento consiste em inserir os \textit{frames} em filas de tamanho quatro, com o mais antigo ficando no começo e o mais novo no final. Isso serve para que a IA tenha noção de movimento.
 Por exemplo, se ela vir uma imagem estática, não saberá para onde a nave e os asteróides estão se movendo e com que velocidade.
 Se vir quatro \textit{frames} em seguida, conseguirá inferir essas informações.
 A cada vez que a IA vê um novo \textit{frame}, o mais antigo é descartado e o novo é inserido no final.
@@ -73,6 +76,7 @@ Em todas as camadas, é utilizada a função de ativação ELU.
 Em seguida, calcula-se o erro quadrático médio das saídas para avaliar o desempenho da IA para o exemplo dado.
 Como explicitado anteriormente, não é possível dizer qual a melhor ação a se tomar em cada \textit{frame} do jogo e, portanto, não seria possível calcular o erro da rede.
 Para contornar esse problema, a diferença é feita entre o Q-valor desejado (parte $R(S,A,S') + \gamma\max_{A'}Q^{*}(S',A)$ da fórmula \ref{eq:qfunction}) e o Q-valor previsto para a saída da rede neural.
+
 
 O treinamento teve 30 episódios, \textit{mini-batches} de tamanho 32, probabilidade de exploração inicial 1.0 que decai até um mínimo de 0.1, taxa de aprendizado $\alpha$ igual a 0.000025, e taxa de desconto $\gamma$ igual a 0.7. O agente também recebe uma penalidade de -500 pontos a cada vida perdida.
 
