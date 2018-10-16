@@ -77,6 +77,9 @@ Em seguida, calcula-se o erro quadrático médio das saídas para avaliar o dese
 Como explicitado anteriormente, não é possível dizer qual a melhor ação a se tomar em cada \textit{frame} do jogo e, portanto, não seria possível calcular o erro da rede.
 Para contornar esse problema, a diferença é feita entre o Q-valor desejado (parte $R(S,A,S') + \gamma\max_{A'}Q^{*}(S',A)$ da fórmula \ref{eq:qfunction}) e o Q-valor previsto para a saída da rede neural.
 
+Entretanto, ainda há um problema a ser resolvido: qual a garantia de que a melhor ação para o próximo estado é a ação com o maior Q-valor?
+No início do treinamento, quando há poucos espaços explorados e poucas ações tomadas em cada um deles, o Q-valor é impreciso e tomar as ações com os maiores ao invés da ação ótima dificulta o aprendizado.
+A solução adotada é utilizar duas redes neurais, uma que seleciona a melhor ação para o próximo estado ($\argmax_{a}Q(s',a)$), chamada de DQN (\textit{Deep Q Network}) e outra que calcula o Q-valor utilizando a ação escolhida pela DQN ($Q(s', \argmax_{a}Q(s',a))$), chamada de rede alvo (\textit{target network}) neste trabalho. Dessa forma, a escolha da ação é feita separadamente do cálculo do Q-valor, tornando o treinamento mais rápido e estável.
 
 O treinamento teve 30 episódios, \textit{mini-batches} de tamanho 32, probabilidade de exploração inicial 1.0 que decai até um mínimo de 0.1, taxa de aprendizado $\alpha$ igual a 0.000025, e taxa de desconto $\gamma$ igual a 0.7. O agente também recebe uma penalidade de -500 pontos a cada vida perdida.
 
