@@ -138,8 +138,7 @@ class DDDQNNet:
     with tf.variable_scope(self.name):
       # [None, *state_size] == [None, state_size[0], state_size[1], state_size[2]]
       self.inputs_ = tf.placeholder(tf.float32, [None, *state_size], name="inputs")
-      #self.actions_ = tf.placeholder(tf.float32, [None, self.action_size], name="actions_")
-      self.actions_ = tf.placeholder(tf.float32, [None, 8], name="actions_")
+      self.actions_ = tf.placeholder(tf.float32, [None, self.action_size], name="actions_")
       
       # target_Q = R(s, a) + y * maxQhat(s', a')
       self.target_Q = tf.placeholder(tf.float32, [None], name="target")
@@ -152,7 +151,7 @@ class DDDQNNet:
                                      padding = "VALID",
                                      #kernel_initializer=tf.contrib.layers.xavier_initializer_conv2d())
                                      kernel_initializer=tf.contrib.layers.variance_scaling_initializer())
-      self.elu = tf.nn.relu(self.conv2d)
+      self.elu = tf.nn.selu(self.conv2d)
       #self.maxpool2d = tf.layers.max_pooling2d(inputs = self.elu,
       #                                         pool_size = p_k[0],
       #                                         strides = s_s[0])
@@ -166,7 +165,7 @@ class DDDQNNet:
                                        padding = "VALID",
                                        #kernel_initializer = tf.contrib.layers.xavier_initializer_conv2d())
                                        kernel_initializer = tf.contrib.layers.variance_scaling_initializer())
-        self.elu = tf.nn.relu(self.conv2d)
+        self.elu = tf.nn.selu(self.conv2d)
         #self.maxpool2d = tf.layers.max_pooling2d(inputs = self.elu,
         #                                         pool_size = p_k[i],
         #                                         strides = s_s[i],
@@ -180,7 +179,7 @@ class DDDQNNet:
       # fully connected layer
       self.value_fc = tf.layers.dense(inputs = self.flatten,
                                 units = 128,
-                                activation = tf.nn.relu,
+                                activation = tf.nn.selu,
                                 #kernel_initializer = tf.contrib.layers.xavier_initializer())
                                 kernel_initializer = tf.contrib.layers.variance_scaling_initializer())
       self.value = tf.layers.dense(inputs = self.value_fc,
@@ -191,7 +190,7 @@ class DDDQNNet:
 
       self.advantage_fc = tf.layers.dense(inputs = self.flatten,
                                           units = 128,
-                                          activation = tf.nn.relu,
+                                          activation = tf.nn.selu,
                                           #kernel_initializer = tf.contrib.layers.xavier_initializer())
                                           kernel_initializer=tf.contrib.layers.variance_scaling_initializer())
       self.advantage = tf.layers.dense(inputs = self.advantage_fc,
