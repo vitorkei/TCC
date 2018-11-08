@@ -4,42 +4,92 @@
 %% ---------------------------------------------------------------------------- %
 
 Inteligência artificial, ou IA, é uma área de estudos que pode ser definida de diversas formas, como construir uma máquina que realize com sucesso tarefas tradicionalmente feitas por humanos, ou que aja como um humano.
-Envolvendo filosofia, matemática, economia, neurociência, psicologia, computação e até mesmo linguística ao longo de sua história, ela abrangeu e ainda abrande diversos campos da ciência, com profissionais de várias formações diferentes podendo contribuir para seus avanços.
-Existem inúmeros desafios, alguns resolvidos, como vencer de jogadores profissionais de Xadrez, mas muitos ainda sendo abordados, podendo ser uma busca por alguma solução, ou por uma solução mais eficiente que a que já existe.
+Envolvendo filosofia, matemática, economia, neurociência, psicologia, computação e até mesmo linguística ao longo de sua história, ela abrangeu e ainda abrange diversos campos da ciência, com profissionais de várias formações diferentes podendo contribuir para seus avanços.
+Existem inúmeros desafios atualmente: alguns resolvidos, como vencer de jogadores profissionais de Xadrez, mas muitos ainda sendo abordados, podendo ser uma busca por alguma solução, ou por uma solução mais eficiente que a já existente.
 
 Um tipo muito conhecido de inteligência artificial dos dias atuais é a que controla oponentes em jogos eletrônicos.
 Porém, nesses casos, os adversários apenas seguem um conjunto pré-determinado de regras escritas pelo desenvolvedor, não possuindo a capacidade de se adaptar como seres humanos fazem.
-Por mais que isso seja um tipo de IA e que possa ser mais eficiente em determinadas tarefas, não se assemelha à forma que as pessoas pensam e jogariam.
+Por mais que isso seja um tipo de IA e que possa ser mais eficiente em determinadas tarefas, não se assemelha à forma que as pessoas pensam e jogam.
 De forma geral, seres humanos aprendem interagindo com o ambiente: tocam nos objetos, tentam entender aquilo que os rodeia e qual o resultado de suas ações.
 Em um jogo, se não passar por um tutorial ou ler um manual, não será muito diferente: o jogador precisará descobrir o que é hostíl, o que cada comando faz e qual o objetivo.
-Avanços recentes em inteligência artificial permitem que máquinas simulem esse tipo de aprendizado, por meio da técnica \textbf{aprendizado por reforço}.
 
-Entretanto, para a maior parte dos jogos eletrônicos, aprendizado por reforço não é o suficiente.
-Em poucos movimentos, uma pessoa já consegue supor o que são inimigos e o que é terreno na tela do jogo.
-Para um computador, um pixel que mude de posição já faz ele não conseguir mais distinguir o que está vendo.
-Em outras palavras, seres humanos conseguem abstrair as informações que enxergam com facilidade, diferente de computadores.
+Avanços recentes em inteligência artificial permitiram que máquinas simulem esse tipo de aprendizado por meio de \textbf{aprendizado por reforço}.
+Entretanto, para a maior parte dos jogos eletrônicos, só essa técnica não é o suficiente.
+Em poucos movimentos, uma pessoa já consegue supor o que é inimigo e o que é terreno quando aparece na tela do jogo.
+Para um computador, um pixel que mude de posição já faz ele não conseguir mais distinguir o que está vendo, tendo que re-aprender a cada nova combinação de pixels detectada.
+Em outras palavras, seres humanos conseguem abstrair as informações que enxergam com facilidade, enquanto os computadores não.
 
-%Antes de se chegar no estudo de inteligência artificial, já havia muitos questionamentos sobre como a mente, a inteligência funciona.
-%Surgiram perguntas sobre o processo de raciocínio, se pode ser replicado por aparelhos mecânicos, se pode ser modelado matematicamente.
-%Qual o papel das regras da lógica em sua operação, qual a influência das leis da física.
-%Por muito tempo, houve questionamentos de natureza filosófica sobre a inteligência, que acabaram por influenciar o estudo de sua versão artificial.
+Se computadores não conseguem mais identificar um objeto na tela por causa de um pixel que esteja diferente, como sistemas de detecção de imagem funcionam?
+%Essa é uma questão que avanços recentes em visão computacional, campo interdisciplinar que estuda a capacidade dos computadores de enxergarem imagens e vídeos, ajudou a resolver.
+Utilizando uma variante de rede neural profunda (\textit{deep neural network}) chamada \textbf{rede neural convolucional} (\textit{convolutional neural network} (CNN)), é possível fazer uma inteligência artificial abstrair essas informações e inferir que um objeto em diferentes lugares da tela, assumindo diferentes tamanhos, são o mesmo.
 
-%A transição dos questionamentos existentes para uma ciência formal requeriram formalização matemática em três áres fundamentais: lógica, computação, e probabilidade
-%  Desenvolvimento de jogos, ou \textit{game development}, é uma área de estudos interdisciplinar onde podemos aplicar conhecimentos de Arte, Música, \textit{Game Design} e, especialmente em jogos digitais, Ciência da Computação. Além disso, não é uma área na qual faltem desafios e problemas a serem solucionados. A produção de um jogo requer a aplicação direta de muitos conceitos e práticas ensinadas durante o curso em Ciência da Computação do Instituto de Matemática e Estatística da Universidade de São Paulo.
-%
-%  Em novembro de 2009 foi fundado o \textbf{UspGameDev}, o grupo extracurricular da Universidade de São Paulo dedicado a fazer a ponte entre interessados em jogos e estudantes da faculdade, em especial estudantes da computação. Aberto à toda comunidade \textit{Uspiana}, a \textit{UspGameDev} ou \textit{UGD} sempre ficou de portas abertas para qualquer aluno que desejasse aprender mais sobre desenvolvimento de \textit{games}, tendo a chance de se reunir com outras pessoas e produzir seus próprios jogos, sejam eles digitais ou analógicos.
-%
-%  Em 2013, no meu primeiro ano de faculdade, entrei na \textit{UGD} e, junto de um colega, fiz meu primeiro jogo virtual: \textit{PsyChObALL}, um \textit{top-down shooter psicodélico}. Foi o primeiro "grande" jogo que produzi durante a faculdade e isso me inspirou a continuar estudando na área de desenvolvimento de jogos, sempre conectado à \textit{UspGameDev}.
-%
-%  Foi com essa mentalidade que decidi, no meio da graduação e com início na matéria \textit{Atividade Curricular em Cultura e Extensão}, produzir um \textit{remake} (termo análogo a uma "refilmagem", aplicado a jogos) de \textit{PsyChObALL} chamado de \textit{PsyChO: The Ball}, combinando todo o conhecimento adquirido durante os anos de estudos em computação e \textit{design} de jogos.
-%
-%
 %% ---------------------------------------------------------------------------- %
-%\section{Motivação e Objetivos}
-%\label{sec:motivacao_objetivo}
-%
-%  O objetivo central desse trabalho final de formatura é aplicar todo o conhecimento aprendido durante a faculdade, focado na área de desenvolvimento de jogos (ou \textit{"game dev"}) e utilizar esse projeto como mais uma fonte de estudos e aprendizados. Neste sentido, me interessei em percorrer todas as etapas do desenvolvimento de um jogo digital.
-%
-%  Primeiramente é necessária a discussão de \textit{balanço} sobre o jogo original \textit{PsyChObALL}, analisando seus pontos positivos e negativos. A segunda etapa seria construir uma base sólida para rodar o jogo, utilizando meus conhecimentos para criar bibliotecas e um ambiente apropriado para sua construção. A terceira etapa seria o desenvolvimento do jogo em si, utilizando como referência o jogo original. Por último, seria a etapa de testar com usuários e receber \textit{feedback}, podendo assim voltar à etapa 3 de desenvolvimento do jogo, melhorando o que for necessário, assim repetindo o ciclo.
-%
-%  É esperado que depois de várias iterações, se chegue em um protótipo jogável de \textit{PsyChO: The Ball}, para que futuramente seja possível disponibilizar o jogo em alguma plataforma de distribuição de jogos digitais.
+\section{Motivação e Proposta}
+\label{sec:motivacao_proposta}
+
+Unindo o antigo interesse por jogos com o recente por inteligência artificial, surgiu a proposta deste trabalho de conclusão de curso.
+Aplicando os conhecimentos adquiridos na faculdade, em particular de computação e de aprendizado de máquina, o principal objetivo é criar uma inteligência artificial que aprende a jogar o jogo eletrônico \textit{Asteroids}.
+
+As ferramentas utilizadas, descritas na próxima seção, serão o Gym-Retro como interface, o Stella como emulador e a API do TensorFlow para a computação.
+As técnicas de aprendizado de máquina utilizadas, descritas no capítulo seguinte, serão \textbf{aprendizado por reforço} e \textbf{rede neural convolucional}, mais especificamente a união das duas, conhecida como \textit{\textbf{deep reinforcement learning}} ou \textit{\textbf{deep Q learning}}.
+
+Espera-se conseguir construir uma arquitetura de aprendizado que permita a inteligência artificial desenvolver um modelo capaz de jogar com um desempenho pelo menos próximo de um ser humano.
+Em caso negativo, tentar explicar o motivo de o computador ter um desempenho notavelmente pior.
+
+\section{Ferramentas}
+\label{sec:tools}
+Nesta seção, serão apresentadas as principais ferramentas utilizadas no desenvolvimento deste trabalho, uma breve descrição sobre elas e o motivo de suas escolhas.
+
+\subsection{\textit{Asteroids} - Atari2600}
+\label{asteroids}
+
+\textit{Asteroids} é um jogo de fliperama do gênero \textit{top down shooter} (jogo eletrônico de tiro visto de cima) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida como Atari.
+%O jogo foi inspirado em \textit{Spacewar!}, \textit{Computer Space}, \textit{Space Invaders}, e \textit{Cosmos}, sendo este último um jogo não finalizado, e teve diversas versões criadas ao longo dos anos.
+As principais diferenças entre as iterações de \textit{Asteroids} incluem a presença de naves espaciais inimigas que atiram contra o jogador, formatos e tamanhos diferentes dos asteróides e direção que os asteróides se movem.
+
+A versão de \textit{Asteroids} utilizada neste trabalho é a do Atari2600, emulada pelo emulador Stella.
+Nesta iteração, não existem naves espaciais inimigas, apenas asteróides que assumem três tamanhos distintos, sendo o maior deles o inicial, e três formatos diferentes, mas de aproximadamente mesma altura e largura.
+Quando um asteróide grande (tamanho inicial) é destruído, outros dois de tamanho médio aparecem no lugar; após um asteróide de tamanho médio ser destruído, um de tamanho pequeno aparece em seu lugar.
+Destruir um asteróide grande gera uma recompensa de 20 pontos, destruir um médio gera uma recompensa de 50, e um pequeno gera uma de 100 pontos.
+A principal forma de destruir um asteróide e ganhar ponto é atirando neles, mas isso também ocorre quando há colisão entre a nave e um alvo.
+Isso reduz a quantidade de vidas disponíveis e, portanto, não é um método recomendado, dado que diminui a quantidade total de pontos ganha no final do jogo.
+Os asteróides também têm uma velocidade horizontal e vertical fixa para cada um.
+A cada \textit{frame}, se movem 1 pixel na vertical e a cada aproximadamente 12 frames se movem um 1 pixel na horizontal, resultando em seus movimentos serem principalmente verticais.
+
+O jogador possui cinco ações para jogar: mover-se para frente, girar a nave no sentido horário, girar a nave no sentido anti-horário, mover-se no hiperespaço, e atirar para frente.
+Mover-se para frente e girar são as principais formas de movimento no jogo, enquanto atirar é a de destruir asteróides e ganhar pontos.
+Mover-se no hiperespaço consiste em fazer a nave desaparecer por alguns instantes e reaparecer em um local aleatório da tela, podendo ser inclusive em cima de asteróides.
+Portanto, é um movimento arriscado, mas útil para fugir de situações complicadas.
+O jogador tem quatro vidas inicialmente.
+
+A tela do jogo é uma matriz de tamanho 210x160 pixels com cada pixel tendo três números, que variam de 0 a 255 cada, e que determinam sua cor de acordo com a escala RGB, tendo acesso a uma paleta de 128 cores (é necessários que esses três números atinjam um certo valor para mudar a cor do pixel).
+No topo da tela, há dois números indicando a pontuação total até o momento e quantidade de vidas restantes.
+Desconsiderando a moldura da tela, o espaço em que o jogo ocorre é de 177x152 pixels.
+
+%\textit{Asteroids} é considerado um dos primeiros grandes sucessos da era de ouro dos jogos de fliperama, época em que os jogos eletrônicos começaram a se tornar comuns na cultura popular. 
+
+%------------------------%
+
+\subsection{Gym-Retro}
+\label{sec:gymretro}
+
+Gym-Retro é uma plataforma para pesquisa de aprendizado por reforços e generalização em jogos desenvolvida e mantida pela empresa de pesquisas em inteligência artificial OpenAI. Essa ferramenta auxilia na emulação de diversos consoles de jogos eletrônicos, como Sega Genesis, Nintendo Entertainment System (NES) e Atari2600. Para qualquer jogo que o usuário deseje emular, é necessário que ele tenha a ROM (\textit{Read Only Memory}) do jogo.
+
+O principal motivo de esta ferramenta ter sido escolhida é o suporte ao jogo \textit{Asteroids} e pela facilidade de seu uso.
+%------------------------%
+\subsection{TensorFlow}
+\label{sec:tensorflow}
+
+TensorFlow é um arcabouço de código aberto para computações numéricas de alta performance, desenvolvido e mantido pela Google.
+Seu núcleo de computação numérica flexível permite o uso da biblioteca em diversos campos cienctíficos.
+Oferece, em particular, grande suporte a aprendizado de máquina e aprendizado profundo, ou, como é mais conhecido, \textit{deep learning}.
+Esta ferramenta foi escolhida por oferecer uma API em Python estável, ter grande suporte, comunidade ativa, e ser de código aberto.
+
+%------------------------%
+
+\section{Proposta}
+\label{sec:proposta}
+
+A proposta do trabalho é criar uma arquitetura para que uma inteligência artificial seja capaz de aprender a jogar \textit{Asteroids} do Atari2600 tendo como entrada de dados apenas a tela do jogo, representada por uma matriz de pixels de 210x160 e 3 canais de cores.
+O emulador Stella e o Gym-Retro serão utilizados para emular o jogo e servir de interface com o jogo respectivamente.
+As técnicas de aprendizado de máquina utilizadas serão \textbf{aprendizado por reforço} e \textbf{rede neural convolucional}, em particular o \textbf{\textit{deep Q learning}}, que é a junção dessas duas.

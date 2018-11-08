@@ -1,0 +1,9 @@
+-As seções 2.1, 2.2, 2.3 e 3.1 estão descrevendo o que será feito no trabalho (e não são exatamente fundamentos teóricos). Elas ficariam melhor na introdução. Dessa forma, você poderia descrever os objetivos do trabalho com mais precisão (p. ex., implementar um jogador automático para o jogo Asteroids, usando o emulador Stella e a biblioteca tensorFlow, uma arquitetura de rede bla bla bla).
+
+- A discussão sobre IA (primeiro parágrafo da sec. 2.4) é desnecessária e foge um pouco ao assunto (desenvolver um jogador para Asteroids). Sugiro removê-la.
+
+- A seção sobre redes neurais 2.4.1 usa termos que sugerem um agente, quando não há o conceito de agentes nesse caso. Por exemplo, "No início, múltiplas saídas serão consideradas como boas respostas (alta probabilidade ou recompensa esperada)”; não sei se entendo o que você quer dizer aqui, mas não há alta probabilidade ou recompensa esperada aqui (não se trata de um agente em um domínio markoviano, apenas de uma função mapeando entrada e saída). Ou também: "a IA tem comportamento aleatório”; novamente, não há um agente, e a rede nunca tem um comportamento aleatório (dada que é apenas uma função). De forma geral você equaciona rede neural e IA; seria melhor apenas descrever uma rede neural como um aproximador de funções universal.
+
+- A equação 2.3 ou 2.5 só é interessante se você explicita a dependência do erro em relação aos pesos e viéses da rede. Seria melhor simplesmente dizer que você quer otimizar os pesos para dimunuir o erro quadrático ao invés de dizer que quer calcular para onde “a rede vai se mover”… Acho que também cabe notar que minimizar o erro no conjunto de treinamento não é por si só uma coisa desejável; o que queremos é minimizar o erro sobre o conjunto de todos os dados possíveis ou pelo menos àqueles que esperamos encontrar na prática.
+
+- Seria melhor deixar os resultados dos experimentos numa nova seção, por clareza.

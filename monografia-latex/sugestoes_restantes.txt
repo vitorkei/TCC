@@ -1,0 +1,21 @@
+de maneira geral está muito bom o texto. Acho que alguns itens estão organizados de maneira incomum, e algumas partes faltam uma descrição mais formal.
+
+- Seria legal ter um exemplo de tela do jogo na introdução, talvez anotado com asteróides, nave, etc.
+
+- A seção 2.4.3 carece de figuras e equações que explique o que e como a rede convolucional está computando.
+
+- A ideia de aprendizado por reforço é aproximar a política ótima em um MDP sem precisar conhecer a distribuição de probabilidade de transição, usando experiência com o ambiente. Se a distribuição é conhecida então pode-se estimar a melhor ação (ignorando problemas computacionais).
+
+- "Uma vez que a política é gulosa, o agente sempre tomará a ação que retorna a maior recompensa imediata.” A política gulosa é gulosa em relação à função Q; ela não escolhe a ação com maior recompensa imediata (isso seria maximizar R(s,a)). Acho que a questão que você colocar aqui é a diferença entre planejamento a longo ou curto prazo (sendo otimizar a recompensa imediata curtíssimo prazo). 
+
+- Faltou falar (e formalizar) epsilon-greedy policy quando você menciona Exploração  vs. Eploitação.
+
+- Approximate Q-Learning é qualquer método que aproxime a função Q por uma classe de funções, por exemplo funções lineares… dessa forma Deep Q -Learning é um tipo de approximate Q-Learning.
+
+- Acho que faria mais sentido ter uma sub-seção de Deep Q-Learning dentro ou depois da seção 2.4.7, explicando a ideia geral. Daí no capítulo 3 você pode explicar coisas mais específicas da sua implementação como o tipo de arquitetura escolhida (como/por que escolheu ela etc), algoritmos de otimização e inicialização de parâmetros, etc.
+
+- A eq 3.1 é um pouco confusa: se Q(S,A) no lado esquerdo e Q(S’,argmax …) no lado direito são redes distintas, então seria melhor usar nomes diferentes para as funções (p.ex., Q_1(S,A) = … + Q_2(S’,…)). De qualquer forma acho que a equação tem algo faltando, pois esses termos deveriam entrar na função de custo/erro das redes (não sei bem como nesse caso).
+
+- Acho que antes de começar a descrever a rede usada, é importante formalizar o MDP que modela o problema: dizer o que é S (conjunto de imagens 150x150 representando a intensidade dos pixels depois de bla bla bla), A (ações), R(S,A) e P(S,A,S’), essa última apenas dizendo o que seriam essas probabilidades (que serão implicitamente estimadas pelo algoritmo).
+
+Um comentário ortogonal ao texto: você diz que tentou outras arquiteturas e acabou usando a Double Deep Q-Learning com Dueling (que me parece bem sofisticada); você tentou fazer algo mais simples (uma única rede com entrada S e saídas Q(S,a) para cada ação a)?
