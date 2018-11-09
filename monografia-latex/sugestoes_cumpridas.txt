@@ -7,3 +7,5 @@
 - A equação 2.3 ou 2.5 só é interessante se você explicita a dependência do erro em relação aos pesos e viéses da rede. Seria melhor simplesmente dizer que você quer otimizar os pesos para dimunuir o erro quadrático ao invés de dizer que quer calcular para onde “a rede vai se mover”… Acho que também cabe notar que minimizar o erro no conjunto de treinamento não é por si só uma coisa desejável; o que queremos é minimizar o erro sobre o conjunto de todos os dados possíveis ou pelo menos àqueles que esperamos encontrar na prática.
 
 - Seria melhor deixar os resultados dos experimentos numa nova seção, por clareza.
+
+- Acho que faria mais sentido ter uma sub-seção de Deep Q-Learning dentro ou depois da seção 2.4.7, explicando a ideia geral. Daí no capítulo 3 você pode explicar coisas mais específicas da sua implementação como o tipo de arquitetura escolhida (como/por que escolheu ela etc), algoritmos de otimização e inicialização de parâmetros, etc.

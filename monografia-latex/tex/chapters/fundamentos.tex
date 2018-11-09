@@ -257,4 +257,43 @@ Como a ideia é o agente aprender enxergando a tela e tudo que ele vê são matr
 Ou seja, o primeiro passo é passar os \textit{frames} da tela do jogo por uma \textbf{rede neural convolucional}.
 Essa etapa funciona como descrito na seção sobre \hyperref[sec:cnn]{redes neurais convolucionais}: os \textit{frames} são a entrada, ocorre o processamento nas camadas ocultas e, na camada de saída, cada neurônio tem um valor.
 Contudo, calcular o erro é diferente.
-Como as imagens passadas não são rotuladas, a IA precisa encontrar outra forma de calcular o erro da saída da rede.
+Como as imagens passadas não são rotuladas e não é possível fazer isso manualmente, a IA precisa calcular o erro da saída da rede de outra forma.
+É nessa etapa que entra o \textbf{aprendizado por reforço}.
+Como explicado \hyperref[sec:rl]{anteriormente}, aprendizado por reforço aprende sem o uso de exemplos rotulados, mas precisa que as características que a IA deve aprender estejam bem definidas.
+Enquanto tais características são definidas pela rede, o cálculo do erro e otimização dos pesos é feito pela parte de aprendizado por reforço.
+
+%% ---------------------------------------------------------------------------- %
+
+\section{Aprimorando o aprendizado}
+\label{sec:enhance}
+
+\textit{Deep Q-Learning} é a base para o aprendizado da inteligência artificial deste trabalho.
+Porém, ao longo do tempo, foram descobertas outras técnicas que melhoram a aprendizagem do agente, seja acelerando ou evitando decisões nocivas.
+Nesta seção, serão apresentadas
+%três
+duas técnicas que ajudam a estabilizar e acelerar o aprendizado do programa:
+\textit{\textbf{experience replay}}
+%, alvo fixo
+e \textit{\textbf{double} deep Q learning}.
+
+\subsection{\textit{Experience Replay}}
+\label{sec:er}
+
+Por conta da forma como \textit{Deep Q-Learning} funciona, se a rede aprendesse com os \textit{frames} conforme o agente os vê, a entrada seria composta de estados sequenciais.
+Isso significa que ela se atualizaria apenas com as experiências passadas mais próximas, "esquecendo"{} as mais antigas.
+Para contornar esse problema, utiliza-se um \textit{buffer} que armazena experiências anteriores e, a cada ação feita, ao invés de passar a transição de estados resultado dessa ação, passa-se uma amostra de experiências escolhidas aleatoriamente desse \textit{buffer} para a rede ser atualizada.
+Utilizar \textit{experience replay} também ajuda o agente a tomar ações diferentes ao invés de se prender a algumas que tiveram sucesso no passado próximo e que, possivelmente, não serão tão úteis no futuro.
+
+%\subsection{Alvo fixo}
+%\label{sec:tn}
+%
+%Um problema ocorrido na hora de se estimar o Q-valor das ações é que 
+
+\subsection{\textit{Double Deep Q-Learning}}
+\label{sec:ddql}
+
+O nome \textit{Double Deep Q-Learning} vem do fato de utilizar duas redes neurais: uma rede "alvo"{} e uma que seleciona a melhor ação para o próximo estado.
+A precisão do Q-valor depende de quais ações $A$ foram tomadas e quais estados vizinhos $S'$ foram explorados para um dado estado $S$.
+No início do aprendizado, não se tem informação suficiente sobre qual a melhor ação a ser tomada, o que significa que a que tiver maior Q-valor provavelmente não será a ação ótima.
+
+
