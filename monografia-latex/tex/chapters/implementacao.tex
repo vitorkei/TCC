@@ -1,3 +1,7 @@
+% labels:
+% cap:implementacao
+% 
+
 \externaldocument{fundamentos}
 
 %% ---------------------------------------------------------------------------- %
@@ -5,111 +9,34 @@
 \label{cap:implementacao}
 %% ---------------------------------------------------------------------------- %
 
-No capítulo anterior, \hyperref[cap:fundamentos]{Fundamentos}, foram apresentados os dois principais conceitos para o desenvolvimento deste trabalho: \textbf{redes neurais convolucionais} e \textbf{\textit{approximate Q-learning}}.
-Para a construção da inteligência artificial que jogará o jogo \textit{Asteroids}, cada uma dessas técnicas de aprendizado possui vantagens e desvantagens.
-\textbf{CNNs} são capazes de aprender características dos exemplos dados, mas eles precisam estar rotulados para isso.
-Uma vez que os exemplos fornecidos para o aprendizado seriam os \textit{frames} do jogo, fornecer exemplos rotulados é uma tarefa impossível, não só por haver um número incontável de estados possíveis, como não haver uma ação correta ou melhor na maioria deles.
-\textbf{\textit{Approximate Q-learning}}, por outro lado, aprende sem a necessidade de exemplos rotulados, mas precisa que as características que a IA deve aprender tenham sido bem definidas pelo desenvolvedor.
-Apesar de ser mais factível do que resolver o problema que a CNN enfrenta, não há garantias de que todas as características relevantes tenham sido codificadas e nem que foram bem definidas, o que limitaria a versatilidade e o aprendizado do agente.
-
-Portanto, a solução adotada foi unir as duas técnicas: enquanto a parte de CNN se encarrega de identificar e aprender as características relevantes, a parte de aprendizado por reforço se preocupa em aprender quais as melhores ações para se tomar em cada momento.
-O resultado dessa união é uma técnica chamada de \textbf{\textit{Deep Q-Learning}} ou \textbf{\textit{Deep reinforcement learning}}.
 %[1]https://papers.nips.cc/paper/3964-double-q-learning
 %[2]https://arxiv.org/pdf/1511.06581.pdf
-Além disso, duas técnicas adicionais são utilizadas para melhorar o aprendizado da inteligência artificial: \textit{\textbf{double} deep reinforcement learning}[1] e \textit{\textbf{dueling} deep reinforcement learning}[2], sendo o resultado chamado de \textit{\textbf{Double Dueling Deep Reinforcement Learning}} ou \textit{\textbf{Double Dueling Deep Q-Learning}}.
 
-\section{Arquitetura}
-\label{sec:arq}
+É conveniente formalizar o \hyperref[sec:mdp]{MDP} que modela o problema antes de apresentar a arquitetura utilizada.
+Os estados $S$ são os \textit{frames} do jogo que tem 210x160 pixels, cada um com três canais que determinam sua cor e intensidade;
+as ações possíveis $A$ são mover-se para frente, girar no sentido horário, girar no sentido anti-horário, mover-se no híper-espaço (se teletransportar para algum lugar aleatório da tela), e atirar para frente;
+as recompensas $R(S,A)$ são de 20 pontos por destruir um asteróide grande, 50 pontos por destruir um médio e 100 pontos por destruir um pequeno, podendo ser obtidas tanto atirando neles quanto colidindo, não havendo recompensa negativa (penalidade) por perda de vidas;
+%e as probabilidade de transição $P(S,A,S')$
 
-%O treinamento da inteligência artificial deste trabalho foi separado em alguns passos distintos.
+Agora, será descrito como foi feita a implementação da inteligência artificial.
 
-Agora que as técnicas utilizadas para o treinamento e detalhes do ambiente foram apresentados, falta descrever a arquitetura da rede e detalhes do treinamento.
+Todos os \textit{frames}, antes de serem utilizados, são convertidos para uma escala de cinza, redimensionados para o tamanho 110x84 pixels e tem 12 linhas do topo e 3 linhas do fundo removidas.
+Dessa forma, a IA não precisa se preocupar com cores e processa menos pixels, mas ainda mantendo as informações mais relevantes.
+Em seguida, os últimos quatro \textit{frames} passados pelo jogo são inseridos, por ordem de chegada, em uma fila de tamanho quatro.
+A ideia é eles passarem uma sensação de movimento de forma que o agente entenda a direção e velocidade dos objetos na tela.
 
-Antes de um \textit{frame} ser analisado pela IA, suas cores são convertidas para escalas de cinza.
-Em seguida, a moldura da tela do jogo é removida, ficando visível apenas a área de jogo por onde a nave e os asteroides transitam.
-Os \textit{frames} são então redimensionados para o tamanho 84x84 pixels.
+O primeiro passo para o aprendizado foi preencher a \hyperref[sec:er]{memória} com 50000 experiências (jogar por 50000 \textit{frames} tomando apenas ações aleatórias) para que o agente pudesse utilizar \textit{experience replay} desde o início.
 
-A última etapa do pré-processamento consiste em inserir os \textit{frames} em filas de tamanho quatro, com o mais antigo ficando no começo e o mais novo no final. Isso serve para que a IA tenha noção de movimento.
-Por exemplo, se ela vir uma imagem estática, não saberá para onde a nave e os asteróides estão se movendo e com que velocidade.
-Se vir quatro \textit{frames} em seguida, conseguirá inferir essas informações.
-A cada vez que a IA vê um novo \textit{frame}, o mais antigo é descartado e o novo é inserido no final.
+Em seguida, o agente treinou por 5000 episódios, com cada \textit{frame} passando pela rede convolucional.
+A CNN possui duas camadas de convolução 2D, com a primeira tendo 16 filtros de tamanho 8 e tamanho de passo 4, e a segunda com 32 filtros de tamanho 4 e tamanho de passo 2.
+Ambas utilizam o inicializador de He. % https://arxiv.org/pdf/1502.01852v1.pdf
+Após cada camada de convolução, há uma camada de função de ativação ELU (\textit{exponential linear unit}).
+Por fim, há uma camada \textit{fully-connected} cuja saída possui 5 nós, um para cada ação possível, e o inicializador de Xavier para os pesos.
+O cálculo de erro da saída da rede é feito pela função de perda de Huber (\textit{Huber loss}), que é minimizado pela função otimizadora RMSprop com taxa de aprendizado 0.00025, taxa de decaimento 05 e epsilon 01.
 
-Após esse pré processamento, os \textit{frames} são passados para a rede neural convolucional.
-Ela possui duas camadas de convolução, com a primeira tendo 24 filtros de tamanho 12x12 e passo de tamanho 6, e a segunda tendo 48 filtros de tamanho 6x6 e passo de tamanho 3.
-Por fim, a rede possui duas camadas \textit{fully-connected}.
-Em todas as camadas, é utilizada a função de ativação ELU.
-Em seguida, calcula-se o erro quadrático médio das saídas para avaliar o desempenho da IA para o exemplo dado.
-Como explicitado anteriormente, não é possível dizer qual a melhor ação a se tomar em cada \textit{frame} do jogo e, portanto, não seria possível calcular o erro da rede.
-Para contornar esse problema, a diferença é feita entre o Q-valor desejado
-%(parte $R(S,A,S') + \gamma\max_{A'}Q^{*}(S',A)$ da fórmula \ref{eq:qfunction})
-e o Q-valor previsto para a saída da rede neural.
+As escolhas feitas ao longo do treinamento seguem a política \hyperref[eq:exp_exp_prob]{\textit{epsilon-greedy}}, com $P_{ini} = 1.0$, $P_{min} = 0.1$ e $decay = 0.00001$, os \textit{mini-batches} têm tamanho 32 e a \hyperref[sec:ft]{rede alvo} é atualizada a cada 10000 passos.
 
-Entretanto, ainda há um problema a ser resolvido: qual a garantia de que a melhor ação para o próximo estado é a ação com o maior Q-valor?
-No início do treinamento, quando há poucos espaços explorados e poucas ações tomadas em cada um deles, o Q-valor é impreciso e tomar as ações com os maiores Q-valor ao invés da ação ótima dificulta o aprendizado.
-A solução adotada é utilizar duas redes neurais (portanto, \textit{\textbf{Double} Deep Q-learning}), uma que seleciona a melhor ação para o próximo estado ($\argmax_{A'}Q(S',A')$), chamada de DQN (\textit{Deep Q Network}) e outra que calcula o Q-valor utilizando a ação escolhida pela DQN ($Q(S', \argmax_{A'}Q(S',A'))$), chamada de rede alvo (\textit{target network}) neste trabalho. Dessa forma, a escolha da ação é feita separadamente do cálculo do Q-valor, tornando o treinamento mais rápido e estável.
+Terminado o treinamento, a IA terá feito um modelo que será usado para jogar o jogo.
+Mesmo assim, o agente tomará uma decisão aleatória com probabilidade de $0.1%$ enquanto estiver jogando.
 
-Seja $R(S,A,S')$ a recompensa de se tomar a ação $A$ no estado $S$ que leva para o estado $S'$ e $\gamma$ a taxa de desconto, o cálculo do Q-valor pela técnica \textit{double deep Q-learning} é dado por
-
-\begin{equation} \label{eq:doubledqn}
-Q(S,A) = R(S,A,S') + \gamma Q(S', \argmax_{A'}(S',A'))
-\end{equation}
-
-\textit{\textbf{Dueling} Deep Q-learning} lida com outro problema que o agente pode enfrentar:
-em uma \textit{deep Q network} normal, calcula-se o valor de cada ação em um dado estado, mas e se o estado for ruim, se, por exemplo, todas as ações levarem a morte do agente?
-Quando a ação tomada não afeta o ambiente de forma relevante e também não importa para o estado que o agente se encontra, é mais pratico não calcular o valor de cada ação nesse estado.
-Isso pode ser feito calculando separadamente os valores da recompensa de se estar em um dado estado, representada por $V(s)$, e a vantagem de se tomar uma ação $a$ no estado dado, representada por $A(s,a)$.
-Após esses dois valores serem estimados, utiliza-se uma camada para juntar os dois valores de forma que possam ser devidamente utilizados pela rede neural.
-Contudo, se a junção for feita apenas fazendo $Q(S, A;\theta, \alpha, \beta) = V(S; \theta, \beta) + A(S, A; \theta, \alpha)$, sendo $\theta$ o parâmetro das camads convolucionais e $\alpha$ e $\beta$ os parâmetros das vantagens e do valor do estado respectivamente, torna-se impossível obter qualquer um dos dois valores a partir de $Q$, o que é ruim ao fazer \textit{back propagation}.
-Essa junção é feita subtraindo a média da vantagem de todas as ações possíveis no estado em questão:
-
-\begin{equation} \label{eq:duelingdqn}
-Q(S,A;\theta,\alpha,\beta) = V(S;\theta,\beta) + (A(S,A;\theta,\alpha) - \frac{1}{\mathcal{A}}\sum_{A'}A(S,A;\theta,\alpha)), \text{ $\mathcal{A}$ = número de ações possíveis}
-\end{equation}
-
-\begin{table}
-\centering
-\begin{tabular}{| p{7cm} | p{7cm} |}
-  \hline
-  \textbf{Hiper-parâmetro} & \textbf{Valor} \\ \hline
-  Dimensões dos \textit{frames} passados para a rede & 150x150 pixels \\ \hline
-  Número de \textit{frames} enfileirados & 4 \textit{frames} \\ \hline
-  Primeira camada de convolução & 24 filtros de 12x12 pixels \\ \hline
-  Segunda camada de convolução & 48 filtros de 6x6 pixels \\ \hline
-  Número de episódios & 30 episódios \\ \hline
-  Número máximo de ações por episódio & 100 000 ações \\ \hline
-  Tamanho do \textit{mini-batch} & 32 \\ \hline
-  Probabilidade de exploração inicial & 1.0 \\ \hline
-  Probabilidade mínima de exploração & 0.1 \\ \hline
-  Taxa de aprendizado $\alpha$ & 0.000025 \\ \hline
-  Taxa de desconto $\gamma$ & 0.7 \\ \hline
-  Tamanho da memória & 1 000 000 experiências \\ \hline
-  Penalidade por morte & -500 pontos \\ \hline
-\end{tabular}
-\caption{Resumo da arquitetura da inteligência artificial}
-\label{table:2}
-\end{table}
-
-Esta arquitetura permite que se calcule o valor de um estado sem calcular o Q-valor de cada ação desse estado, o que acelera o treinamento.
-
-O treinamento teve 30 episódios, \textit{mini-batches} de tamanho 32, probabilidade de exploração inicial 1.0 que decai até um mínimo de 0.1, taxa de aprendizado $\alpha$ igual a 0.000025, e taxa de desconto $\gamma$ igual a 0.7. O agente também recebe uma penalidade de -500 pontos a cada vida perdida.
-
-Por fim, a IA utiliza uma técnica chamada de \textit{experience replay} para melhorar o aprendizado. Ela consiste em ter uma memória que guarda experiências passadas (tuplas ($S$, $A$, $S'$ e $R$)) e utilizá-las aleatóriamente ao longo do treinamento.
-Primeiro, o agente jogará o jogo uma determinada quantidade de vezes tomando apenas ações aleatórias e armazenando as experiências na memória.
-Depois, quando estiver aprendendo, ao invés de passar o Q-valor desejado para o cálculo do erro da ação, a IA passa uma experiência passada.
-Como o ambiente é um processo de decisão Markoviano, cada ação afeta o próximo estado. Portanto, sequências de experiências estão altamente correlacionadas. Se o agente não ajustar os pesos da rede com experiências passadas, ele passará a agir apenas de acordo com o que acabou de fazer, esquecendo o que aprendeu no passado.
-A principal vantagem de utilizar \textit{experience replay} é evitar esse esquecimento.
-
-A tabela \ref{table:2} resume a arquitetura da IA:
-
-Por fim, a inteligência artificial utiliza o modelo construído durante o treinamento para tentar jogar sozinha. Nesta etapa, não existe aleatoriedade: se a IA jogar sempre as mesmas fases nas mesmas ordens, as ações, e por consequência, a pontuação serão sempre as mesmas.
-
-%\section{Resultados}
-%\label{sec:res}
-%
-%Desde o início da construção da arquitetura da inteligência artificial, diversas alterações foram feitas: mudanças nos hiperparâmetros, no número de camadas de convolução, função de ativação escolhida e técnicas para acelerar aprendizado (\textit{double} e \textit{dueling} descritos acima).
-%O melhor resultado obtido foi utilizando os hiperparâmetro descritos \hyperref[table:2]{acima}.
-%Jogando sem muito compromisso, consegui 3570 pontos antes de perder todas as vidas e, esforçando-me para obter uma pontuação alta, cheguei em 25130 pontos.
-%Logo, o desempenho da IA está bem abaixo do desejado.
-
-
-%Após inúmeras tentativas e erros para se chegar na arquitetura descrita \hyperref[table:2]{acima}, o melhor resultado foi de.
+A arquitetura também foi testada com o jogo Pong do Atari2600.

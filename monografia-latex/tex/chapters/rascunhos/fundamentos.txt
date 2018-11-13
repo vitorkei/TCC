@@ -183,6 +183,39 @@ CNN
 
 % ---------------------------------------------------------------------------- %
 
+Processo de Decisão de Markov
+
+%Entretanto, essas fórmulas são aplicáveis somente quando as funções de reforço $R$ e de probabilidade de transição $P$ são conhecidas, que não é o caso do jogo \textit{Asteroids}.
+
+%Para lidar com esse problema, foi adotado o uso de \textit{\textbf{Q-learning}}.
+
+% ---------------------------------------------------------------------------- %
+
 Aprendizado por reforço
 
 %Aprendizado por reforço (\textit{reinforcement learning}) é uma técnica de aprendizado de inteligência artificial e uma das bases da utilizada neste trabalho.
+
+%Quando não é possível fazer o mapeamento das ações para cada estado do espaço de estados em que o agente se encotra, a solução adotada é fazer a IA que aprenda \textbf{características} do ambiente.
+
+%Aprendizado por reforço, diferente do supervisionado, não recebe exemplos com rótulos que dizem qual a resposta esperada como entrada.
+
+%Ao invés disso, a IA, normalmente chamada de agente, interage com um ambiente e recebe recompensas positivas ou negativas por suas ações.
+
+%Seu objetivo costuma ser tomar a ação com maior recompensa esperada para cada estado - ou seja, tomar a ação que acredite ser a melhor em cada instante.
+
+%Para domínios mais simples, como Jogo da velha, é possível determinar qual a ação com maior recompensa esperada para cada estado, a ação com maior probabilidade de vitória, por meio de uma árvore de decisão.
+
+%Conforme o domínio se torna mais complexo, fazer esse mapeamento se torna inviável por conta da quantidade de estados que precisariam ser armazenado, como é o caso do jogo \textit{Asteroids}.
+
+%Para se ter uma noção, um pixel que esteja diferente já é considerado um estado novo para o agente.
+
+%Além disso, é comum haver situações em que não é possível determinar qual ação retornará a maior recompensa.
+
+%Nesses casos, é mais viável criar e treinar um agente que aprenda a se comportar no ambiente em que está inserido do que informar se cada uma de suas ações em cada um dos estados possíveis é boa ou ruim.
+
+%Essa abordagem é conhecida como \textbf{Processo de Decisão de Markov} (\textit{Markov Decision Process} (MDP)) para ambientes desconhecidos.
+
+
+% ---------------------------------------------------------------------------- %
+
+

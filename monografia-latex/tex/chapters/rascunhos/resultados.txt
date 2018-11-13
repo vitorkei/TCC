@@ -1,0 +1,11 @@
+%
+%%\section{Resultados}
+%%\label{sec:res}
+%%
+%%Desde o início da construção da arquitetura da inteligência artificial, diversas alterações foram feitas: mudanças nos hiperparâmetros, no número de camadas de convolução, função de ativação escolhida e técnicas para acelerar aprendizado (\textit{double} e \textit{dueling} descritos acima).
+%%O melhor resultado obtido foi utilizando os hiperparâmetro descritos \hyperref[table:2]{acima}.
+%Jogando sem muito compromisso, consegui 3570 pontos antes de perder todas as vidas e, esforçando-me para obter uma pontuação alta, cheguei em 25130 pontos.
+%Logo, o desempenho da IA está bem abaixo do desejado.
+
+
+%Após inúmeras tentativas e erros para se chegar na arquitetura descrita \hyperref[table:2]{acima}, o melhor resultado foi de.

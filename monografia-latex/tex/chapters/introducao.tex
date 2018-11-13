@@ -1,3 +1,12 @@
+% labels:
+% cap:introducao
+% sec:motivacao_proposta
+% sec:tools
+% sec:asteroids
+% sec:gymretro
+% sec:tensorflow
+% sec:proposta
+
 %% ---------------------------------------------------------------------------- %
 \chapter{Introdução}
 \label{cap:introducao}
@@ -41,20 +50,33 @@ Em caso negativo, tentar explicar o motivo de o computador ter um desempenho not
 Nesta seção, serão apresentadas as principais ferramentas utilizadas no desenvolvimento deste trabalho, uma breve descrição sobre elas e o motivo de suas escolhas.
 
 \subsection{\textit{Asteroids} - Atari2600}
-\label{asteroids}
+\label{sec:asteroids}
 
 \textit{Asteroids} é um jogo de fliperama do gênero \textit{top down shooter} (jogo eletrônico de tiro visto de cima) lançado em novembro de 1979 pela então desenvolvedora de jogos eletrônicos Atari Inc, atualmente conhecida como Atari.
 %O jogo foi inspirado em \textit{Spacewar!}, \textit{Computer Space}, \textit{Space Invaders}, e \textit{Cosmos}, sendo este último um jogo não finalizado, e teve diversas versões criadas ao longo dos anos.
 As principais diferenças entre as iterações de \textit{Asteroids} incluem a presença de naves espaciais inimigas que atiram contra o jogador, formatos e tamanhos diferentes dos asteróides e direção que os asteróides se movem.
 
 A versão de \textit{Asteroids} utilizada neste trabalho é a do Atari2600, emulada pelo emulador Stella.
-Nesta iteração, não existem naves espaciais inimigas, apenas asteróides que assumem três tamanhos distintos, sendo o maior deles o inicial, e três formatos diferentes, mas de aproximadamente mesma altura e largura.
+Nesta iteração, não existem naves espaciais inimigas, apenas asteróides que assumem três tamanhos distintos, sendo o maior deles o inicial, e três formatos diferentes, mas de aproximadamente mesma altura e largura, e cores diferentes.
 Quando um asteróide grande (tamanho inicial) é destruído, outros dois de tamanho médio aparecem no lugar; após um asteróide de tamanho médio ser destruído, um de tamanho pequeno aparece em seu lugar.
 Destruir um asteróide grande gera uma recompensa de 20 pontos, destruir um médio gera uma recompensa de 50, e um pequeno gera uma de 100 pontos.
 A principal forma de destruir um asteróide e ganhar ponto é atirando neles, mas isso também ocorre quando há colisão entre a nave e um alvo.
 Isso reduz a quantidade de vidas disponíveis e, portanto, não é um método recomendado, dado que diminui a quantidade total de pontos ganha no final do jogo.
 Os asteróides também têm uma velocidade horizontal e vertical fixa para cada um.
 A cada \textit{frame}, se movem 1 pixel na vertical e a cada aproximadamente 12 frames se movem um 1 pixel na horizontal, resultando em seus movimentos serem principalmente verticais.
+
+\begin{figure}[h!]
+  \begin{minipage}[b]{.5\textwidth}
+  \centering
+  \includegraphics[scale=1.41]{asteroids_example01}
+  \caption{Exemplo de tela do jogo. O números no topo da tela são pontuação e quantidade de vidas respectivamente. A nave, no centro, está atirando. Asteróides espalhados pela tela.}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{.5\textwidth}
+  \includegraphics[scale=1.41]{asteroids_example02}
+  \caption{Exemplo de tela do jogo. A nave acaba de destruir um asteróide de menor tamanho e está recebendo uma recompensa de 100 pontos por isso. Asteróides podem ter diversas cores.}
+  \end{minipage}
+\end{figure}
 
 O jogador possui cinco ações para jogar: mover-se para frente, girar a nave no sentido horário, girar a nave no sentido anti-horário, mover-se no hiperespaço, e atirar para frente.
 Mover-se para frente e girar são as principais formas de movimento no jogo, enquanto atirar é a de destruir asteróides e ganhar pontos.
