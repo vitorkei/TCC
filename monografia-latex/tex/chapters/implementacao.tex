@@ -14,29 +14,69 @@
 
 É conveniente formalizar o \hyperref[sec:mdp]{MDP} que modela o problema antes de apresentar a arquitetura utilizada.
 Os estados $S$ são os \textit{frames} do jogo que tem 210x160 pixels, cada um com três canais que determinam sua cor e intensidade;
-as ações possíveis $A$ são mover-se para frente, girar no sentido horário, girar no sentido anti-horário, mover-se no híper-espaço (se teletransportar para algum lugar aleatório da tela), e atirar para frente;
-as recompensas $R(S,A)$ são de 20 pontos por destruir um asteróide grande, 50 pontos por destruir um médio e 100 pontos por destruir um pequeno, podendo ser obtidas tanto atirando neles quanto colidindo, não havendo recompensa negativa (penalidade) por perda de vidas;
-%e as probabilidade de transição $P(S,A,S')$
+as ações possíveis $A$ são mover-se para frente, girar no sentido horário, girar no sentido anti-horário, mover-se no híper-espaço (se teletransportar para algum lugar aleatório da tela), e atirar para frente.
+As recompensas $R(S,A)$ são de 20 pontos por destruir um asteróide grande, 50 pontos por destruir um médio e 100 pontos por destruir um pequeno, podendo ser obtidas tanto atirando neles quanto colidindo, não havendo recompensa negativa (penalidade) por perda de vidas.
+E as probabilidades de transição $P(S,A,S')$ são as probabilidades de o jogo estar em um estado $S$, por exemplo o inicial em que o jogador tem zero pontos e todas as vidas, e transitar para algum outro estado futuro $S'$, como destruir algum asteroide e receber pontos por isso, após tomar uma ação $A$, como atirar para frente.
+\textit{Asteroids} é um jogo determinístico no sentido que não existe aleatoriedade na consequência das ações do jogador: se ele fizer um disparo, o tiro seguirá reto durante um certo tempo atpe desaparecer ou atingir um asteroide; cada tamanho de asteroide sempre aumenta a pontuação do jogador pela mesma quantidade quando destruído; e etc.
+Os fatores mais próximos de aleatoriedade existentes no jogo são o jogador ignorar, desconhecer, abstrair e/ou não perceber partes do jogo, como a posição dos asteróides.
 
-Agora, será descrito como foi feita a implementação da inteligência artificial.
+%Agora, será descrito como foi feita a implementação da inteligência artificial.
 
-Todos os \textit{frames}, antes de serem utilizados, são convertidos para uma escala de cinza, redimensionados para o tamanho 110x84 pixels e tem 12 linhas do topo e 3 linhas do fundo removidas.
-Dessa forma, a IA não precisa se preocupar com cores e processa menos pixels, mas ainda mantendo as informações mais relevantes.
-Em seguida, os últimos quatro \textit{frames} passados pelo jogo são inseridos, por ordem de chegada, em uma fila de tamanho quatro.
-A ideia é eles passarem uma sensação de movimento de forma que o agente entenda a direção e velocidade dos objetos na tela.
+\section{Arquitetura}
+\label{sec:arq}
 
-O primeiro passo para o aprendizado foi preencher a \hyperref[sec:er]{memória} com 50000 experiências (jogar por 50000 \textit{frames} tomando apenas ações aleatórias) para que o agente pudesse utilizar \textit{experience replay} desde o início.
+Antes de os \textit{frames} serem passados para a CNN, eles passaram por uma etapa de pré-processamento para reduzir o tempo de processamento.
+Primeiro, os \textit{frames} foram convertidos para escala de cinza, removendo a necessidade de entender o que cores diferentes significam.
+Em seguida, a moldura da tela do jogo, partes que não agregam informação para a IA conseguir jogar, como pontuação, quantidade de vida e espaços sem nada, foram removidos.
+Depois, o que sobrou da tela foi redimensionad para 60x60 pixels.
+Por último, os últimos quatro \textit{frames} vistos são inseridos em uma fila de forma que o agente consiga captar o movimento dos objetos na tela do jogo.
 
-Em seguida, o agente treinou por 5000 episódios, com cada \textit{frame} passando pela rede convolucional.
-A CNN possui duas camadas de convolução 2D, com a primeira tendo 16 filtros de tamanho 8 e tamanho de passo 4, e a segunda com 32 filtros de tamanho 4 e tamanho de passo 2.
-Ambas utilizam o inicializador de He. % https://arxiv.org/pdf/1502.01852v1.pdf
-Após cada camada de convolução, há uma camada de função de ativação ELU (\textit{exponential linear unit}).
-Por fim, há uma camada \textit{fully-connected} cuja saída possui 5 nós, um para cada ação possível, e o inicializador de Xavier para os pesos.
-O cálculo de erro da saída da rede é feito pela função de perda de Huber (\textit{Huber loss}), que é minimizado pela função otimizadora RMSprop com taxa de aprendizado 0.00025, taxa de decaimento 05 e epsilon 01.
+Esses quatro \textit{frames} enfileirados são enviados juntos para a rede neural como entrada.
+A primeira camada de convolução tem 12 filtros de tamanho 4x4 e passo 2, a segunda tem 24 filtros de tamanho 2x2 de passo 1.
+Ambas utilizam o inicializador de Xavier e a função ELU (\textit{exponential linear unit}) para ativação.
+Depois disso, há uma camada \textit{fully-connected} com 5 nós de saída, um para cada \hyperref[sec:asteroids]{ação válida}.
 
-As escolhas feitas ao longo do treinamento seguem a política \hyperref[eq:exp_exp_prob]{\textit{epsilon-greedy}}, com $P_{ini} = 1.0$, $P_{min} = 0.1$ e $decay = 0.00001$, os \textit{mini-batches} têm tamanho 32 e a \hyperref[sec:ft]{rede alvo} é atualizada a cada 10000 passos.
+Após a CNN soltar a ação escolhida, o cálculo de erro é feito pela função \textit{Huber loss} e a otimização dos pesos é feita pelo \textit{RMSProp}.
 
-Terminado o treinamento, a IA terá feito um modelo que será usado para jogar o jogo.
-Mesmo assim, o agente tomará uma decisão aleatória com probabilidade de $0.1%$ enquanto estiver jogando.
+Função de cálculo de erro \textit{Huber loss} sendo $a$ a diferença entre o valor previsto e o observado:
+\begin{equation} \label{eq:huber}
+L_{\delta}(a) = 
+\begin{cases}
+\frac{1}{2}a^{2} & \text{para } |a| \leq \delta,\\
+\delta(|a| - \frac{1}{2}\delta), & \text{c.c.}
+\end{cases}
+\end{equation}
 
-A arquitetura também foi testada com o jogo Pong do Atari2600.
+% colocar fórmula do RMSProp?
+
+O \textit{RMSProp} utilizou taxa de aprendizado de $0.1$ e \textit{momentum} $0.1$.
+Foram 30 episódios de treinamento, cada um com limite 10000 ações antes de o episódio ser terminado automaticamente pelo código, \textit{mini-batches} de tamanho 100, taxa de desconto $\gamma 0.9$, \textit{buffer} de \hyperref[sec:er]{memória} de tamanho 1000 que foi preenchido com 700 ações aleatórias antes do treinamento começar.
+
+O dilema \hyperref[eq:exp_exp_prob]{\textit{exploration versus exploitation}} utilizou $P_{ini} = 0.9$, $P_{min} = 0.1$ e $decay = 20000$.
+
+A \hyperref[sec:fx]{rede alvo} foi atualizada a cada 10000 ações tomadas.
+
+%Todos os \textit{frames}, antes de serem utilizados, são convertidos para uma escala de cinza, redimensionados para o tamanho 110x84 pixels e tem 12 linhas do topo e 3 linhas do fundo removidas.
+%Dessa forma, a IA não precisa se preocupar com cores e processa menos pixels, mas ainda mantendo as informações mais relevantes.
+%Em seguida, os últimos quatro \textit{frames} passados pelo jogo são inseridos, por ordem de chegada, em uma fila de tamanho quatro.
+%A ideia é eles passarem uma sensação de movimento de forma que o agente entenda a direção e velocidade dos objetos na tela.
+%
+%O primeiro passo para o aprendizado foi preencher a \hyperref[sec:er]{memória} com 50000 experiências (jogar por 50000 \textit{frames} tomando apenas ações aleatórias) para que o agente pudesse utilizar \textit{experience replay} desde o início.
+%
+%Em seguida, o agente treinou por 5000 episódios, com cada \textit{frame} passando pela rede convolucional.
+%A CNN possui duas camadas de convolução 2D, com a primeira tendo 16 filtros de tamanho 8 e tamanho de passo 4, e a segunda com 32 filtros de tamanho 4 e tamanho de passo 2.
+%Ambas utilizam o inicializador de He. % https://arxiv.org/pdf/1502.01852v1.pdf
+%Após cada camada de convolução, há uma camada de função de ativação ELU (\textit{exponential linear unit}).
+%Por fim, há uma camada \textit{fully-connected} cuja saída possui 5 nós, um para cada ação possível, e o inicializador de Xavier para os pesos.
+%O cálculo de erro da saída da rede é feito pela função de perda de Huber (\textit{Huber loss}), que é minimizado pela função otimizadora RMSprop com taxa de aprendizado 0.00025, taxa de decaimento 05 e epsilon 01.
+%
+%As escolhas feitas ao longo do treinamento seguem a política \hyperref[eq:exp_exp_prob]{\textit{epsilon-greedy}}, com $P_{ini} = 1.0$, $P_{min} = 0.1$ e $decay = 0.00001$, os \textit{mini-batches} têm tamanho 32 e a \hyperref[sec:ft]{rede alvo} é atualizada a cada 10000 passos.
+%
+%Terminado o treinamento, a IA terá feito um modelo que será usado para jogar o jogo.
+%Mesmo assim, o agente tomará uma decisão aleatória com probabilidade de $0.1%$ enquanto estiver jogando.
+
+\section{Experimentos}
+\label{sec:experiments}
+
+A arquitetura começou mais simples em problemas também mais simples: o \textit{Gridworld} sem armadilhas.
+O objetivo começou próximo e foi afastado aos poucos conforme a arquitetura foi se tornando mais complexa para acompanhar.

@@ -27,3 +27,5 @@ Um comentário ortogonal ao texto: você diz que tentou outras arquiteturas e ac
 - Acho que antes de começar a descrever a rede usada, é importante formalizar o MDP que modela o problema: dizer o que é S (conjunto de imagens 150x150 representando a intensidade dos pixels depois de bla bla bla), A (ações), R(S,A) e (...)
 
 - A eq 3.1 é um pouco confusa: se Q(S,A) no lado esquerdo e Q(S’,argmax …) no lado direito são redes distintas, então seria melhor usar nomes diferentes para as funções (p.ex., Q_1(S,A) = … + Q_2(S’,…)). De qualquer forma acho que a equação tem algo faltando, pois esses termos deveriam entrar na função de custo/erro das redes (não sei bem como nesse caso).
+
+- (...) P(S,A,S'), essa última apenas dizendo o que seriam essas probabilidades (que serão implicitamente estimadas pelo algoritmo).

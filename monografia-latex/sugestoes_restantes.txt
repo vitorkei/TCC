@@ -3,4 +3,3 @@
 - A seção 2.4.3 carece de figuras e equações que explique o que e como a rede convolucional está computando.
 
 
-- (...) P(S,A,S'), essa última apenas dizendo o que seriam essas probabilidades (que serão implicitamente estimadas pelo algoritmo).

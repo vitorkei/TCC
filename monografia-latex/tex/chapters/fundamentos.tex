@@ -49,6 +49,9 @@ Este capítulo tem o intuito de familiarizar o leitor com a teoria e fundamentos
 %https://www.youtube.com/watch?v=aircAruvnKk&list=WL
 %https://towardsdatascience.com/the-mostly-complete-chart-of-neural-networks-explained-3fb6f2367464
 
+% https://softwarerecs.stackexchange.com/questions/47841/drawing-neural-networks
+% http://alexlenail.me/NN-SVG/index.html
+
 Redes neurais artificiais, mais conhecidas como redes neurais, são uma forma de processamento de informação inspirada no funcionamento do cérebro.
 Assim como o órgão no qual foi baseada, elas possuem uma grande quantidade de elementos de processamento de informação conectados entre si chamados de neurônios, que trabalham em conjunto para resolver problemas.
 Dado que aprendem com exemplos, similar a pessoas, é considerada uma técnica de aprendizado supervisionado.
@@ -96,7 +99,7 @@ O próximo passo é entender como os valores dos neurônios e os respectivos pes
 Como mencionado anteriormente, conforme as características se mostram presentes na camada de entrada, os neurônios referentes a esses atributos são ativados, até que o neurônio com a resposta dada pela inteligência artificial seja ativado.
 Como rede neural é um tipo de aprendizado supervisionado, os exemplos inseridos nela possuem rótulos, saídas esperadas (qual valor que cada neurônio de saída deve ter).
 Para que o computador saiba o quão ruim foi sua saída, é definida uma função de erro, também conhecida como função de custo.
-Em muitos casos, utiliza-se o erro quadrático médio, que dá mais peso para erros maiores uma vez que a diferença é elevada ao quadrado.
+Em muitos casos, utiliza-se o erro quadrático médio, que dá mais peso para erros maiores uma vez que a diferença é elevada ao quadrado, mas existem diversas funções diferentes para isso.
 Naturalmente, quanto maior for o erro, mais incorreta foi a previsão.
 Depois de esse procedimento ser feito com milhares de exemplos, calcula-se a média dos erros obtidos e, com isso, avalia-se o desempenho da inteligência.
 
@@ -122,6 +125,12 @@ Como explicado anteriormente, redes neurais podem ser divididas em três tipos d
 
 Uma rede neural profunda que segue o modelo apresentado na seção anterior é chamada de \textit{feedforward} e é o mais típico de \textit{deep learning}. Ele recebe esse nome pois a informação flui da entrada para a saída sem haver conexões de \textit{feedback} para que a previsão seja feita. Este tipo de rede neural forma a base para \textbf{redes neurais convolucionais}, técnica muito utilizada em reconhecimento de imagens. Como a ideia é treinar uma inteligência artificial que aprende vendo a tela do jogo, esse foi o tipo escohido para este trabalho.
 
+\begin{figure}[h!]
+\includegraphics[scale=.3]{nn}
+\centering
+\caption{Esquema de uma rede neural profunda do tipo \textit{feedforward}. Número de nós e camadas arbitrários para melhor representação. Diagrama feito em http://alexlenail.me/NN-SVG/index.html}
+\end{figure}
+
 % ---------------------------------------------------------------------------- %
 
 \section{Rede neural convolucional}
@@ -133,7 +142,7 @@ o computador não consegue reconhecer um mesmo objeto em diferentes locais da te
 Para cada local muito diferente que ele aparecer, como direita e esquerda da tela, a IA teria que re-aprender a identificá-lo.
 
 Para não precisar fornecer à rede neural imagens inteiras para que ela aprenda que um objeto continua sendo o mesmo não importa onde da tela apareça, foi utilizada convolução, mais precisamente a 2D, já que a entrada é uma imagem, uma matriz de pixels.
-Uma rede neural convolucional continua sendo um tipo de rede neural profunda e, portanto, mantém o formato de três tipos de camadas (entrada, ocultas, e saída). Porém, para facilitar o entendimento de convolução, esta explicação dividirá a rede em duas partes: \textbf{convolução} e \textbf{previsão}.
+Uma rede neural convolucional (\textit{convolutional neural network} - CNN) continua sendo um tipo de rede neural profunda e, portanto, mantém o formato de três tipos de camadas (entrada, ocultas, e saída). Porém, para facilitar o entendimento de convolução, esta explicação dividirá a rede em duas partes: \textbf{convolução} e \textbf{previsão}.
 Na etapa de \textbf{convolucão}, a imagem de entrada é dividida em várias imagens menores; elas podem ser adjacentes ou parcialmente sobrepostas, sendo o segundo caso mais comum.
 Cada uma dessas imagens menores é chamada de \textbf{filtro convolucional}.
 É possível dizer que se um filtro convolucional for arrastado para o lado, o local onde ele parar será o próximo filtro convolucional.
@@ -141,6 +150,12 @@ Esse arrasto é chamado de passo (\textit{stride}) e a distância que o filtro �
 Em seguida, cada uma dessas imagens menores é passada por uma rede neural menor, sendo processada normalmente.
 As saídas dessas redes neurais menores são então passadas como entrada para a próxima etapa.
 Na etapa de \textbf{previsão}, a informação passa por uma ou mais redes neurais maiores que farão a previsão. Para diferenciá-la das redes da etapa de convolução, as desta fase são chamadas de \textit{fully-connected}.
+
+\begin{figure}[h!]
+\includegraphics[scale=.4]{cnn}
+\centering
+\caption{Esquema de uma rede neural convoluciona. Número de filtros e camadas arbitrários para melhor representação. Diagrama feito em http://alexlenail.me/NN-SVG/LeNet.html}
+\end{figure}
 
 É possível haver mais de uma camada de convolução assim como pode haver mais de uma camada \textit{fully-connected}, e isso pode ser mais vantajoso. 
 Quanto mais camadas houver, mais precisa será a predição.
@@ -158,6 +173,12 @@ a probabilidade de se chegar em um estado futuro $S'$ dado que a inteligência a
 existe um modelo probabilístico que caracteriza essa transição, dado por $P(S'|S,A)$;
 todos os estados do ambiente e todas as ações que o agente pode tomar em cada estado são conhecidas;
 e a recompensa é imediatamente recebida após cada ação ser tomada.
+
+\begin{figure}[h!]
+\includegraphics[scale=.45]{reinforcement_learning}
+\centering
+\caption{Interação agente-ambiente em um processo de decisão de Markov\cite{sutton2018reinforcement}. Adaptação e tradução da imagem original feitas pelo autor.}
+\end{figure}
 
 As probabilidades de o agente tomar cada ação em um dado espaço são definidas por uma política $\pi$.
 A qualidade de uma política é medida por sua \textbf{utilidade esperada}, e a política ótima é denotada por $\pi^{*}$.
@@ -268,7 +289,7 @@ A probabilidade de o agente explorar (\textit{explore}) o ambiente é dada por:
 %P_{explore} = P_{min} + (P_{ini} - P_{min})e^{decay * step}
 P_{explore} =
 \begin{cases}
-P_{ini} - decay * step, & \text{se}\ decay * step <= 0.9 \\
+P_{ini} - decay * step, & \text{se}\ decay * step \leq 0.9 \\
 P_{min}, & \text{caso contrário}
 \end{cases}
 \end{equation}
@@ -317,12 +338,49 @@ Por se tratar de um tipo de aprendizado por reforço, mais precisamente \textit{
 
 Como a ideia é o agente aprender enxergando a tela e tudo que ele vê são matrizes, a primeira etapa consiste em processar essas informações para poder aprender.
 Ou seja, o primeiro passo é passar os \textit{frames} da tela do jogo por uma \textbf{rede neural convolucional}.
-Essa etapa funciona como descrito na seção sobre \hyperref[sec:cnn]{redes neurais convolucionais}: os \textit{frames} são a entrada, ocorre o processamento nas camadas ocultas e, na camada de saída, cada neurônio tem um valor.
+Essa etapa funciona conforme descrito na seção sobre \hyperref[sec:cnn]{redes neurais convolucionais}: os \textit{frames} são a entrada, ocorre o processamento nas camadas ocultas e, na camada de saída, cada neurônio tem um valor.
 Contudo, calcular o erro é diferente.
 Como as imagens passadas não são rotuladas e não é possível fazer isso manualmente, a IA precisa calcular o erro da saída da rede de outra forma.
 É nessa etapa que entra o \textbf{aprendizado por reforço}.
 Como explicado \hyperref[sec:rl]{anteriormente}, aprendizado por reforço aprende sem o uso de exemplos rotulados, mas precisa que as características que a IA deve aprender estejam bem definidas.
 Enquanto tais características são definidas pela rede, o cálculo do erro e otimização dos pesos é feito pela parte de aprendizado por reforço.
+
+O \textbf{cálculo do erro} é feito por uma função que, como toda função, possui um mínimo.
+Esse mínimo é calculado por um algoritmo chamado \textbf{método do maior declive} ou \textbf{método do gradiente}.
+Em matématica, gradiente é uma generalização de derivada para múltiplas variáveis e, portanto, aponta para a direção de maior crescimento da função sobre a qual foi aplicado no ponto dado.
+Método do gradiente, por sua vez, utiliza o \textbf{negativo} do gradiente para apontar para o mínimo local e, com isso, minimizar o valor da função.
+
+Seja $F(a)$ uma função de múltiplas variáveis, $a_{t}$ um ponto no instante $t$ e $\alpha$ um número real que multiplica o gradiente de $F(a)$.
+Em contexto de aprendizado de máquina, $F(a)$ é a função de erro, $a_{t}$ é são os pesos na $t$-ésima iteração e $\alpha$ é a taxa de aprendizado.
+A redução do erro é feita atualizando os pesos da seguinte forma:
+
+\begin{equation} \label{eq:w_update}
+a_{t+1} = a_{t} - \alpha \nabla F(a_{t})
+\end{equation}
+
+Intuitivamente, começa-se em um ponto $x_{0}$ qualquer e utiliza-se esse algoritmo para deslocar-se para um ponto vizinho $x_{1}$ que, se $\alpha$ for pequeno o suficiente, $F(x_{0}) \geq F(x_{1})$.
+Se isso for feito iterativamente, tem-se $F(x_{t}) \geq F(x_{t+1})$ a cada passo.
+Importante notar que, se o $\alpha$ for muito alto, a redução do erro é rápida, porém instável e  possível sequer chegar perto do mínimo do erro.
+Por outro lado, se for muito pequeno, a redução fica precisa, mas lenta.
+As figuras \ref{fig:gdhighlr} e \ref{fig:gdlowlr} representam essas situações respectivamente.
+
+\begin{figure}[h!]
+  \label{fig:gradientDescent}
+  \begin{minipage}[b]{.5\textwidth}
+  \centering
+  \includegraphics[scale=.15]{gradientDescentHighLR}
+  \caption{A curva representa a função de erro. Se $\alpha$ for muito alto, a diminuição se torna instável ou pode nem ocorrer.}
+  \label{fig:gdhighlr}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{.5\textwidth}
+  \centering
+  \includegraphics[scale=.15]{gradientDescentLowLR}
+  \caption{A curva representa a função de erro. Se $\alpha$ for muito pequeno, a diminuição se torna precisa, mas lenta.}
+  \label{fig:gdlowlr}
+  \end{minipage}
+\end{figure}
+
 
 %% ---------------------------------------------------------------------------- %
 
@@ -331,12 +389,8 @@ Enquanto tais características são definidas pela rede, o cálculo do erro e ot
 
 \textit{Deep Q-Learning} é a base para o aprendizado da inteligência artificial deste trabalho.
 Porém, ao longo do tempo, foram descobertas outras técnicas que melhoram a aprendizagem do agente, seja acelerando ou evitando decisões nocivas.
-Nesta seção, serão apresentadas
-%três
-duas técnicas que ajudam a estabilizar e acelerar o aprendizado do programa:
-\textit{\textbf{experience replay}}
-%, alvo fixo
-e \textit{\textbf{double} deep Q learning}.
+Nesta seção, serão apresentadas duas técnicas que ajudam a estabilizar e acelerar o aprendizado do programa:
+\textit{\textbf{experience replay}} e \textbf{alvo fixo}.
 
 %***********%
 
@@ -357,34 +411,3 @@ A inteligência artificial utiliza os Q-valores tanto para decidir quais ações
 Entretanto, se o mesmo for utilizado para essas duas etapas, o aprendizado se torna instável, pois o agente não conseguirá "alcançar"{} o Q-valor alvo já que ele está em constante mudança.
 Para resolver esse problema, utiliza-se uma segunda rede neural alvo para a atualização dos Q-valores e que é atualizada de tempos em tempos, enquanto a primeira, a principal, continua sendo utilizada para escolher as ações.
 
-Essa segunda rede também é utilizada com \textit{\textbf{Double Deep Q-Learning}}.
-
-%***********%
-
-\subsection{\textit{Double Deep Q-Learning}}
-\label{sec:ddql}
-
-\textit{Double Deep Q-Learning} é uma aplicação de \textit{double Q-learning} para \textit{deep Q-learning}.
-Esta técnica utiliza duas redes neurais: uma que escolhe a melhor ação a ser tomada e uma que calcula o Q-valor dessa ação, a mesma da técnica \hyperref[sec:ft]{alvo fixo}.
-
-Como o Q-valor é uma avaliação da qualidade de uma ação, se ações sub-ótimas frequentemente receberem Q-valores maiores que a ação ótima, o agente terá dificuldades em saber qual a melhor decisão a se tomar em cada instante.
-Isso ocorre em particular no começo do treinamento, quando não se tem informação suficiente sobre as ações e existe ruído, tornando o aprendizado instável e lento.
-
-A solução proposta por \textit{double deep Q-learning} é separar a escolha da ação $A$ no estado $S$ (feita por uma rede QN) do cálculo do Q-valor alvo (feita por uma rede TN).
-Lembrando da forma como se \hyperref[eq:q_update]{calcula Q-valor}, a alteração será no fator $\max_{A'}Q^{(i)}(S',A')$, que é trocado por $Q_{TN}(S', \argmax_{A'}Q_{QN}(S',A'))$.
-Fazendo essa substituição em \ref{eq:q_update} e identificando as funções $Q()$ devidamente, chega-se à seguinte forma de se calcular o Q-valor:
-
-\begin{equation} \label{d_q_update}
-Q_{QN}^{(i+1)}(S,A) = Q_{QN}^{(i)}(S,A) + \alpha[R(S,A,S') + \gamma Q_{TN}^{(i)}(S',\argmax_{A'}Q_{QN}^{(i)}(S',A')) - Q_{QN}^{(i)}(S,A)]
-\end{equation}
-
-A atualização dos Q-valores da rede TN é feita de maneira simétrica, com $Q_{TN}$ calculando a melhor ação e $Q_{QN}$ calculando o respectivo Q-valor.
-
-%Lembrando que o Q-valor é a recompensa esperada de se tomar uma ação $A$ em um estado $S$. Como isso depende da recompensa esperada nos estados futuros, 
-%A precisão do Q-valor depende de quais ações $A$ foram tomadas e quais estados vizinhos $S'$ foram explorados para um dado estado $S$.
-%No início do aprendizado, não se tem informação suficiente sobre qual a melhor ação a ser tomada, o que significa que a que tiver maior Q-valor provavelmente não será a ação ótima.
-
-%***********%
-
-%\subsection{\textit{Dueling Deep Q-Learning}}
-%\label{sec:dueling}

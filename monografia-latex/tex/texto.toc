@@ -10,14 +10,18 @@
 \contentsline {section}{\numberline {2.1}Redes neurais}{5}{section.2.1}
 \contentsline {section}{\numberline {2.2}Aprendizado profundo}{7}{section.2.2}
 \contentsline {section}{\numberline {2.3}Rede neural convolucional}{7}{section.2.3}
-\contentsline {section}{\numberline {2.4}Aprendizado por refor\IeC {\c c}o}{8}{section.2.4}
-\contentsline {section}{\numberline {2.5}Processo de Decis\IeC {\~a}o de Markov}{8}{section.2.5}
-\contentsline {section}{\numberline {2.6}\textit {Q-learning}}{9}{section.2.6}
-\contentsline {section}{\numberline {2.7}\textit {Approximate Q-learning}}{10}{section.2.7}
-\contentsline {section}{\numberline {2.8}\textit {Deep Q-Learning}}{11}{section.2.8}
-\contentsline {section}{\numberline {2.9}Aprimorando o aprendizado}{11}{section.2.9}
-\contentsline {subsection}{\numberline {2.9.1}\textit {Experience Replay}}{11}{subsection.2.9.1}
-\contentsline {chapter}{\numberline {3}Implementa\IeC {\c c}\IeC {\~a}o}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Arquitetura}{13}{section.3.1}
-\contentsline {chapter}{\numberline {4}Conclus\IeC {\~o}es - Parte Subjetiva}{17}{chapter.4}
+\contentsline {section}{\numberline {2.4}Processo de Decis\IeC {\~a}o de Markov}{8}{section.2.4}
+\contentsline {section}{\numberline {2.5}Aprendizado por refor\IeC {\c c}o}{9}{section.2.5}
+\contentsline {section}{\numberline {2.6}\textit {Q-learning}}{10}{section.2.6}
+\contentsline {section}{\numberline {2.7}\textit {Approximate Q-learning}}{11}{section.2.7}
+\contentsline {section}{\numberline {2.8}\textit {Deep Q-Learning}}{12}{section.2.8}
+\contentsline {section}{\numberline {2.9}Aprimorando o aprendizado}{12}{section.2.9}
+\contentsline {subsection}{\numberline {2.9.1}\textit {Experience Replay}}{13}{subsection.2.9.1}
+\contentsline {subsection}{\numberline {2.9.2}Alvo fixo}{13}{subsection.2.9.2}
+\contentsline {chapter}{\numberline {3}Implementa\IeC {\c c}\IeC {\~a}o}{15}{chapter.3}
+\contentsline {section}{\numberline {3.1}Arquitetura}{15}{section.3.1}
+\contentsline {section}{\numberline {3.2}Experimentos}{16}{section.3.2}
+\contentsline {chapter}{\numberline {4}Resultados}{17}{chapter.4}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~o}es - Parte Subjetiva}{19}{chapter.5}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{21}{appendix*.9}
 \contentsfinish 

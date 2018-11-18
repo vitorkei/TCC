@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: texto.aux
+The style file: alpha-ime.bst
+Database file #1: bibliografia.bib
+Warning--can't use both author and editor fields in ernestgamedesign
+Warning--there's a number but no series in ernestgamedesign
+Warning--empty publisher in ernestgamedesign
+Warning--can't use both author and editor fields in robertgameloop
+Warning--there's a number but no series in robertgameloop
+Warning--empty publisher in robertgameloop
+Warning--can't use both author and editor fields in jessegamedesign
+Warning--there's a number but no series in jessegamedesign
+Warning--empty publisher in jessegamedesign
+You've used 9 entries,
+            2543 wiz_defined-function locations,
+            611 strings with 5515 characters,
+and the built_in function-call counts, 2546 in all, are:
+= -- 240
+> -- 72
+< -- 12
++ -- 19
+- -- 18
+* -- 152
+:= -- 407
+add.period$ -- 30
+call.type$ -- 9
+change.case$ -- 45
+chr.to.int$ -- 9
+cite$ -- 18
+duplicate$ -- 114
+empty$ -- 226
+format.name$ -- 34
+if$ -- 527
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 6
+newline$ -- 48
+num.names$ -- 27
+pop$ -- 73
+preamble$ -- 1
+purify$ -- 54
+quote$ -- 0
+skip$ -- 95
+stack$ -- 0
+substring$ -- 64
+swap$ -- 15
+text.length$ -- 12
+text.prefix$ -- 7
+top$ -- 0
+type$ -- 60
+warning$ -- 9
+while$ -- 18
+width$ -- 11
+write$ -- 113
+(There were 9 warnings)

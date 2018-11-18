@@ -218,4 +218,37 @@ Aprendizado por reforço
 
 % ---------------------------------------------------------------------------- %
 
+aprimorando o aprendizado
 
+%Essa segunda rede também é utilizada com \textit{\textbf{Double Deep Q-Learning}}.
+
+%***********%
+
+%\subsection{\textit{Double Deep Q-Learning}}
+%\label{sec:ddql}
+%
+%\textit{Double Deep Q-Learning} é uma aplicação de \textit{double Q-learning} para \textit{deep Q-learning}.
+%Esta técnica utiliza duas redes neurais: uma que escolhe a melhor ação a ser tomada e uma que calcula o Q-valor dessa ação, a mesma da técnica \hyperref[sec:ft]{alvo fixo}.
+%
+
+%Como o Q-valor é uma avaliação da qualidade de uma ação, se ações sub-ótimas frequentemente receberem Q-valores maiores que a ação ótima, o agente terá dificuldades em saber qual a melhor decisão a se tomar em cada instante.
+%Isso ocorre em particular no começo do treinamento, quando não se tem informação suficiente sobre as ações e existe ruído, tornando o aprendizado instável e lento.
+%
+%A solução proposta por \textit{double deep Q-learning} é separar a escolha da ação $A$ no estado $S$ (feita por uma rede QN) do cálculo do Q-valor alvo (feita por uma rede TN).
+%Lembrando da forma como se \hyperref[eq:q_update]{calcula Q-valor}, a alteração será no fator $\max_{A'}Q^{(i)}(S',A')$, que é trocado por $Q_{TN}(S', \argmax_{A'}Q_{QN}(S',A'))$.
+%Fazendo essa substituição em \ref{eq:q_update} e identificando as funções $Q()$ devidamente, chega-se à seguinte forma de se calcular o Q-valor:
+%
+%\begin{equation} \label{d_q_update}
+%Q_{QN}^{(i+1)}(S,A) = Q_{QN}^{(i)}(S,A) + \alpha[R(S,A,S') + \gamma Q_{TN}^{(i)}(S',\argmax_{A'}Q_{QN}^{(i)}(S',A')) - Q_{QN}^{(i)}(S,A)]
+%\end{equation}
+%
+%A atualização dos Q-valores da rede TN é feita de maneira simétrica, com $Q_{TN}$ calculando a melhor ação e $Q_{QN}$ calculando o respectivo Q-valor.
+
+%Lembrando que o Q-valor é a recompensa esperada de se tomar uma ação $A$ em um estado $S$. Como isso depende da recompensa esperada nos estados futuros, 
+%A precisão do Q-valor depende de quais ações $A$ foram tomadas e quais estados vizinhos $S'$ foram explorados para um dado estado $S$.
+%No início do aprendizado, não se tem informação suficiente sobre qual a melhor ação a ser tomada, o que significa que a que tiver maior Q-valor provavelmente não será a ação ótima.
+
+%***********%
+
+%\subsection{\textit{Dueling Deep Q-Learning}}
+%\label{sec:dueling}

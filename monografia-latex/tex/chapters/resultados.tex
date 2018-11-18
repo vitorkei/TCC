@@ -6,10 +6,43 @@
 \label{cap:resultados}
 % ---------------------------------------------------------------------------- %
 
-Desde o início da construção da arquitetura da inteligência artificial, diversas alterações foram feitas: mudanças nos hiperparâmetros, no número de camadas de convolução, função de ativação escolhida e técnicas para acelerar aprendizado (\textit{double} e \textit{dueling} descritos acima).
-O melhor resultado obtido foi utilizando os hiperparâmetro descritos \hyperref[table:2]{acima}.
-Jogando sem muito compromisso, consegui 3570 pontos antes de perder todas as vidas e, esforçando-me para obter uma pontuação alta, cheguei em 25130 pontos.
-Logo, o desempenho da IA está bem abaixo do desejado.
+Testes foram realizados em ambientes mais simples para confirmar o funcionamento do \textit{deep Q-learning} e o quão bem ele se sai em ambientes menos complexos.
+
+%\subsection{\textit{Gridworld}}
+%\label{sec:gw}
+
+O primeiro ambiente foi o \textit{Gridworld}.
+A arquitetura foi testada em três tamanhos de tabuleiro distintos, 5x5, 8x8, e 10x10, todos com armadilhas espalhadas pelo mapa, com algumas diferenças nos híper-parâmetros para avaliar sua qualidade.
+Nesses três tamanhos, obteve-se uma taxa de sucesso de pelo menos 50\% em 2000 episódios de treinamento.
+Depois disso, o agente foi colocado para percorrer o mapa utilizando apenas política ótima, obtendo sucesso em todos os casos.
+Conclui-se, então, que a arquitetura funciona para ambientes bastantes simples, ainda que tenha sido necessário híper-parâmetros um pouco mais específicos para cada caso.
+
+O segundo ambiente testado foi o \textit{Pong}, versão do Atari2600.
+A arquitetura testada teve mudanças maiores quando comparado com feitas entre cada tamanho do \textit{Gridworld}.
+
+%\begin{itemize}
+%\item Com tamanho 5x5 e algumas armadilhas espalhadas, o agente teve sucesso em 1212 e fracasso em 788 dos 2000 episódios que jogou.
+%\item Com tamanho 8x8 e algumas armadilhas espalhadas, ele teve sucesso em 1034, fracasso em 958 e excedeu o número máximo de ações por episódio em 2 dos 2000 episódios que jogou.
+%\item Com tamanho 10x10 e algumas armadilhas espalhadas, teve sucesso em 1458 e fracasso em 542 dos 2000 episódios que jogou, sem haver casos de número máximo de ações por episódio excedido.
+%\end{itemize}
+
+
+%Em ambientes mais simples, como \textit{Gridworld}, o agente conseguiu aprender a chegar no objetivo.
+%Sem camadas de convolução, a IA conseguia chegar no objetivo mesmo que estivesse distante.
+%Com a adição de camadas ocultas e mais híper parâmetros para ajustar, foi necessário trazer a recompensa para um espaço mais próximo e mudar as configurações de acordo para se obter sucesso.
+
+%Com esses testes mais simples, foi possível ver a estrutura funcionar, mas o aumento da complexidade do ambiente (matriz de entrada maior, mais elementos para se aprender) fez a dificuldade em encontrar os híper parâmetros corretos crescer muito mais.
+%Além disso, a partir de certo ponto, são necessários centenas de episódios, podendo chegar nos milhares, o que consome muito tempo que não se teve disponível para este trabalho.
+
+
+
+
+
+
+%Desde o início da construção da arquitetura da inteligência artificial, diversas alterações foram feitas: mudanças nos hiperparâmetros, no número de camadas de convolução, função de ativação escolhida e técnicas para acelerar aprendizado (\textit{double} e \textit{dueling} descritos acima).
+%O melhor resultado obtido foi utilizando os hiperparâmetro descritos \hyperref[table:2]{acima}.
+%Jogando sem muito compromisso, consegui 3570 pontos antes de perder todas as vidas e, esforçando-me para obter uma pontuação alta, cheguei em 25130 pontos.
+%Logo, o desempenho da IA está bem abaixo do desejado.
 
 %Em dezembro de 2016 o protótipo de \textit{PsyChO: The Ball} foi finalizado e teve seu primeiro lançamento em um evento expositivo da \textit{UspGameDev}. Nele, vários alunos da \textit{Universidade de São Paulo} compareceram e puderam jogá-lo gratuitamente, dentre outros jogos de membros do grupo de extensão. Foi uma imensa satisfação observar outras pessoas jogando e se divertindo com o jogo, mesmo ele ainda sendo um protótipo.
 %
