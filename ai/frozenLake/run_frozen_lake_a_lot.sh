@@ -1,0 +1,15 @@
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
+python3 frozenLake.py
