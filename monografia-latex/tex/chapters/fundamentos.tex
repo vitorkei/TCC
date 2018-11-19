@@ -28,7 +28,7 @@
 % sec:dql ........... deep q learning
 % sec:enhance ....... enhancements
 % sec:er ............ experience replay
-% sec:fx ............ fixed target
+% sec:ft ............ fixed target
 % sec:ddql .......... double deep q learning
 
 %% ---------------------------------------------------------------------------- %
@@ -287,11 +287,11 @@ A probabilidade de o agente explorar (\textit{explore}) o ambiente é dada por:
 
 \begin{equation} \label{eq:exp_exp_prob}
 %P_{explore} = P_{min} + (P_{ini} - P_{min})e^{decay * step}
-P_{explore} =
-\begin{cases}
-P_{ini} - decay * step, & \text{se}\ decay * step \leq 0.9 \\
-P_{min}, & \text{caso contrário}
-\end{cases}
+P_{explore} = P_{min} + (P_{ini} - P_{min})e^{-step \times decay}
+%\begin{cases}
+%P_{ini} - decay * step, & \text{se}\ decay * step \leq 0.9 \\
+%P_{min}, & \text{caso contrário}
+%\end{cases}
 \end{equation}
 
 Outro problema enfrentado por \textit{Q-learning} é o de generalização.
@@ -346,7 +346,7 @@ Como explicado \hyperref[sec:rl]{anteriormente}, aprendizado por reforço aprend
 Enquanto tais características são definidas pela rede, o cálculo do erro e otimização dos pesos é feito pela parte de aprendizado por reforço.
 
 O \textbf{cálculo do erro} é feito por uma função que, como toda função, possui um mínimo.
-Esse mínimo é calculado por um algoritmo chamado \textbf{método do maior declive} ou \textbf{método do gradiente}.
+Esse mínimo é normalmente calculado por alguma variação do \textbf{método do maior declive} ou \textbf{método do gradiente}.
 Em matématica, gradiente é uma generalização de derivada para múltiplas variáveis e, portanto, aponta para a direção de maior crescimento da função sobre a qual foi aplicado no ponto dado.
 Método do gradiente, por sua vez, utiliza o \textbf{negativo} do gradiente para apontar para o mínimo local e, com isso, minimizar o valor da função.
 
@@ -381,6 +381,7 @@ As figuras \ref{fig:gdhighlr} e \ref{fig:gdlowlr} representam essas situações 
   \end{minipage}
 \end{figure}
 
+Existem diversos algoritmos de redução do erro e otimização dos pesos, como o RMSProp, Adam, Adadelta, dentre outros.
 
 %% ---------------------------------------------------------------------------- %
 

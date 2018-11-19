@@ -1,0 +1,46 @@
+com camadas de convolução:
+
+5x5:
+1212/788/0 - sucesso
+1117/883/0 - sucesso
+1132/868/0 - sucesso
+1125/875/0 - sucesso
+1184/816/0 - sucesso
+
+8x8:
+1034/958/0 - sucesso
+1265/735/0 - sucesso
+1210/790/0 - sucesso
+1285/715/0 - sucesso
+1291/709/0 - sucesso
+
+10x10:
+uma camada
+-1458/542 - sucesso
+duas camadas
+-1294/708/0 - sucesso
+-1006/994/0 - sucesso
+-1449/551/0 - time-out (ficou preso entre dois espaços)
+-1401/599/0 - sucesso
+-1465/535/0 - sucesso
+
+///////////////////
+
+sem camadas de convolução:
+
+5x5:
+1164/836/0 - sucesso
+1041/959/0 - sucesso
+1160/840/0 - sucesso
+1150/850/0 - sucesso
+977/1023/0 - sucesso
+54.92%
+
+10x10:
+1131/869/0
+1208/792/0
+1494/506/0
+1060/940/0
+1068/932/0
+59.61%
+

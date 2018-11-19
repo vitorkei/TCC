@@ -36,7 +36,7 @@ A primeira camada de convolução tem 12 filtros de tamanho 4x4 e passo 2, a seg
 Ambas utilizam o inicializador de Xavier e a função ELU (\textit{exponential linear unit}) para ativação.
 Depois disso, há uma camada \textit{fully-connected} com 5 nós de saída, um para cada \hyperref[sec:asteroids]{ação válida}.
 
-Após a CNN soltar a ação escolhida, o cálculo de erro é feito pela função \textit{Huber loss} e a otimização dos pesos é feita pelo \textit{RMSProp}.
+Após a CNN soltar a ação escolhida, o cálculo de erro é feito pela função \textit{Huber loss} e a otimização dos pesos é feita pelo \textit{Root Mean Square Propagation}, mais conhecido como \textit{RMSProp}~\cite{rmsprop}.
 
 Função de cálculo de erro \textit{Huber loss} sendo $a$ a diferença entre o valor previsto e o observado:
 \begin{equation} \label{eq:huber}
@@ -47,14 +47,22 @@ L_{\delta}(a) =
 \end{cases}
 \end{equation}
 
-% colocar fórmula do RMSProp?
+Utilizando as mesmas variáveis da equação \ref{eq:w_update}, $g = \nabla F(a_{t})$, $decay$ uma taxa de decaímento específica para o algoritmo e $\epsilon$ uma constante para evitar que a divisão seja feita por zero ou evitar que o gradiente diverja, o algoritmo \textit{RMSProp} atualiza os pesos da seguinte forma:
 
-O \textit{RMSProp} utilizou taxa de aprendizado de $0.1$ e \textit{momentum} $0.1$.
-Foram 30 episódios de treinamento, cada um com limite 10000 ações antes de o episódio ser terminado automaticamente pelo código, \textit{mini-batches} de tamanho 100, taxa de desconto $\gamma 0.9$, \textit{buffer} de \hyperref[sec:er]{memória} de tamanho 1000 que foi preenchido com 700 ações aleatórias antes do treinamento começar.
+\begin{equation} \label{eq:gradSum}
+s = decay * s + (1 - decay)g^{T}g
+\end{equation}
+
+\begin{equation} \label{eq:rmsprop}
+a_{t+1} = a_{t} - \alpha * g / \sqrt{s+\epsilon}
+\end{equation}
+
+O \textit{RMSProp} utilizou taxa de aprendizado $\alpha = 0.1$, momentum = $0.1$ (variável que faz considerar gradientes anteriores para determinar a direção do movimento) e $\epsilon = 10^{-10}$.
+Foram 30 episódios de treinamento, cada um com limite 10000 ações antes de o episódio ser terminado automaticamente pelo código, \textit{mini-batches} de tamanho 100, taxa de desconto $\gamma = 0.9$, \textit{buffer} de \hyperref[sec:er]{memória} de tamanho 1000 que foi preenchido com 700 ações aleatórias antes do treinamento começar.
 
 O dilema \hyperref[eq:exp_exp_prob]{\textit{exploration versus exploitation}} utilizou $P_{ini} = 0.9$, $P_{min} = 0.1$ e $decay = 20000$.
 
-A \hyperref[sec:fx]{rede alvo} foi atualizada a cada 10000 ações tomadas.
+A \hyperref[sec:ft]{rede alvo} foi atualizada a cada 10000 ações tomadas.
 
 %Todos os \textit{frames}, antes de serem utilizados, são convertidos para uma escala de cinza, redimensionados para o tamanho 110x84 pixels e tem 12 linhas do topo e 3 linhas do fundo removidas.
 %Dessa forma, a IA não precisa se preocupar com cores e processa menos pixels, mas ainda mantendo as informações mais relevantes.
@@ -78,5 +86,7 @@ A \hyperref[sec:fx]{rede alvo} foi atualizada a cada 10000 ações tomadas.
 \section{Experimentos}
 \label{sec:experiments}
 
-A arquitetura começou mais simples em problemas também mais simples: o \textit{Gridworld} sem armadilhas.
-O objetivo começou próximo e foi afastado aos poucos conforme a arquitetura foi se tornando mais complexa para acompanhar.
+A arquitetura começou mais simples em problemas também mais simples para verificar seu funcionamento: o \textit{Gridworld} sem armadilhas.
+O objetivo começou próximo e foi afastado aos poucos conforme a arquitetura foi sendo sutilmente alterada para acompanhar as mudanças quando necessário.
+Em seguida, armadilhas foram espalhadas pelo mapa, com os híper-parâmetros sendo afinados de acordo para que o agente tivesse sucesso em encontrar um caminho até o objetivo.
+Diferentes tamanhos de mapas foram utilizados para fazer esses testes.

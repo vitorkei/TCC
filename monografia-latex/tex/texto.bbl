@@ -6,9 +6,13 @@ Russel, S. J., & Norvig, P.
 
 \bibitem{sutton2018reinforcement}
 Sutton, R. S., & Barto, A. G.
-\newblock {\em Reinforcement learning: an introduction.}, 2nd ed. The MIT Press, 2018
+\newblock {\em Reinforcement learning: an introduction.}, 2nd ed. The MIT Press, 2018.
 
-%\bibitem{2013arXiv1312.5602M}i
+\bibitem{rmsprop}
+Hinton, G., Srivastava N., & Swersky K.
+\newblock{\em Overview of mini-batch gradient descent}, parte do curso {\em Neural Networks for Machine Learning} do Coursera.
+
+%\bibitem{2013arXiv1312.5602M}
 %Volodymyr Mnih, Koray Kavukcuoglu, David Silver, Alex Graves, Ioannis Antonoglou, Daan Wierstra, and Martin Riedmiller
 %\newblock {\em Playing Atari with Deep Reinforcement Learning}.
 
