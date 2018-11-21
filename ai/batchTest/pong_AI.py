@@ -2,7 +2,8 @@
 
 import tensorflow as tf
 import numpy as np
-import retro
+#import retro
+import gym
 import matplotlib.pyplot as plt
 import random
 import warnings
@@ -24,13 +25,14 @@ base_height = 190
 base_width = 152
 
 new_height_aux = 110
-new_height = 60
-new_width = 60
+new_height = 84
+new_width = 84
 
 #env = retro.make(game='Asteroids-Atari2600')
 #env = retro.make(game='Enduro-Atari2600')
-env = retro.make(game='Pong-Atari2600')
-#env = gym.make('PongDeterministic-v4')
+#env = retro.make(game='Pong-Atari2600')
+env = gym.make('PongDeterministic-v4')
+# no Pong do gym, 2 = UP, 3 = DOWN
 
 available_actions = np.array(np.identity(env.action_space.n, dtype=int).tolist())
 possible_actions = np.array([[1, 0], [0, 1]])
@@ -47,11 +49,11 @@ stack_size = 4
 state_size = [new_height, new_width, stack_size] # Entrada é uma pilha de 4 frames
 #action_size = env.action_space.n
 action_size = 2 # [1, 0] e [0, 1]
-learning_rate = 0.1
+learning_rate = 0.00025
 
 ### TREINAMENTO
-total_episodes = 100 # número total de episódios para o treinamento
-max_steps = 10000   # número máximo de ações tomadas em um episódio
+total_episodes = 500 # número total de episódios para o treinamento
+max_steps = 18000   # número máximo de ações tomadas em um episódio
 batch_size = 32
 
 max_tau = 10000
@@ -59,32 +61,32 @@ max_tau = 10000
 #update_gap = 10000
 
 ### Parâmetros de exploração para estratégia gulosa epsilon
-explore_begin = 0.9  # Probabilidade de se explorar no início
-explore_end = 0.1   # Probabilidade mínima de explorar
+epsilon_ini = 1.0  # Probabilidade de se explorar no início
+epsilon_end = 0.1   # Probabilidade mínima de explorar
 decay_rate = 20000 # Taxa de decaimento exponencial para a probabilidade de exploração
 decay_limit = 1000000
 
 ### Q-LEARNING
-gamma = 0.9 # Taxa de desconto
+gamma = 0.99 # Taxa de desconto
 
 ### MEMÓRIA
-pretrain_length = 700 # batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
-memory_size = 1000        # Número de experiências capazes de serem armazenadas na memória
+pretrain_length = 50000 # batch_size # Número de experiências armazenadas na memória quando inicializado pela primeira vez
+memory_size = 1000000        # Número de experiências capazes de serem armazenadas na memória
 
 ### FLAGS
 training = True        # Mudar para True se quiser treinar o agente
 episode_render = False # Mudar para True se quiser ver o ambiente renderizado
 
 ### ARQUITETURA
-conv_filters = [12, 96] # Número de filtros em cada camada de conv2d - ELU
-kernel_sizes = [2, 2] # Tamanho do kernel de cada camada de conv2d - ELU
-stride_sizes = [1, 1] # Número de strides em cada camada de conv2d - ELU
+conv_filters = [32, 64, 64] # Número de filtros em cada camada de conv2d - ELU
+kernel_sizes = [8, 4, 3] # Tamanho do kernel de cada camada de conv2d - ELU
+stride_sizes = [4, 2, 1] # Número de strides em cada camada de conv2d - ELU
 
 ########################################################
 ########################################################
 ########################################################
 
-#config = tf.ConfigProto(device_count={'GPU':0})
+config = tf.ConfigProto(device_count={'GPU':0}) # utilizar CPU ao invés de GPU
 #config = tf.ConfigProto()
 
 def preprocess_frame(frame):
@@ -119,9 +121,11 @@ def stack_frames(stack_frame, state, is_new_episode):
 
 def translate_action(action):
   if np.array_equal(action, np.array([1, 0])):
-    return np.array([0, 0, 0, 0, 1, 0, 0, 0]) # UP
+    #return np.array([0, 0, 0, 0, 1, 0, 0, 0]) # UP
+    return 2
   elif np.array_equal(action, np.array([0, 1])):
-    return np.array([0, 0, 0, 0, 0, 1, 0, 0]) # DOWN
+    #return np.array([0, 0, 0, 0, 0, 1, 0, 0]) # DOWN
+    return 3
 
 
 class DQNNet:
@@ -147,47 +151,50 @@ class DQNNet:
                                      filters = c_f[0],
                                      kernel_size = k_s[0],
                                      strides = s_s[0],
-                                     #padding = "VALID",
-                                     kernel_initializer=tf.contrib.layers.xavier_initializer_conv2d()
-                                     #kernel_initializer=tf.contrib.layers.variance_scaling_initializer()
+                                     activation=tf.nn.relu,
+                                     padding = "VALID",
+                                     use_bias=False,
+                                     kernel_initializer=tf.contrib.layers.variance_scaling_initializer()
                                     )
-      self.elu = tf.nn.elu(self.conv2d)
+      #self.elu = tf.nn.elu(self.conv2d)
 
       for i in range(1, len(conv_filters)):
-        self.conv2d = tf.layers.conv2d(inputs = self.elu,
+        self.conv2d = tf.layers.conv2d(#inputs = self.elu,
+                                       inputs = self.conv2d,
                                        filters = c_f[i],
                                        kernel_size = k_s[i],
                                        strides = s_s[i],
-                                       #padding = "VALID",
-                                       kernel_initializer = tf.contrib.layers.xavier_initializer_conv2d()
-                                       #kernel_initializer = tf.contrib.layers.variance_scaling_initializer()
+                                       activation=tf.nn.relu,
+                                       padding = "VALID",
+                                       use_bias=False,
+                                       kernel_initializer = tf.contrib.layers.variance_scaling_initializer()
                                       )
-        self.elu = tf.nn.elu(self.conv2d)
+        #self.elu = tf.nn.elu(self.conv2d)
 
-      self.flatten = tf.layers.flatten(self.elu)
+      #self.flatten = tf.layers.flatten(self.elu)
+      self.flatten = tf.layers.flatten(self.conv2d)
 
-      # not dueling
-      #self.fc = tf.layers.dense(inputs = self.flatten,
-      #                          units = 512,
-      #                          activation = tf.nn.elu,
-      #                          kernel_initializer=tf.contrib.layers.xavier_initializer()
-                                #kernel_initializer=tf.contrib.layers.variance_scaling_initializer()
-      #                          )
+      self.fc = tf.layers.dense(inputs = self.flatten,
+                                units = 256,
+                                activation = tf.nn.elu,
+                                #kernel_initializer=tf.zeros_initializer()
+                                #kernel_initializer=tf.contrib.layers.xavier_initializer()
+                                kernel_initializer=tf.contrib.layers.variance_scaling_initializer()
+                                )
 
-      self.output = tf.layers.dense(inputs = self.flatten,
+      self.output = tf.layers.dense(inputs = self.fc,
                                     units = self.action_size,
-                                    kernel_initializer=tf.zeros_initializer()
+                                    #kernel_initializer=tf.zeros_initializer()
+                                    kernel_initializer=tf.contrib.layers.variance_scaling_initializer()
                                    )
       
       # Q é a previsão do Q-valor
       self.Q = tf.reduce_sum(tf.multiply(self.output, self.actions), axis=1)
 
       # loss é a diferença entre a previsão do Q-valor e o Q-alvo
-      self.loss = tf.losses.huber_loss(self.Q, self.target_Q)
-      #self.loss = tf.reduce_mean(
+      self.loss = tf.losses.huber_loss(labels=self.target_Q, predictions=self.Q)
 
-      self.optimizer = tf.train.RMSPropOptimizer(self.learning_rate,momentum=0.1).minimize(self.loss)
-      #self.optimizer = tf.train.AdamOptimizer(self.learning_rate, epsilon=0.0001).minimize(self.loss)
+      self.optimizer = tf.train.RMSPropOptimizer(self.learning_rate,momentum=0.95,epsilon=0.01).minimize(self.loss)
 
 
 # Reinicia o grafo e inicializa uma instância da classe DQNetwork
@@ -254,14 +261,14 @@ if training == True:
 
 tf.summary.scalar("Loss", DQNetwork.loss)
 
-def predict_action(explore_begin, explore_end, decay_rate, decay_step, state):
+def predict_action(epsilon_ini, epsilon_end, decay_rate, decay_step, state):
   # Epsilon-greedy strategy para determinar a ação tomada em cada estado
   # Em alguns casos, a ação tomada será aleatória (exploration) ao invés da
   # que retorna maior recompensa (exploitation)
   exp_exp_tradeoff = np.random.rand() # exploration exploitation tradeoffi
-  #explore_probability = explore_end + (explore_begin - explore_end) * np.exp(-decay_rate * decay_step)
+  #explore_probability = epsilon_end + (epsilon_ini - epsilon_end) * np.exp(-decay_rate * decay_step)
 
-  explore_probability = explore_end + (explore_begin - explore_end) * np.exp(-decay_step / decay_rate)
+  explore_probability = epsilon_end + (epsilon_ini - epsilon_end) * np.exp(-decay_step / decay_rate)
 
   if (explore_probability > exp_exp_tradeoff): # Realiza uma ação aleatória
     choice = random.randrange(0, len(possible_actions))
@@ -291,8 +298,8 @@ total_steps = 0
 
 if training == True:
   print("Iniciando treinamento")
-  #with tf.Session(config=config) as sess:
-  with tf.Session() as sess:
+  with tf.Session(config=config) as sess:
+  #with tf.Session() as sess:
     # Inicializa as variáveis
     sess.run(tf.global_variables_initializer())
 
@@ -316,7 +323,7 @@ if training == True:
         step += 1
         tau += 1
         decay_step += 1
-        action, explore_probability = predict_action(explore_begin, explore_end, decay_rate, decay_step, state)
+        action, explore_probability = predict_action(epsilon_ini, epsilon_end, decay_rate, decay_step, state)
         next_state, reward, done, info = env.step(translate_action(action))
 
         if episode_render:
@@ -383,8 +390,8 @@ if training == True:
 #print("Número de vezes que cada ação foi tomada:", p_a_count)
 #p_a_count = [0, 0, 0, 0, 0, 0, 0, 0]
 if True:
-  #with tf.Session(config=config) as sess:
-  with tf.Session() as sess:
+  with tf.Session(config=config) as sess:
+  #with tf.Session() as sess:
     total_test_rewards = []
 
     saver.restore(sess, "/var/tmp/models/model.ckpt")
@@ -435,8 +442,8 @@ print("total_episodes:", total_episodes)
 print("max_steps:", max_steps)
 print("batch_size:", batch_size)
 print("max_tau:", max_tau)
-print("explore_begin:", explore_begin)
-print("explore_end:", explore_end)
+print("epsilon_ini:", epsilon_ini)
+print("epsilon_end:", epsilon_end)
 print("decay_rate:", decay_rate)
 print("gamma:", gamma)
 print("pretrain_length:", pretrain_length)
