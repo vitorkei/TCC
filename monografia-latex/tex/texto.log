@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  18 NOV 2018 20:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  20 NOV 2018 23:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1210,50 +1210,12 @@ Package babel Info: Redefining portuges shorthand "|
 
 ]
 (./chapters/resumoagradecimento.tex
-Underfull \hbox (badness 10000) in paragraph at lines 4--7
+Underfull \hbox (badness 10000) in paragraph at lines 27--33
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 8--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--17
-
- []
-
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 21.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 21.
-pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.21 \chapter
-             *{Resumo} [1
-
-]
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 21.
-Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 21.
-pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.21 \chapter
-             *{Resumo} [2
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 24--30
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 31--36
+Underfull \hbox (badness 10000) in paragraph at lines 34--39
 
  []
 
@@ -1262,22 +1224,24 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 54.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 54.
-pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) ha
-s been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.54 \tableofcontents
-                                  % Imprime o sumário. [3]
+                                  % Imprime o sumário. [1
+
+]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 54.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 54.
-pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has
+pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.54 \tableofcontents
-                                  % Imprime o sumário. [4
+                                  % Imprime o sumário. [2
 
 ] (./texto.toc)
 \tf@toc=\write5
@@ -1287,13 +1251,22 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 62.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 62.
-
-[5]
+pdfTeX warning (ext4): destination with the same identifier (name{page.iii}) ha
+s been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.62 
+      [3]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 62.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 62.
- [6
+pdfTeX warning (ext4): destination with the same identifier (name{page.iv}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.62 
+      [4
 
 ] (./capitulos.tex (./chapters/introducao.tex
 Cap\'{\i }tulo 1.
@@ -1312,13 +1285,13 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 48.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 52.
-<./images/asteroids_example01.png, id=185, 160.1985pt x 153.2124pt>
+<./images/asteroids_example01.png, id=177, 160.1985pt x 153.2124pt>
 File: ./images/asteroids_example01.png Graphic file (type png)
 <use ./images/asteroids_example01.png>
 Package pdftex.def Info: ./images/asteroids_example01.png  used on input line 7
 1.
 (pdftex.def)             Requested size: 225.87991pt x 216.02948pt.
-<./images/asteroids_example02.png, id=186, 160.1985pt x 153.2124pt>
+<./images/asteroids_example02.png, id=178, 160.1985pt x 153.2124pt>
 File: ./images/asteroids_example02.png Graphic file (type png)
 <use ./images/asteroids_example02.png>
 Package pdftex.def Info: ./images/asteroids_example02.png  used on input line 7
@@ -1374,7 +1347,7 @@ Package babel Info: Redefining portuges shorthand "|
  [6]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 117.
-<./images/nn.png, id=227, 1445.4pt x 554.07pt>
+<./images/nn.png, id=220, 1445.4pt x 554.07pt>
 File: ./images/nn.png Graphic file (type png)
 <use ./images/nn.png>
 Package pdftex.def Info: ./images/nn.png  used on input line 129.
@@ -1386,14 +1359,14 @@ Package babel Info: Redefining portuges shorthand "|
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 153.
  [7 <./images/nn.png>]
-<./images/cnn.png, id=236, 951.555pt x 266.9975pt>
+<./images/cnn.png, id=231, 951.555pt x 266.9975pt>
 File: ./images/cnn.png Graphic file (type png)
 <use ./images/cnn.png>
 Package pdftex.def Info: ./images/cnn.png  used on input line 155.
 (pdftex.def)             Requested size: 380.61525pt x 106.79709pt.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 167.
-<./images/reinforcement_learning.png, id=237, 856.70062pt x 298.11375pt>
+<./images/reinforcement_learning.png, id=234, 856.70062pt x 298.11375pt>
 File: ./images/reinforcement_learning.png Graphic file (type png)
 <use ./images/reinforcement_learning.png>
 Package pdftex.def Info: ./images/reinforcement_learning.png  used on input lin
@@ -1454,70 +1427,71 @@ Package babel Info: Redefining portuges shorthand "|
  [11]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 333.
-<./images/gradientDescentHighLR.png, id=285, 761.84625pt x 558.085pt>
+<./images/gradientDescentHighLR.png, id=282, 761.84625pt x 558.085pt>
 File: ./images/gradientDescentHighLR.png Graphic file (type png)
 <use ./images/gradientDescentHighLR.png>
 Package pdftex.def Info: ./images/gradientDescentHighLR.png  used on input line
- 371.
+ 370.
 (pdftex.def)             Requested size: 114.272pt x 83.70914pt.
-<./images/gradientDescentLowLR.png, id=286, 759.83875pt x 559.08875pt>
+<./images/gradientDescentLowLR.png, id=283, 759.83875pt x 559.08875pt>
 File: ./images/gradientDescentLowLR.png Graphic file (type png)
 <use ./images/gradientDescentLowLR.png>
 Package pdftex.def Info: ./images/gradientDescentLowLR.png  used on input line 
-378.
+377.
 (pdftex.def)             Requested size: 113.97089pt x 83.85968pt.
-
-Overfull \hbox (2.22168pt too wide) in paragraph at lines 369--382
-[][]  [] 
- []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 388.
+(babel)             in language  on input line 389.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 395.
+(babel)             in language  on input line 396.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 395.
+(babel)             in language  on input line 396.
 [12]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 398.
+(babel)             in language  on input line 399.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 408.
+(babel)             in language  on input line 409.
 ) (./chapters/implementacao.tex
 
 Package xr Warning: 
 No file fundamentos.aux
 LABELS NOT IMPORTED.
- on input line 5.
+ on input line 6.
 
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 9.
 [13 <./images/gradientDescentHighLR.png> <./images/gradientDescentLowLR.png>]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 9.
 
 [14
 
 ]
 Cap\'{\i }tulo 3.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 8.
+(babel)             in language  on input line 9.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 25.
+(babel)             in language  on input line 26.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 40.
+(/usr/share/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 48.
+(babel)             in language  on input line 44.
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 48.
-[15]
+(babel)             in language  on input line 44.
+ [15]
 Package babel Info: Redefining portuges shorthand "|
-(babel)             in language  on input line 86.
-) (./chapters/resultados.tex
+(babel)             in language  on input line 88.
+)
+(./chapters/resultados.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 5.
 Package babel Info: Redefining portuges shorthand "|
@@ -1526,6 +1500,21 @@ Package babel Info: Redefining portuges shorthand "|
 Cap\'{\i }tulo 4.
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 5.
+! Undefined control sequence.
+l.9 ...ente obteve sucesso considerável no \texit
+                                                  {Gridworld}.
+? 
+
+Overfull \hbox (4.91219pt too wide) in paragraph at lines 9--11
+[]\T1/cmr/m/n/10 Ainda que os re-sul-ta-dos n�o se-jam muito ex-pres-si-vos, o 
+agente ob-teve su-cesso con-si-de-r�-vel no Gridworld.
+ []
+
+<./images/pongtuacao.jpg, id=334, 513.92pt x 513.92pt>
+File: ./images/pongtuacao.jpg Graphic file (type jpg)
+<use ./images/pongtuacao.jpg>
+Package pdftex.def Info: ./images/pongtuacao.jpg  used on input line 17.
+(pdftex.def)             Requested size: 256.95937pt x 256.95937pt.
 ) (./chapters/conclusao.tex
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 5.
@@ -1533,7 +1522,7 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 5.
  [17
 
-]
+ <./images/pongtuacao.jpg>]
 Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 5.
 Package babel Info: Redefining portuges shorthand "|
@@ -1564,21 +1553,27 @@ Package babel Info: Redefining portuges shorthand "|
 (babel)             in language  on input line 1.
 
 ! Misplaced alignment tab character &.
-<argument>  Russel, S. J., &
-                             Norvig, P. \newblock {\em Artificial intelligen...
-l.6 
-    
-? 
-! Misplaced alignment tab character &.
 <argument>  Sutton, R. S., &
                              Barto, A. G. \newblock {\em Reinforcement learn...
-l.10 
+l.12 
      
 ? 
 ! Misplaced alignment tab character &.
 <argument>  Hinton, G., Srivastava N., &
-                                         Swersky K. \newblock {\em Overview ...
-l.14 
+                                         Swersky K. \newblock Aula 6.5 - {\m...
+l.18 
+     
+? 
+! Undefined control sequence.
+<argument> ...Swersky K. \newblock Aula 6.5 - {\m 
+                                                  Divide the gradient by run...
+l.18 
+     
+? 
+! Misplaced alignment tab character &.
+<argument> ... A., Antonoglou, I., Wierstra, D., &
+                                                   Riedmiller, M. A. \newblo...
+l.22 
      
 ? 
 ) (./texto.ind)
@@ -1594,59 +1589,54 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
  (./texto.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 84.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 84.
-
-
-Package rerunfilecheck Warning: File `texto.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `texto.out':
-(rerunfilecheck)             Before: 64A1337EC9DE04312EF518E2AA01B3C1;1553
-(rerunfilecheck)             After:  65A00B1E57E1CBF2E1450594347A7C07;1552.
+Package rerunfilecheck Info: File `texto.out' has not changed.
+(rerunfilecheck)             Checksum: 65A00B1E57E1CBF2E1450594347A7C07;1552.
 Package rerunfilecheck Info: File `texto.brf' has not changed.
-(rerunfilecheck)             Checksum: AA5DBAE9F7929D5F5E031AE4278F90E1;108.
+(rerunfilecheck)             Checksum: 6C842C059906D119523E2798B25223D6;329.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 84.
  ) 
 Here is how much of TeX's memory you used:
- 15229 strings out of 492642
- 222993 string characters out of 6135567
- 492141 words of memory out of 5000000
- 18719 multiletter control sequences out of 15000+600000
- 27470 words of font info for 64 fonts, out of 8000000 for 9000
+ 15281 strings out of 492642
+ 223867 string characters out of 6135567
+ 492270 words of memory out of 5000000
+ 18761 multiletter control sequences out of 15000+600000
+ 28091 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,12n,49p,947b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-mi9.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
-hare/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy5.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy7.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1000.pfb></u
-sr/share/texmf-dist/fonts/type1/public/cm-super/sfbi1200.pfb></usr/share/texmf-
-dist/fonts/type1/public/cm-super/sfbi1440.pfb></usr/share/texmf-dist/fonts/type
-1/public/cm-super/sfbx0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-sup
-er/sfbx1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb
-></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/te
-xmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/
-type1/public/cm-super/sfbx2488.pfb></usr/share/texmf-dist/fonts/type1/public/cm
--super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0700
-.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/shar
-e/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fo
-nts/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/cm-super/sfrm1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm
-1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/
-share/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb></usr/share/texmf-dis
-t/fonts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/cm-super/sfti1200.pfb>
-Output written on texto.pdf (31 pages, 847587 bytes).
+ 43i,12n,49p,947b,587s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/share/texmf-dist/fon
+ts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr
+/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/share/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><
+/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texm
+f-dist/fonts/type1/public/cm-super/sfbi1000.pfb></usr/share/texmf-dist/fonts/ty
+pe1/public/cm-super/sfbi1200.pfb></usr/share/texmf-dist/fonts/type1/public/cm-s
+uper/sfbi1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx0900.p
+fb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/
+texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/font
+s/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/
+cm-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx24
+88.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/sh
+are/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf-dist/
+fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sf
+rm1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></us
+r/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-d
+ist/fonts/type1/public/cm-super/sfti0800.pfb></usr/share/texmf-dist/fonts/type1
+/public/cm-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-supe
+r/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb>
+</usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
+Output written on texto.pdf (29 pages, 901201 bytes).
 PDF statistics:
- 461 PDF objects out of 1000 (max. 8388607)
- 382 compressed objects within 4 object streams
- 81 named destinations out of 1000 (max. 500000)
- 236 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 485 PDF objects out of 1000 (max. 8388607)
+ 402 compressed objects within 5 object streams
+ 84 named destinations out of 1000 (max. 500000)
+ 241 words of extra memory for PDF output out of 10000 (max. 10000000)
 

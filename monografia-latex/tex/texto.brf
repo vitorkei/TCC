@@ -1,2 +1,6 @@
-\backcite {sutton2018reinforcement}{{9}{2.3}{figure.caption.7}}
-\backcite {rmsprop}{{15}{3.1}{section.3.1}}
+\backcite {DBLP:journals/corr/MnihKSGAWR13}{{2}{1.1}{section.1.1}}
+\backcite {sutton2018reinforcement}{{9}{2.3}{figure.caption.6}}
+\backcite {Lin1992}{{13}{2.9}{section.2.9}}
+\backcite {DBLP:journals/corr/HeZR015}{{15}{3.1}{section.3.1}}
+\backcite {huber_loss}{{16}{3.1}{section.3.1}}
+\backcite {rmsprop}{{16}{3.1}{section.3.1}}

@@ -1,6 +1,7 @@
 % labels:
 % cap:implementacao
-% 
+% sec:arq
+% sec:exp
 
 \externaldocument{fundamentos}
 
@@ -14,7 +15,7 @@
 
 É conveniente formalizar o \hyperref[sec:mdp]{MDP} que modela o problema antes de apresentar a arquitetura utilizada.
 Os estados $S$ são os \textit{frames} do jogo que tem 210x160 pixels, cada um com três canais que determinam sua cor e intensidade;
-as ações possíveis $A$ são mover-se para frente, girar no sentido horário, girar no sentido anti-horário, mover-se no híper-espaço (se teletransportar para algum lugar aleatório da tela), e atirar para frente.
+as ações possíveis $A$ são mover-se para frente, girar no sentido horário, girar no sentido anti-horário, mover-se no hiper-espaço (se teletransportar para algum lugar aleatório da tela), e atirar para frente.
 As recompensas $R(S,A)$ são de 20 pontos por destruir um asteróide grande, 50 pontos por destruir um médio e 100 pontos por destruir um pequeno, podendo ser obtidas tanto atirando neles quanto colidindo, não havendo recompensa negativa (penalidade) por perda de vidas.
 E as probabilidades de transição $P(S,A,S')$ são as probabilidades de o jogo estar em um estado $S$, por exemplo o inicial em que o jogador tem zero pontos e todas as vidas, e transitar para algum outro estado futuro $S'$, como destruir algum asteroide e receber pontos por isso, após tomar uma ação $A$, como atirar para frente.
 \textit{Asteroids} é um jogo determinístico no sentido que não existe aleatoriedade na consequência das ações do jogador: se ele fizer um disparo, o tiro seguirá reto durante um certo tempo atpe desaparecer ou atingir um asteroide; cada tamanho de asteroide sempre aumenta a pontuação do jogador pela mesma quantidade quando destruído; e etc.
@@ -25,18 +26,21 @@ Os fatores mais próximos de aleatoriedade existentes no jogo são o jogador ign
 \section{Arquitetura}
 \label{sec:arq}
 
-Antes de os \textit{frames} serem passados para a CNN, eles passaram por uma etapa de pré-processamento para reduzir o tempo de processamento.
-Primeiro, os \textit{frames} foram convertidos para escala de cinza, removendo a necessidade de entender o que cores diferentes significam.
+Antes de os \textit{frames} serem passados para a CNN, eles passam por uma etapa de pré-processamento para reduzir o tempo de processamento.
+Primeiro, são convertidos para escala de cinza, removendo a necessidade de entender o que cores diferentes significam.
 Em seguida, a moldura da tela do jogo, partes que não agregam informação para a IA conseguir jogar, como pontuação, quantidade de vida e espaços sem nada, foram removidos.
 Depois, o que sobrou da tela foi redimensionad para 60x60 pixels.
 Por último, os últimos quatro \textit{frames} vistos são inseridos em uma fila de forma que o agente consiga captar o movimento dos objetos na tela do jogo.
 
-Esses quatro \textit{frames} enfileirados são enviados juntos para a rede neural como entrada.
-A primeira camada de convolução tem 12 filtros de tamanho 4x4 e passo 2, a segunda tem 24 filtros de tamanho 2x2 de passo 1.
-Ambas utilizam o inicializador de Xavier e a função ELU (\textit{exponential linear unit}) para ativação.
-Depois disso, há uma camada \textit{fully-connected} com 5 nós de saída, um para cada \hyperref[sec:asteroids]{ação válida}.
+Esses quatro \textit{frames} enfileirados são enviados juntos para a rede neural, de forma que a entrada tem formato 60x60x4.
+A primeira camada de convolução tem 32 filtros de tamanho 8x8 e passo 4, a segunda tem 64 filtros de tamanho 4x4 e passo 2, a terceira tem 64 filtros de tamanho 3x3 e passo 1.
+Todas elas são seguidas da função de ativação ReLU (\textit{Rectified Linear Unit}).
+%Ambas utilizam o inicializador de Xavier e a função ELU (\textit{exponential linear unit}) para ativação.
+Depois disso, há uma camada \textit{fully-connected} com 256 unidades e função de ativação ReLU e, por fim, outra camada \textit{fully-connected} com 5 nós de saída, um para cada ação possível, sem função de ativação.
+Todas as camadas utilizam o inicializador de He \footnote{No TensorFlow, esse inicializador é chamado pelo \texttt{variance\_scaling\_initializer()}}~\cite{DBLP:journals/corr/HeZR015} para os pesos.
+%um para cada \hyperref[sec:asteroids]{ação válida}.
 
-Após a CNN soltar a ação escolhida, o cálculo de erro é feito pela função \textit{Huber loss} e a otimização dos pesos é feita pelo \textit{Root Mean Square Propagation}, mais conhecido como \textit{RMSProp}~\cite{rmsprop}.
+Após a CNN soltar a ação escolhida, o cálculo de erro é feito pela função \textit{Huber loss}~\cite{huber_loss} e a otimização dos pesos é feita pelo \textit{Root Mean Square Propagation}, mais conhecido como \textit{RMSProp}~\cite{rmsprop}.
 
 Função de cálculo de erro \textit{Huber loss} sendo $a$ a diferença entre o valor previsto e o observado:
 \begin{equation} \label{eq:huber}
@@ -57,11 +61,9 @@ s = decay * s + (1 - decay)g^{T}g
 a_{t+1} = a_{t} - \alpha * g / \sqrt{s+\epsilon}
 \end{equation}
 
-O \textit{RMSProp} utilizou taxa de aprendizado $\alpha = 0.1$, momentum = $0.1$ (variável que faz considerar gradientes anteriores para determinar a direção do movimento) e $\epsilon = 10^{-10}$.
-Foram 30 episódios de treinamento, cada um com limite 10000 ações antes de o episódio ser terminado automaticamente pelo código, \textit{mini-batches} de tamanho 100, taxa de desconto $\gamma = 0.9$, \textit{buffer} de \hyperref[sec:er]{memória} de tamanho 1000 que foi preenchido com 700 ações aleatórias antes do treinamento começar.
-
-O dilema \hyperref[eq:exp_exp_prob]{\textit{exploration versus exploitation}} utilizou $P_{ini} = 0.9$, $P_{min} = 0.1$ e $decay = 20000$.
-
+O \textit{RMSProp} utilizou taxa de aprendizado $\alpha = 0.00025$, momentum = $0.95$ (variável que faz considerar gradientes anteriores para determinar a direção do movimento) e $\epsilon = 0.01$.
+Foram 500 episódios de treinamento, cada um com limite 18000 ações antes de o episódio ser terminado automaticamente pelo código, \textit{mini-batches} de tamanho 32, taxa de desconto $\gamma = 0.99$, \textit{buffer} de \hyperref[sec:er]{memória} de tamanho 1000000 que foi preenchido com 50000 ações aleatórias antes do treinamento começar.
+O dilema \hyperref[eq:exp_exp_prob]{\textit{exploration versus exploitation}} utilizou $P_{ini} = 1.0$, $P_{min} = 0.1$ e $decay = 20000$.
 A \hyperref[sec:ft]{rede alvo} foi atualizada a cada 10000 ações tomadas.
 
 %Todos os \textit{frames}, antes de serem utilizados, são convertidos para uma escala de cinza, redimensionados para o tamanho 110x84 pixels e tem 12 linhas do topo e 3 linhas do fundo removidas.
@@ -84,9 +86,26 @@ A \hyperref[sec:ft]{rede alvo} foi atualizada a cada 10000 ações tomadas.
 %Mesmo assim, o agente tomará uma decisão aleatória com probabilidade de $0.1%$ enquanto estiver jogando.
 
 \section{Experimentos}
-\label{sec:experiments}
+\label{sec:exp}
 
-A arquitetura começou mais simples em problemas também mais simples para verificar seu funcionamento: o \textit{Gridworld} sem armadilhas.
-O objetivo começou próximo e foi afastado aos poucos conforme a arquitetura foi sendo sutilmente alterada para acompanhar as mudanças quando necessário.
-Em seguida, armadilhas foram espalhadas pelo mapa, com os híper-parâmetros sendo afinados de acordo para que o agente tivesse sucesso em encontrar um caminho até o objetivo.
-Diferentes tamanhos de mapas foram utilizados para fazer esses testes.
+Inicialmente, os testes foram feitos no \textit{Asteroids}, conforme a proposta deste trabalho.
+Entretanto, pela falta de resultados positivos, tentativas de fazer o agente aprender em ambientes mais simples começaram a ser feitos:
+\textit{Pong} do Atari2600, e \textit{Gridworld}.
+Esse último, por ser um ambiente muito simples, serviu principalmente para validar o código e garantir que não há erros de implementação, apenas de hiper-parâmetros, já que o uso de CNN não traz melhorias significativas.
+
+Depois dos experimentos no \textit{Gridworld}, os testes moveram-se para um ambiente mais complexo, o \textit{Pong} do Atari2600.
+Ele é mais parecido com o \textit{Asteroids} por conta do espaço de estados e das entrada possíveis, exigindo o pré-processamento descrito \hyperref[sec:arq]{acima}.
+Os momentos que as recompensas são recebidas também são bem diferentes, ocorrendo vários passos depois da ação ser feita.
+Assim que os testes no \textit{Pong} foram concluídos, voltou-se para o \textit{Asteroids} com o que foi aprendido, como noção de quais números são bons, quais funções inicializadoras ou quais funções ativadoras são boas em cada camada.
+
+No geral, o \textit{Gridworld} foi rápido por conta de suas baixas dimensões e resultados rápidos.
+\textit{Pong}, por outro lado, já levou várias horas, passando de um dia para o outro, por conta de sua maior entrada e espaço de estados.
+
+%Para acompanhar o grau de dificuldade do ambiente, a complexidade da arquitetura foi reduzida.
+%No \textit{Gridworld}, a arquitetura foi testada com apenas camadas \textit{fully-connected}, com uma camada convolucional além da \textit{fully-connected} e, por último, com duas camadas de convolução além da \textit{fully-connected}.
+%Após a garantia do funcionamento nesse ambiente mais simples, ainda que os resultados não tenham sido os melhores, testes voltaram a ser feitos no \textit{Pong} com as correspondentes alterações feitas.
+
+%A arquitetura começou mais simples em problemas também mais simples para verificar seu funcionamento: o \textit{Gridworld} sem armadilhas.
+%O objetivo começou próximo e foi afastado aos poucos conforme a arquitetura foi sendo sutilmente alterada para acompanhar as mudanças quando necessário.
+%Em seguida, armadilhas foram espalhadas pelo mapa, com os hiper-parâmetros sendo afinados de acordo para que o agente tivesse sucesso em encontrar um caminho até o objetivo.
+%Diferentes tamanhos de mapas foram utilizados para fazer esses testes.

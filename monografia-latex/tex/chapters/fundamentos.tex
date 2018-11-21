@@ -128,7 +128,7 @@ Uma rede neural profunda que segue o modelo apresentado na seção anterior é c
 \begin{figure}[h!]
 \includegraphics[scale=.3]{nn}
 \centering
-\caption{Esquema de uma rede neural profunda do tipo \textit{feedforward}. Número de nós e camadas arbitrários para melhor representação. Diagrama feito em http://alexlenail.me/NN-SVG/index.html}
+\caption{Esquema de uma rede neural profunda do tipo \textit{feedforward}. Número de nós e camadas arbitrários para melhor representação. Diagrama feito em \url{http://alexlenail.me/NN-SVG/index.html}}
 \end{figure}
 
 % ---------------------------------------------------------------------------- %
@@ -154,7 +154,7 @@ Na etapa de \textbf{previsão}, a informação passa por uma ou mais redes neura
 \begin{figure}[h!]
 \includegraphics[scale=.4]{cnn}
 \centering
-\caption{Esquema de uma rede neural convoluciona. Número de filtros e camadas arbitrários para melhor representação. Diagrama feito em http://alexlenail.me/NN-SVG/LeNet.html}
+\caption{Esquema de uma rede neural convoluciona. Número de filtros e camadas arbitrários para melhor representação. Diagrama feito em \url{http://alexlenail.me/NN-SVG/LeNet.html}}
 \end{figure}
 
 É possível haver mais de uma camada de convolução assim como pode haver mais de uma camada \textit{fully-connected}, e isso pode ser mais vantajoso. 
@@ -218,14 +218,14 @@ Seu objetivo é explorar o espaço de estados a fim de aprender a recompensa esp
 Dessa forma, ele saberá o que fazer em cada situação do ambiente em que se encontra.
 
 As recompensas esperadas de cada ação em cada estado são armazenadas em uma tabela que deve mapear todas as ações para todos os estados.
-Isso é possível em domínios simples, como um Jogo da Velha ou um \textit{Gridworld}, mas se torna impraticável conforme o espao de estados aumenta.
+Isso é possível em domínios simples, como um Jogo da Velha ou um \textit{Gridworld}, mas se torna impraticável conforme o espaço de estados aumenta.
 No caso do jogo \textit{Asteroids}, os \textit{frames} do jogo são os estados.
 Um pixel que mude de cor já faz ser um estado completamente diferente do ponto de vista do computador.
 Em uma tela de 210x160 pixels, com cada pixel armazenando três números que vão de 0 à 255 para determinar sua cor, é evidente não ser possível armazenar na memória um mapeamento das ações para cada um desses estados.
 Mesmo que não houvesse esse obstáculo computacional, há muitas situações em que não é possível determinar qual ação retornará a maior recompensa.
 
 Como dito no final da seção \hyperref[sec:mdp]{anterior}, aprendizado por reforço é um MDP que não utiliza as probabilidades de transição para aproximar a política ótima.
-No contexto deste trabalho, a política ótima será encontrada utilizando uma variante da técnica \textit{\textbf{Q-Learing}}.
+No contexto deste trabalho, a política ótima será encontrada utilizando uma variante da técnica \textit{\textbf{Q-Learning}}.
 
 %% ---------------------------------------------------------------------------- %
 
@@ -346,7 +346,7 @@ Como explicado \hyperref[sec:rl]{anteriormente}, aprendizado por reforço aprend
 Enquanto tais características são definidas pela rede, o cálculo do erro e otimização dos pesos é feito pela parte de aprendizado por reforço.
 
 O \textbf{cálculo do erro} é feito por uma função que, como toda função, possui um mínimo.
-Esse mínimo é normalmente calculado por alguma variação do \textbf{método do maior declive} ou \textbf{método do gradiente}.
+Esse mínimo é normalmente calculado por alguma variação do \textbf{método do maior declive} ou \textbf{método do gradiente} \footnote{\textit{Gradient descent} em inglês}.
 Em matématica, gradiente é uma generalização de derivada para múltiplas variáveis e, portanto, aponta para a direção de maior crescimento da função sobre a qual foi aplicado no ponto dado.
 Método do gradiente, por sua vez, utiliza o \textbf{negativo} do gradiente para apontar para o mínimo local e, com isso, minimizar o valor da função.
 
@@ -360,28 +360,29 @@ a_{t+1} = a_{t} - \alpha \nabla F(a_{t})
 
 Intuitivamente, começa-se em um ponto $x_{0}$ qualquer e utiliza-se esse algoritmo para deslocar-se para um ponto vizinho $x_{1}$ que, se $\alpha$ for pequeno o suficiente, $F(x_{0}) \geq F(x_{1})$.
 Se isso for feito iterativamente, tem-se $F(x_{t}) \geq F(x_{t+1})$ a cada passo.
-Importante notar que, se o $\alpha$ for muito alto, a redução do erro é rápida, porém instável e  possível sequer chegar perto do mínimo do erro.
+Importante notar que, se o $\alpha$ for muito alto, a redução do erro é rápida, porém instável e  pode sequer chegar perto do mínimo do erro.
 Por outro lado, se for muito pequeno, a redução fica precisa, mas lenta.
-As figuras \ref{fig:gdhighlr} e \ref{fig:gdlowlr} representam essas situações respectivamente.
+A figura \ref{fig:gradientDescent} representa essas situações.
 
 \begin{figure}[h!]
-  \label{fig:gradientDescent}
-  \begin{minipage}[b]{.5\textwidth}
+  \begin{minipage}[b]{.45\textwidth}
   \centering
   \includegraphics[scale=.15]{gradientDescentHighLR}
-  \caption{A curva representa a função de erro. Se $\alpha$ for muito alto, a diminuição se torna instável ou pode nem ocorrer.}
+  %\caption{A curva representa a função de erro. Se $\alpha$ for muito alto, a diminuição se torna instável ou pode nem ocorrer. Curva desenhada com \url{https://www.desmos.com/calculator}}
   \label{fig:gdhighlr}
   \end{minipage}
   \hfill
-  \begin{minipage}[b]{.5\textwidth}
+  \begin{minipage}[b]{.45\textwidth}
   \centering
   \includegraphics[scale=.15]{gradientDescentLowLR}
-  \caption{A curva representa a função de erro. Se $\alpha$ for muito pequeno, a diminuição se torna precisa, mas lenta.}
+  %\caption{A curva representa a função de erro. Se $\alpha$ for muito pequeno, a diminuição se torna precisa, mas lenta. Curva desenhada com \url{https://www.desmos.com/calculator}}
   \label{fig:gdlowlr}
   \end{minipage}
+  \caption{Se $\alpha$ for muito alto, a diminuição se torna instável ou pode nem ocorrer (a esquerda); se for muito pequeno, se torna precisa, porém lenta (a direita). Curva representando função de erro desenhada com \url{https://www.desmos.com/calculator}}
+  \label{fig:gradientDescent}
 \end{figure}
 
-Existem diversos algoritmos de redução do erro e otimização dos pesos, como o RMSProp, Adam, Adadelta, dentre outros.
+Existem diversos algoritmos de redução do erro e otimização dos pesos, como o \textit{RMSProp}, \textit{Adam}, \textit{Adadelta}, dentre outros.
 
 %% ---------------------------------------------------------------------------- %
 
@@ -391,7 +392,7 @@ Existem diversos algoritmos de redução do erro e otimização dos pesos, como 
 \textit{Deep Q-Learning} é a base para o aprendizado da inteligência artificial deste trabalho.
 Porém, ao longo do tempo, foram descobertas outras técnicas que melhoram a aprendizagem do agente, seja acelerando ou evitando decisões nocivas.
 Nesta seção, serão apresentadas duas técnicas que ajudam a estabilizar e acelerar o aprendizado do programa:
-\textit{\textbf{experience replay}} e \textbf{alvo fixo}.
+\textit{\textbf{experience replay}}~\cite{Lin1992} e \textbf{alvo fixo}.
 
 %***********%
 
