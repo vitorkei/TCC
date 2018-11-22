@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  22 NOV 2018 01:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/Arch Linux) (preloaded format=pdflatex 2018.9.9)  22 NOV 2018 01:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1698,7 +1698,7 @@ st/fonts/type1/public/cm-super/sfti0800.pfb></usr/share/texmf-dist/fonts/type1/
 public/cm-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super
 /sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb><
 /usr/share/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb>
-Output written on texto.pdf (31 pages, 924911 bytes).
+Output written on texto.pdf (31 pages, 924914 bytes).
 PDF statistics:
  529 PDF objects out of 1000 (max. 8388607)
  439 compressed objects within 5 object streams
