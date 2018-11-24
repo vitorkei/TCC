@@ -5,6 +5,7 @@ import tensorflow as tf
 import numpy as np
 import gym
 import random
+import time
 
 from skimage import transform
 from skimage.color import rgb2gray
@@ -44,6 +45,7 @@ conv_params      = [[32, 64, 64], # conv filters
                     [4, 2, 1]]    # stride
 
 training = False
+render = False
 
 ########################################################
 ##################### METHODS ##########################
@@ -234,6 +236,10 @@ with tf.Session(config=config) as sess:
       choice = np.argmax(Qs)
       action = available_actions[choice]
       next_state, reward, done, info = env.step(translate_action(action))
+
+      if render:
+        env.render()
+        time.sleep(0.01)
       
       total_rewards += reward
 
