@@ -6,11 +6,11 @@ Repositório contendo os códigos, modelos e ferramentas auxiliares referentes a
 
 Contém os códigos e modelos construídos ao longo dos últimos treinamentos feitos.
 
-atari/ contém os códigos do *Pong* e do *Asteroids*.
+```atari/``` contém os códigos do *Pong* e do *Asteroids*.
 
-gridworld/ contém os códigos do *Gridworld*.
+```gridworld/``` contém os códigos do *Gridworld*.
 
-models/ contém os modelos desenvolvidos nos últimos treinamentos. Há uma pasta para cada ambiente.
+```models/``` contém os modelos desenvolvidos nos últimos treinamentos. Há uma pasta para cada ambiente.
 
 ### Executando e treinando
 
@@ -30,11 +30,11 @@ python3 pong_agent.py
 python3 asteroids_agent.py
 ```
 
-Eles estão configurados para apenas atuar no ambiente segundo os modelos do diretório ai/models/
+Eles estão configurados para apenas atuar no ambiente segundo os modelos do diretório ```ai/models/```
 
 Se quiser que ele treine, basta mudar a variável ```training``` na parte de hiper-parâmetros de cada agente.
 
-Fazer isso sobrescreverá os modelos presentes no diretório ai/models/
+Fazer isso sobrescreverá os modelos presentes no diretório ```ai/models/```
 
 ### Renderizando
 
