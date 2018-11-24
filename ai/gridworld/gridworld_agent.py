@@ -38,7 +38,9 @@ conv_params      = [[8], # conv filter
                     [2], # kernel size
                     [1]] # stride size
 
-training = True
+training  = False
+render    = False
+frame_gap = 2
 
 #######################################################
 ################## METHODS ############################
@@ -211,16 +213,17 @@ with tf.Session(config=config) as sess:
   state = env.reset()
   step = 0
   while step < max_steps:
-    #env.render()
-    #print()
-    #print(env.pos()[0]*ncol+env.pos()[1], "-", env.pos()[0], ",", env.pos()[1], end=" ")
     state_3d = state.reshape((state.shape[0], state.shape[1], 1))
     Qs = sess.run(DQNetwork.output, feed_dict = {DQNetwork.input: state.reshape((1, *state_3d.shape))})
-    #print(Qs)
     choice = np.argmax(Qs)
     action = available_actions[choice]
 
     next_state, reward, done, info = env.step(action)
+
+    if render:
+      env.render()
+      time.sleep(frame_gap)
+
     step += 1
 
     if done:

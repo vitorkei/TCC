@@ -48,8 +48,9 @@ conv_params      = [[48, 96, 96], # conv filters
                     [8, 4, 3],    # kernel size
                     [4, 2, 1]]    # stride
 
-training = True
-render = False
+training  = False
+render    = False
+frame_gap = 0.01
 
 ########################################################
 ##################### METHODS ##########################
@@ -226,7 +227,6 @@ if training == True:
           tau = 0
           print("Model updated!")
      
-      # save_path = saver.save(sess, "/var/tmp/models_pong/model.ckpt") # rede IME
       save_path = saver.sess(sess, "../models/models_asteroids/model.ckpt")
 
   print("Training finished!!")
@@ -237,8 +237,7 @@ if training == True:
 
 with tf.Session(config=config) as sess:
 #with tf.Session() as sess:
-  #saver.restore(sess, "/var/tmp/models_pong/model.ckpt")
-  save_path = saver.sess(sess, "../models/models_asteroids/model.ckpt")
+  saver.restore(sess, "../models/models_asteroids/model.ckpt")
 
   for episode in range(10):
     print("EPISODE:", episode)
@@ -255,7 +254,7 @@ with tf.Session(config=config) as sess:
       
       if render:
         env.render()
-        time.sleep(0.01)
+        time.sleep(frame_gap)
 
       total_rewards += reward
 
