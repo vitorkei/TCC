@@ -24,16 +24,16 @@ python3 pong_agent.py
 python3 asteroids_agent.py
 ```
 
-Eles estão configurados para apenas atuar no ambiente segundo os modelos do diretório models/
+Eles estão configurados para apenas atuar no ambiente segundo os modelos do diretório ai/models/
 
-Se quiser que ele treine, basta mudar a variável training na parte de hiper-parâmetros de cada agente.
+Se quiser que ele treine, basta mudar a variável ```training``` na parte de hiper-parâmetros de cada agente.
 
-Fazer isso sobreescreverá os modelos presentes no diretório models/
+Fazer isso sobrescreverá os modelos presentes no diretório ai/models/
 
 ### Renderizando
 
 Por padrão, os ambientes não são renderizados.
 
-Caso deseje ver o ambiente renderizado, basta alterar a variável render na parte de hiper-parâmetros de cada agente.
+Caso deseje ver o ambiente renderizado, basta alterar a variável ```render``` na parte de hiper-parâmetros de cada agente.
 
-Também é possível acelerar ou retardar a renderização pela variável frame\_gap.
+Também é possível acelerar ou retardar a renderização pela variável ```frame\_gap```.
