@@ -164,8 +164,9 @@ if training == True:
     sess.run(target_network)
 
     for episode in range(total_episodes):
-      step = 0
+      step           = 0
       episode_reward = 0
+      latest_action  = 0
       state = env.reset()
       state, stacked_frames = stack_frames(stacked_frames, state, True)
 
@@ -174,7 +175,12 @@ if training == True:
         tau        += 1
         decay_step += 1
 
-        action = choose_action(eps_ini, eps_min, decay_rate, decay_step, state)
+        if step % 3 == 1:
+          action = choose_action(eps_ini, eps_min, decay_rate, decay_step, state)
+          latest_action = action
+        else:
+          action = latest_action
+          continue
         next_state, reward, done, info = env.step(translate_action(action))
         episode_reward += reward
 

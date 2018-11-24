@@ -206,7 +206,7 @@ with tf.Session(config=config) as sess:
   total_test_rewards = []
 
   #saver.restore(sess, "/var/tmp/models_gridworld/model.ckpt")
-  save_path = saver.save(sess, "../models/models_gridworld/model.ckpt")
+  saver.restore(sess, "../models/models_gridworld/model.ckpt")
 
   state = env.reset()
   step = 0
