@@ -14,6 +14,12 @@ models/ contém os modelos desenvolvidos nos últimos treinamentos. Há uma past
 
 ### Executando e treinando
 
+Para poder rodar o agente do *Asteroids*, é necessário antes executar o comando:
+
+```
+python3 -m retro.import /path/to/ROMs/directory/
+```
+
 Basta rodar os comandos abaixo para executar os respectivos agentes.
 
 ```
