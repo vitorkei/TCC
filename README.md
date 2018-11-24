@@ -14,7 +14,7 @@ models/ contém os modelos desenvolvidos nos últimos treinamentos. Há uma past
 
 ### Executando e treinando
 
-Basta rodar o comando abaixo para executar os códigos.
+Basta rodar os comandos abaixo para executar os respectivos agentes.
 
 ```
 python3 gridworld_agent.py
