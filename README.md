@@ -36,4 +36,4 @@ Por padrão, os ambientes não são renderizados.
 
 Caso deseje ver o ambiente renderizado, basta alterar a variável ```render``` na parte de hiper-parâmetros de cada agente.
 
-Também é possível acelerar ou retardar a renderização pela variável ```frame\_gap```.
+Também é possível acelerar ou retardar a renderização pela variável ```frame_gap```.
