@@ -1,5 +1,8 @@
 % labels:
 % cap:resultados
+% sec:res_gridworld
+% sec:res_pong
+% sec:res_asteroids
 
 % ---------------------------------------------------------------------------- %
 \chapter{Resultados}
@@ -7,13 +10,120 @@
 % ---------------------------------------------------------------------------- %
 
 Os resultados foram parcialmente como o esperado.
+Neste capítulo, serão descritos os resultados e porque estiveram ou não dentro das expectativas.
+Por conta da natureza de cada ambiente e de seus resultados, formas diferentes de avaliação foram aplicadas.
+
+\section{\textit{Gridworld}}
+\label{sec:res_gridworld}
+
 O agente se saiu muito bem no \textbf{\textit{Gridworld}}, consistentemente encontrando um caminho para o objetivo com diferentes arquiteturas que não fossem drasticamente diferentes.
+Os gráficos não se mostraram informativos, então alguns resultados serão apresentados por uma tabela.
+A comparação foi feita apenas entre agente aleatório e agente treinado por \textit{deep Q-learning}.
+
+\begin{center}
+\begin{tabular}{l c}
+\hline
+Jogador & \% de chegadas ao objetivo \\
+\hline
+Aleatório & 1.74\% \\
+DQL & 66.15\% \\
+\hline
+\end{tabular}
+\label{table:gridworld_score}
+\end{center}
+
+\section{\textit{Pong}}
+\label{sec:res_pong}
+
 Já o \textbf{\textit{Pong}} mostrou uma arquitetura bem mais sensível.
-Pequenas alterações nos hiper-parâmetros faziam o aprendizado se tornar muito mais lento do que o de costume ou nem acontecer.
+Pequenas alterações nos hiper-parâmetros faziam o aprendizado se tornar muito mais lento ou nem acontecer.
 Mesmo assim, os resultados se mostraram promissores dado tempo suficiente para o agente treinar e aprender.
+
+%A pontuação final obtida é igual ao número de pontos feitos pelo jogador subtraído do número de pontos feitos pelo adversário.
+%Como o jogo termina quando algum dos lados atinge 21 pontos, a pontuação final varia de -21 até 21 inclusos.
+%O gráfico abaixo mostra a pontuação obtida pela IA ao longo de 298 episódios de treinamento ou aproximadamente 1 milhão de \textit{frames}.
+%A linha vermelha indica a pontuação final por episódio enquanto a azul indica a média de pontos feita nos 10 episódios anteriores.
+%Como foram 298 episódios, o último ponto faz a média dos últimos 8 episódios ao invés de 10.
+
+% duas figuras
+\begin{figure}[h!]
+  \begin{minipage}[b]{.5\textwidth}
+  \centering
+  \includegraphics[scale=.3]{pong_ai_score}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{.5\textwidth}
+  \centering
+  \includegraphics[scale=.3]{pong_random_score}
+  \end{minipage}
+  \caption{A imagem da esquerda mostra a pontuação ao longo do aprendizado e a da direita de um agente aleatório, ambos ao longo de 298 episódios. Cada episódio corresponde a uma partida. A linha azul é a pontuação por episódio enquanto a vermelha é a média dos últimos 10 episódios.}
+  \label{fig:pong_score}
+\end{figure}
+
+%\begin{figure}[h!]
+%  \centering
+%  \includegraphics[scale=.4]{pongtuacao}
+%  \caption{A linha vermelha indica a pontuação final do agente em cada episódio enquantoa a azul a média da pontuação final dos 10 episódios anteriores, com exceção do último ponto, que faz a média dos 8 anteriores por conta da quantidade de episódios treinados.}
+%\end{figure}
+
+O crescimento lento, mas estável da pontuação total obtida por episódio reflete a capacidade do agente de aprender, ainda que com dificuldade, a se comportar neste ambiente de maneira positiva.
+
+Nos experimentos, foram coletadas a pontuação final média de uma pessoa experiente após uma hora de jogo, de um agente jogando aleatóriamente, e do agente jogando segundo o modelo que montou no treinamento, todos contra a inteligência artificial padrão do \textit{Pong}.
+A tabela abaixo resume os resultados obtidos.
+
+\begin{center}
+\begin{tabular}{l c}
+\hline
+Jogador & Pontuação média \\
+\hline
+Humano & 7 \\
+Aleatório & -20.27 \\
+DQL & 21 \\
+\hline
+\end{tabular}
+\label{table:pong_score}
+\end{center}
+
+%O modelo desenvolvido conseguiu atingir pontuação de 21 consistentemente contra a IA criada pelos desenvolvedores, enquanto um agente aleatório conseguiu uma média de -20.27 pontos e uma pessoa experiente em jogos eletrônicos conseguiu uma média de 7 pontos após uma hora de jogo.
+
+\section{\textit{Asteroids}}
+\label{sec:res_asteroids}
 O \textbf{\textit{Asteroids}}, por outro lado, não obteve resultados positivos nos vários testes feitos.
 Apesar de ser um ambiente propício para o aprendizado por \textit{deep Q-learning}, tendo todas as informações claras na tela, ações bem definidas e recebimento de recompensas simples e consistente, o agente teve grandes dificuldades em conseguir aprender.
 Por conta dessas características, esperava-se que ele conseguisse aprender a se comportar nesse domínio, ainda que com dificuldade.
+
+O gráfico abaixo exemplifica a pontuação obtida pelo agente nos treinamentos pelos quais passou e compara com a pontuação obtida por um agente aleatório.
+
+\begin{figure}[h!]
+  \begin{minipage}[b]{.5\textwidth}
+  \centering
+  \includegraphics[scale=.3]{asteroids_ai_score}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{.5\textwidth}
+  \centering
+  \includegraphics[scale=.3]{asteroids_random_score}
+  \end{minipage}
+  \caption{A imagem da esquerda mostra a pontuação ao longo do aprendizado e a da direita de um agente aleatório.}
+  \label{fig:asteroids_score}
+\end{figure}
+
+Percebe-se que o agente não conseguiu aprender ou sequer mostrar indícios de melhora mesmo com um tempo de aprendizado (em \textit{frames}) próximo do \textit{Pong}.
+A tabela abaixo resume a pontuação média obtida pelo agente treinado, pelo agente aleatório e por uma pessoa com pouca experiência jogando após aproximadamente uma hora de jogo.
+A pontuação de jogadores experientes não foi considerada por estar muito acima, passando com facilidade dos 30000 pontos.
+
+\begin{center}
+\begin{tabular}{l c}
+\hline
+Jogador & Pontuação média \\
+\hline
+Humano & 1943.3 \\
+Aleatório & 1458.1 \\
+DQL & 607.8 \\
+\hline
+\end{tabular}
+\label{table:asteroids_score}
+\end{center}
 
 %Todavia, essas observações ainda estão próximos das expectativas.
 %O ambiente mais simples, com poucos estados, recompensa e penalidades bem definidos foi o que obteve maior grau de sucesso;

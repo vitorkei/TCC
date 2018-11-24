@@ -42,8 +42,8 @@ Aplicando os conhecimentos adquiridos na faculdade, o objetivo deste trabalho é
 %O estudo será feito em três domínios com características distintas: o \textit{Gridworld}, o \textit{Pong} e o \textit{Asteroids}.
 %principal objetivo é criar uma inteligência artificial que aprenda a jogar o jogo eletrônico \textit{Asteroids}.
 
-As ferramentas utilizadas, descritas na próxima seção, serão o Gym e Gym-Retro como interface, o Stella como emulador e a API do TensorFlow para a computação.
-As técnicas de aprendizado de máquina aplicadas, descritas no capítulo seguinte, serão \textbf{aprendizado por reforço} e \textbf{rede neural convolucional}, mais especificamente a união das duas, conhecida como \textit{\textbf{deep reinforcement learning}} ou \textit{\textbf{deep Q-learning}}~\cite{DBLP:journals/corr/MnihKSGAWR13}.
+As ferramentas utilizadas, descritas na próxima seção, foram o Gym e Gym-Retro como interface, o Stella como emulador e a API do TensorFlow para a computação.
+As técnicas de aprendizado de máquina aplicadas, descritas no capítulo seguinte, foram \textbf{aprendizado por reforço} e \textbf{rede neural convolucional}, mais especificamente a união das duas, conhecida como \textit{\textbf{deep reinforcement learning}} ou \textit{\textbf{deep Q-learning}}~\cite{DBLP:journals/corr/MnihKSGAWR13}.
 
 Espera-se conseguir construir arquiteturas de \textit{deep Q-learning} pela qual o agente consiga montar um modelo que tenha sucesso no respectivo ambiente.
 %Espera-se conseguir construir uma arquitetura de aprendizado que permita a inteligência artificial desenvolver um modelo capaz de jogar com um desempenho pelo menos próximo de um ser humano.
@@ -51,12 +51,12 @@ Espera-se conseguir construir arquiteturas de \textit{deep Q-learning} pela qual
 
 \section{Ferramentas}
 \label{sec:tools}
-Nesta seção, serão apresentadas as principais ferramentas utilizadas no desenvolvimento deste trabalho, uma breve descrição sobre elas e o motivo de suas escolhas.
+Nesta seção, serão apresentados os ambientes e as principais ferramentas utilizadas no desenvolvimento deste trabalho, uma breve descrição sobre elas e o motivo de suas escolhas.
 
 \subsection{\textit{Gridworld}}
 \label{sec:gridworld}
 
-\textit{Gridworld} é um exemplo clássico em estudos e ensinamentos de aprendizado por reforço
+\textit{Gridworld} é um exemplo clássico em estudos e ensinamentos de aprendizado por reforço.
 Ele consiste em um mapa de espaços quadrados em que o agente começa em um deles e pode se mover para cima, direita, esquerda ou baixo, contanto que o espaço seja válido.
 Alguns dos espaços geram recompensa positiva (objetivo) e outros geram recompensa negativa (armadilha) ao ser alcançado, além de encerrarem o episódio e fazerem o agente retornar ao ponto inicial.
 O desenvolvedor pode optar por gerar pequenas recompensas positivas ou negativas a cada passo, mesmo que não alcance um estado terminal, para analisar seu comportamente em tais circunstâncias.
@@ -102,7 +102,7 @@ Nesta iteração, vence o jogador que fizer 21 pontos primeiro.
   \includegraphics[scale=.25]{pong_example02}
   %\caption{Exemplo de tela do jogo. A nave acaba de destruir um asteróide de menor tamanho e está recebendo uma recompensa de 100 pontos por isso. Asteróides podem ter diversas cores.}
   \end{minipage}
-  \caption{Exemplos de tela do jogo no emulador Stella. O jogador controla a barra verde, do lado direito da tela caso o oponente seja a IA escrita pelos desenvolvedores. O ponto branco no meio da tela é a bola e as barras brancas representam os limites superior e inferior do campo e os números no topo indicam a pontuação de cada jogador.}
+  \caption{Exemplos de tela do jogo no emulador Stella. O jogador controla a barra verde, do lado direito da tela caso o oponente seja a IA escrita pelos desenvolvedores. O ponto branco no meio da tela é a bola, as barras brancas representam os limites superior e inferior do campo e os números no topo indicam a pontuação de cada jogador.}
 \end{figure}
 
 Os estados são definidos pela tela do jogo, que é uma matriz de 210x160 pixels, com cada pixel tendo 3 canais de cor.
@@ -179,7 +179,7 @@ Gym-Retro é uma variante da Gym com ênfase em jogos eletrônicos antigos, como
 Para qualquer jogo que o usuário deseje emular, é necessário que ele tenha a ROM (\textit{Read Only Memory}) do jogo.
 Utilizou-se o \textit{Asteroids} do Gym-Retro neste trabalho.
 
-O principal motivo de estas ferramentas terem sido escolhidas é por permitirem emular o \textit{Pong} e o \textit{Asteroids}, além de já possuir um ambiente de \textit{Gridworld}.
+O principal motivo de estas ferramentas terem sido escolhidas é por permitirem emular o \textit{Pong} e o \textit{Asteroids}, além de possuir um ambiente semelhante ao \textit{Gridworld}.
 %------------------------%
 \subsection{TensorFlow}
 \label{sec:tensorflow}
@@ -194,7 +194,7 @@ Esta ferramenta foi escolhida por oferecer uma API em Python estável, ter grand
 \section{Proposta}
 \label{sec:proposta}
 
-A proposta deste trabalho é fazer um estudo de caso da técnica \textit{deep Q-learning} em três ambientes digitais diferentes e ver o grau de sucesso obtido em cada, utilizando como entrada apenas a tela do jogo (considerando o mapa do \textit{Gridworld} com o agente inserido como uma tela).
+A proposta deste trabalho é fazer um estudo de caso da técnica \textit{deep Q-learning} em três ambientes digitais diferentes e ver o grau de sucesso obtido em cada um, utilizando como entrada apenas a tela do jogo (considerando o mapa do \textit{Gridworld} com o agente inserido como uma tela).
 Gym e Gym-Retro servirão de interface enquanto o Stella emulará o jogo.
 As técnicas de aprendizado de máquina utilizadas serão \textbf{aprendizado por reforço} e \textbf{rede neural convolucional}, em particular o \textbf{\textit{deep Q-learning}}, que é a junção dessas duas.
 

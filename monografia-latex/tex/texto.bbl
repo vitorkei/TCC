@@ -40,3 +40,7 @@ Lin, LJ.
 \bibitem[GB10]{pmlr-v9-glorot10a}
 Glorot, X., Bengio Y.
 \newblock {\em Understanding the difficulty of training deep feedforward neural networks.}, Em: {\em Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics} 9 (mai. de 2010), pp. 249--256. URL: \url{http://proceedings.mlr.press/v9/glorot10a.html}.
+
+\bibitem[Bel+12]{DBLP:journals/corr/abs-1207-4708}
+Bellemate, M. G., Naddaf, Y., Veness, J., Bowling, M.
+\newblock {\em The Arcade Learning Environment: An Evaluation Platform for General}, Em: {CoRR} 47 (jun. de 2013), pp. 253--279. ISSN: 1207.4708. URL: \url{https://dblp.org/rec/bib/journals/corr/abs-1207-4708}.

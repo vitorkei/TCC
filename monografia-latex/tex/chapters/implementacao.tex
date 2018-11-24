@@ -13,7 +13,7 @@
 %[1]https://papers.nips.cc/paper/3964-double-q-learning
 %[2]https://arxiv.org/pdf/1511.06581.pdf
 
-É conveniente formalizar o \hyperref[sec:mdp]{MDP} que modela o problema antes de apresentar a arquitetura utilizada.
+É conveniente formalizar o \hyperref[sec:mdp]{MDP} que modela o problema antes de apresentar as arquiteturas utilizadas.
 
 \begin{itemize}
 \item \textbf{Gridworld}:
@@ -30,13 +30,13 @@ Os estados $S$ são a tela do jogo, uma matriz de 210x160x3 pixels.
 A parte "x3"{} representa o número de canais que conferem cor ao pixel.
 As ações possíveis $A$ são mover a barra que o jogador controla para cima ou para baixo.
 As recompensas $R(S,A)$ são de +1 ponto se fizer a bola chegar no fim da tela do lado do oponente e de -1 ponto se a bola chegar no fim da tela do lado do jogador.
-As probabilidades de transição $P(S,A,S')$ são
+As probabilidades de transição $P(S,A,S')$ são as probabilidades de o jogo estar em um estado $S$, por exemplo com a bola sendo rebatida pelo jogador, e transitar para algum outro estado futuro $S'$, como marcar um ponto, após tomar uma ação $A$, como mover a barra para cima.
 \textit{Pong} é um jogo determinístico no sentido que não existe aleatoriedade na consequência das ações do jogador: se a bola colidir com a barra sempre no mesmo lugar, ela sempre será retornada na mesma direção com a mesma velocidade; marcar ponto sempre aumenta a pontuação do jogador em um.
 Por outro lado, existe um oponente contra o qual se está jogando e cujo comportamento configura um elemento de aleatoriedade no ambiente.
 Além disso, o jogador não conseguir rebater a bola como gostaria por falta de precisão também se aproxima de um elemento desse tipo.
 
 \item \textbf{Asteroids}:
-Os estados $S$ são os \textit{frames} do jogo que tem 210x160 pixels, cada um com três canais que determinam sua cor e intensidade.
+Os estados $S$ são os \textit{frames} do jogo que tem 210x160x3 pixels, cada um com três canais que determinam sua cor e intensidade, assim como no \textit{Pong}.
 As ações possíveis $A$ são mover-se para frente, girar no sentido horário, girar no sentido anti-horário, mover-se no hiper-espaço (se teletransportar para algum lugar aleatório da tela), e atirar para frente.
 As recompensas $R(S,A)$ são de 20 pontos por destruir um asteróide grande, 50 pontos por destruir um médio e 100 pontos por destruir um pequeno, podendo ser obtidas tanto atirando neles quanto colidindo, não havendo recompensa negativa (penalidade) por perda de vidas.
 As probabilidades de transição $P(S,A,S')$ são as probabilidades de o jogo estar em um estado $S$, por exemplo o inicial em que o jogador tem zero pontos e todas as vidas, e transitar para algum outro estado futuro $S'$, como destruir algum asteroide e receber pontos por isso, após tomar uma ação $A$, como atirar para frente.
@@ -55,7 +55,7 @@ A seguir, são descritas as arquiteturas utilizadas nos três ambientes abordado
 \label{sec:arq_gw}
 
 No caso do \textit{Gridworld}, por ser um ambiente muito diferente do \textit{Pong} e do \textit{Asteroids}, teve uma arquitetura bem mais simples.
-O mapa tinha tamanho de 10x10, o agente começando no canto superior esquerdo, o objetivo ficando no canto inferior direito.
+O mapa tinha tamanho de 10x10, com o agente começando no canto superior esquerdo e o objetivo ficando no canto inferior direito.
 A rede neural convolucional tinha uma camada de convolução de 8 filtros de tamanho 2x2 e passo 1 e função de ativação ReLU seguida por uma camada \textit{fully-connected} com um nó de saída para cada ação possível sem função de ativação.
 A camada convolucional utilizou inicializador de Xavier~\cite{pmlr-v9-glorot10a} enquanto a \textit{fully-connected} foi inicializada com zeros nos pesos.
 O cálculo de erro foi feito pela função \textit{Huber loss}~\cite{huber_loss} e a otimização pela função \textit{Root Mean Square Propagation}, mais conhecida como RMSProp~\cite{rmsprop}.
@@ -68,8 +68,7 @@ A \hyperref[sec:ft]{rede alvo} foi atualizada a cada 200 ações.
 \label{sec:arq_pong}
 
 O \textit{Pong}, por ser mais complexo que o \textit{Gridworld}, teve uma arquitetura mais elaborada para se obter sucesso.
-%Antes de os \textit{frames} serem passados para a CNN, eles passam por uma etapa de pré-processamento para reduzir o tempo de processamento.
-Primeiro, os \textit{frames} são convertidos para escala de cinza.%, removendo a necessidade de entender o que cores diferentes significam.
+Primeiro, os \textit{frames} são convertidos para escala de cinza.
 Em seguida, partes que não agregam informação para a IA conseguir jogar, como pontuação, foram removidos.
 Depois, o que sobrou da tela é redimensionado para 84x84 pixels.
 Essas etapas servem para reduzir o tempo de processamento ao passar pela rede convolucional e não são feitas no \textit{Gridworld} por não haver necessidade, já que as matrizes de entrada são pequenas.
@@ -78,86 +77,74 @@ Os últimos quatro \textit{frames} vistos são inseridos em uma fila de forma qu
 Esses quatro \textit{frames} enfileirados são enviados juntos para a rede neural, de forma que a entrada tem formato 84x84x4.
 A primeira camada de convolução tem 32 filtros de tamanho 8x8 e passo 4, a segunda tem 64 filtros de tamanho 4x4 e passo 2, a terceira tem 64 filtros de tamanho 3x3 e passo 1.
 Todas elas são seguidas da função de ativação ReLU (\textit{Rectified Linear Unit}).
-%Ambas utilizam o inicializador de Xavier e a função ELU (\textit{exponential linear unit}) para ativação.
-Depois disso, há uma camada \textit{fully-connected} com 256 unidades e função de ativação ReLU e, por fim, outra camada \textit{fully-connected} com um nó de saída para cada ação possível, sem função de ativação.
+Depois disso, há uma camada \textit{fully-connected} com 256 unidades e função de ativação ReLU e, por fim, outra camada \textit{fully-connected} com um nó de saída para cada ação possível (dois neste caso), sem função de ativação.
 Todas as camadas utilizam o inicializador de He \footnote{No TensorFlow, esse inicializador é chamado pelo \texttt{variance\_scaling\_initializer()}}~\cite{DBLP:journals/corr/HeZR015} para os pesos.
-%um para cada \hyperref[sec:asteroids]{ação válida}.
 
-Após a CNN soltar a ação escolhida, o cálculo de erro é feito pela função \textit{Huber loss} e a otimização dos pesos é feita pelo \textit{Root Mean Square Propagation}, mais conhecido como \textit{RMSProp}.
-O \textit{RMSProp} utilizou taxa de aprendizado $\alpha = 0.00025$, momentum = $0.95$ e $\epsilon = 0.01$.
-Foram 500 episódios de treinamento, cada um com limite 18000 ações antes de o episódio ser terminado automaticamente, \textit{mini-batches} de tamanho 32, taxa de desconto $\gamma = 0.99$, \textit{buffer} de memória de tamanho 1000000 que foi preenchido com 50000 ações aleatórias antes do treinamento começar.
+Após a CNN soltar a ação escolhida, o cálculo de erro é feito pela função \textit{Huber loss} e a otimização dos pesos é feita pelo RMSProp.
+O RMSProp utilizou taxa de aprendizado $\alpha = 0.00025$, momentum = $0.95$ e $\epsilon = 0.01$.
+Foram 298 episódios de treinamento, ou aproximadamente 1 milhão de \textit{frames}, cada um com limite 18000 ações antes de o episódio ser terminado automaticamente, \textit{mini-batches} de tamanho 32, taxa de desconto $\gamma = 0.99$, \textit{buffer} de memória de tamanho 1000000 que foi preenchido com 50000 ações aleatórias antes do treinamento começar.
 O dilema \textit{exploration versus exploitation} utilizou $P_{ini} = 1.0$, $P_{min} = 0.1$ e $decay = 20000$.
 A rede alvo foi atualizada a cada 10000 ações tomadas.
+
+Além disso, foi utilizada uma técnica simples de pular \textit{frames}~\cite{DBLP:journals/corr/abs-1207-4708} para economizar tempo.
+O agente enxerga a tela e escolhe qual ação tomar a cada 4 \textit{frames} ao invés de em todos os \textit{frames}, repetindo a última ação escolhida nos \textit{frames} pulados.
+Isso acelera o treinamento ao consumir menos tempo por \textit{frame} sem prejudicar muito o aprendizado.
+Esse comportamento é próprio do ambiente\footnote{PongDeterministic-v4 do Gym} utilizado, não havendo partes do código destinadas a isso.
 
 \subsection{\textit{Asteroids}}
 \label{sec:arq_asteroids}
 
-O \textit{Asteroids} foi testado com diversas arquiteturas diferentes, maiores que as do \textit{Pong} por ser um ambiente consideravelmente mais complexos, mas sem grandes sucessos.
+O \textit{Asteroids} foi testado com diversas arquiteturas diferentes, maiores que as do \textit{Pong} por ser um ambiente consideravelmente mais complexos, mas sem sucessos.
 Tentou-se utilizar diferentes tamanhos de redimensionamento no pré-processamento, números de filtros, tamanhos e passos, funções inicializadoras e ativadoras, unidades de saída nas camadas \textit{fully-connected}, funções de erro, de otimização e de exploração, taxas de aprendizado, de desconto e de atualização da rede alvo, tamanho dos \textit{mini-batches} e do \textit{buffer} de memória.
 Por conta da grande gama de hiper-parâmetros a serem ajustados e o tempo consumido para treinar, os testes com este ambiente foram os mais duradouros.
 
-%\subsection{\textit{Huber loss} \& RMSProp}
-%\label{sec:hlrmsprop}
-%
-%Função de cálculo de erro \textit{Huber loss} sendo $a$ a diferença entre o valor previsto e o observado:
-%\begin{equation} \label{eq:huber}
-%L_{\delta}(a) = 
-%\begin{cases}
-%\frac{1}{2}a^{2} & \text{para } |a| \leq \delta,\\
-%\delta(|a| - \frac{1}{2}\delta), & \text{c.c.}
-%\end{cases}
-%\end{equation}
-%
-%Utilizando as mesmas variáveis da equação \ref{eq:w_update}, $g = \nabla F(a_{t})$, $decay$ uma taxa de decaímento específica para o algoritmo e $\epsilon$ uma constante para evitar que a divisão seja feita por zero ou evitar que o gradiente diverja, o algoritmo \textit{RMSProp} atualiza os pesos da seguinte forma:
-%
-%\begin{equation} \label{eq:gradSum}
-%s = decay * s + (1 - decay)g^{T}g
-%\end{equation}
-%
-%\begin{equation} \label{eq:rmsprop}
-%a_{t+1} = a_{t} - \alpha * g / \sqrt{s+\epsilon}
-%\end{equation}
+Para poder demonstrar um exemplo de resultados de treinamento para o capítulo \hyperref[cap:resultados]{Resultados}, registrou-se os resultados de um treinamento com a seguinte arquitetura.
+O mesmo pré-processamento do \hyperref[sec:arq_pong]{\textit{Pong}} e fileiras de quatro \textit{frames} foi feito.
+A primeira camada de convolução tinha 48 filtros de tamanho 8x8 e passo 4; a segunda tinha 96 filtros de tamanho 4x4 e passo 2; e a terceira tinha 96 filtros de tamanho 3x3 e passo 1.
+Todas elas foram seguidas de uma função de ativação ReLU, uma camada \textit{fully-connected} com 512 unidades e função de ativação ReLU.
+Por fim, uma outra camada \textit{fully-connected} com um nó de saída para cada ação possível (cinco neste caso), sem função de ativação.
+Todas as camadas utilizaram o inicializador de He.
+O cálculo de erro foi feito pela função \textit{Huber loss} e otimização foi feita pelo RMSProp.
+A taxa de aprendizado $\alpha = 0.00025$, momentum = 0.95 e $\epsilon = 0.01$.
+Foram 100 episódios de treinamento, ou aproximadamente 1 milhão de \textit{frames} assim como no \textit{Pong}, com um máximo de 100000 ações por episódio, \textit{mini-batches} de 64, taxa de desconto $\gamma = 0.99$, \textit{buffer} de memória de tamanho 1000000 preenchido previamente com 500 ações aleatórias.
+O dilema \textit{exploration versus exploitation} utilizou $P_{ini} = 1.0$, $P_{min} = 0.1$ e $decay = 20000$. A rede alvo foi atualizada a cada 10000 ações tomadas.
 
-%Todos os \textit{frames}, antes de serem utilizados, são convertidos para uma escala de cinza, redimensionados para o tamanho 110x84 pixels e tem 12 linhas do topo e 3 linhas do fundo removidas.
-%Dessa forma, a IA não precisa se preocupar com cores e processa menos pixels, mas ainda mantendo as informações mais relevantes.
-%Em seguida, os últimos quatro \textit{frames} passados pelo jogo são inseridos, por ordem de chegada, em uma fila de tamanho quatro.
-%A ideia é eles passarem uma sensação de movimento de forma que o agente entenda a direção e velocidade dos objetos na tela.
-%
-%O primeiro passo para o aprendizado foi preencher a \hyperref[sec:er]{memória} com 50000 experiências (jogar por 50000 \textit{frames} tomando apenas ações aleatórias) para que o agente pudesse utilizar \textit{experience replay} desde o início.
-%
-%Em seguida, o agente treinou por 5000 episódios, com cada \textit{frame} passando pela rede convolucional.
-%A CNN possui duas camadas de convolução 2D, com a primeira tendo 16 filtros de tamanho 8 e tamanho de passo 4, e a segunda com 32 filtros de tamanho 4 e tamanho de passo 2.
-%Ambas utilizam o inicializador de He. % https://arxiv.org/pdf/1502.01852v1.pdf
-%Após cada camada de convolução, há uma camada de função de ativação ELU (\textit{exponential linear unit}).
-%Por fim, há uma camada \textit{fully-connected} cuja saída possui 5 nós, um para cada ação possível, e o inicializador de Xavier para os pesos.
-%O cálculo de erro da saída da rede é feito pela função de perda de Huber (\textit{Huber loss}), que é minimizado pela função otimizadora RMSprop com taxa de aprendizado 0.00025, taxa de decaimento 05 e epsilon 01.
-%
-%As escolhas feitas ao longo do treinamento seguem a política \hyperref[eq:exp_exp_prob]{\textit{epsilon-greedy}}, com $P_{ini} = 1.0$, $P_{min} = 0.1$ e $decay = 0.00001$, os \textit{mini-batches} têm tamanho 32 e a \hyperref[sec:ft]{rede alvo} é atualizada a cada 10000 passos.
-%
-%Terminado o treinamento, a IA terá feito um modelo que será usado para jogar o jogo.
-%Mesmo assim, o agente tomará uma decisão aleatória com probabilidade de $0.1%$ enquanto estiver jogando.
+Assim como no \textit{Pong}, a técnica de pular \textit{frames} para acelerar o treinamento foi utilizada.
+Porém, são pulados 3 \textit{frames} ao invés de 4 uma vez que, no \textit{Asteroids}, os asteróides aparecem em \textit{frames} intercalados com os que a nave e os tiros aparecem.
+Utilizar 3 \textit{frames} permite que a nave e os tiros sejam vistos pelo agente.
+Não existe um ambiente de \textit{Asteroids} com esse comportamento, então ele foi implementado no código.
 
 \section{Experimentos}
 \label{sec:exp}
 
 Os experimentos consumiram a maior parte do trabalho por poderem levar alguns minutos, no caso do \textit{Gridworld} até mesmo horas ou dias, como no caso do \textit{Pong} e do \textit{Asteroids}.
 
+\subsection{\textit{Gridworld}}
+\label{sec:exp_gridworld}
+
 O ambiente mais simples conseguia finalizar treinamentos de centenas de episódios em alguns minutos, e até milhares de episódios em pouco mais de uma hora por conta de suas baixas dimensões e não necessitar de arquiteturas muito grandes.
 Além disso, foi mais fácil analisar o aprendizado por ter poucos estados bem definido e por haver soluções evidentes de como chegar no objetivo.
-A análise do sucesso do agente foi feita pela sua capacidade de conseguir chegar na recompensa positiva do mapa.
+A análise do sucesso do agente foi feita pela sua capacidade de conseguir chegar na recompensa positiva do mapa e, em parte, pelo grau de sucesso em fazer isso ao longo do treinamento.
+A taxa de sucesso ao longo do treinamento, apesar de relevante, foi menos considerada por conta da alta probabilidade de se tomar uma ação aleatória a qualquer momento (mínimo de 0.4).
 
-No caso do \textit{Pong}, os treinamentos foram mais demorados, com episódios levando alguns minutos, levando várias horas para se perceber alguma melhoria no aprendizado.
+\subsection{\textit{Pong}}
+\label{sec:exp_pong}
+
+No caso do \textit{Pong}, os treinamentos foram mais demorados, com episódios levando alguns minutos e passando várias horas para se perceber alguma melhoria no aprendizado.
 Isso se deve pelo fato de o espaço de estados ser muito maior e, mesmo com o pré-processamento feito, o de entrada para a rede neural também.
 Além disso, existem diversos momentos em que não há uma ação ótima bem definida a se tomar, como nos estados em que a bola viaja na direção do lado do adversário.
 Como os episódios só terminam quando um dos lados consegue 21 pontos (ou o número máximo de passos é excedido, o que não aconteceu neste trabalho), a avaliação foi feita pela pontuação obtida pelo agente ao final de cada partida:
 o mínimo possível é de -21 pontos, com o adversário marcando 21 pontos e o agente nenhum, e o máximo é de 21 pontos, sendo a situação oposta.
 
-Por fim, \textit{Asteroids} foi o ambiente mais abordado por conta do maior número de alterações feitas nos hiper-parâmetros e nas etapas do aprendizado.
-Assim como no \textit{Pong}, os treinamentos levaram várias horas, chegando a passar de um dia para o outro em certas ocasiões.
+\subsection{\textit{Asteroids}}
+\label{sec:exp_asteroids}
+
+Por fim, \textit{Asteroids} foi o ambiente mais experimentado por conta do maior número de alterações feitas nos hiper-parâmetros e nas etapas do aprendizado.
+Assim como no \textit{Pong}, os treinamentos levaram várias horas, chegando a passar de um dia para o outro em algumas ocasiões.
 O espaço de estados é mais complexo também, com mais informações na tela em cada instante e mais ações disponíveis.
 A análise de sucesso foi feita de forma semelhante ao \textit{Pong}: pela pontuação obtida ao longo do treinamento e pelo modelo construído no final.
 Neste ambiente, a pontuação poderia assumir qualquer valor maior ou igual a zero dentro das restrições de tempo que cada episódio tinha.
-Uma vez que perder vida não gera recompensa negativa e colisão com asteróides gera pontos por sua destruição, a pontuação mínima que o agente poderia obter, sem ser por exceder o número de passos definido, é de 80 pontos, que corresponde a destruição de quatro asteróides grandes por colisão com a nave.
+Uma vez que perder vida não gera recompensa negativa e colisão com asteróides gera pontos por sua destruição, a pontuação mínima que o agente poderia obter, sem exceder o número de passos definido, é de 80 pontos, que corresponde a destruição de quatro asteróides grandes por colisão com a nave.
 
 %Os experimentos com o \textit{Gridworld} foram simples e rápidos, já que as baixas dimensões permitiram testes com muitos episódios em pouco tempo.
 %O uso de diferentes arquiteturas também permitiu perceber o impacto das mudanças nos hiper-parâmetros no aprendizado do agente.
