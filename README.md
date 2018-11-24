@@ -1,6 +1,6 @@
 # Estudo de caso de *Deep Q-Learning*
 
-Repositório contendo os códigos, modelos e ferramentas auxiliares referentes ao Trabalho de Formatura Supervisionado - 2018.
+Repositório contendo os códigos e modelos referentes ao Trabalho de Formatura Supervisionado - 2018.
 
 ## ai/
 
