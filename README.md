@@ -14,7 +14,10 @@ Contém os códigos e modelos construídos ao longo dos últimos treinamentos fe
 
 ### Executando e treinando
 
-Para poder rodar o agente do *Asteroids*, é necessário antes executar o comando:
+Para poder rodar o *Pong*, é necessário ter o Gym e respectivos ambientes instalado: https://gym.openai.com/docs/
+
+Para poder rodar o agente do *Asteroids*, é necessário ter o Gym-Retro e ambiente Atari intalados.
+Além disso, é preciso importar a ROM:
 
 ```
 python3 -m retro.import /path/to/ROMs/directory/
@@ -23,8 +26,6 @@ python3 -m retro.import /path/to/ROMs/directory/
 Basta rodar os comandos abaixo para executar os respectivos agentes.
 
 ```
-python3 gridworld_agent.py
-
 python3 pong_agent.py
 
 python3 asteroids_agent.py
@@ -35,6 +36,9 @@ Eles estão configurados para apenas atuar no ambiente segundo os modelos do dir
 Se quiser que ele treine, basta mudar a variável ```training``` na parte de hiper-parâmetros de cada agente.
 
 Fazer isso sobrescreverá os modelos presentes no diretório ```ai/models/```
+
+NOTA: O ambiente do *Gridworld* no Gym sofreu grandes alterações para os testes poderem ser feitos e, portanto, não está apto a ser executado.
+Informações de como executá-lo serão disponibilizadas mais tarde.
 
 ### Renderizando
 
